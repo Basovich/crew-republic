@@ -1,6 +1,7 @@
-import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Link } from "@/i18n/routing";
-import styles from "./page.module.scss";
+import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { Header } from '@/components/Header/Header';
+import { HeroSlider } from '@/components/HeroSlider/HeroSlider';
+import { FloatingActions } from '@/components/FloatingActions/FloatingActions';
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -10,26 +11,22 @@ export default async function HomePage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const t = await getTranslations("HomePage");
-  const targetLocale = locale === "en" ? "de" : "en";
+  const tHero = await getTranslations('Hero');
+  const tCommon = await getTranslations('Common');
 
   return (
-    <main className={styles.container}>
-      <div className={styles.content}>
-        <h1 className={styles.title}>{t("title")}</h1>
-        <p className={styles.subtitle}>{t("description")}</p>
-        <p className={styles.welcome}>{t("welcome")}</p>
-        <div className={styles.localeInfo}>{t("currentLanguage")}</div>
-        <div>
-          <Link
-            href="/"
-            locale={targetLocale}
-            className={styles.languageSwitch}
-          >
-            {t("switchLanguage")}
-          </Link>
-        </div>
-      </div>
+    <main>
+      {/* Top Header with Logo & Language Switcher */}
+      <Header currentLocale={locale} />
+
+      {/* Hero Infinite Draggable Slider with Headline */}
+      <HeroSlider
+        line1={tHero('line1')}
+        line2={tHero('line2')}
+      />
+
+      {/* Floating Menu & Shop Buttons Attached to Viewport */}
+      <FloatingActions menuLabel={tCommon('menu')} />
     </main>
   );
 }

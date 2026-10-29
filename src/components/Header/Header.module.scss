@@ -1,0 +1,85 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 20px;
+
+  @include responsive(md) {
+    padding: 24px 40px;
+  }
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+
+  @include hover {
+    opacity: 0.85;
+    transform: scale(1.02);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 4px;
+    border-radius: $radius-sm;
+  }
+}
+
+.logoImage {
+  width: 90px;
+  height: 84px;
+  display: block;
+
+  @include responsive(md) {
+    width: 157px;
+    height: 146px;
+  }
+}
+
+.langSwitch {
+  position: absolute;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  @include responsive(md) {
+    right: 40px;
+    gap: 14px;
+  }
+}
+
+.flagBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+  opacity: 0.55;
+
+  @include hover {
+    opacity: 0.9;
+    transform: scale(1.1);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 3px;
+  }
+
+  &.active {
+    opacity: 1;
+    box-shadow: 0 0 0 2px #ffffff;
+    transform: scale(1.05);
+  }
+}

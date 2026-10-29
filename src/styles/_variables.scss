@@ -10,6 +10,8 @@ $color-text-muted: #9ca3af;
 $color-border: #2a2c38;
 
 $font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+$font-druk: var(--font-druk-heavy), 'Impact', 'Arial Black', sans-serif;
+$font-druk-text: var(--font-druk-text-heavy), var(--font-druk-heavy), sans-serif;
 
 $breakpoint-sm: 640px;
 $breakpoint-md: 768px;

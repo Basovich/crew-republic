@@ -43,3 +43,7 @@ next-env.d.ts
 # IDE
 .idea/
 .vscode/
+
+# AI Agent rules & skills
+.agents/
+GEMINI.md

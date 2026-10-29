@@ -1,9 +1,10 @@
 {
-  "HomePage": {
-    "title": "CREW Republic",
-    "description": "Craft Beer Revolution",
-    "welcome": "Willkommen bei CREW Republic",
-    "currentLanguage": "Aktuelle Sprache: Deutsch",
-    "switchLanguage": "Zu Englisch wechseln"
+  "Hero": {
+    "line1": "BECAUSE GOOD COMPANY",
+    "line2": "DESERVES BETTER BEER."
+  },
+  "Common": {
+    "menu": "MENU",
+    "shop": "SHOP"
   }
 }
