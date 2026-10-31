@@ -9,6 +9,9 @@ import "@/styles/globals.scss";
 export const metadata: Metadata = {
   title: "CREW Republic",
   description: "Craft Beer Revolution",
+  appleWebApp: {
+    title: "Crew Republic",
+  },
 };
 
 export function generateStaticParams() {
