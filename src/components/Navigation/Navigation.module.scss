@@ -76,6 +76,7 @@
 }
 
 .linksList {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -86,7 +87,31 @@
   }
 }
 
+// Smooth Floating Pill Indicator sliding between links
+.indicatorPill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: #000000;
+  border-radius: 96px;
+  pointer-events: none;
+  z-index: 1;
+  transform: translateY(0);
+  transition:
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    height 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.2s ease;
+
+  @media (min-width: 768px) {
+    border-radius: 104px;
+  }
+}
+
 .navItem {
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -103,7 +128,7 @@
   text-decoration: none;
   text-align: center;
   white-space: nowrap;
-  transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
+  transition: color 0.22s ease;
 
   @media (min-width: 768px) {
     padding: 10px 24px;
@@ -111,31 +136,13 @@
     font-size: 28px;
   }
 
-  @media (any-hover: hover) {
-    &:hover {
-      background-color: #000000;
-      color: #ffffff;
-      transform: translateY(-1px);
-    }
-  }
-
   &:focus-visible {
     outline: 3px solid $color-primary;
     outline-offset: 2px;
   }
 
-  &.navItemActive {
-    background-color: #000000;
+  &.navItemHighlighted {
     color: #ffffff;
-    cursor: default;
-
-    @media (any-hover: hover) {
-      &:hover {
-        background-color: #000000;
-        color: #ffffff;
-        transform: none;
-      }
-    }
   }
 }
 
@@ -360,6 +367,7 @@
   .menuCard,
   .backdrop,
   .navItem,
+  .indicatorPill,
   .flagBtn {
     transition: none !important;
   }

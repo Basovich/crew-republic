@@ -12,11 +12,20 @@ interface NavigationProps {
 
 export function Navigation({ className }: NavigationProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [pillStyle, setPillStyle] = useState<{ top: number; height: number; opacity: number }>({
+    top: 0,
+    height: 0,
+    opacity: 0,
+  });
+
   const t = useTranslations('Navigation');
   const locale = useLocale();
   const pathname = usePathname();
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const linksListRef = useRef<HTMLElement>(null);
+  const itemRefs = useRef<(HTMLAnchorElement | null)[]>([]);
 
   const toggleMenu = useCallback(() => {
     setIsOpen((prev) => !prev);
@@ -59,6 +68,58 @@ export function Navigation({ className }: NavigationProps) {
     { href: '/contact', label: t('contact') },
   ];
 
+  // Determine active link index based on pathname
+  const activeIndex = Math.max(
+    0,
+    navLinks.findIndex((item) => item.href === pathname)
+  );
+
+  // Target index for sliding pill: hovered link if any, otherwise active link
+  const targetIndex = hoveredIndex !== null ? hoveredIndex : activeIndex;
+
+  // Update pill position based on target item
+  const updatePillPosition = useCallback((index: number) => {
+    const targetEl =
+      itemRefs.current[index] ||
+      linksListRef.current?.querySelector<HTMLElement>(`[data-nav-index="${index}"]`);
+
+    if (targetEl) {
+      setPillStyle({
+        top: targetEl.offsetTop,
+        height: targetEl.offsetHeight,
+        opacity: 1,
+      });
+    }
+  }, []);
+
+  // Synchronize pill position when menu opens or target changes
+  useEffect(() => {
+    if (isOpen) {
+      const rafId = requestAnimationFrame(() => {
+        updatePillPosition(targetIndex);
+      });
+      return () => cancelAnimationFrame(rafId);
+    } else {
+      setPillStyle((prev) => ({ ...prev, opacity: 0 }));
+      setHoveredIndex(null);
+    }
+  }, [isOpen, targetIndex, updatePillPosition]);
+
+  // Event delegation for pointer movements over menu items
+  const handlePointerMove = (e: React.PointerEvent<HTMLElement>) => {
+    const target = (e.target as HTMLElement).closest<HTMLElement>('[data-nav-index]');
+    if (target) {
+      const idx = Number(target.getAttribute('data-nav-index'));
+      if (!isNaN(idx) && idx !== hoveredIndex) {
+        setHoveredIndex(idx);
+      }
+    }
+  };
+
+  const handlePointerLeave = () => {
+    setHoveredIndex(null);
+  };
+
   return (
     <>
       {/* Fullscreen Backdrop */}
@@ -70,72 +131,94 @@ export function Navigation({ className }: NavigationProps) {
 
       <div className={`${styles.navContainer} ${className || ''}`} ref={menuRef}>
         {/* Fly-out Menu Card */}
-      <div
-        id="navigation-menu-panel"
-        role="dialog"
-        aria-modal="true"
-        aria-label={t('menu')}
-        className={`${styles.menuCard} ${isOpen ? styles.menuCardOpen : ''}`}
-      >
-        <nav className={styles.linksList} aria-label="Main Navigation">
-          {navLinks.map((item) => {
-            const isActive = pathname === item.href;
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={closeMenu}
-                className={`${styles.navItem} ${isActive ? styles.navItemActive : ''}`}
-                tabIndex={isOpen ? 0 : -1}
-              >
-                <span>{item.label}</span>
-              </Link>
-            );
-          })}
-        </nav>
+        <div
+          id="navigation-menu-panel"
+          role="dialog"
+          aria-modal="true"
+          aria-label={t('menu')}
+          className={`${styles.menuCard} ${isOpen ? styles.menuCardOpen : ''}`}
+        >
+          <nav
+            ref={linksListRef}
+            className={styles.linksList}
+            aria-label="Main Navigation"
+            onPointerMove={handlePointerMove}
+            onPointerLeave={handlePointerLeave}
+          >
+            {/* Smooth Floating Pill Indicator */}
+            <span
+              className={styles.indicatorPill}
+              style={{
+                transform: `translateY(${pillStyle.top}px)`,
+                height: `${pillStyle.height}px`,
+                opacity: pillStyle.opacity,
+              }}
+              aria-hidden="true"
+            />
 
-        {/* Embedded Language Switcher */}
-        <div className={styles.langSwitch} role="group" aria-label={t('switchLanguage')}>
-          <Link
-            href={pathname}
-            locale="en"
-            onClick={closeMenu}
-            className={`${styles.flagBtn} ${locale === 'en' ? styles.flagBtnActive : ''}`}
-            aria-label="Switch to English"
-            tabIndex={isOpen ? 0 : -1}
-          >
-            <UsFlag size={36} />
-          </Link>
-          <Link
-            href={pathname}
-            locale="de"
-            onClick={closeMenu}
-            className={`${styles.flagBtn} ${locale === 'de' ? styles.flagBtnActive : ''}`}
-            aria-label="Switch to German"
-            tabIndex={isOpen ? 0 : -1}
-          >
-            <GermanFlag size={36} />
-          </Link>
+            {navLinks.map((item, index) => {
+              const isCurrentTarget = targetIndex === index;
+              return (
+                <Link
+                  key={item.href}
+                  ref={(el) => {
+                    itemRefs.current[index] = el;
+                  }}
+                  data-nav-index={index}
+                  href={item.href}
+                  onClick={closeMenu}
+                  onPointerEnter={() => setHoveredIndex(index)}
+                  className={`${styles.navItem} ${isCurrentTarget ? styles.navItemHighlighted : ''}`}
+                  tabIndex={isOpen ? 0 : -1}
+                >
+                  <span>{item.label}</span>
+                </Link>
+              );
+            })}
+          </nav>
+
+          {/* Embedded Language Switcher */}
+          <div className={styles.langSwitch} role="group" aria-label={t('switchLanguage')}>
+            <Link
+              href={pathname}
+              locale="en"
+              onClick={closeMenu}
+              className={`${styles.flagBtn} ${locale === 'en' ? styles.flagBtnActive : ''}`}
+              aria-label="Switch to English"
+              tabIndex={isOpen ? 0 : -1}
+            >
+              <UsFlag size={36} />
+            </Link>
+            <Link
+              href={pathname}
+              locale="de"
+              onClick={closeMenu}
+              className={`${styles.flagBtn} ${locale === 'de' ? styles.flagBtnActive : ''}`}
+              aria-label="Switch to German"
+              tabIndex={isOpen ? 0 : -1}
+            >
+              <GermanFlag size={36} />
+            </Link>
+          </div>
         </div>
-      </div>
 
-      {/* Interactive Sticky Menu Button */}
-      <button
-        ref={buttonRef}
-        type="button"
-        onClick={toggleMenu}
-        aria-expanded={isOpen}
-        aria-controls="navigation-menu-panel"
-        aria-label={isOpen ? t('closeMenu') : t('openMenu')}
-        className={`${styles.menuButton} ${isOpen ? styles.menuButtonOpen : ''}`}
-      >
-        <span className={styles.iconCircle} aria-hidden="true">
-          <span className={styles.burgerLine} />
-          <span className={styles.burgerLine} />
-          <span className={styles.burgerLine} />
-        </span>
-        <span className={styles.menuLabel}>{t('menu')}</span>
-      </button>
+        {/* Interactive Sticky Menu Button */}
+        <button
+          ref={buttonRef}
+          type="button"
+          onClick={toggleMenu}
+          aria-expanded={isOpen}
+          aria-controls="navigation-menu-panel"
+          aria-label={isOpen ? t('closeMenu') : t('openMenu')}
+          className={`${styles.menuButton} ${isOpen ? styles.menuButtonOpen : ''}`}
+        >
+          <span className={styles.iconCircle} aria-hidden="true">
+            <span className={styles.burgerLine} />
+            <span className={styles.burgerLine} />
+            <span className={styles.burgerLine} />
+          </span>
+          <span className={styles.menuLabel}>{t('menu')}</span>
+        </button>
       </div>
     </>
   );
