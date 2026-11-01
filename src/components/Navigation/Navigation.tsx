@@ -28,11 +28,19 @@ export function Navigation({ className }: NavigationProps) {
   const itemRefs = useRef<(HTMLAnchorElement | null)[]>([]);
 
   const toggleMenu = useCallback(() => {
-    setIsOpen((prev) => !prev);
+    setIsOpen((prev) => {
+      if (prev) {
+        setHoveredIndex(null);
+        setPillStyle((p) => ({ ...p, opacity: 0 }));
+      }
+      return !prev;
+    });
   }, []);
 
   const closeMenu = useCallback(() => {
     setIsOpen(false);
+    setHoveredIndex(null);
+    setPillStyle((prev) => ({ ...prev, opacity: 0 }));
   }, []);
 
   // Close on Escape key press
@@ -94,15 +102,12 @@ export function Navigation({ className }: NavigationProps) {
 
   // Synchronize pill position when menu opens or target changes
   useEffect(() => {
-    if (isOpen) {
-      const rafId = requestAnimationFrame(() => {
-        updatePillPosition(targetIndex);
-      });
-      return () => cancelAnimationFrame(rafId);
-    } else {
-      setPillStyle((prev) => ({ ...prev, opacity: 0 }));
-      setHoveredIndex(null);
-    }
+    if (!isOpen) return;
+
+    const rafId = requestAnimationFrame(() => {
+      updatePillPosition(targetIndex);
+    });
+    return () => cancelAnimationFrame(rafId);
   }, [isOpen, targetIndex, updatePillPosition]);
 
   // Event delegation for pointer movements over menu items
