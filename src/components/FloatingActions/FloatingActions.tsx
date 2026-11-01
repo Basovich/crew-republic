@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { Navigation } from '@/components/Navigation/Navigation';
 import styles from './FloatingActions.module.scss';
 
 interface FloatingActionsProps {
@@ -10,26 +11,12 @@ interface FloatingActionsProps {
 }
 
 export function FloatingActions({
-  menuLabel = 'MENU',
-  onMenuClick,
   onShopClick,
 }: FloatingActionsProps) {
   return (
     <>
-      {/* Centered Sticky Menu Button */}
-      <button
-        type="button"
-        className={styles.menuButton}
-        onClick={onMenuClick}
-        aria-label="Open Navigation Menu"
-      >
-        <span className={styles.hamburgerIcon} aria-hidden="true">
-          <span />
-          <span />
-          <span />
-        </span>
-        <span>{menuLabel}</span>
-      </button>
+      {/* Centered Sticky Interactive Menu & Panel */}
+      <Navigation />
 
       {/* Bottom Right Sticky Shop Button */}
       <button

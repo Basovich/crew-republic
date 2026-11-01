@@ -6,5 +6,17 @@
   "Common": {
     "menu": "MENU",
     "shop": "SHOP"
+  },
+  "Navigation": {
+    "menu": "MENU",
+    "home": "HOME",
+    "brandStory": "BRAND STORY",
+    "drunkenSailor": "DRUNKEN SAILOR",
+    "jackpot": "JACKPOT",
+    "trooper": "TROOPER",
+    "contact": "CONTACT",
+    "openMenu": "Open Menu",
+    "closeMenu": "Close Menu",
+    "switchLanguage": "Switch language"
   }
 }

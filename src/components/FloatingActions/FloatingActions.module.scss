@@ -1,66 +1,6 @@
 @use '@/styles/variables' as *;
 @use '@/styles/mixins' as *;
 
-.menuButton {
-  position: fixed;
-  bottom: calc(20px + env(safe-area-inset-bottom, 0px));
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 22px;
-  background-color: #ffffff;
-  color: #000000;
-  border-radius: 9999px;
-  font-family: $font-druk-text;
-  font-size: 15px;
-  font-weight: 900;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
-  cursor: pointer;
-  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease, background-color 0.2s ease;
-
-  @include responsive(md) {
-    bottom: calc(28px + env(safe-area-inset-bottom, 0px));
-    padding: 12px 28px;
-    font-size: 16px;
-    gap: 12px;
-  }
-
-  @include hover {
-    transform: translateX(-50%) translateY(-3px) scale(1.03);
-    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.6);
-    background-color: #f3f3f3;
-  }
-
-  &:active {
-    transform: translateX(-50%) translateY(0) scale(0.98);
-  }
-
-  &:focus-visible {
-    outline: 3px solid $color-primary;
-    outline-offset: 3px;
-  }
-}
-
-.hamburgerIcon {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 18px;
-  height: 14px;
-
-  span {
-    display: block;
-    width: 100%;
-    height: 2.5px;
-    background-color: #000000;
-    border-radius: 2px;
-  }
-}
 
 .shopButton {
   position: fixed;
