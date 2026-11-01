@@ -17,6 +17,10 @@
   @include responsive(md) {
     padding: 100px 0 100px;
   }
+
+  @include responsive(lg) {
+    padding: 180px 0 100px;
+  }
 }
 
 .sliderContainer {

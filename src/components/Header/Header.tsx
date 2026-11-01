@@ -30,7 +30,7 @@ export function Header({ currentLocale, currentPath = '/' }: HeaderProps) {
           className={`${styles.flagBtn} ${currentLocale === 'en' ? styles.active : ''}`}
           aria-label="Switch to English"
         >
-          <UsFlag size={22} />
+          <UsFlag className={styles.flagIcon} />
         </Link>
         <Link
           href={currentPath}
@@ -38,7 +38,7 @@ export function Header({ currentLocale, currentPath = '/' }: HeaderProps) {
           className={`${styles.flagBtn} ${currentLocale === 'de' ? styles.active : ''}`}
           aria-label="Switch to German"
         >
-          <GermanFlag size={22} />
+          <GermanFlag className={styles.flagIcon} />
         </Link>
       </nav>
     </header>

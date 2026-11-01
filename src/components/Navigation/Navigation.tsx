@@ -187,7 +187,7 @@ export function Navigation({ className }: NavigationProps) {
               aria-label="Switch to English"
               tabIndex={isOpen ? 0 : -1}
             >
-              <UsFlag size={36} />
+              <UsFlag className={styles.flagIcon} />
             </Link>
             <Link
               href={pathname}
@@ -197,7 +197,7 @@ export function Navigation({ className }: NavigationProps) {
               aria-label="Switch to German"
               tabIndex={isOpen ? 0 : -1}
             >
-              <GermanFlag size={36} />
+              <GermanFlag className={styles.flagIcon} />
             </Link>
           </div>
         </div>
