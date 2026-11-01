@@ -18,5 +18,32 @@
     "openMenu": "Open Menu",
     "closeMenu": "Close Menu",
     "switchLanguage": "Switch language"
+  },
+  "Pages": {
+    "brandStory": {
+      "title": "Brand Story",
+      "heading": "BRAND STORY",
+      "description": "Discover the rebellious spirit and history of CREW Republic craft brewery in Munich."
+    },
+    "drunkenSailor": {
+      "title": "Drunken Sailor IPA",
+      "heading": "DRUNKEN SAILOR",
+      "description": "Drunken Sailor IPA - Full-bodied, classic India Pale Ale brewed with passion by CREW Republic."
+    },
+    "jackpot": {
+      "title": "Jackpot Hazy IPA",
+      "heading": "JACKPOT",
+      "description": "Jackpot - Juicy and intensely aromatic Hazy IPA by CREW Republic."
+    },
+    "trooper": {
+      "title": "Trooper",
+      "heading": "TROOPER",
+      "description": "Trooper - German brewing tradition infused with raw craft attitude by CREW Republic."
+    },
+    "contact": {
+      "title": "Contact",
+      "heading": "CONTACT",
+      "description": "Get in touch with CREW Republic craft brewery in Unterschleißheim / Munich."
+    }
   }
 }

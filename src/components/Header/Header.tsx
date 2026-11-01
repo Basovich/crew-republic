@@ -6,9 +6,10 @@ import styles from './Header.module.scss';
 
 interface HeaderProps {
   currentLocale: string;
+  currentPath?: string;
 }
 
-export function Header({ currentLocale }: HeaderProps) {
+export function Header({ currentLocale, currentPath = '/' }: HeaderProps) {
   return (
     <header className={styles.header}>
       <Link href="/" className={styles.logoLink} aria-label="CREW Republic Home">
@@ -24,7 +25,7 @@ export function Header({ currentLocale }: HeaderProps) {
 
       <nav className={styles.langSwitch} aria-label="Language selection">
         <Link
-          href="/"
+          href={currentPath}
           locale="en"
           className={`${styles.flagBtn} ${currentLocale === 'en' ? styles.active : ''}`}
           aria-label="Switch to English"
@@ -32,7 +33,7 @@ export function Header({ currentLocale }: HeaderProps) {
           <UsFlag size={22} />
         </Link>
         <Link
-          href="/"
+          href={currentPath}
           locale="de"
           className={`${styles.flagBtn} ${currentLocale === 'de' ? styles.active : ''}`}
           aria-label="Switch to German"
