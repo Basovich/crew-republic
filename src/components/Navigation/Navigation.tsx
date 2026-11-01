@@ -213,9 +213,20 @@ export function Navigation({ className }: NavigationProps) {
           className={`${styles.menuButton} ${isOpen ? styles.menuButtonOpen : ''}`}
         >
           <span className={styles.iconCircle} aria-hidden="true">
-            <span className={styles.burgerLine} />
-            <span className={styles.burgerLine} />
-            <span className={styles.burgerLine} />
+            <span className={styles.burgerIcon}>
+              <span className={styles.burgerLine} />
+              <span className={styles.burgerLine} />
+              <span className={styles.burgerLine} />
+            </span>
+            <svg
+              className={styles.closeIcon}
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" strokeWidth="4" strokeLinecap="square" />
+              <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" strokeWidth="4" strokeLinecap="square" />
+            </svg>
           </span>
           <span className={styles.menuLabel}>{t('menu')}</span>
         </button>
