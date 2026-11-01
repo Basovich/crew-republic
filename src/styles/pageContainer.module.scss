@@ -1,4 +1,5 @@
 @use './variables' as *;
+@use './mixins' as *;
 
 .pageMain {
   position: relative;
@@ -34,11 +35,11 @@
   color: #ffffff;
   margin: 0;
 
-  @media (min-width: 768px) {
+  @include responsive(md) {
     font-size: 72px;
   }
 
-  @media (min-width: 1280px) {
+  @include responsive(xl) {
     font-size: 96px;
   }
 }
@@ -51,7 +52,7 @@
   margin-top: 16px;
   max-width: 600px;
 
-  @media (min-width: 768px) {
+  @include responsive(md) {
     font-size: 20px;
     margin-top: 24px;
   }

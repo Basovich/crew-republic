@@ -93,16 +93,14 @@
     opacity 0.25s ease,
     transform 0.2s ease;
 
-  @media (min-width: 768px) {
+  @include responsive(md) {
     width: 40px;
     height: 40px;
   }
 
-  @media (any-hover: hover) {
-    &:hover {
-      opacity: 0.85;
-      transform: scale(1.05);
-    }
+  @include hover {
+    opacity: 0.85;
+    transform: scale(1.05);
   }
 
   &:focus-visible {
@@ -122,11 +120,9 @@
       height: 48px;
     }
 
-    @media (any-hover: hover) {
-      &:hover {
-        opacity: 1;
-        transform: scale(1.03);
-      }
+    @include hover {
+      opacity: 1;
+      transform: scale(1.03);
     }
   }
 }
