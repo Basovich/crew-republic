@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
+import { Link } from '@/i18n/routing';
 import { Button } from '@/components/Button/Button';
 import styles from './BeersSection.module.scss';
 
@@ -56,7 +57,11 @@ export async function BeersSection() {
         <div className={styles.sliderTrack} role="region" aria-label={t('heading')}>
           {BEERS.map((beer) => (
             <article key={beer.id} className={styles.card}>
-              <div className={styles.imageContainer}>
+              <Link
+                href={beer.href}
+                className={styles.imageContainer}
+                aria-label={t(`${beer.key}.title`)}
+              >
                 <div
                   className={`${styles.imageWrapper} ${beer.isGlass ? styles.imageWrapperGlass : ''}`}
                 >
@@ -90,7 +95,7 @@ export async function BeersSection() {
                     className={styles.shadowImage}
                   />
                 </div>
-              </div>
+              </Link>
 
               <div className={styles.content}>
                 <div className={styles.titles}>
