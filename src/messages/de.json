@@ -45,5 +45,28 @@
       "heading": "KONTAKT",
       "description": "Kontaktiere die Brauerei CREW Republic in Unterschleißheim / München."
     }
+  },
+  "Footer": {
+    "emblemAlt": "CREW Republic - Brewing Awesomeness Since MMXI",
+    "weAreCrew": "WIR SIND CREW",
+    "companyName": "CREW Republic Brewery GmbH",
+    "street": "Kirschbaumweg 19",
+    "city": "50996 Köln",
+    "sendUsMessage": "SCHREIB UNS EINE NACHRICHT",
+    "ourBeers": "UNSERE BIERE",
+    "crewStory": "CREW STORY",
+    "drunkenSailor": "DRUNKEN SAILOR",
+    "jackpot": "JACKPOT",
+    "fireside": "FIRESIDE",
+    "ourService": "UNSER SERVICE FÜR DICH",
+    "privacyPolicy": "DATENSCHUTZ",
+    "gtc": "AGB",
+    "imprint": "IMPRESSUM",
+    "crewmunity": "CREWMUNITY",
+    "instagram": "INSTAGRAM",
+    "facebook": "FACEBOOK",
+    "untappd": "UNTAPPD",
+    "buyBetterBeer": "BUY BETTER BEER",
+    "switchLanguage": "Sprache wechseln"
   }
 }

@@ -1,0 +1,182 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-druk;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 9999px;
+  border-style: solid;
+  box-sizing: border-box;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    opacity 0.2s ease,
+    outline 0.2s ease;
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+/* ==========================================================================
+   Variants (Figma UI Kit: Node 79:80)
+   ========================================================================== */
+
+/* Primary: Solid Button */
+.primary {
+  background-color: #ffffff;
+  border: 4px solid #ffffff;
+  color: #000000;
+
+  @include hover {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-color: rgba(255, 255, 255, 0.7);
+    color: #000000;
+  }
+
+  &:active {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    color: #000000;
+  }
+
+  &:focus-visible {
+    outline: 4px solid rgba(255, 255, 255, 0.4);
+    outline-offset: 6px;
+  }
+
+  /* Primary on light backgrounds */
+  &.alternate {
+    background-color: #000000;
+    border-color: #000000;
+    color: #ffffff;
+
+    @include hover {
+      background-color: rgba(0, 0, 0, 0.4);
+      border-color: rgba(0, 0, 0, 0.4);
+      color: #ffffff;
+    }
+
+    &:active {
+      background-color: #000000;
+      border-color: #000000;
+      color: #ffffff;
+    }
+
+    &:focus-visible {
+      outline: 4px solid rgba(0, 0, 0, 0.3);
+      outline-offset: 6px;
+    }
+  }
+}
+
+/* Secondary: Outlined Button */
+.secondary {
+  background-color: transparent;
+  border: 4px solid #ffffff;
+  color: #ffffff;
+
+  @include hover {
+    background-color: transparent;
+    border-color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  &:active {
+    background-color: transparent;
+    border-color: #ffffff;
+    color: #ffffff;
+  }
+
+  &:focus-visible {
+    outline: 4px solid rgba(255, 255, 255, 0.4);
+    outline-offset: 6px;
+  }
+
+  /* Secondary on light backgrounds */
+  &.alternate {
+    background-color: transparent;
+    border-color: #000000;
+    color: #000000;
+
+    @include hover {
+      background-color: transparent;
+      border-color: rgba(0, 0, 0, 0.8);
+      color: rgba(0, 0, 0, 0.8);
+    }
+
+    &:active {
+      background-color: transparent;
+      border-color: #000000;
+      color: #000000;
+    }
+
+    &:focus-visible {
+      outline: 4px solid rgba(0, 0, 0, 0.3);
+      outline-offset: 6px;
+    }
+  }
+}
+
+/* ==========================================================================
+   Sizes
+   ========================================================================== */
+
+.sizeSm {
+  font-size: 20px;
+  line-height: 1.1;
+  letter-spacing: 0.03em;
+  padding: 6px 16px;
+}
+
+.sizeMd {
+  font-size: 30px;
+  line-height: 1.1;
+  letter-spacing: 0.03em;
+  padding: 8px 24px;
+}
+
+.sizeLg {
+  font-size: 40px;
+  line-height: 1.1;
+  letter-spacing: 0.03em;
+  padding: 12px 32px;
+}
+
+.sizeGiant {
+  font-size: clamp(34px, 8.5vw, 56px);
+  line-height: 0.92;
+  letter-spacing: 0.02em;
+  padding: 16px 24px;
+  width: 100%;
+  max-width: 358px;
+
+  @include responsive(md) {
+    font-size: 72px;
+    padding: 28px 48px;
+    max-width: 600px;
+  }
+
+  @include responsive(lg) {
+    font-size: 96px;
+    padding: 48px 64px;
+    max-width: 800px;
+  }
+
+  &:focus-visible {
+    outline: 6px solid rgba(255, 255, 255, 0.4);
+    outline-offset: 8px;
+  }
+}
