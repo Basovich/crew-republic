@@ -134,8 +134,4 @@
   object-fit: cover;
   object-position: center;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-
-  @include hover {
-    transform: scale(1.03);
-  }
 }
