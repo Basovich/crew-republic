@@ -113,5 +113,10 @@
     "instagram": "INSTAGRAM",
     "facebook": "FACEBOOK",
     "imageAlt": "Join the CREW Republic community online"
+  },
+  "RepresentSection": {
+    "heading": "REPRESENT THE CREW.",
+    "buttonText": "SHOP CREW MERCH",
+    "imageAlt": "CREW Republic merchandise and lifestyle moments"
   }
 }

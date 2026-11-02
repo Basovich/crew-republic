@@ -4,6 +4,7 @@ import { HeroSlider } from '@/components/HeroSlider/HeroSlider';
 import { StorySection } from '@/components/StorySection/StorySection';
 import { BeersSection } from '@/components/BeersSection/BeersSection';
 import { AwardsSection } from '@/components/AwardsSection/AwardsSection';
+import { RepresentSection } from '@/components/RepresentSection/RepresentSection';
 import { FloatingActions } from '@/components/FloatingActions/FloatingActions';
 
 interface PageProps {
@@ -18,6 +19,7 @@ export default async function HomePage({ params }: PageProps) {
   const tCommon = await getTranslations('Common');
   const tAwards = await getTranslations('AwardsSection');
   const tCrewmunity = await getTranslations('CrewmunitySection');
+  const tRepresent = await getTranslations('RepresentSection');
 
   const awardTranslations: Record<string, string> = {
     award1: tAwards('awards.award1'),
@@ -76,6 +78,14 @@ export default async function HomePage({ params }: PageProps) {
             target: '_blank',
           },
         ]}
+      />
+
+      {/* Represent Section: Represent the CREW */}
+      <RepresentSection
+        heading={tRepresent('heading')}
+        buttonText={tRepresent('buttonText')}
+        imageAlt={tRepresent('imageAlt')}
+        shopUrl="https://www.crew-republic-shop.de/"
       />
 
       {/* Floating Menu & Shop Buttons Attached to Viewport */}
