@@ -91,9 +91,11 @@
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
+  overflow: hidden;
 
   @include responsive(sm) {
     flex: 0 0 260px;
+    overflow: visible;
   }
 
   @include responsive(lg) {
@@ -126,10 +128,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 325px;
+  justify-content: flex-end;
+  height: 310px;
+
+  @include responsive(sm) {
+    height: 360px;
+  }
 
   @include responsive(lg) {
-    height: 500px;
+    height: 440px;
   }
 
   @include hover {
@@ -143,8 +150,9 @@
   height: 270px;
   overflow: visible;
   transform: scale(1);
-  transform-origin: center;
+  transform-origin: center bottom;
   transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 2;
 
   @include responsive(sm) {
     height: 310px;
@@ -167,13 +175,12 @@
 
   @include responsive(lg) {
     height: 400px;
-    margin-top: -10px;
   }
 }
 
 .image {
   object-fit: contain;
-  object-position: center;
+  object-position: center bottom;
   filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.8));
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -188,43 +195,46 @@
   z-index: 3;
 }
 
-/* Authentic Figma shadow with smooth floor gradient and reflection */
+/* Authentic Figma shadow positioned absolutely underneath the beer */
 .shadowWrapper {
-  position: relative;
+  position: absolute;
+  left: 50%;
+  bottom: -26px;
   width: 100%;
   aspect-ratio: 412 / 182;
-  margin-top: -42px;
+  transform: translateX(-50%) scale(1.8);
+  transform-origin: center top;
   pointer-events: none;
   z-index: 1;
 
   @include responsive(sm) {
-    margin-top: -50px;
+    //bottom: -22px;
+    //transform: translateX(-50%) scale(1.32);
   }
 
-  @include responsive(lg) {
-    margin-top: -66px;
+  @include responsive(xl) {
+    bottom: -62px;
+    transform: translateX(-50%) scale(1.5);
   }
 }
 
 .shadowWrapperGlass {
-  margin-top: -46px;
+  bottom: -28px;
+  transform: translateX(-50%) scale(1.8);
 
-  @include responsive(sm) {
-    margin-top: -56px;
-  }
-
-  @include responsive(lg) {
-    margin-top: -74px;
+  @include responsive(xl) {
+    bottom: -62px;
+    transform: translateX(-50%) scale(1.5);
   }
 }
 
 /* Boost subtle can floor reflection so it is clearly visible against the pure black (#000) background */
 .shadowWrapperCan .shadowImage {
-  //filter: contrast(1.4) brightness(3.8);
+  filter: contrast(1.2) brightness(1.7);
 }
 
 .shadowWrapperGlass .shadowImage {
-  //filter: contrast(1.2) brightness(2.2);
+  filter: contrast(1.2) brightness(1.7);
 }
 
 .shadowImage {
@@ -238,9 +248,13 @@
   align-items: center;
   gap: 16px;
   width: 100%;
+  position: relative;
+  z-index: 2;
+  margin-top: 80px;
 
   @include responsive(lg) {
     gap: 24px;
+    margin-top: 100px;
   }
 }
 
