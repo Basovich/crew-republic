@@ -20,6 +20,7 @@ export interface StorySectionProps {
   imageSrc?: string;
   imageAlt?: string;
   buttons?: ActionButton[];
+  imagePosition?: 'left' | 'right';
 }
 
 export async function StorySection({
@@ -29,6 +30,7 @@ export async function StorySection({
   imageSrc = '/images/story/story-image.webp',
   imageAlt,
   buttons,
+  imagePosition = 'right',
 }: StorySectionProps = {}) {
   const t = await getTranslations('StorySection');
 
@@ -46,9 +48,16 @@ export async function StorySection({
     },
   ];
 
+  const containerClasses = [
+    styles.container,
+    imagePosition === 'left' ? styles.imageLeft : '',
+  ]
+    .filter(Boolean)
+    .join(' ');
+
   return (
     <section id={id} className={styles.section} aria-labelledby={headingId}>
-      <div className={styles.container}>
+      <div className={containerClasses}>
         <div className={styles.content}>
           <h2 id={headingId} className={styles.heading}>
             {resolvedHeading}

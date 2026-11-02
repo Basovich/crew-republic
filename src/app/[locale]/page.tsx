@@ -20,6 +20,7 @@ export default async function HomePage({ params }: PageProps) {
   const tAwards = await getTranslations('AwardsSection');
   const tCrewmunity = await getTranslations('CrewmunitySection');
   const tRepresent = await getTranslations('RepresentSection');
+  const tTap = await getTranslations('TapSection');
 
   const awardTranslations: Record<string, string> = {
     award1: tAwards('awards.award1'),
@@ -86,6 +87,24 @@ export default async function HomePage({ params }: PageProps) {
         buttonText={tRepresent('buttonText')}
         imageAlt={tRepresent('imageAlt')}
         shopUrl="https://www.crew-republic-shop.de/"
+      />
+
+      {/* Tap Section: Tap into the CREW (Image first / left on desktop) */}
+      <StorySection
+        id="tap"
+        imagePosition="left"
+        heading={tTap('heading')}
+        description={tTap('description')}
+        imageSrc="/images/tap/tap-into-crew.webp"
+        imageAlt={tTap('imageAlt')}
+        buttons={[
+          {
+            label: tTap('buttonText'),
+            href: '/contact',
+            variant: 'secondary',
+            size: 'lg',
+          },
+        ]}
       />
 
       {/* Floating Menu & Shop Buttons Attached to Viewport */}

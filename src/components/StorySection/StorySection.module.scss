@@ -150,3 +150,18 @@
   object-position: center;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
+/* Modifier when image is positioned on the left side on desktop */
+.imageLeft {
+  @include responsive(lg) {
+    .imageWrapper {
+      left: 0;
+      right: auto;
+    }
+
+    .content {
+      margin-left: auto;
+      max-width: 568px;
+    }
+  }
+}
