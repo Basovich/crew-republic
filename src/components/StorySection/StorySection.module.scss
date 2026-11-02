@@ -101,6 +101,21 @@
 .action {
   display: flex;
   align-items: flex-start;
+  width: 100%;
+}
+
+.buttonGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+
+  @include responsive(sm) {
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+    width: auto;
+  }
 }
 
 .button {

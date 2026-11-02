@@ -106,5 +106,12 @@
       "award6": "Brussels Beer Challenge Gold Medal 2021",
       "award7": "World Beer Awards World's Best IPA 2020"
     }
+  },
+  "CrewmunitySection": {
+    "heading": "JOIN THE CREWMUNITY.",
+    "description": "The CREW isn't just who you're with tonight. It's everyone sharing the same moments online.\nFollow us, share your CREW moments, tag us, and become part of a crew that’s always around, wherever you are.",
+    "instagram": "INSTAGRAM",
+    "facebook": "FACEBOOK",
+    "imageAlt": "Join the CREW Republic community online"
   }
 }

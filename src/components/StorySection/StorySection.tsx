@@ -4,39 +4,85 @@ import { getTranslations } from 'next-intl/server';
 import { Button } from '@/components/Button/Button';
 import styles from './StorySection.module.scss';
 
-export async function StorySection() {
+export interface ActionButton {
+  label: string;
+  href: string;
+  variant?: 'primary' | 'secondary';
+  size?: 'sm' | 'md' | 'lg' | 'giant';
+  target?: string;
+  rel?: string;
+}
+
+export interface StorySectionProps {
+  id?: string;
+  heading?: string;
+  description?: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  buttons?: ActionButton[];
+}
+
+export async function StorySection({
+  id = 'story',
+  heading,
+  description,
+  imageSrc = '/images/story/story-image.webp',
+  imageAlt,
+  buttons,
+}: StorySectionProps = {}) {
   const t = await getTranslations('StorySection');
 
+  const resolvedHeading = heading ?? t('heading');
+  const resolvedDescription = description ?? t('description');
+  const resolvedImageAlt = imageAlt ?? t('imageAlt');
+  const headingId = `${id}-section-heading`;
+
+  const resolvedButtons: ActionButton[] = buttons ?? [
+    {
+      label: t('buttonText'),
+      href: '/brand-story',
+      variant: 'secondary',
+      size: 'lg',
+    },
+  ];
+
   return (
-    <section className={styles.section} aria-labelledby="story-section-heading">
+    <section id={id} className={styles.section} aria-labelledby={headingId}>
       <div className={styles.container}>
         <div className={styles.content}>
-          <h2 id="story-section-heading" className={styles.heading}>
-            {t('heading')}
+          <h2 id={headingId} className={styles.heading}>
+            {resolvedHeading}
           </h2>
 
           <div className={styles.textBlock}>
             <p className={styles.description}>
-              {t('description')}
+              {resolvedDescription}
             </p>
 
             <div className={styles.action}>
-              <Button
-                variant="secondary"
-                size="lg"
-                href="/brand-story"
-                className={styles.button}
-              >
-                {t('buttonText')}
-              </Button>
+              <div className={styles.buttonGroup}>
+                {resolvedButtons.map((btn, index) => (
+                  <Button
+                    key={`${btn.label}-${index}`}
+                    variant={btn.variant ?? 'secondary'}
+                    size={btn.size ?? 'lg'}
+                    href={btn.href}
+                    target={btn.target}
+                    rel={btn.rel}
+                    className={styles.button}
+                  >
+                    {btn.label}
+                  </Button>
+                ))}
+              </div>
             </div>
           </div>
         </div>
 
         <div className={styles.imageWrapper}>
           <Image
-            src="/images/story/story-image.webp"
-            alt={t('imageAlt')}
+            src={imageSrc}
+            alt={resolvedImageAlt}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 568px"
             className={styles.image}

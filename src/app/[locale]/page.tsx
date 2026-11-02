@@ -17,6 +17,7 @@ export default async function HomePage({ params }: PageProps) {
   const tHero = await getTranslations('Hero');
   const tCommon = await getTranslations('Common');
   const tAwards = await getTranslations('AwardsSection');
+  const tCrewmunity = await getTranslations('CrewmunitySection');
 
   const awardTranslations: Record<string, string> = {
     award1: tAwards('awards.award1'),
@@ -40,7 +41,7 @@ export default async function HomePage({ params }: PageProps) {
       />
 
       {/* Story Section: The Beer for the moments you share */}
-      <StorySection />
+      <StorySection id="story" />
 
       {/* Beers Section: Cheers for our Beers */}
       <BeersSection />
@@ -50,6 +51,31 @@ export default async function HomePage({ params }: PageProps) {
         heading={tAwards('heading')}
         ariaLabel={tAwards('ariaLabel')}
         awardTranslations={awardTranslations}
+      />
+
+      {/* Crewmunity Section: Join the CREWmunity */}
+      <StorySection
+        id="crewmunity"
+        heading={tCrewmunity('heading')}
+        description={tCrewmunity('description')}
+        imageSrc="/images/crewmunity/crewmunity.webp"
+        imageAlt={tCrewmunity('imageAlt')}
+        buttons={[
+          {
+            label: tCrewmunity('instagram'),
+            href: 'https://www.instagram.com/crewrepublicbrewery/',
+            variant: 'primary',
+            size: 'lg',
+            target: '_blank',
+          },
+          {
+            label: tCrewmunity('facebook'),
+            href: 'https://www.facebook.com/crewrepublic',
+            variant: 'secondary',
+            size: 'lg',
+            target: '_blank',
+          },
+        ]}
       />
 
       {/* Floating Menu & Shop Buttons Attached to Viewport */}
