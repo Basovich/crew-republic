@@ -66,14 +66,9 @@ export function Footer() {
               <Link href="/jackpot" className={styles.drukLink}>
                 {t('jackpot')}
               </Link>
-              <a
-                href="https://www.crew-republic-shop.de/Biere/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.drukLink}
-              >
+              <Link href="/fireside" className={styles.drukLink}>
                 {t('fireside')}
-              </a>
+              </Link>
             </nav>
           </div>
 

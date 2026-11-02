@@ -12,9 +12,9 @@ const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://crewrepublic.de';
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'Pages.trooper' });
+  const t = await getTranslations({ locale, namespace: 'Pages.fireside' });
 
-  const path = '/trooper';
+  const path = '/fireside';
   const localizedPath = locale === 'en' ? path : `/de${path}`;
 
   return {
@@ -40,16 +40,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default async function TrooperPage({ params }: PageProps) {
+export default async function FireSidePage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const t = await getTranslations({ locale, namespace: 'Pages.trooper' });
+  const t = await getTranslations({ locale, namespace: 'Pages.fireside' });
   const tCommon = await getTranslations('Common');
 
   return (
     <main className={styles.pageMain}>
-      <Header currentLocale={locale} currentPath="/trooper" />
+      <Header currentLocale={locale} currentPath="/fireside" />
 
       <section className={styles.heroContent}>
         <h1 className={styles.title}>{t('heading')}</h1>

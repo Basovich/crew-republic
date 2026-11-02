@@ -13,7 +13,7 @@
     "brandStory": "BRAND STORY",
     "drunkenSailor": "DRUNKEN SAILOR",
     "jackpot": "JACKPOT",
-    "trooper": "TROOPER",
+    "fireside": "FIRESIDE",
     "contact": "CONTACT",
     "openMenu": "Open Menu",
     "closeMenu": "Close Menu",
@@ -35,10 +35,10 @@
       "heading": "JACKPOT",
       "description": "Jackpot - Juicy and intensely aromatic Hazy IPA by CREW Republic."
     },
-    "trooper": {
-      "title": "Trooper",
-      "heading": "TROOPER",
-      "description": "Trooper - German brewing tradition infused with raw craft attitude by CREW Republic."
+    "fireside": {
+      "title": "Fireside",
+      "heading": "FIRESIDE",
+      "description": "Fireside - Warming, rich, and rebellious craft brew by CREW Republic."
     },
     "contact": {
       "title": "Contact",

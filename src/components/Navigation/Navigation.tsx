@@ -72,7 +72,7 @@ export function Navigation({ className }: NavigationProps) {
     { href: '/brand-story', label: t('brandStory') },
     { href: '/drunken-sailor', label: t('drunkenSailor') },
     { href: '/jackpot', label: t('jackpot') },
-    { href: '/trooper', label: t('trooper') },
+    { href: '/fireside', label: t('fireside') },
     { href: '/contact', label: t('contact') },
   ];
 
