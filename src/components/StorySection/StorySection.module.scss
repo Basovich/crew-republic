@@ -1,0 +1,139 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.section {
+  position: relative;
+  width: 100%;
+  background-color: $color-background;
+  color: #ffffff;
+  padding: 48px 16px 96px;
+  overflow: hidden;
+
+  @include responsive(md) {
+    padding: 64px 40px 104px;
+  }
+
+  @include responsive(lg) {
+    padding: 80px 120px 120px;
+  }
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+
+  @include responsive(lg) {
+    flex-direction: column;
+    justify-content: center;
+    min-height: 710px;
+    gap: 0;
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  width: 100%;
+
+  @include responsive(lg) {
+    width: 100%;
+  }
+}
+
+.heading {
+  font-family: $font-druk;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0;
+  font-size: 48px;
+  line-height: 0.92;
+  letter-spacing: 0.02em;
+
+  @include responsive(md) {
+    font-size: 64px;
+    line-height: 0.93;
+  }
+
+  @include responsive(lg) {
+    font-size: 80px;
+    line-height: 0.93;
+  }
+}
+
+.textBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  width: 100%;
+
+  @include responsive(lg) {
+    max-width: 480px;
+  }
+}
+
+.description {
+  font-family: $font-sans;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #ffffff;
+  margin: 0;
+
+  @include responsive(md) {
+    font-size: 18px;
+  }
+
+  @include responsive(lg) {
+    font-size: 20px;
+  }
+}
+
+.action {
+  display: flex;
+  align-items: flex-start;
+}
+
+.button {
+  width: 100%;
+
+  @include responsive(sm) {
+    width: auto;
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background-color: #000000;
+  z-index: 1;
+
+  @include responsive(lg) {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 568px;
+    height: 710px;
+    max-width: 568px;
+  }
+}
+
+.image {
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+  @include hover {
+    transform: scale(1.03);
+  }
+}

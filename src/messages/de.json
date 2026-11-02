@@ -68,5 +68,11 @@
     "untappd": "UNTAPPD",
     "buyBetterBeer": "BUY BETTER BEER",
     "switchLanguage": "Sprache wechseln"
+  },
+  "StorySection": {
+    "heading": "Das Bier für die Momente, die man teilt.",
+    "description": "Jeder braucht eine Crew. Menschen, die jeden Moment reicher, echter und unvergesslicher machen. CREW Republic ist das Bier genau dafür: beste Gesellschaft, draußen, zusammen.",
+    "buttonText": "Unsere Geschichte entdecken",
+    "imageAlt": "CREW Republic Biermomente mit Freunden geteilt"
   }
 }
