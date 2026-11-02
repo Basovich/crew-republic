@@ -1,0 +1,302 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.section {
+  position: relative;
+  width: 100%;
+  background-color: $color-background;
+  color: #ffffff;
+  padding: 48px 0 80px;
+  overflow: hidden;
+
+  @include responsive(md) {
+    padding: 64px 24px 96px;
+  }
+
+  @include responsive(lg) {
+    padding: 64px 40px 104px;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+
+  @include responsive(lg) {
+    gap: 200px;
+  }
+}
+
+.heading {
+  font-family: $font-druk;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0;
+  text-align: center;
+  font-size: 48px;
+  line-height: 0.92;
+  letter-spacing: 0.02em;
+  padding: 0 16px;
+
+  @include responsive(md) {
+    font-size: 64px;
+    line-height: 0.93;
+  }
+
+  @include responsive(lg) {
+    font-size: 80px;
+    line-height: 0.93;
+  }
+}
+
+/* ==========================================================================
+   Slider Track: Native CSS scroll-snap slider on mobile, flex row on desktop
+   ========================================================================== */
+.sliderTrack {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; // Firefox
+  padding: 0 16px 20px;
+  scroll-padding: 0 16px;
+
+  &::-webkit-scrollbar {
+    display: none; // Chrome / Safari
+  }
+
+  @include responsive(lg) {
+    overflow-x: visible;
+    scroll-snap-type: none;
+    justify-content: center;
+    gap: 24px;
+    padding: 0;
+  }
+}
+
+.card {
+  flex: 0 0 220px;
+  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  //gap: 16px;
+  box-sizing: border-box;
+
+  @include responsive(sm) {
+    flex: 0 0 260px;
+    //gap: 20px;
+  }
+
+  @include responsive(lg) {
+    flex: 1 1 382px;
+    max-width: 384px;
+    //gap: 32px;
+  }
+
+  @include hover {
+    .imageWrapper {
+      transform: translateY(-8px) scale(1.1);
+    }
+
+    .imageWrapperGlass {
+      transform: translateY(-8px) scale(1.2);
+    }
+
+    .imageDefault {
+      opacity: 0;
+    }
+
+    .imageHover {
+      opacity: 1;
+    }
+  }
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 270px;
+  overflow: visible;
+  transform: scale(1);
+  transform-origin: center bottom;
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+
+  @include responsive(sm) {
+    height: 310px;
+  }
+
+  @include responsive(lg) {
+    height: 400px;
+  }
+}
+
+/* Glass pint is slightly larger than the cans as in Figma design */
+.imageWrapperGlass {
+  height: 295px;
+  transform: scale(1.1);
+  transform-origin: center bottom;
+
+  @include responsive(sm) {
+    height: 338px;
+    transform: scale(1.1);
+  }
+
+  @include responsive(lg) {
+    height: 400px;
+    transform: scale(1.1);
+  }
+}
+
+.image {
+  object-fit: contain;
+  object-position: center bottom;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.8));
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.imageDefault {
+  opacity: 1;
+  z-index: 2;
+}
+
+.imageHover {
+  opacity: 0;
+  z-index: 3;
+}
+
+/* Authentic Figma shadow with smooth floor gradient and reflection */
+.shadowWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 412 / 182;
+  margin-top: -42px;
+  pointer-events: none;
+  z-index: 1;
+
+  @include responsive(sm) {
+    margin-top: -50px;
+  }
+
+  @include responsive(lg) {
+    margin-top: -66px;
+  }
+}
+
+.shadowWrapperGlass {
+  margin-top: -46px;
+
+  @include responsive(sm) {
+    margin-top: -56px;
+  }
+
+  @include responsive(lg) {
+    margin-top: -74px;
+  }
+}
+
+/* Boost subtle can floor reflection so it is clearly visible against the pure black (#000) background */
+.shadowWrapperCan .shadowImage {
+  filter: contrast(1.4) brightness(3.8);
+}
+
+.shadowWrapperGlass .shadowImage {
+  filter: contrast(1.2) brightness(2.2);
+}
+
+.shadowImage {
+  object-fit: contain;
+  object-position: center top;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+
+  @include responsive(lg) {
+    gap: 24px;
+  }
+}
+
+.titles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  width: 100%;
+
+  @include responsive(lg) {
+    gap: 16px;
+  }
+}
+
+.beerTitle {
+  font-family: $font-druk;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0;
+  font-size: 36px;
+  line-height: 0.96;
+  letter-spacing: 0.02em;
+
+  @include responsive(lg) {
+    font-size: 56px;
+    line-height: 0.96;
+  }
+}
+
+.beerTagline {
+  font-family: $font-sans;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+
+  @include responsive(lg) {
+    font-size: 18px;
+  }
+}
+
+.action {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-top: 4px;
+
+  @include responsive(lg) {
+    padding-top: 8px;
+  }
+}
+
+.button {
+  min-width: 160px;
+
+  @include responsive(lg) {
+    min-width: 180px;
+  }
+}

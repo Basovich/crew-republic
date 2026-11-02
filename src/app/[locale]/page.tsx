@@ -2,6 +2,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Header } from '@/components/Header/Header';
 import { HeroSlider } from '@/components/HeroSlider/HeroSlider';
 import { StorySection } from '@/components/StorySection/StorySection';
+import { BeersSection } from '@/components/BeersSection/BeersSection';
 import { FloatingActions } from '@/components/FloatingActions/FloatingActions';
 
 interface PageProps {
@@ -28,6 +29,9 @@ export default async function HomePage({ params }: PageProps) {
 
       {/* Story Section: The Beer for the moments you share */}
       <StorySection />
+
+      {/* Beers Section: Cheers for our Beers */}
+      <BeersSection />
 
       {/* Floating Menu & Shop Buttons Attached to Viewport */}
       <FloatingActions menuLabel={tCommon('menu')} />

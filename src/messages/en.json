@@ -74,5 +74,24 @@
     "description": "Everyone needs a crew. The people who make every moment richer, more real, and unforgettable. CREW Republic is the beer brewed for exactly that: good company, out there, together.",
     "buttonText": "Discover our story",
     "imageAlt": "CREW Republic beer moments shared with friends"
+  },
+  "BeersSection": {
+    "heading": "Cheers for our Beers.",
+    "discover": "DISCOVER",
+    "drunkenSailor": {
+      "title": "DRUNKEN SAILOR",
+      "tagline": "INDIA PALE ALE",
+      "alt": "Drunken Sailor India Pale Ale can"
+    },
+    "jackpot": {
+      "title": "JACKPOT",
+      "tagline": "HAZY IPA",
+      "alt": "Jackpot Hazy IPA can"
+    },
+    "fireside": {
+      "title": "FIRESIDE",
+      "tagline": "RED ALE",
+      "alt": "FireSide Red Ale glass"
+    }
   }
 }
