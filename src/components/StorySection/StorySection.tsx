@@ -21,6 +21,7 @@ export interface StorySectionProps {
   imageAlt?: string;
   buttons?: ActionButton[];
   imagePosition?: 'left' | 'right';
+  headingClassName?: string;
 }
 
 export async function StorySection({
@@ -31,6 +32,7 @@ export async function StorySection({
   imageAlt,
   buttons,
   imagePosition = 'right',
+  headingClassName,
 }: StorySectionProps = {}) {
   const t = await getTranslations('StorySection');
 
@@ -55,11 +57,19 @@ export async function StorySection({
     .filter(Boolean)
     .join(' ');
 
+  const resolvedHeadingClass = headingClassName
+    ? (styles[headingClassName] ?? headingClassName)
+    : '';
+
+  const headingClasses = [styles.heading, resolvedHeadingClass]
+    .filter(Boolean)
+    .join(' ');
+
   return (
     <section id={id} className={styles.section} aria-labelledby={headingId}>
       <div className={containerClasses}>
         <div className={styles.content}>
-          <h2 id={headingId} className={styles.heading}>
+          <h2 id={headingId} className={headingClasses}>
             {resolvedHeading}
           </h2>
 

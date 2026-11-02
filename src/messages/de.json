@@ -124,5 +124,30 @@
     "description": "Willst du, dass deine Bar ein CREW Hopspot wird? Hol CREW Republic an deine Zapfhähne und biete deinen Gästen ein Bier, das es wert ist, geteilt zu werden. Und wenn du CREW an deinem Lieblingsort genießen möchtest, frag deine Bar vor Ort nach CREW. Auf gute Gesellschaft und besseres Bier.",
     "buttonText": "KONTAKT",
     "imageAlt": "Tap into the CREW - frisches Craft Beer vom Fass"
+  },
+  "BrandStoryPage": {
+    "hero": {
+      "line1": "GEMACHT FÜR GROSSE MOMENTE,",
+      "line2": "GEBRAUT FÜR BLEIBENDE ERINNERUNGEN.",
+      "imageAlt": "CREW Republic Brand Story - Gemacht für große Momente"
+    },
+    "block1": {
+      "heading": "Jeder braucht eine CREW.",
+      "description": "Wir sind soziale Wesen und suchen nach Menschen, die uns erden, aufbauen und uns das Gefühl geben, dazuzugehören. Die uns genau so schätzen, wie wir sind. Ohne viele Worte.",
+      "buttonText": "Merch shoppen",
+      "imageAlt": "Jeder braucht eine CREW - CREW Republic Lifestyle"
+    },
+    "block2": {
+      "heading": "Gemeinschaft macht das Leben zum Erlebnis.",
+      "description": "Unsere besten Erinnerungen entstehen gemeinsam. Sie zu teilen macht alles intensiver, echter und bedeutungsvoller. Die Menschen um uns herum wirken wie Verstärker: Sie drehen das Leben auf und schenken uns die besten Schnappschüsse im Fotoalbum unseres Lebens.",
+      "buttonText": "Ambassador werden",
+      "imageAlt": "Gemeinschaft macht das Leben zum Erlebnis"
+    },
+    "block3": {
+      "heading": "CREW REPUBLIC IST DAS BIER FÜR MOMENTE, DIE ZÄHLEN.",
+      "description": "Wenn das Hopfenaroma trifft, weißt du es sofort: Das ist ein wahrhaft einzigartiges Biererlebnis. Wenn du dieses Gefühl liebst, bist du bereits Teil der CREW – einer Gemeinschaft mit einer gemeinsamen Leidenschaft für unvergessliche Momente mit den Menschen, die dir wichtig sind.",
+      "buttonText": "Bier kaufen",
+      "imageAlt": "CREW Republic Craft Beer Momente, die zählen"
+    }
   }
 }

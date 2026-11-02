@@ -68,6 +68,18 @@
     font-size: 80px;
     line-height: 0.93;
   }
+
+  &.narrowHeading {
+    @include responsive(lg) {
+      max-width: 740px;
+    }
+  }
+
+  &.heading800 {
+    @include responsive(lg) {
+      max-width: 825px;
+    }
+  }
 }
 
 .textBlock {

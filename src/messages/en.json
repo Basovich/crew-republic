@@ -124,5 +124,30 @@
     "description": "Want your bar to become a CREW Hopspot? Bring CREW Republic to your taps and give your guests a beer worth sharing. And if you’d love to enjoy CREW at your favourite spot, ask your local bar to tap into the CREW. Cheers to good company and better beer.",
     "buttonText": "CONTACT US",
     "imageAlt": "Tap into the CREW - fresh craft beer on tap"
+  },
+  "BrandStoryPage": {
+    "hero": {
+      "line1": "MADE FOR GREAT MOMENTS,",
+      "line2": "CRAFTED FOR LASTING MEMORIES.",
+      "imageAlt": "CREW Republic Brand Story - Made for great moments"
+    },
+    "block1": {
+      "heading": "Everyone needs a CREW.",
+      "description": "We're social beings, so we seek out people who keep us grounded, lift us up, and make us feel like we belong. They like us just as we are. No explanations needed.",
+      "buttonText": "Shop Merch",
+      "imageAlt": "Everyone needs a CREW - CREW Republic lifestyle"
+    },
+    "block2": {
+      "heading": "Community turns life into an experience.",
+      "description": "Our best memories are made together. Sharing them makes everything richer, more real, more meaningful. The people around us act like amplifiers, turning life up, and giving us the best snapshots in the photo album of our lives.",
+      "buttonText": "Become ambassador",
+      "imageAlt": "Community turns life into an experience"
+    },
+    "block3": {
+      "heading": "CREW REPUBLIC IS THE BEER FOR MOMENTS THAT MATTER.",
+      "description": "When the hop flavor hits, you just know: this is a truly unique beer experience. If you love that feeling, you're already part of the CREW – a community with a shared passion for unforgettable moments with the people who matter.",
+      "buttonText": "Buy some beer",
+      "imageAlt": "CREW Republic craft beer moments that matter"
+    }
   }
 }
