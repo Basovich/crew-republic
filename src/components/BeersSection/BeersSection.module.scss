@@ -207,11 +207,6 @@
   pointer-events: none;
   z-index: 1;
 
-  @include responsive(sm) {
-    //bottom: -22px;
-    //transform: translateX(-50%) scale(1.32);
-  }
-
   @include responsive(xl) {
     bottom: -62px;
     transform: translateX(-50%) scale(1.5);
