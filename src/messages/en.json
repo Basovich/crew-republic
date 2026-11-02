@@ -93,5 +93,18 @@
       "tagline": "RED ALE",
       "alt": "FireSide Red Ale glass"
     }
+  },
+  "AwardsSection": {
+    "heading": "YOUR CREW DESERVES THE BEST.",
+    "ariaLabel": "Brewery and beer awards",
+    "awards": {
+      "award1": "World Beer Awards Germany Gold 2023",
+      "award2": "European Beer Star The Beer Tasting Gold Award",
+      "award3": "World Beer Awards Germany Gold 2022",
+      "award4": "Meininger's International Craft Beer Award Gold 2022",
+      "award5": "Meininger's International Craft Beer Award Gold 2021",
+      "award6": "Brussels Beer Challenge Gold Medal 2021",
+      "award7": "World Beer Awards World's Best IPA 2020"
+    }
   }
 }
