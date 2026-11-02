@@ -14,7 +14,7 @@
   }
 
   @include responsive(lg) {
-    padding: 64px 40px 104px;
+    padding: 120px 40px 104px;
   }
 }
 
@@ -90,18 +90,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  //gap: 16px;
   box-sizing: border-box;
 
   @include responsive(sm) {
     flex: 0 0 260px;
-    //gap: 20px;
   }
 
   @include responsive(lg) {
     flex: 1 1 382px;
     max-width: 384px;
-    //gap: 32px;
   }
 
   @include hover {
@@ -129,6 +126,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 325px;
+
+  @include responsive(lg) {
+    height: 500px;
+  }
+
+  @include hover {
+    cursor: pointer;
+  }
 }
 
 .imageWrapper {
@@ -137,7 +143,7 @@
   height: 270px;
   overflow: visible;
   transform: scale(1);
-  transform-origin: center bottom;
+  transform-origin: center;
   transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
 
   @include responsive(sm) {
@@ -153,22 +159,21 @@
 .imageWrapperGlass {
   height: 295px;
   transform: scale(1.1);
-  transform-origin: center bottom;
+  transform-origin: center;
 
   @include responsive(sm) {
     height: 338px;
-    transform: scale(1.1);
   }
 
   @include responsive(lg) {
     height: 400px;
-    transform: scale(1.1);
+    margin-top: -10px;
   }
 }
 
 .image {
   object-fit: contain;
-  object-position: center bottom;
+  object-position: center;
   filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.8));
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -215,11 +220,11 @@
 
 /* Boost subtle can floor reflection so it is clearly visible against the pure black (#000) background */
 .shadowWrapperCan .shadowImage {
-  filter: contrast(1.4) brightness(3.8);
+  //filter: contrast(1.4) brightness(3.8);
 }
 
 .shadowWrapperGlass .shadowImage {
-  filter: contrast(1.2) brightness(2.2);
+  //filter: contrast(1.2) brightness(2.2);
 }
 
 .shadowImage {
