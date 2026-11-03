@@ -28,7 +28,44 @@
     "drunkenSailor": {
       "title": "Drunken Sailor IPA",
       "heading": "DRUNKEN SAILOR",
-      "description": "Drunken Sailor IPA - Full-bodied, classic India Pale Ale brewed with passion by CREW Republic."
+      "subtitle": "INDIA PALE ALE",
+      "description": "Drunken Sailor IPA - Full-bodied, classic India Pale Ale brewed with passion by CREW Republic.",
+      "intro": {
+        "title": "Weigh the Anchor, Hoist the Sails...",
+        "p1": "Waves several meters high. Howling wind. That was daily life for the British sailors who shipped beer to India. To survive the months-long voyage, the beer needed plenty of hops and real strength.",
+        "p2": "Drunken Sailor IPA brings that adventure and bold flavor into the 21st century. Ahoy!"
+      },
+      "stats": {
+        "ariaLabel": "Drunken Sailor stats"
+      },
+      "tastometer": {
+        "hopsTitle": "Hops",
+        "hopsValue": "Herkules, Citra, Cascade, Simcoe",
+        "maltTitle": "Malt",
+        "maltValue": "Pilsner, Munich, caramel malt",
+        "colorTitle": "Color",
+        "colorValue": "Deep orange",
+        "tempTitle": "Serving temperature",
+        "tempValue": "6–8°C"
+      },
+      "match": {
+        "tasteTitle": "Taste",
+        "tasteText": "Full-bodied & hoppy. Tropical fruit and citrus notes, intense yet well-rounded.",
+        "drinkWithTitle": "DRINK WITH",
+        "drinkWithText": "The CREW enjoys Drunken Sailor with Thai cuisine as well as steaks and burgers!"
+      },
+      "food": {
+        "ariaLabel": "Food pairing recommendations"
+      },
+      "awards": {
+        "title": "Certified Awesomeness.",
+        "ariaLabel": "Drunken Sailor awards"
+      },
+      "shop": {
+        "heading": "Grab yours now!",
+        "button": "Buy Drunken sailor",
+        "url": "https://crewrepublic.de/shop"
+      }
     },
     "jackpot": {
       "title": "Jackpot Hazy IPA",

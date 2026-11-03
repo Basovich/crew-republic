@@ -1,0 +1,569 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.experienceWrapper {
+  position: relative;
+  width: 100%;
+  background-color: #000000;
+  color: #ffffff;
+  overflow: clip;
+}
+
+// -----------------------------------------------------------------------------
+// Interactive Story Track (Enclosing Intro through Awards)
+// -----------------------------------------------------------------------------
+.storyTrack {
+  position: relative;
+  width: 100%;
+}
+
+// -----------------------------------------------------------------------------
+// Sticky Bottle Stage
+// -----------------------------------------------------------------------------
+.stickyStage {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  margin-bottom: -100vh;
+  margin-bottom: -100svh;
+  pointer-events: none;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.bottleViewport {
+  position: relative;
+  width: 320px;
+  height: 540px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform, opacity;
+  transform-origin: center center;
+
+  @include responsive(sm) {
+    width: 380px;
+    height: 620px;
+  }
+
+  @include responsive(md) {
+    width: 460px;
+    height: 720px;
+  }
+
+  @include responsive(lg) {
+    width: 588px;
+    height: 840px;
+  }
+}
+
+.lottieContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Hero Header Typography
+// -----------------------------------------------------------------------------
+.heroShell {
+  position: relative;
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 120px 24px 60px;
+  z-index: 5;
+
+  @include responsive(md) {
+    min-height: 90vh;
+    padding: 140px 60px 80px;
+  }
+}
+
+.heroBackground {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  max-width: 492px;
+  height: auto;
+  pointer-events: none;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include responsive(md) {
+    width: 100%;
+    max-width: 798px;
+  }
+}
+
+.anchorSvg {
+  width: 100%;
+  height: auto;
+  max-width: 798px;
+  max-height: 974px;
+  object-fit: contain;
+  user-select: none;
+}
+
+.heroHeadings {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  pointer-events: none;
+
+  @include responsive(md) {
+    flex-direction: row;
+    align-items: center;
+    gap: 0;
+    padding: 0 40px;
+  }
+}
+
+.headingLeft {
+  text-align: center;
+  width: 100%;
+
+  @include responsive(md) {
+    text-align: left;
+    width: auto;
+  }
+}
+
+.headingRight {
+  text-align: center;
+  width: 100%;
+
+  @include responsive(md) {
+    text-align: right;
+    width: auto;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Content Sections Layout
+// -----------------------------------------------------------------------------
+.contentSection {
+  position: relative;
+  width: 100%;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  z-index: 5;
+
+  @include responsive(md) {
+    min-height: 85vh;
+    padding: 120px 60px;
+  }
+}
+
+.contentContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+// -----------------------------------------------------------------------------
+// Section 1: Intro
+// -----------------------------------------------------------------------------
+.introWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  gap: 32px;
+
+  @include responsive(md) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 48px;
+  }
+}
+
+.introLeft {
+  width: 100%;
+
+  @include responsive(md) {
+    width: 380px;
+    max-width: 380px;
+  }
+}
+
+.introRight {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @include responsive(md) {
+    width: 380px;
+    max-width: 380px;
+    margin-left: auto;
+  }
+}
+
+.introTitle {
+  margin: 0;
+}
+
+.introText {
+  margin: 0;
+  font-family: var(--font-geist-sans), sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ffffff;
+
+  @include responsive(md) {
+    font-size: 18px;
+    line-height: 1.7;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Section 2: Stats
+// -----------------------------------------------------------------------------
+.statsSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.statsGraphicWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.statsGraphicDesktop {
+  display: none;
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+
+  @include responsive(md) {
+    display: block;
+  }
+}
+
+.statsGraphicMobile {
+  display: block;
+  width: 100%;
+  max-width: 358px;
+  height: auto;
+
+  @include responsive(md) {
+    display: none;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Section 3: Tastometer
+// -----------------------------------------------------------------------------
+.tastometerSection {
+  display: flex;
+  align-items: center;
+}
+
+.tastometerGrid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+
+  @include responsive(md) {
+    flex-direction: row;
+    gap: 32px;
+  }
+}
+
+.tastometerLeft {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.tastecardDesktop {
+  display: none;
+  width: 100%;
+  max-width: 486px;
+  height: auto;
+
+  @include responsive(md) {
+    display: block;
+  }
+}
+
+.tastecardMobile {
+  display: block;
+  width: 100%;
+  max-width: 358px;
+  height: auto;
+
+  @include responsive(md) {
+    display: none;
+  }
+}
+
+.tastometerRight {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+
+  @include responsive(md) {
+    padding-left: 48px;
+  }
+}
+
+.tastometerItem {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  @include responsive(md) {
+    gap: 12px;
+  }
+}
+
+.paramValue {
+  font-family: var(--font-geist-sans), sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #d1d5db;
+
+  @include responsive(md) {
+    font-size: 18px;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Section 4: Match
+// -----------------------------------------------------------------------------
+.matchGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+
+  @include responsive(md) {
+    gap: 96px;
+  }
+}
+
+.matchRowLeft {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.matchRowRight {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.matchCard {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @include responsive(md) {
+    max-width: 380px;
+    gap: 24px;
+  }
+}
+
+.matchText {
+  font-family: var(--font-geist-sans), sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #d1d5db;
+
+  @include responsive(md) {
+    font-size: 18px;
+    line-height: 1.7;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Section 5: Food
+// -----------------------------------------------------------------------------
+.foodSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.foodGraphicWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.foodGraphicDesktop {
+  display: none;
+  width: 100%;
+  max-width: 1245px;
+  height: auto;
+
+  @include responsive(md) {
+    display: block;
+  }
+}
+
+.foodGraphicMobile {
+  display: block;
+  width: 100%;
+  max-width: 358px;
+  height: auto;
+
+  @include responsive(md) {
+    display: none;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Section 6: Awards (Final Stage for Bottle Animation)
+// -----------------------------------------------------------------------------
+.awardsSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 120px;
+}
+
+.awardsGrid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+
+  @include responsive(md) {
+    flex-direction: row;
+    gap: 64px;
+  }
+}
+
+.awardsLeft {
+  flex: 1;
+  text-align: center;
+
+  @include responsive(md) {
+    text-align: left;
+  }
+}
+
+.awardsRight {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.awardsGraphicDesktop {
+  display: none;
+  width: 100%;
+  max-width: 384px;
+  height: auto;
+
+  @include responsive(md) {
+    display: block;
+  }
+}
+
+.awardsGraphicMobile {
+  display: block;
+  width: 100%;
+  max-width: 80px;
+  height: auto;
+
+  @include responsive(md) {
+    display: none;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Section 7: Shop (Outside the Bottle Track)
+// -----------------------------------------------------------------------------
+.shopSection {
+  position: relative;
+  width: 100%;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 24px;
+  z-index: 30;
+  background-color: #000000;
+
+  @include responsive(md) {
+    min-height: 80vh;
+    padding: 140px 60px;
+  }
+}
+
+.shopWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 40px;
+
+  @include responsive(md) {
+    gap: 60px;
+  }
+}
+
+.shopHeadline {
+  font-size: 48px;
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+
+  @include responsive(sm) {
+    font-size: 72px;
+  }
+
+  @include responsive(md) {
+    font-size: 110px;
+  }
+
+  @include responsive(lg) {
+    font-size: 150px;
+  }
+
+  @include responsive(xl) {
+    font-size: 180px;
+  }
+}
+

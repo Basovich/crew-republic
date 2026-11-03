@@ -1,0 +1,400 @@
+'use client';
+
+import React, { useRef, useEffect } from 'react';
+import Image from 'next/image';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+import type { AnimationItem } from 'lottie-web';
+import { Heading } from '@/components/Heading';
+import { Button } from '@/components/Button/Button';
+import styles from './DrunkenSailor.module.scss';
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
+
+interface DrunkenSailorExperienceProps {
+  t: {
+    heading: string;
+    subtitle: string;
+    intro: {
+      title: string;
+      p1: string;
+      p2: string;
+    };
+    stats: {
+      ariaLabel: string;
+    };
+    tastometer: {
+      hopsTitle: string;
+      hopsValue: string;
+      maltTitle: string;
+      maltValue: string;
+      colorTitle: string;
+      colorValue: string;
+      tempTitle: string;
+      tempValue: string;
+    };
+    match: {
+      tasteTitle: string;
+      tasteText: string;
+      drinkWithTitle: string;
+      drinkWithText: string;
+    };
+    food: {
+      ariaLabel: string;
+    };
+    awards: {
+      title: string;
+      ariaLabel: string;
+    };
+    shop: {
+      heading: string;
+      button: string;
+      url: string;
+    };
+  };
+}
+
+export function DrunkenSailorExperience({ t }: DrunkenSailorExperienceProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const storyTrackRef = useRef<HTMLDivElement>(null);
+  const lottieContainerRef = useRef<HTMLDivElement>(null);
+  const bottleViewportRef = useRef<HTMLDivElement>(null);
+  const animRef = useRef<AnimationItem | null>(null);
+
+  // ---------------------------------------------------------------------------
+  // Lottie Animation Loading & ScrollTrigger Binding
+  // ---------------------------------------------------------------------------
+  useEffect(() => {
+    let isCancelled = false;
+
+    async function initLottie() {
+      if (!lottieContainerRef.current) return;
+
+      const lottieModule = await import('lottie-web');
+      const lottie = lottieModule.default || lottieModule;
+
+      if (isCancelled) return;
+
+      // Clean up previous instance if any
+      if (animRef.current) {
+        animRef.current.destroy();
+      }
+
+      const anim = lottie.loadAnimation({
+        container: lottieContainerRef.current,
+        renderer: 'svg',
+        loop: false,
+        autoplay: false,
+        path: '/images/drunken-sailor/animations/DS_High_Angel_30.json',
+      });
+
+      animRef.current = anim;
+
+      anim.addEventListener('DOMLoaded', () => {
+        if (isCancelled) return;
+        ScrollTrigger.refresh();
+      });
+    }
+
+    initLottie();
+
+    return () => {
+      isCancelled = true;
+      if (animRef.current) {
+        animRef.current.destroy();
+        animRef.current = null;
+      }
+    };
+  }, []);
+
+  // ---------------------------------------------------------------------------
+  // GSAP ScrollTrigger Sequence across the Story Track
+  // ---------------------------------------------------------------------------
+  useGSAP(
+    () => {
+      const prefersReducedMotion = window.matchMedia(
+        '(prefers-reduced-motion: reduce)'
+      ).matches;
+
+      if (!storyTrackRef.current || !bottleViewportRef.current) return;
+
+      const totalFrames = 89; // 0 to 89
+
+      // 1. Scrub Lottie animation based on storyTrack scroll progress
+      ScrollTrigger.create({
+        trigger: storyTrackRef.current,
+        start: 'top top',
+        end: 'bottom bottom',
+        scrub: 1,
+        onUpdate: (self) => {
+          if (animRef.current && !prefersReducedMotion) {
+            const frame = self.progress * totalFrames;
+            animRef.current.goToAndStop(frame, true);
+          }
+        },
+      });
+    },
+    { scope: containerRef }
+  );
+
+  return (
+    <div className={styles.experienceWrapper} ref={containerRef}>
+      {/* -------------------------------------------------------------------- */}
+      {/* Interactive Story Track (Intro through Awards)                         */}
+      {/* -------------------------------------------------------------------- */}
+      <div className={styles.storyTrack} ref={storyTrackRef}>
+        {/* Sticky Lottie Stage anchored throughout this track only */}
+        <div className={styles.stickyStage} aria-hidden="true">
+          <div className={styles.bottleViewport} ref={bottleViewportRef}>
+            <div className={styles.lottieContainer} ref={lottieContainerRef} />
+          </div>
+        </div>
+
+        {/* Hero Typography Shell */}
+        <div className={styles.heroShell}>
+          {/* Background Anchor Watermark */}
+          <div className={styles.heroBackground} aria-hidden="true">
+            <Image
+              src="/images/drunken-sailor/hero-anchor-bg.svg"
+              alt=""
+              width={798}
+              height={974}
+              priority
+              className={styles.anchorSvg}
+            />
+          </div>
+
+          <div className={styles.heroHeadings}>
+            <div className={styles.headingLeft}>
+              <Heading level="h1" as="h1">
+                DRUNKEN
+                <br />
+                SAILOR
+              </Heading>
+            </div>
+            <div className={styles.headingRight}>
+              <Heading level="h1" as="span">
+                INDIA
+                <br />
+                PALE ALE
+              </Heading>
+            </div>
+          </div>
+        </div>
+
+        {/* Section 1: Intro */}
+        <section className={styles.contentSection} id="intro">
+          <div className={styles.contentContainer}>
+            <div className={styles.introWrapper}>
+              <div className={styles.introLeft}>
+                <Heading level="h2" as="h2" className={styles.introTitle}>
+                  {t.intro.title}
+                </Heading>
+              </div>
+              <div className={styles.introRight}>
+                <p className={styles.introText}>{t.intro.p1}</p>
+                <p className={styles.introText}>{t.intro.p2}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 2: Stats Graphic */}
+        <section
+          className={`${styles.contentSection} ${styles.statsSection}`}
+          id="stats"
+          aria-label={t.stats.ariaLabel}
+        >
+          <div className={styles.contentContainer}>
+            <div className={styles.statsGraphicWrapper}>
+              <div className={styles.statsGraphicDesktop}>
+                <Image
+                  src="/images/drunken-sailor/stats/stats-desktop.svg"
+                  alt={t.stats.ariaLabel}
+                  width={1200}
+                  height={675}
+                  priority
+                />
+              </div>
+              <div className={styles.statsGraphicMobile}>
+                <Image
+                  src="/images/drunken-sailor/stats/stats-mobile.svg"
+                  alt={t.stats.ariaLabel}
+                  width={358}
+                  height={675}
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 3: Tastometer */}
+        <section
+          className={`${styles.contentSection} ${styles.tastometerSection}`}
+          id="tastometer"
+        >
+          <div className={styles.contentContainer}>
+            <div className={styles.tastometerGrid}>
+              <div className={styles.tastometerLeft}>
+                <div className={styles.tastecardDesktop}>
+                  <Image
+                    src="/images/drunken-sailor/tastometer/tastecard-desktop.svg"
+                    alt="Drunken Sailor Taste Card"
+                    width={486}
+                    height={512}
+                  />
+                </div>
+                <div className={styles.tastecardMobile}>
+                  <Image
+                    src="/images/drunken-sailor/tastometer/tastecard-mobile.svg"
+                    alt="Drunken Sailor Taste Card"
+                    width={358}
+                    height={331}
+                  />
+                </div>
+              </div>
+
+              <div className={styles.tastometerRight}>
+                <div className={styles.tastometerItem}>
+                  <Heading level="h4" as="h3">
+                    {t.tastometer.hopsTitle}
+                  </Heading>
+                  <p className={styles.paramValue}>{t.tastometer.hopsValue}</p>
+                </div>
+                <div className={styles.tastometerItem}>
+                  <Heading level="h4" as="h3">
+                    {t.tastometer.maltTitle}
+                  </Heading>
+                  <p className={styles.paramValue}>{t.tastometer.maltValue}</p>
+                </div>
+                <div className={styles.tastometerItem}>
+                  <Heading level="h4" as="h3">
+                    {t.tastometer.colorTitle}
+                  </Heading>
+                  <p className={styles.paramValue}>{t.tastometer.colorValue}</p>
+                </div>
+                <div className={styles.tastometerItem}>
+                  <Heading level="h4" as="h3">
+                    {t.tastometer.tempTitle}
+                  </Heading>
+                  <p className={styles.paramValue}>{t.tastometer.tempValue}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 4: Match */}
+        <section className={styles.contentSection} id="match">
+          <div className={styles.contentContainer}>
+            <div className={styles.matchGrid}>
+              <div className={styles.matchRowLeft}>
+                <div className={styles.matchCard}>
+                  <Heading level="h2" as="h2">
+                    {t.match.tasteTitle}
+                  </Heading>
+                  <p className={styles.matchText}>{t.match.tasteText}</p>
+                </div>
+              </div>
+
+              <div className={styles.matchRowRight}>
+                <div className={styles.matchCard}>
+                  <Heading level="h2" as="h2">
+                    {t.match.drinkWithTitle}
+                  </Heading>
+                  <p className={styles.matchText}>{t.match.drinkWithText}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 5: Food Graphic */}
+        <section
+          className={`${styles.contentSection} ${styles.foodSection}`}
+          id="food"
+          aria-label={t.food.ariaLabel}
+        >
+          <div className={styles.contentContainer}>
+            <div className={styles.foodGraphicWrapper}>
+              <div className={styles.foodGraphicDesktop}>
+                <Image
+                  src="/images/drunken-sailor/food/food-desktop.svg"
+                  alt={t.food.ariaLabel}
+                  width={1245}
+                  height={545}
+                />
+              </div>
+              <div className={styles.foodGraphicMobile}>
+                <Image
+                  src="/images/drunken-sailor/food/food-mobile.svg"
+                  alt={t.food.ariaLabel}
+                  width={358}
+                  height={840}
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 6: Awards (Final block for the bottle animation) */}
+        <section
+          className={`${styles.contentSection} ${styles.awardsSection}`}
+          id="awards"
+          aria-label={t.awards.ariaLabel}
+        >
+          <div className={styles.contentContainer}>
+            <div className={styles.awardsGrid}>
+              <div className={styles.awardsLeft}>
+                <Heading level="h2" as="h2">
+                  {t.awards.title}
+                </Heading>
+              </div>
+              <div className={styles.awardsRight}>
+                <div className={styles.awardsGraphicDesktop}>
+                  <Image
+                    src="/images/drunken-sailor/awards/awards-desktop.svg"
+                    alt={t.awards.ariaLabel}
+                    width={384}
+                    height={630}
+                  />
+                </div>
+                <div className={styles.awardsGraphicMobile}>
+                  <Image
+                    src="/images/drunken-sailor/awards/awards-mobile.svg"
+                    alt={t.awards.ariaLabel}
+                    width={80}
+                    height={528}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      {/* -------------------------------------------------------------------- */}
+      {/* Section 7: Shop (Outside the Bottle Track - Bottle does not enter)      */}
+      {/* -------------------------------------------------------------------- */}
+      <section className={styles.shopSection} id="shop">
+        <div className={styles.shopWrapper}>
+          <Heading level="h1" as="h2" className={styles.shopHeadline}>
+            {t.shop.heading}
+          </Heading>
+
+          <Button
+            variant="primary"
+            size="giant"
+            href={t.shop.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {t.shop.button}
+          </Button>
+        </div>
+      </section>
+    </div>
+  );
+}
+
