@@ -43,7 +43,7 @@
     "contact": {
       "title": "Kontakt",
       "heading": "KONTAKT",
-      "description": "Kontaktiere die Brauerei CREW Republic in Unterschleißheim / München."
+      "description": "Kontaktiere die Brauerei CREW Republic. Schreib uns eine Nachricht und erreiche das richtige Crew-Mitglied."
     },
     "privacyPolicy": {
       "title": "Datenschutzerklärung",
@@ -210,6 +210,26 @@
       ],
       "vat": "Umsatzsteuer-Identifikationsnummer: DE815787839",
       "court": "Amtsgericht Köln, HRB 127751"
+    }
+  },
+  "ContactPage": {
+    "hero": {
+      "line1": "KONTAKTIERE DAS RICHTIGE",
+      "line2": "CREW MITGLIED.",
+      "imageAlt": "CREW Republic Craft-Bier Gläser auf Holztisch - Kontaktiere das richtige Crew-Mitglied"
+    },
+    "content": {
+      "heading": "SAY HI TO THE CREW.",
+      "description1": "Möchtest du eine Crewlaboration starten und gutes CREW Republic Bier in deinem Laden, Pub oder Gastro-Betrieb verkaufen? Oder hast du Fragen oder Ideen? Sei nicht schüchtern – sag einfach Hallo!",
+      "description2": "Schreib uns eine Nachricht und wir melden uns bei dir.",
+      "description3": "Großes CREW-Ehrenwort – von einem CREW-Mitglied zum anderen.",
+      "emailButton": "CREW@CREWREPUBLIC.DE"
+    },
+    "banner": {
+      "heading": "CREW LOVE IS TRUE LOVE. SHARE YOUR LOVE!",
+      "imageAlt": "Freunde teilen Craft-Beer Momente - CREW Love is True Love",
+      "btnShop": "GRAB SOME MORE",
+      "btnUntappd": "RATE ON UNTAPPD"
     }
   }
 }

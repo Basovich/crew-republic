@@ -43,7 +43,7 @@
     "contact": {
       "title": "Contact",
       "heading": "CONTACT",
-      "description": "Get in touch with CREW Republic craft brewery in Unterschleißheim / Munich."
+      "description": "Get in touch with CREW Republic craft brewery. Drop us a message and contact the right crew member."
     },
     "privacyPolicy": {
       "title": "Privacy Policy",
@@ -210,6 +210,26 @@
       ],
       "vat": "Value-Added Tax (VAT) Identification Number: DE815787839",
       "court": "Cologne Local Court, HRB 127751"
+    }
+  },
+  "ContactPage": {
+    "hero": {
+      "line1": "CONTACT THE RIGHT",
+      "line2": "CREW MEMBER.",
+      "imageAlt": "CREW Republic craft beer glasses on wooden table - Contact the right crew member"
+    },
+    "content": {
+      "heading": "SAY HI TO THE CREW.",
+      "description1": "Want to crewlaborate and sell some good CREW Republic beer at your store, pub or gastro business? Or do you have any questions or ideas? Don't be shy – just say hi!",
+      "description2": "Drop us a message and we'll get back to you.",
+      "description3": "Pinky promise – from one CREW member to another.",
+      "emailButton": "CREW@CREWREPUBLIC.DE"
+    },
+    "banner": {
+      "heading": "CREW LOVE IS TRUE LOVE. SHARE YOUR LOVE!",
+      "imageAlt": "Friends sharing craft beer moments - CREW Love is True Love",
+      "btnShop": "GRAB SOME MORE",
+      "btnUntappd": "RATE ON UNTAPPD"
     }
   }
 }
