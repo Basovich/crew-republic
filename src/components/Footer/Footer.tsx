@@ -76,14 +76,12 @@ export function Footer() {
           <div className={`${styles.column} ${styles.colOurService}`}>
             <span className={styles.columnTagline}>{t('ourService')}</span>
             <nav className={styles.linksNav} aria-label={t('ourService')}>
-              <a
-                href="https://www.crew-republic-shop.de/Rechtliches/Datenschutz-Cookies/"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/privacy-policy"
                 className={styles.drukLink}
               >
                 {t('privacyPolicy')}
-              </a>
+              </Link>
               <a
                 href="https://www.crew-republic-shop.de/Infos-Hinweise/AGB/"
                 target="_blank"

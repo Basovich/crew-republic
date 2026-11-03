@@ -44,6 +44,11 @@
       "title": "Contact",
       "heading": "CONTACT",
       "description": "Get in touch with CREW Republic craft brewery in Unterschleißheim / Munich."
+    },
+    "privacyPolicy": {
+      "title": "Privacy Policy",
+      "heading": "PRIVACY POLICY",
+      "description": "Privacy policy and data protection information of CREW Republic Brewery GmbH."
     }
   },
   "Footer": {
@@ -148,6 +153,31 @@
       "description": "When the hop flavor hits, you just know: this is a truly unique beer experience. If you love that feeling, you're already part of the CREW – a community with a shared passion for unforgettable moments with the people who matter.",
       "buttonText": "Buy some beer",
       "imageAlt": "CREW Republic craft beer moments that matter"
+    }
+  },
+  "PrivacyPolicyPage": {
+    "hero": {
+      "line1": "BORING, BUT THERE’S",
+      "line2": "NO WAY AROUND IT.",
+      "imageAlt": "CREW Republic Privacy Policy - Data protection and privacy information"
+    },
+    "content": {
+      "heading": "Data Privacy",
+      "sections": [
+        "1) Introduction and Contact Details of the Controller\n1.1 We are pleased that you are visiting our website and thank you for your interest. Below, we inform you about the handling of your personal data when using our website. Personal data is any data by which you can be personally identified.\n1.2 The controller for data processing on this website within the meaning of the General Data Protection Regulation (GDPR) is CREW Republic Brewery GmbH, Andreas-Danzer-Weg 30, 85716 Unterschleißheim, Germany, Tel.: 089 411471290, Email: crew@crewrepublic.de.",
+        "2) Data Collection When Visiting Our Website\n2.1 During the purely informative use of our website, we only collect data that your browser transmits to the site server (so-called \"server log files\"). These include: visited website, date and time of access, amount of data sent, source/referrer, browser type, operating system, and IP address (in anonymized form). Processing is carried out pursuant to Art. 6(1)(f) GDPR based on our legitimate interest in improving the stability and functionality of our website.\n2.2 For security reasons and to protect the transmission of personal data and other confidential content, this website uses SSL/TLS encryption.",
+        "3) Cookies\nIn order to make visiting our website attractive and to enable the use of certain functions, we use cookies. Some cookies are deleted after closing the browser (session cookies), while others remain on your device (persistent cookies). Processing is carried out in accordance with Art. 6(1)(b) GDPR for contract performance, Art. 6(1)(a) GDPR with consent, or Art. 6(1)(f) GDPR for legitimate interests. You can configure your browser to inform you about the setting of cookies.",
+        "4) Contacting Us\nWhen contacting us (e.g. via contact form or email), personal data is processed solely for the purpose of handling and responding to your request and only to the necessary extent pursuant to Art. 6(1)(f) GDPR or Art. 6(1)(b) GDPR.",
+        "5) Data Processing When Opening a Customer Account\nPursuant to Art. 6(1)(b) GDPR, personal data continues to be collected and processed to the extent required when opening a customer account. Deletion of your customer account is possible at any time by contacting the controller.",
+        "6) Use of Customer Data for Direct Advertising\n6.1 Subscription to our email newsletter (Double Opt-In, Art. 6(1)(a) GDPR). You may unsubscribe at any time via the link in the newsletter.\n6.2 Newsletter dispatch to existing customers (Art. 6(1)(f) GDPR in accordance with § 7(3) UWG).\n6.3 Cart reminders via email (Double Opt-In, Art. 6(1)(a) GDPR).",
+        "7) Data Processing for Order Processing\n7.1 Forwarding to transport companies and credit institutions for contract fulfillment (Art. 6(1)(b) GDPR).\n7.2 Order processing via PlentyONE GmbH.\n7.3 Forwarding to shipping service providers: DHL Paket GmbH, DPD Deutschland GmbH, United Parcel Service (UPS).\n7.4 Payment service providers: Mollie B.V. for secure online payment processing.",
+        "8) Online Marketing\nGoogle AdSense: Web advertising service by Google Ireland Limited. Uses cookies and web beacons. Processing only takes place with explicit consent pursuant to Art. 6(1)(a) GDPR.",
+        "9) Web Analytics Services\nGoogle Analytics 4: Web analysis service by Google Ireland Limited with IP anonymization. Demographic features, Google Signals, and UserIDs are used with consent pursuant to Art. 6(1)(a) GDPR. Data is stored for two months.",
+        "10) Retargeting, Remarketing and Conversion Tracking\n10.1 Meta Pixel with advanced matching (Meta Platforms Ireland Limited).\n10.2 Google Ads Remarketing.\n10.3 Google Ads Conversion Tracking and Customer Match.",
+        "11) Site Functionalities\n11.1 Vimeo: Plugins for video playback.\n11.2 Google Maps: Interactive map service for location display.\n11.3 Google Web Fonts: Uniform display of fonts.",
+        "12) Rights of the Data Subject\n12.1 Under GDPR, you have the right to access (Art. 15), rectification (Art. 16), erasure (Art. 17), restriction of processing (Art. 18), data portability (Art. 20), revocation of consent (Art. 7(3)), and right to lodge a complaint with a supervisory authority (Art. 77).\n12.2 RIGHT TO OBJECT: You have the right to object at any time to processing based on legitimate interests or for direct marketing purposes.",
+        "13) Duration of Storage of Personal Data\nThe storage period is determined based on the respective legal basis, processing purpose, and statutory retention periods. After retention periods expire, data is routinely erased."
+      ]
     }
   }
 }

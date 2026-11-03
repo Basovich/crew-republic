@@ -1,0 +1,114 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.heading {
+  margin: 0;
+  color: #ffffff;
+  text-transform: uppercase;
+  word-break: break-word;
+}
+
+// -----------------------------------------------------------------------------
+// Level variants
+// -----------------------------------------------------------------------------
+
+.h1 {
+  font-family: $font-druk;
+  font-weight: 900;
+  font-size: 56px;
+  line-height: 0.92;
+  letter-spacing: 0.02em;
+
+  @include responsive(md) {
+    font-size: 80px;
+  }
+
+  @include responsive(lg) {
+    font-size: 104px;
+  }
+}
+
+.h2 {
+  font-family: $font-druk;
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 0.92;
+  letter-spacing: 0.02em;
+
+  @include responsive(md) {
+    font-size: 64px;
+  }
+
+  @include responsive(lg) {
+    font-size: 80px;
+  }
+}
+
+.h3 {
+  font-family: $font-druk;
+  font-weight: 900;
+  font-size: 36px;
+  line-height: 0.96;
+  letter-spacing: 0.02em;
+
+  @include responsive(lg) {
+    font-size: 40px;
+  }
+}
+
+.h4 {
+  font-family: $font-druk;
+  font-weight: 900;
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: 0.025em;
+}
+
+.h5 {
+  font-family: $font-druk;
+  font-weight: 900;
+  font-size: 26px;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+
+  @include responsive(lg) {
+    font-size: 24px;
+  }
+}
+
+.h6 {
+  font-family: $font-druk;
+  font-weight: 900;
+  font-size: 22px;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+}
+
+.tagline {
+  font-family: $font-sans;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+
+  @include responsive(lg) {
+    font-size: 18px;
+  }
+}
+
+.highlight {
+  font-family: $font-druk;
+  font-weight: 900;
+  font-size: 96px;
+  line-height: 0.92;
+  letter-spacing: 0.02em;
+
+  @include responsive(md) {
+    font-size: 140px;
+  }
+
+  @include responsive(lg) {
+    font-size: 200px;
+  }
+}
+
