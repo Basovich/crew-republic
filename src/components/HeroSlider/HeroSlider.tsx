@@ -3,8 +3,12 @@
 import React, { useRef, useEffect } from 'react';
 import Image from 'next/image';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 import { Heading } from '@/components/Heading';
 import styles from './HeroSlider.module.scss';
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 interface Slide {
   id: number;
@@ -210,6 +214,108 @@ export function HeroSlider({
       mm.revert();
     };
   }, []);
+
+  // ---------------------------------------------------------------------------
+  // GSAP Entrance & Scroll Parallax Animation
+  // ---------------------------------------------------------------------------
+  useGSAP(
+    () => {
+      const prefersReducedMotion = window.matchMedia(
+        '(prefers-reduced-motion: reduce)'
+      ).matches;
+
+      if (prefersReducedMotion) return;
+
+      const slider = containerRef.current;
+      const wordChunks = slider?.querySelectorAll(`.${styles.wordChunk}`);
+      const overlay = slider?.querySelector(`.${styles.overlay}`);
+
+      if (!slider || !wordChunks || wordChunks.length === 0) return;
+
+      // 1. Entrance timeline
+      const tl = gsap.timeline({
+        defaults: { ease: 'power3.out' },
+        delay: 0.1,
+      });
+
+      // Images scale-up + blur reveal
+      tl.fromTo(
+        slider,
+        {
+          opacity: 0,
+          scale: 0.93,
+          y: 35,
+          filter: 'blur(10px)',
+        },
+        {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          filter: 'blur(0px)',
+          duration: 1.3,
+          ease: 'power3.out',
+        }
+      );
+
+      // Headline 3D reveal from below with stagger
+      tl.fromTo(
+        wordChunks,
+        {
+          opacity: 0,
+          y: 80,
+          rotateX: 25,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          rotateX: 0,
+          stagger: 0.1,
+          duration: 1.0,
+          ease: 'power4.out',
+        },
+        '-=0.9'
+      );
+
+      // 2. ScrollTrigger Parallax & Fade-out on scroll down
+      // Use headline inside overlay to preserve translateX(-50%) positioning
+      const headline = overlay?.querySelector(`.${styles.headline}`);
+
+      if (headline) {
+        gsap.to(headline, {
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: 1,
+          },
+          y: -80,
+          scale: 0.92,
+          opacity: 0,
+          ease: 'none',
+        });
+      }
+
+      // Parallax on tracks inside slider instead of root slider container
+      const desktopTrack = containerRef.current?.querySelector(`.${styles.desktopTrack}`);
+      const mobileTrack = containerRef.current?.querySelector(`.${styles.mobileTrack}`);
+      const activeTracks = [desktopTrack, mobileTrack].filter(Boolean);
+
+      if (activeTracks.length > 0) {
+        gsap.to(activeTracks, {
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: 1.2,
+          },
+          y: 60,
+          opacity: 0.4,
+          ease: 'none',
+        });
+      }
+    },
+    { scope: containerRef }
+  );
 
   const line1Parts =
     line1 === 'BECAUSE GOOD COMPANY'
