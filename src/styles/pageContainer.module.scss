@@ -26,22 +26,7 @@
 }
 
 .title {
-  font-family: $font-druk;
-  font-size: 40px;
-  font-weight: 900;
-  line-height: 1.05;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: #ffffff;
-  margin: 0;
-
-  @include responsive(md) {
-    font-size: 72px;
-  }
-
-  @include responsive(xl) {
-    font-size: 96px;
-  }
+  text-align: center;
 }
 
 .subtitle {

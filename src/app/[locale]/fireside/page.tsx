@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Header } from '@/components/Header/Header';
 import { FloatingActions } from '@/components/FloatingActions/FloatingActions';
+import { Heading } from '@/components/Heading';
 import styles from '@/styles/pageContainer.module.scss';
 
 interface PageProps {
@@ -52,7 +53,9 @@ export default async function FireSidePage({ params }: PageProps) {
       <Header currentLocale={locale} currentPath="/fireside" />
 
       <section className={styles.heroContent}>
-        <h1 className={styles.title}>{t('heading')}</h1>
+        <Heading level="h1" as="h1" className={styles.title}>
+          {t('heading')}
+        </Heading>
         <p className={styles.subtitle}>{t('description')}</p>
       </section>
 

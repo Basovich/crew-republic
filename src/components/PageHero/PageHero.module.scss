@@ -98,37 +98,11 @@
 }
 
 .heading {
-  color: var(--Brand-Snow-White, #ffffff);
   text-align: center;
   text-shadow: 0 0 60px rgba(0, 0, 0, 0.5);
-  font-family: $font-druk;
-  font-style: normal;
-  font-weight: 900;
-  text-transform: uppercase;
-  margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  // Exact same typography as .headline in HeroSlider
-  // Mobile H1 (< 768px): 56px exactly per design
-  font-size: 56px;
-  line-height: 92%;
-  letter-spacing: 1.12px;
-
-  // Tablet H1 (768px - 1279px): 72px
-  @include responsive(md) {
-    font-size: 72px;
-    line-height: 92%;
-    letter-spacing: 1.44px;
-  }
-
-  // Desktop H1 (>= 1280px): 96px exactly per design
-  @include responsive(lg) {
-    font-size: 96px;
-    line-height: 92%;
-    letter-spacing: 1.92px;
-  }
 }
 
 .line {

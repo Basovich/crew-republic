@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { Header } from '@/components/Header/Header';
+import { Heading } from '@/components/Heading';
 import styles from './PageHero.module.scss';
 
 interface PageHeroProps {
@@ -39,10 +40,10 @@ export function PageHero({
 
         {/* Bottom Headline anchored to the bottom of the hero card */}
         <div className={styles.overlay}>
-          <h1 className={styles.heading}>
+          <Heading level="h1" as="h1" className={styles.heading}>
             <span className={styles.line}>{line1}</span>
             <span className={styles.line}>{line2}</span>
-          </h1>
+          </Heading>
         </div>
       </div>
     </section>

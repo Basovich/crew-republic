@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
 import { Button } from '@/components/Button/Button';
+import { Heading } from '@/components/Heading';
 import styles from './StorySection.module.scss';
 
 export interface ActionButton {
@@ -69,9 +70,9 @@ export async function StorySection({
     <section id={id} className={styles.section} aria-labelledby={headingId}>
       <div className={containerClasses}>
         <div className={styles.content}>
-          <h2 id={headingId} className={headingClasses}>
+          <Heading id={headingId} level="h2" as="h2" className={headingClasses}>
             {resolvedHeading}
-          </h2>
+          </Heading>
 
           <div className={styles.textBlock}>
             <p className={styles.description}>

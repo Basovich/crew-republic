@@ -115,28 +115,7 @@
 }
 
 .heading {
-  font-family: $font-druk;
-  font-weight: 900;
-  text-transform: uppercase;
-  color: #ffffff;
-  margin: 0;
-  font-size: 44px;
-  line-height: 0.94;
-  letter-spacing: 0.02em;
   text-shadow: 0 4px 16px rgba(0, 0, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.6);
-
-  @include responsive(sm) {
-    font-size: 56px;
-  }
-
-  @include responsive(md) {
-    font-size: 68px;
-  }
-
-  @include responsive(lg) {
-    font-size: 80px;
-    line-height: 0.92;
-  }
 }
 
 .action {

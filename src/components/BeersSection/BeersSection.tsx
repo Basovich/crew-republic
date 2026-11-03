@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/routing';
 import { Button } from '@/components/Button/Button';
+import { Heading } from '@/components/Heading';
 import styles from './BeersSection.module.scss';
 
 interface BeerCardData {
@@ -49,9 +50,9 @@ export async function BeersSection() {
   return (
     <section className={styles.section} aria-labelledby="beers-heading">
       <div className={styles.container}>
-        <h2 id="beers-heading" className={styles.heading}>
+        <Heading id="beers-heading" level="h2" as="h2" className={styles.heading}>
           {t('heading')}
-        </h2>
+        </Heading>
 
         {/* Scrollable track on mobile / flex row on desktop */}
         <div className={styles.sliderTrack} role="region" aria-label={t('heading')}>
@@ -99,12 +100,12 @@ export async function BeersSection() {
 
               <div className={styles.content}>
                 <div className={styles.titles}>
-                  <h3 className={styles.beerTitle}>
+                  <Heading level="h3" as="h3" className={styles.beerTitle}>
                     {t(`${beer.key}.title`)}
-                  </h3>
-                  <span className={styles.beerTagline}>
+                  </Heading>
+                  <Heading level="tagline" as="span" className={styles.beerTagline}>
                     {t(`${beer.key}.tagline`)}
-                  </span>
+                  </Heading>
                 </div>
 
                 <div className={styles.action}>

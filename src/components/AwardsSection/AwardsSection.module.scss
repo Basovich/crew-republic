@@ -38,29 +38,9 @@
 }
 
 .heading {
-  font-family: $font-druk;
-  font-weight: 900;
-  text-transform: uppercase;
-  color: #ffffff;
   text-align: center;
-  margin: 0;
   padding: 0 16px;
-  font-size: 40px;
-  line-height: 0.92;
-  letter-spacing: 0.02em;
   max-width: 1200px;
-
-  @include responsive(sm) {
-    font-size: 52px;
-  }
-
-  @include responsive(md) {
-    font-size: 68px;
-  }
-
-  @include responsive(lg) {
-    font-size: 80px;
-  }
 }
 
 .sliderContainer {

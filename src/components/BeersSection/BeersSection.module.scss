@@ -33,26 +33,8 @@
 }
 
 .heading {
-  font-family: $font-druk;
-  font-weight: 900;
-  text-transform: uppercase;
-  color: #ffffff;
-  margin: 0;
   text-align: center;
-  font-size: 48px;
-  line-height: 0.92;
-  letter-spacing: 0.02em;
   padding: 0 16px;
-
-  @include responsive(md) {
-    font-size: 64px;
-    line-height: 0.93;
-  }
-
-  @include responsive(lg) {
-    font-size: 80px;
-    line-height: 0.93;
-  }
 }
 
 /* ==========================================================================
@@ -276,29 +258,14 @@
 }
 
 .beerTitle {
-  font-family: $font-druk;
-  font-weight: 900;
-  text-transform: uppercase;
-  color: #ffffff;
-  margin: 0;
-  font-size: 36px;
-  line-height: 0.96;
-  letter-spacing: 0.02em;
-
   @include responsive(lg) {
     font-size: 56px;
-    line-height: 0.96;
   }
 }
 
 .beerTagline {
-  font-family: $font-sans;
-  font-weight: 700;
-  text-transform: uppercase;
   color: rgba(255, 255, 255, 0.4);
   font-size: 14px;
-  line-height: 1.2;
-  letter-spacing: 0.02em;
 
   @include responsive(lg) {
     font-size: 18px;

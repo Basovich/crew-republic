@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/Button/Button';
+import { Heading } from '@/components/Heading';
 import styles from './RepresentSection.module.scss';
 
 const SLIDES: string[] = [
@@ -83,9 +84,9 @@ export function RepresentSection({
 
         {/* Centered Heading and Merch Button */}
         <div className={styles.content}>
-          <h2 id="represent-heading" className={styles.heading}>
+          <Heading id="represent-heading" level="h2" as="h2" className={styles.heading}>
             {heading}
-          </h2>
+          </Heading>
 
           <div className={styles.action}>
             <Button

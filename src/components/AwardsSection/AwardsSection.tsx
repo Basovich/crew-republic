@@ -3,6 +3,7 @@
 import React, { useRef, useEffect } from 'react';
 import Image from 'next/image';
 import gsap from 'gsap';
+import { Heading } from '@/components/Heading';
 import styles from './AwardsSection.module.scss';
 
 export interface Award {
@@ -212,9 +213,9 @@ export function AwardsSection({
   return (
     <section className={styles.section} aria-labelledby="awards-heading">
       <div className={styles.container}>
-        <h2 id="awards-heading" className={styles.heading}>
+        <Heading id="awards-heading" level="h2" as="h2" className={styles.heading}>
           {heading}
-        </h2>
+        </Heading>
 
         {/* Draggable Endless Loop Track */}
         <div

@@ -3,6 +3,7 @@
 import React, { useRef, useEffect } from 'react';
 import Image from 'next/image';
 import gsap from 'gsap';
+import { Heading } from '@/components/Heading';
 import styles from './HeroSlider.module.scss';
 
 interface Slide {
@@ -354,7 +355,7 @@ export function HeroSlider({
 
         {/* Headline Overlay anchored to the bottom of the slider images */}
         <div className={styles.overlay}>
-          <h1 className={styles.headline}>
+          <Heading level="h1" as="h1" className={styles.headline}>
             <span className={styles.line}>
               {line1Parts.map((chunk, idx) => (
                 <span key={`l1-${idx}`} className={styles.wordChunk}>
@@ -371,7 +372,7 @@ export function HeroSlider({
                 </span>
               ))}
             </span>
-          </h1>
+          </Heading>
         </div>
       </div>
     </section>
