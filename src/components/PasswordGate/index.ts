@@ -1,0 +1,2 @@
+export { PasswordGate } from './PasswordGate';
+
