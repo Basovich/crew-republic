@@ -1,0 +1,2 @@
+export { SmoothScrollProvider } from './SmoothScrollProvider';
+

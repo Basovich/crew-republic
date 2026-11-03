@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { drukHeavy, drukTextHeavy } from "@/fonts/fonts";
 import { Footer } from "@/components/Footer/Footer";
+import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
 import "@/styles/globals.scss";
 
 export const metadata: Metadata = {
@@ -41,8 +42,10 @@ export default async function LocaleLayout({
     <html lang={locale} className={`${drukHeavy.variable} ${drukTextHeavy.variable}`}>
       <body>
         <NextIntlClientProvider messages={messages}>
-          {children}
-          <Footer />
+          <SmoothScrollProvider>
+            {children}
+            <Footer />
+          </SmoothScrollProvider>
         </NextIntlClientProvider>
       </body>
     </html>
