@@ -49,6 +49,11 @@
       "title": "Privacy Policy",
       "heading": "PRIVACY POLICY",
       "description": "Privacy policy and data protection information of CREW Republic Brewery GmbH."
+    },
+    "imprint": {
+      "title": "Imprint",
+      "heading": "IMPRINT",
+      "description": "Legal imprint, company details, and contact information of CREW Republic Brewery GmbH."
     }
   },
   "Footer": {
@@ -178,6 +183,33 @@
         "12) Rights of the Data Subject\n12.1 Under GDPR, you have the right to access (Art. 15), rectification (Art. 16), erasure (Art. 17), restriction of processing (Art. 18), data portability (Art. 20), revocation of consent (Art. 7(3)), and right to lodge a complaint with a supervisory authority (Art. 77).\n12.2 RIGHT TO OBJECT: You have the right to object at any time to processing based on legitimate interests or for direct marketing purposes.",
         "13) Duration of Storage of Personal Data\nThe storage period is determined based on the respective legal basis, processing purpose, and statutory retention periods. After retention periods expire, data is routinely erased."
       ]
+    }
+  },
+  "ImprintPage": {
+    "hero": {
+      "line1": "BORING, BUT THERE’S",
+      "line2": "NO WAY AROUND IT.",
+      "imageAlt": "CREW Republic Imprint - Company and legal details"
+    },
+    "content": {
+      "heading": "IMPRINT",
+      "companyName": "CREW Republic Brewery GmbH",
+      "street": "Kirschbaumweg 19",
+      "city": "50996 Cologne",
+      "country": "GERMANY",
+      "phoneLabel": "Phone:",
+      "phoneValue": "+49 (0) 6561-14-0",
+      "phoneHref": "tel:+496561140",
+      "mailLabel": "Mail:",
+      "mailValue": "crew@crewrepublic.de",
+      "mailHref": "mailto:crew@crewrepublic.de",
+      "managingDirectorsTitle": "Managing Directors:",
+      "managingDirectors": [
+        "Sebastian Ellies",
+        "Volker Keßler"
+      ],
+      "vat": "Value-Added Tax (VAT) Identification Number: DE815787839",
+      "court": "Cologne Local Court, HRB 127751"
     }
   }
 }

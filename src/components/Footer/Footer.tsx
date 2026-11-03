@@ -90,14 +90,12 @@ export function Footer() {
               >
                 {t('gtc')}
               </a>
-              <a
-                href="https://www.crew-republic-shop.de/Rechtliches/Impressum/"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/imprint"
                 className={styles.drukLink}
               >
                 {t('imprint')}
-              </a>
+              </Link>
             </nav>
 
             {/* Embedded Language Switcher */}
