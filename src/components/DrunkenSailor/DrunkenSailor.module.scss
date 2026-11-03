@@ -26,9 +26,13 @@
   left: 0;
   width: 100%;
   height: 100vh;
-  height: 100svh;
   margin-bottom: -100vh;
-  margin-bottom: -100svh;
+
+  @supports (height: 100svh) {
+    height: 100svh;
+    margin-bottom: -100svh;
+  }
+
   pointer-events: none;
   z-index: 20;
   display: flex;

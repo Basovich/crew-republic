@@ -23,12 +23,11 @@ export function PasswordGate({ children }: PasswordGateProps) {
       .find((row) => row.startsWith(`${PASSWORD_GATE_CONFIG.COOKIE_NAME}=`));
 
     const token = match ? match.split('=')[1] : null;
+    const isAuthed = token === PASSWORD_GATE_CONFIG.TOKEN_VALUE;
 
-    if (token === PASSWORD_GATE_CONFIG.TOKEN_VALUE) {
-      setIsAuthenticated(true);
-    } else {
-      setIsAuthenticated(false);
-    }
+    queueMicrotask(() => {
+      setIsAuthenticated(isAuthed);
+    });
   }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
