@@ -693,8 +693,12 @@
   max-width: 170px;
   text-align: end;
 
-  @include responsive(lg) {
+  @include responsive(md) {
     font-size: 18px;
+  }
+
+  @include responsive(xl) {
+    font-size: 20px;
   }
 }
 
@@ -773,43 +777,99 @@
 }
 
 // -----------------------------------------------------------------------------
-// Section 5: Food
+// Section 5: Food (Separate Polaroid Images)
 // -----------------------------------------------------------------------------
 .foodSection {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 840px;
+  padding: 60px 0;
+
+  @include responsive(lg) {
+    min-height: 600px;
+    padding: 80px 0;
+  }
 }
 
-.foodGraphicWrapper {
-  width: 100%;
+.foodGrid {
   display: flex;
-  justify-content: center;
-}
-
-.foodGraphicDesktop {
-  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
   width: 100%;
-  max-width: 1245px;
-  height: auto;
+  min-height: 840px;
+  padding-left: 16px;
+  padding-right: 16px;
+
+  @include responsive(md) {
+    min-height: 750px;
+    padding-left: 0;
+    padding-right: 0;
+  }
 
   @include responsive(lg) {
-    display: block;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    min-height: auto;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 40px;
   }
 }
 
-.foodGraphicMobile {
+.foodItemLeft {
+  width: 100%;
+  max-width: 264px;
+  align-self: flex-start;
+  transition: transform 0.3s ease;
+
+  @include responsive(md) {
+    max-width: 300px;
+    margin-left: 5%;
+  }
+
+  @include responsive(lg) {
+    max-width: 440px;
+    margin-left: 0;
+    margin-bottom: 40px;
+
+    @include hover {
+      transform: scale(1.03);
+    }
+  }
+}
+
+.foodItemRight {
+  width: 100%;
+  max-width: 264px;
+  align-self: flex-end;
+  transition: transform 0.3s ease;
+
+  @include responsive(md) {
+    max-width: 300px;
+    margin-right: 5%;
+  }
+
+  @include responsive(lg) {
+    max-width: 440px;
+    margin-right: 0;
+    margin-top: 40px;
+
+    @include hover {
+      transform: scale(1.03);
+    }
+  }
+}
+
+.foodImageThai,
+.foodImageBurger {
+  width: 100%;
+  height: auto;
   display: block;
-  width: 100%;
-  height: auto;
-
-  @include responsive(lg) {
-    display: none;
-  }
-
-  img {
-    width: 100%;
-  }
+  user-select: none;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.45));
 }
 
 // -----------------------------------------------------------------------------
@@ -851,6 +911,12 @@
     flex: 1;
     max-width: none;
     text-align: left;
+  }
+
+  h2 {
+    @include responsive(md) {
+      font-size: 56px;
+    }
   }
 }
 

@@ -649,21 +649,23 @@ export function DrunkenSailorExperience({ t }: DrunkenSailorExperienceProps) {
           aria-label={t.food.ariaLabel}
         >
           <div className={styles.contentContainer}>
-            <div className={styles.foodGraphicWrapper}>
-              <div className={styles.foodGraphicDesktop}>
+            <div className={styles.foodGrid}>
+              <div className={styles.foodItemLeft}>
                 <Image
-                  src="/images/drunken-sailor/food/food-desktop.svg"
-                  alt={t.food.ariaLabel}
-                  width={1245}
-                  height={545}
+                  src="/images/drunken-sailor/food/food-thai.webp"
+                  alt={`${t.food.ariaLabel} - Thai cuisine`}
+                  width={537}
+                  height={478}
+                  className={styles.foodImageThai}
                 />
               </div>
-              <div className={styles.foodGraphicMobile}>
+              <div className={styles.foodItemRight}>
                 <Image
-                  src="/images/drunken-sailor/food/food-mobile.svg"
-                  alt={t.food.ariaLabel}
-                  width={358}
-                  height={840}
+                  src="/images/drunken-sailor/food/food-burger.webp"
+                  alt={`${t.food.ariaLabel} - Steaks and burgers`}
+                  width={525}
+                  height={421}
+                  className={styles.foodImageBurger}
                 />
               </div>
             </div>
