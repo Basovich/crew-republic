@@ -65,6 +65,51 @@ const SECTIONS = [
   { id: 'shop', label: 'Shop' },
 ];
 
+const DRUNKEN_SAILOR_AWARDS = [
+  {
+    id: 'award-1',
+    src: '/images/awards/awards-1.webp',
+    width: 158,
+    height: 200,
+    alt: 'World Beer Awards Germany Gold 2023',
+  },
+  {
+    id: 'award-4',
+    src: '/images/awards/awards-4.webp',
+    width: 200,
+    height: 200,
+    alt: "Meininger's International Craft Beer Award Gold 2022",
+  },
+  {
+    id: 'award-5',
+    src: '/images/awards/awards-5.webp',
+    width: 200,
+    height: 200,
+    alt: "Meininger's International Craft Beer Award Gold 2021",
+  },
+  {
+    id: 'award-6',
+    src: '/images/awards/awards-6.webp',
+    width: 182,
+    height: 199,
+    alt: 'European Beer Challenge Gold Medal 2021',
+  },
+  {
+    id: 'award-7',
+    src: '/images/awards/awards-7.webp',
+    width: 166,
+    height: 200,
+    alt: "World Beer Awards World's Best IPA 2020",
+  },
+  {
+    id: 'award-2',
+    src: '/images/awards/awards-2.webp',
+    width: 200,
+    height: 200,
+    alt: 'European Beer Star The Beer Tasting Gold Award',
+  },
+];
+
 export function DrunkenSailorExperience({ t }: DrunkenSailorExperienceProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const storyTrackRef = useRef<HTMLDivElement>(null);
@@ -686,21 +731,18 @@ export function DrunkenSailorExperience({ t }: DrunkenSailorExperienceProps) {
                 </Heading>
               </div>
               <div className={styles.awardsRight}>
-                <div className={styles.awardsGraphicDesktop}>
-                  <Image
-                    src="/images/drunken-sailor/awards/awards-desktop.svg"
-                    alt={t.awards.ariaLabel}
-                    width={384}
-                    height={630}
-                  />
-                </div>
-                <div className={styles.awardsGraphicMobile}>
-                  <Image
-                    src="/images/drunken-sailor/awards/awards-mobile.svg"
-                    alt={t.awards.ariaLabel}
-                    width={80}
-                    height={528}
-                  />
+                <div className={styles.awardsList}>
+                  {DRUNKEN_SAILOR_AWARDS.map((award) => (
+                    <div key={award.id} className={styles.awardItem}>
+                      <Image
+                        src={award.src}
+                        alt={award.alt}
+                        width={award.width}
+                        height={award.height}
+                        className={styles.awardImage}
+                      />
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>

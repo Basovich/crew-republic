@@ -443,6 +443,11 @@
     gap: 24px;
     margin-left: auto;
   }
+
+  @include responsive(lg) {
+    width: 300px;
+    max-width: 300px;
+  }
 }
 
 .introTitle {
@@ -621,6 +626,10 @@
   display: flex;
   justify-content: center;
   width: 100%;
+
+  @include responsive(lg) {
+    justify-content: flex-start;
+  }
 }
 
 .tastecardDesktop {
@@ -629,8 +638,18 @@
   max-width: 486px;
   height: auto;
 
+  @include responsive(md) {
+    max-width: 320px;
+  }
+
   @include responsive(lg) {
     display: block;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
   }
 }
 
@@ -664,9 +683,9 @@
   }
 
   @include responsive(lg) {
-    max-width: none;
+    max-width: 300px;
     margin: 0;
-    padding-left: 48px;
+    padding-left: 0;
   }
 }
 
@@ -908,8 +927,7 @@
   text-align: left;
 
   @include responsive(lg) {
-    flex: 1;
-    max-width: none;
+    max-width: 320px;
     text-align: left;
   }
 
@@ -927,30 +945,70 @@
 
   @include responsive(lg) {
     flex: 1;
-    justify-content: center;
+    justify-content: flex-end;
   }
 }
 
-.awardsGraphicDesktop {
-  display: none;
-  width: 100%;
-  max-width: 384px;
-  height: auto;
+.awardsList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
+  gap: 32px;
+
+  @include responsive(md) {
+    width: 90px;
+    gap: 28px;
+  }
 
   @include responsive(lg) {
-    display: block;
+    display: grid;
+    grid-template-columns: repeat(2, 178px);
+    gap: 36px 24px;
+    width: auto;
+    max-width: 320px;
   }
 }
 
-.awardsGraphicMobile {
-  display: block;
-  width: 100%;
-  max-width: 80px;
-  height: auto;
+.awardItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  transition: transform 0.3s ease;
 
-  @include responsive(lg) {
+  &:nth-child(n + 6) {
     display: none;
   }
+
+  @include responsive(md) {
+    width: 110px;
+    height: 110px;
+  }
+
+  @include responsive(lg) {
+    width: 140px;
+    height: 140px;
+
+    &:nth-child(n + 6) {
+      display: flex;
+    }
+
+    @include hover {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.awardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.4));
 }
 
 // -----------------------------------------------------------------------------
