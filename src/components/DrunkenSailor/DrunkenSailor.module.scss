@@ -687,9 +687,13 @@
 .matchGrid {
   display: flex;
   flex-direction: column;
-  gap: 64px;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 640px;
+  gap: 32px;
 
   @include responsive(md) {
+    min-height: auto;
     gap: 96px;
   }
 }
@@ -697,18 +701,39 @@
 .matchRowLeft {
   display: flex;
   justify-content: flex-start;
+  width: 100%;
 }
 
 .matchRowRight {
   display: flex;
   justify-content: flex-end;
+  width: 100%;
+
+  .matchCard {
+    align-items: flex-end;
+    text-align: right;
+
+    .matchText {
+      text-align: right;
+    }
+
+    @include responsive(md) {
+      align-items: flex-start;
+      text-align: left;
+
+      .matchText {
+        text-align: left;
+      }
+    }
+  }
 }
 
 .matchCard {
-  max-width: 100%;
+  width: 100%;
+  max-width: 264px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
 
   @include responsive(md) {
     max-width: 380px;
@@ -717,14 +742,16 @@
 }
 
 .matchText {
+  margin: 0;
   font-family: var(--font-geist-sans), sans-serif;
   font-size: 16px;
-  line-height: 1.6;
-  color: #d1d5db;
+  line-height: 1.5;
+  color: #ffffff;
 
   @include responsive(md) {
     font-size: 18px;
     line-height: 1.7;
+    color: #d1d5db;
   }
 }
 
