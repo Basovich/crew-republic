@@ -173,12 +173,20 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 100px 16px 60px;
+  padding: 100px 12px 60px;
   z-index: 10;
+
+  @include responsive(xsm) {
+    padding: 100px 16px 60px;
+  }
 
   @include responsive(md) {
     min-height: 90vh;
     padding: 80px 20px 60px;
+  }
+
+  @include responsive(lg) {
+    padding: 80px 60px 60px;
   }
 
   @include responsive(xl) {
@@ -267,6 +275,10 @@
   }
 
   @include responsive(lg) {
+    left: 20px;
+  }
+
+  @include responsive(xl) {
     left: 48px;
   }
 }
@@ -472,7 +484,7 @@
   position: relative;
   width: 100%;
   max-width: 1200px;
-  height: 560px;
+  height: 500px;
   margin: 0 auto;
   pointer-events: none;
 
@@ -589,7 +601,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  gap: 48px;
+  gap: 140px;
 
   @include responsive(md) {
     flex-direction: row;
@@ -618,11 +630,14 @@
 .tastecardMobile {
   display: block;
   width: 100%;
-  max-width: 358px;
   height: auto;
 
   @include responsive(md) {
     display: none;
+  }
+
+  img {
+    width: 100%;
   }
 }
 
@@ -640,11 +655,16 @@
 
 .tastometerItem {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   gap: 8px;
 
   @include responsive(md) {
     gap: 12px;
+  }
+
+  h3 {
+    max-width: 170px;
   }
 }
 
@@ -653,6 +673,8 @@
   font-size: 16px;
   line-height: 1.5;
   color: #d1d5db;
+  max-width: 170px;
+  text-align: end;
 
   @include responsive(md) {
     font-size: 18px;
@@ -735,7 +757,6 @@
 .foodGraphicMobile {
   display: block;
   width: 100%;
-  max-width: 358px;
   height: auto;
 
   @include responsive(md) {

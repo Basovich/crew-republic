@@ -171,7 +171,10 @@ export function DrunkenSailorExperience({ t }: DrunkenSailorExperienceProps) {
       ).matches;
 
       if (prefersReducedMotion) {
-        if (anchorRef.current) gsap.set(anchorRef.current, { scale: 1, clearProps: 'transform' });
+        if (anchorRef.current) {
+          gsap.set(anchorRef.current, { clearProps: 'all' });
+          anchorRef.current.removeAttribute('style');
+        }
         if (bottleViewportRef.current) gsap.set(bottleViewportRef.current, { opacity: 1, rotation: -9 });
         if (heroHeadingsRef.current) gsap.set(heroHeadingsRef.current, { opacity: 1, y: 0 });
         if (sideIndicatorRef.current) gsap.set(sideIndicatorRef.current, { opacity: 1 });
@@ -181,6 +184,10 @@ export function DrunkenSailorExperience({ t }: DrunkenSailorExperienceProps) {
 
       const tl = gsap.timeline({
         onComplete: () => {
+          if (anchorRef.current) {
+            gsap.set(anchorRef.current, { clearProps: 'all' });
+            anchorRef.current.removeAttribute('style');
+          }
           ScrollTrigger.refresh();
         },
       });
@@ -189,15 +196,16 @@ export function DrunkenSailorExperience({ t }: DrunkenSailorExperienceProps) {
       tl.set(anchorRef.current, { zIndex: 100 })
         .fromTo(
           anchorRef.current,
-          { scale: 0.22, xPercent: -50, yPercent: -50 },
+          { scale: 0.22 },
           {
             scale: 1,
-            xPercent: -50,
-            yPercent: -50,
             duration: 0.9,
             ease: 'power3.out',
             onComplete: () => {
-              if (anchorRef.current) anchorRef.current.style.zIndex = '1';
+              if (anchorRef.current) {
+                gsap.set(anchorRef.current, { clearProps: 'all' });
+                anchorRef.current.removeAttribute('style');
+              }
             },
           }
         )
