@@ -206,7 +206,6 @@
   justify-content: center;
   min-height: 420px;
 
-
   @include responsive(sm) {
     max-width: 480px;
   }
@@ -227,6 +226,7 @@
 
   @include responsive(xl) {
     min-height: 480px;
+    max-width: 880px;
     gap: 180px;
   }
 }
@@ -448,6 +448,11 @@
     width: 300px;
     max-width: 300px;
   }
+
+  @include responsive(xl) {
+    width: 320px;
+    max-width: 320px;
+  }
 }
 
 .introTitle {
@@ -646,6 +651,10 @@
     display: block;
   }
 
+  @include responsive(xl) {
+    max-width: 350px;
+  }
+
   img {
     width: 100%;
     height: auto;
@@ -699,8 +708,17 @@
     gap: 12px;
   }
 
+  @include responsive(xl) {
+    display: block;
+  }
+
   h3 {
     max-width: 170px;
+
+    @include responsive(xl) {
+      font-size: 56px;
+      max-width: 300px;
+    }
   }
 }
 
@@ -718,6 +736,9 @@
 
   @include responsive(xl) {
     font-size: 20px;
+    text-align: start;
+    max-width: initial;
+    margin-top: 16px;
   }
 }
 
