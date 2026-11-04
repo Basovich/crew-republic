@@ -798,7 +798,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: 120px;
+  min-height: 100svh;
+  padding-top: 120px;
+  padding-bottom: 25vh;
+
+  @include responsive(md) {
+    min-height: 110vh;
+    padding-top: 140px;
+    padding-bottom: 30vh;
+  }
 }
 
 .awardsGrid {

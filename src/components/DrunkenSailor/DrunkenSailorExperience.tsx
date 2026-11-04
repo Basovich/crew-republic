@@ -265,11 +265,13 @@ export function DrunkenSailorExperience({ t }: DrunkenSailorExperienceProps) {
         );
       }
 
-      // 2. Scrub Lottie animation based on storyTrack scroll progress
+      // 2. Scrub Lottie animation: completes 360deg rotation when Awards reaches bottom and stops
+      const awardsEl = document.getElementById('awards');
       ScrollTrigger.create({
         trigger: storyTrackRef.current,
         start: 'top top',
-        end: 'bottom bottom',
+        endTrigger: awardsEl || storyTrackRef.current,
+        end: awardsEl ? 'bottom bottom' : 'bottom bottom',
         scrub: 1,
         onUpdate: (self) => {
           if (animRef.current && !prefersReducedMotion) {
@@ -279,7 +281,40 @@ export function DrunkenSailorExperience({ t }: DrunkenSailorExperienceProps) {
         },
       });
 
-      // 3. Track active section for side indicator
+      // 3. Settle bottle 20px from bottom of awardsSection smoothly using bottom edge trigger
+      if (awardsEl && bottleViewportRef.current) {
+        const bottle = bottleViewportRef.current;
+        const GAP = 20; // відступ банки від низу awardsEl
+
+        const updateBottlePosition = () => {
+          if (!bottle || !awardsEl) return;
+
+          const vh = window.innerHeight;
+          const canH = bottle.offsetHeight || 400;
+          const rAwards = awardsEl.getBoundingClientRect();
+
+          // Де був би низ банки, якби вона стояла по центру
+          const canBottomCentered = (vh + canH) / 2;
+
+          // Поки низ секції далеко — y = 0 (центр).
+          // Коли низ секції підходить впритул — банка їде вгору разом з ним.
+          const y = Math.min(0, rAwards.bottom - GAP - canBottomCentered);
+
+          gsap.set(bottle, { y });
+        };
+
+        ScrollTrigger.create({
+          trigger: awardsEl,
+          start: 'top bottom',
+          end: 'bottom top',
+          invalidateOnRefresh: true,
+          onUpdate: updateBottlePosition,
+          onRefresh: updateBottlePosition,
+          onLeaveBack: () => gsap.set(bottle, { y: 0 }),
+        });
+      }
+
+      // 4. Track active section for side indicator
       SECTIONS.forEach(({ id }) => {
         const el = document.getElementById(id);
         if (!el) return;
