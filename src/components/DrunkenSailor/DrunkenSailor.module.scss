@@ -264,7 +264,7 @@
 .sideIndicator {
   display: none;
 
-  @include responsive(md) {
+  @include responsive(lg) {
     display: block;
     position: fixed;
     left: 24px;
@@ -272,10 +272,6 @@
     transform: translateY(-50%);
     z-index: 25;
     user-select: none;
-  }
-
-  @include responsive(lg) {
-    left: 20px;
   }
 
   @include responsive(xl) {
@@ -408,7 +404,7 @@
   min-height: 800px;
   gap: 16px;
 
-  @include responsive(md) {
+  @include responsive(lg) {
     min-height: auto;
     flex-direction: row;
     justify-content: space-between;
@@ -424,8 +420,12 @@
   align-self: flex-start;
 
   @include responsive(md) {
-    width: 380px;
     max-width: 380px;
+  }
+
+  @include responsive(lg) {
+    //width: 380px;
+    //max-width: 380px;
   }
 }
 
@@ -439,7 +439,7 @@
   @include responsive(md) {
     width: 380px;
     max-width: 380px;
-    align-items: flex-start;
+    align-items: flex-end;
     gap: 24px;
     margin-left: auto;
   }
@@ -459,10 +459,13 @@
   color: #ffffff;
 
   @include responsive(md) {
-    max-width: none;
-    text-align: left;
     font-size: 18px;
     line-height: 1.7;
+  }
+
+  @include responsive(lg) {
+    max-width: none;
+    text-align: left;
   }
 }
 
@@ -476,6 +479,10 @@
   min-height: 560px;
 
   @include responsive(md) {
+    min-height: 575px;
+  }
+
+  @include responsive(lg) {
     min-height: 675px;
   }
 }
@@ -529,7 +536,7 @@
     left: 40px;
   }
 
-  @include responsive(md) {
+  @include responsive(lg) {
     top: 64px;
     left: calc(50% - 235px);
 
@@ -552,7 +559,7 @@
     right: 40px;
   }
 
-  @include responsive(md) {
+  @include responsive(lg) {
     top: 245px;
     right: auto;
     left: calc(50% + 115px);
@@ -577,7 +584,7 @@
     left: 40px;
   }
 
-  @include responsive(md) {
+  @include responsive(lg) {
     bottom: auto;
     top: 430px;
     left: calc(50% - 235px);
@@ -603,7 +610,7 @@
   justify-content: space-between;
   gap: 140px;
 
-  @include responsive(md) {
+  @include responsive(lg) {
     flex-direction: row;
     gap: 32px;
   }
@@ -622,7 +629,7 @@
   max-width: 486px;
   height: auto;
 
-  @include responsive(md) {
+  @include responsive(lg) {
     display: block;
   }
 }
@@ -630,14 +637,17 @@
 .tastecardMobile {
   display: block;
   width: 100%;
+  max-width: 620px;
+  margin: 0 auto;
   height: auto;
 
-  @include responsive(md) {
+  @include responsive(lg) {
     display: none;
   }
 
   img {
     width: 100%;
+    height: auto;
   }
 }
 
@@ -647,8 +657,15 @@
   flex-direction: column;
   gap: 32px;
   width: 100%;
+  margin: 0 auto;
 
-  @include responsive(md) {
+  @include responsive(sm) {
+    max-width: 620px;
+  }
+
+  @include responsive(lg) {
+    max-width: none;
+    margin: 0;
     padding-left: 48px;
   }
 }
@@ -659,7 +676,7 @@
   justify-content: space-between;
   gap: 8px;
 
-  @include responsive(md) {
+  @include responsive(lg) {
     gap: 12px;
   }
 
@@ -676,7 +693,7 @@
   max-width: 170px;
   text-align: end;
 
-  @include responsive(md) {
+  @include responsive(lg) {
     font-size: 18px;
   }
 }
@@ -692,7 +709,7 @@
   min-height: 640px;
   gap: 32px;
 
-  @include responsive(md) {
+  @include responsive(lg) {
     min-height: auto;
     gap: 96px;
   }
@@ -717,7 +734,7 @@
       text-align: right;
     }
 
-    @include responsive(md) {
+    @include responsive(lg) {
       align-items: flex-start;
       text-align: left;
 
@@ -735,7 +752,7 @@
   flex-direction: column;
   gap: 16px;
 
-  @include responsive(md) {
+  @include responsive(lg) {
     max-width: 380px;
     gap: 24px;
   }
@@ -776,7 +793,7 @@
   max-width: 1245px;
   height: auto;
 
-  @include responsive(md) {
+  @include responsive(lg) {
     display: block;
   }
 }
@@ -786,8 +803,12 @@
   width: 100%;
   height: auto;
 
-  @include responsive(md) {
+  @include responsive(lg) {
     display: none;
+  }
+
+  img {
+    width: 100%;
   }
 }
 
@@ -816,7 +837,7 @@
   justify-content: space-between;
   width: 100%;
 
-  @include responsive(md) {
+  @include responsive(lg) {
     gap: 64px;
   }
 }
@@ -826,7 +847,7 @@
   max-width: 180px;
   text-align: left;
 
-  @include responsive(md) {
+  @include responsive(lg) {
     flex: 1;
     max-width: none;
     text-align: left;
@@ -838,7 +859,7 @@
   display: flex;
   justify-content: flex-end;
 
-  @include responsive(md) {
+  @include responsive(lg) {
     flex: 1;
     justify-content: center;
   }
@@ -850,7 +871,7 @@
   max-width: 384px;
   height: auto;
 
-  @include responsive(md) {
+  @include responsive(lg) {
     display: block;
   }
 }
@@ -861,7 +882,7 @@
   max-width: 80px;
   height: auto;
 
-  @include responsive(md) {
+  @include responsive(lg) {
     display: none;
   }
 }
