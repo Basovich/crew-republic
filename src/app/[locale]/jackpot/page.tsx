@@ -2,8 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Header } from '@/components/Header/Header';
 import { FloatingActions } from '@/components/FloatingActions/FloatingActions';
-import { Heading } from '@/components/Heading';
-import styles from '@/styles/pageContainer.module.scss';
+import { JackpotExperience } from '@/components/Jackpot/JackpotExperience';
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -37,6 +36,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       siteName: 'CREW Republic',
       locale: locale === 'en' ? 'en_US' : 'de_DE',
       type: 'website',
+      images: [
+        {
+          url: '/images/beers/jackpot.webp',
+          width: 800,
+          height: 800,
+          alt: 'Jackpot Hazy IPA',
+        },
+      ],
     },
   };
 }
@@ -48,18 +55,74 @@ export default async function JackpotPage({ params }: PageProps) {
   const t = await getTranslations({ locale, namespace: 'Pages.jackpot' });
   const tCommon = await getTranslations('Common');
 
+  const content = {
+    heading: t('heading'),
+    subtitle: t('subtitle'),
+    intro: {
+      title: t('intro.title'),
+      p1: t('intro.p1'),
+      p2: t('intro.p2'),
+    },
+    stats: {
+      ariaLabel: t('stats.ariaLabel'),
+    },
+    tastometer: {
+      hopsTitle: t('tastometer.hopsTitle'),
+      hopsValue: t('tastometer.hopsValue'),
+      maltTitle: t('tastometer.maltTitle'),
+      maltValue: t('tastometer.maltValue'),
+      colorTitle: t('tastometer.colorTitle'),
+      colorValue: t('tastometer.colorValue'),
+      tempTitle: t('tastometer.tempTitle'),
+      tempValue: t('tastometer.tempValue'),
+    },
+    match: {
+      tasteTitle: t('match.tasteTitle'),
+      tasteText: t('match.tasteText'),
+      drinkWithTitle: t('match.drinkWithTitle'),
+      drinkWithText: t('match.drinkWithText'),
+    },
+    food: {
+      ariaLabel: t('food.ariaLabel'),
+    },
+    awards: {
+      title: t('awards.title'),
+      ariaLabel: t('awards.ariaLabel'),
+    },
+    shop: {
+      heading: t('shop.heading'),
+      button: t('shop.button'),
+      url: t('shop.url'),
+    },
+  };
+
+  const productJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: 'Jackpot Hazy IPA',
+    image: `${BASE_URL}/images/beers/jackpot.webp`,
+    description: t('description'),
+    brand: {
+      '@type': 'Brand',
+      name: 'CREW Republic',
+    },
+    offers: {
+      '@type': 'Offer',
+      url: 'https://crewrepublic.de/shop',
+      priceCurrency: 'EUR',
+      availability: 'https://schema.org/InStock',
+    },
+  };
+
   return (
-    <main className={styles.pageMain}>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
       <Header currentLocale={locale} currentPath="/jackpot" />
-
-      <section className={styles.heroContent}>
-        <Heading level="h1" as="h1" className={styles.title}>
-          {t('heading')}
-        </Heading>
-        <p className={styles.subtitle}>{t('description')}</p>
-      </section>
-
+      <JackpotExperience t={content} />
       <FloatingActions menuLabel={tCommon('menu')} />
-    </main>
+    </>
   );
 }

@@ -70,7 +70,44 @@
     "jackpot": {
       "title": "Jackpot Hazy IPA",
       "heading": "JACKPOT",
-      "description": "Jackpot - Saftiges und intensiv aromatisches Hazy IPA von CREW Republic."
+      "subtitle": "HAZY IPA",
+      "description": "Jackpot - Saftiges und intensiv aromatisches Hazy IPA von CREW Republic.",
+      "intro": {
+        "title": "Du bist kein Zocker, aber manchmal brauchst du diesen Nervenkitzel.",
+        "p1": "All in. Alles oder nichts. Dein Puls rast, alles um dich herum verschwimmt.",
+        "p2": "Dann: Stille. JACKPOT! Zeit zu feiern, und am besten mit deiner CREW."
+      },
+      "stats": {
+        "ariaLabel": "Jackpot Werte"
+      },
+      "tastometer": {
+        "hopsTitle": "Hopfen",
+        "hopsValue": "Herkules, Citra, Cascade, Simcoe",
+        "maltTitle": "Malz",
+        "maltValue": "Pilsener, Münchner, Karamellmalz",
+        "colorTitle": "Farbe",
+        "colorValue": "Tiefes Orange",
+        "tempTitle": "Trinktemperatur",
+        "tempValue": "6–8°C"
+      },
+      "match": {
+        "tasteTitle": "Geschmack",
+        "tasteText": "Eine tropische Erfrischung mit intensivem Hopfenaroma von Passionsfrucht und Zitrusfrüchten. Leicht im Körper mit ausgewogener Säure und subtiler Bitterkeit.",
+        "drinkWithTitle": "PASST ZU",
+        "drinkWithText": "Die CREW genießt ihr Jackpot Hazy IPA am liebsten eiskalt zur Abkühlung bei 35 Grad sengender Sonne."
+      },
+      "food": {
+        "ariaLabel": "Speiseempfehlungen"
+      },
+      "awards": {
+        "title": "Certified Awesomeness.",
+        "ariaLabel": "Jackpot Auszeichnungen"
+      },
+      "shop": {
+        "heading": "Grab yours now!",
+        "button": "Jackpot kaufen",
+        "url": "https://crewrepublic.de/shop"
+      }
     },
     "fireside": {
       "title": "Fireside",

@@ -854,6 +854,40 @@
   }
 }
 
+.foodGridReversed {
+  .foodItemLeft {
+    order: 2;
+    align-self: flex-end;
+
+    @include responsive(md) {
+      margin-left: 0;
+      margin-right: 5%;
+    }
+
+    @include responsive(lg) {
+      order: 1;
+      align-self: flex-start;
+      margin-right: 0;
+    }
+  }
+
+  .foodItemRight {
+    order: 1;
+    align-self: flex-start;
+
+    @include responsive(md) {
+      margin-right: 0;
+      margin-left: 5%;
+    }
+
+    @include responsive(lg) {
+      order: 2;
+      align-self: flex-end;
+      margin-left: 0;
+    }
+  }
+}
+
 .foodItemLeft {
   width: 100%;
   max-width: 264px;
@@ -898,6 +932,8 @@
   }
 }
 
+.foodImageLeft,
+.foodImageRight,
 .foodImageThai,
 .foodImageBurger {
   width: 100%;
@@ -1010,6 +1046,11 @@
 
     &:nth-child(n + 6) {
       display: flex;
+    }
+
+    &:only-child {
+      grid-column: 1 / -1;
+      justify-self: end;
     }
 
     @include hover {

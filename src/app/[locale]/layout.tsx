@@ -8,6 +8,7 @@ import { Footer } from "@/components/Footer/Footer";
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
 import { PasswordGate } from "@/components/PasswordGate";
 import { DrunkenSailorPreloader } from "@/components/DrunkenSailor/DrunkenSailorPreloader";
+import { JackpotPreloader } from "@/components/Jackpot/JackpotPreloader";
 import "@/styles/globals.scss";
 
 export const metadata: Metadata = {
@@ -60,6 +61,7 @@ export default async function LocaleLayout({
           <PasswordGate>
             <SmoothScrollProvider>
               <DrunkenSailorPreloader />
+              <JackpotPreloader />
               {children}
               <Footer />
             </SmoothScrollProvider>
