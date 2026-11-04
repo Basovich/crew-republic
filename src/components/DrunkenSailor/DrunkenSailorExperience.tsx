@@ -570,7 +570,7 @@ export function DrunkenSailorExperience({ t }: DrunkenSailorExperienceProps) {
           <div className={styles.contentContainer}>
             <div className={styles.awardsGrid}>
               <div className={styles.awardsLeft}>
-                <Heading level="h2" as="h2">
+                <Heading level="h3" as="h2" className={styles.awardsTitle}>
                   {t.awards.title}
                 </Heading>
               </div>
