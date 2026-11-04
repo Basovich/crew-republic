@@ -27,8 +27,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 90vw;
-  max-width: 492px;
+  width: 120vw;
   height: auto;
   pointer-events: none;
   z-index: 1;
@@ -40,7 +39,12 @@
 
   @include responsive(md) {
     width: 100%;
-    max-width: 798px;
+    max-width: 620px;
+  }
+
+  @include responsive(xl) {
+    width: 100%;
+    max-width: 720px;
   }
 }
 
@@ -164,17 +168,21 @@
 .heroShell {
   position: relative;
   width: 100%;
-  min-height: 80vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 120px 24px 60px;
+  padding: 100px 24px 60px;
   z-index: 10;
 
   @include responsive(md) {
     min-height: 90vh;
-    padding: 140px 60px 80px;
+    padding: 80px 40px 60px;
+  }
+
+  @include responsive(xl) {
+    padding: 100px 40px 80px;
   }
 }
 
@@ -182,58 +190,64 @@
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 360px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  gap: 32px;
   pointer-events: none;
+  max-width: 100%;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  min-height: 420px;
+
 
   @include responsive(sm) {
     max-width: 480px;
   }
 
   @include responsive(md) {
-    max-width: 980px;
+    max-width: 100%;
     flex-direction: row;
     align-items: stretch;
-    justify-content: space-between;
-    min-height: 480px;
-    padding: 0 10px;
-    gap: 0;
+    justify-content: center;
+    min-height: 420px;
+    gap: 140px;
+    padding: 0 20px;
   }
 
   @include responsive(lg) {
-    max-width: 1020px;
-    min-height: 520px;
-    padding: 0 20px;
+    min-height: 460px;
+    gap: 160px;
+  }
+
+  @include responsive(xl) {
+    min-height: 480px;
+    gap: 180px;
   }
 }
 
 .headingLeft {
-  text-align: center;
+  text-align: start;
   width: 100%;
 
   @include responsive(md) {
     text-align: end;
     width: auto;
-    max-width: 320px;
+    white-space: nowrap;
     align-self: flex-start;
-    margin-top: 16px;
+    margin-top: 30px;
   }
 }
 
 .headingRight {
-  text-align: center;
+  text-align: end;
   width: 100%;
+  align-self: flex-end;
 
   @include responsive(md) {
     text-align: left;
     width: auto;
-    max-width: 320px;
+    white-space: nowrap;
     align-self: flex-end;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
   }
 }
 
