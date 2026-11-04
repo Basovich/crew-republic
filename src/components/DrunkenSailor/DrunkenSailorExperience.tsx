@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -55,12 +55,30 @@ interface DrunkenSailorExperienceProps {
   };
 }
 
+const SECTIONS = [
+  { id: 'hero', label: 'Hero' },
+  { id: 'intro', label: 'Intro' },
+  { id: 'stats', label: 'Stats' },
+  { id: 'tastometer', label: 'Tastometer' },
+  { id: 'food', label: 'Food Pairings' },
+  { id: 'awards', label: 'Awards' },
+  { id: 'shop', label: 'Shop' },
+];
+
 export function DrunkenSailorExperience({ t }: DrunkenSailorExperienceProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const storyTrackRef = useRef<HTMLDivElement>(null);
   const lottieContainerRef = useRef<HTMLDivElement>(null);
   const bottleViewportRef = useRef<HTMLDivElement>(null);
   const animRef = useRef<AnimationItem | null>(null);
+  const [activeSection, setActiveSection] = useState('hero');
+
+  const handleScrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   // ---------------------------------------------------------------------------
   // Lottie Animation Loading & ScrollTrigger Binding
@@ -121,7 +139,25 @@ export function DrunkenSailorExperience({ t }: DrunkenSailorExperienceProps) {
 
       const totalFrames = 89; // 0 to 89
 
-      // 1. Scrub Lottie animation based on storyTrack scroll progress
+      // 1. Tilt on hero that straightens to 0deg as user scrolls into Intro
+      if (!prefersReducedMotion) {
+        gsap.fromTo(
+          bottleViewportRef.current,
+          { rotation: -9 },
+          {
+            rotation: 0,
+            ease: 'power1.out',
+            scrollTrigger: {
+              trigger: storyTrackRef.current,
+              start: 'top top',
+              end: 'top -300',
+              scrub: 1,
+            },
+          }
+        );
+      }
+
+      // 2. Scrub Lottie animation based on storyTrack scroll progress
       ScrollTrigger.create({
         trigger: storyTrackRef.current,
         start: 'top top',
@@ -134,12 +170,64 @@ export function DrunkenSailorExperience({ t }: DrunkenSailorExperienceProps) {
           }
         },
       });
+
+      // 3. Track active section for side indicator
+      SECTIONS.forEach(({ id }) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        ScrollTrigger.create({
+          trigger: el,
+          start: 'top 50%',
+          end: 'bottom 50%',
+          onEnter: () => setActiveSection(id),
+          onEnterBack: () => setActiveSection(id),
+        });
+      });
+
+      const matchEl = document.getElementById('match');
+      if (matchEl) {
+        ScrollTrigger.create({
+          trigger: matchEl,
+          start: 'top 50%',
+          end: 'bottom 50%',
+          onEnter: () => setActiveSection('food'),
+          onEnterBack: () => setActiveSection('food'),
+        });
+      }
     },
     { scope: containerRef }
   );
 
   return (
     <div className={styles.experienceWrapper} ref={containerRef}>
+      {/* Desktop Side Navigation Indicator */}
+      <nav className={styles.sideIndicator} aria-label="Section navigation">
+        <ul className={styles.indicatorList}>
+          {SECTIONS.map(({ id, label }, index) => {
+            const isActive = activeSection === id;
+            return (
+              <li key={id} className={styles.indicatorItem}>
+                <button
+                  type="button"
+                  className={styles.indicatorButton}
+                  onClick={() => handleScrollToSection(id)}
+                  aria-label={`Scroll to ${label}`}
+                  aria-current={isActive ? 'true' : undefined}
+                >
+                  <span
+                    className={`${styles.indicatorDot} ${isActive ? styles.indicatorDotActive : ''}`}
+                  />
+                  {isActive && <span className={styles.indicatorRing} />}
+                </button>
+                {index < SECTIONS.length - 1 && (
+                  <span className={styles.indicatorLine} aria-hidden="true" />
+                )}
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
+
       {/* -------------------------------------------------------------------- */}
       {/* Interactive Story Track (Intro through Awards)                         */}
       {/* -------------------------------------------------------------------- */}
@@ -152,7 +240,7 @@ export function DrunkenSailorExperience({ t }: DrunkenSailorExperienceProps) {
         </div>
 
         {/* Hero Typography Shell */}
-        <div className={styles.heroShell}>
+        <div className={styles.heroShell} id="hero">
           {/* Background Anchor Watermark */}
           <div className={styles.heroBackground} aria-hidden="true">
             <Image
@@ -200,29 +288,39 @@ export function DrunkenSailorExperience({ t }: DrunkenSailorExperienceProps) {
           </div>
         </section>
 
-        {/* Section 2: Stats Graphic */}
+        {/* Section 2: Stats Graphic with 3 separate badges */}
         <section
           className={`${styles.contentSection} ${styles.statsSection}`}
           id="stats"
           aria-label={t.stats.ariaLabel}
         >
           <div className={styles.contentContainer}>
-            <div className={styles.statsGraphicWrapper}>
-              <div className={styles.statsGraphicDesktop}>
+            <div className={styles.statsBadgesWrapper}>
+              <div className={`${styles.badgeItem} ${styles.badgeIpa}`}>
                 <Image
-                  src="/images/drunken-sailor/stats/stats-desktop.svg"
-                  alt={t.stats.ariaLabel}
-                  width={1200}
-                  height={675}
+                  src="/images/drunken-sailor/stats/badge-ipa.svg"
+                  alt="IPA"
+                  width={120}
+                  height={120}
                   priority
                 />
               </div>
-              <div className={styles.statsGraphicMobile}>
+              <div className={`${styles.badgeItem} ${styles.badgeAlc}`}>
                 <Image
-                  src="/images/drunken-sailor/stats/stats-mobile.svg"
-                  alt={t.stats.ariaLabel}
-                  width={358}
-                  height={675}
+                  src="/images/drunken-sailor/stats/badge-alc.svg"
+                  alt="ALC. 6,4% VOL"
+                  width={120}
+                  height={120}
+                  priority
+                />
+              </div>
+              <div className={`${styles.badgeItem} ${styles.badgePlato}`}>
+                <Image
+                  src="/images/drunken-sailor/stats/badge-plato.svg"
+                  alt="14° PLATO"
+                  width={120}
+                  height={120}
+                  priority
                 />
               </div>
             </div>
