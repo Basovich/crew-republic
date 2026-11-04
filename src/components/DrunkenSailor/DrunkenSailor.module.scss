@@ -9,12 +9,89 @@
   overflow: clip;
 }
 
+.loadingLocked {
+  overflow: hidden;
+  max-height: 100vh;
+}
+
+.elementHidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+// -----------------------------------------------------------------------------
+// Global Page Background Anchor (Loader first, then full-page background)
+// -----------------------------------------------------------------------------
+.pageAnchorBackground {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  max-width: 492px;
+  height: auto;
+  pointer-events: none;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: center center;
+  will-change: transform, opacity;
+
+  @include responsive(md) {
+    width: 100%;
+    max-width: 798px;
+  }
+}
+
+.anchorLoading {
+  z-index: 100;
+  animation: anchorPulse 1.2s ease-in-out infinite alternate;
+
+  .anchorSvg {
+    opacity: 1;
+    filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.6));
+  }
+}
+
+.anchorLoaded {
+  z-index: 1;
+  animation: none;
+
+  .anchorSvg {
+    opacity: 0.1;
+    filter: none;
+    transition: opacity 0.8s ease;
+  }
+}
+
+@keyframes anchorPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.18);
+    opacity: 0.35;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.24);
+    opacity: 1;
+  }
+}
+
+.anchorSvg {
+  width: 100%;
+  height: auto;
+  max-width: 798px;
+  max-height: 974px;
+  object-fit: contain;
+  user-select: none;
+}
+
 // -----------------------------------------------------------------------------
 // Interactive Story Track (Enclosing Intro through Awards)
 // -----------------------------------------------------------------------------
 .storyTrack {
   position: relative;
   width: 100%;
+  z-index: 10;
 }
 
 // -----------------------------------------------------------------------------
@@ -93,42 +170,12 @@
   justify-content: center;
   align-items: center;
   padding: 120px 24px 60px;
-  z-index: 5;
+  z-index: 10;
 
   @include responsive(md) {
     min-height: 90vh;
     padding: 140px 60px 80px;
   }
-}
-
-.heroBackground {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90vw;
-  max-width: 492px;
-  height: auto;
-  pointer-events: none;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  @include responsive(md) {
-    top: 50%;
-    width: 100%;
-    max-width: 798px;
-  }
-}
-
-.anchorSvg {
-  width: 100%;
-  height: auto;
-  max-width: 798px;
-  max-height: 974px;
-  object-fit: contain;
-  user-select: none;
 }
 
 .heroHeadings {
@@ -309,7 +356,7 @@
   align-items: center;
   justify-content: center;
   padding: 80px 20px;
-  z-index: 5;
+  z-index: 10;
 
   @include responsive(md) {
     min-height: 85vh;

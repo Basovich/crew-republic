@@ -70,8 +70,12 @@ export function DrunkenSailorExperience({ t }: DrunkenSailorExperienceProps) {
   const storyTrackRef = useRef<HTMLDivElement>(null);
   const lottieContainerRef = useRef<HTMLDivElement>(null);
   const bottleViewportRef = useRef<HTMLDivElement>(null);
+  const anchorRef = useRef<HTMLDivElement>(null);
+  const heroHeadingsRef = useRef<HTMLDivElement>(null);
+  const sideIndicatorRef = useRef<HTMLElement>(null);
   const animRef = useRef<AnimationItem | null>(null);
   const [activeSection, setActiveSection] = useState('hero');
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const handleScrollToSection = (id: string) => {
     const el = document.getElementById(id);
@@ -79,6 +83,20 @@ export function DrunkenSailorExperience({ t }: DrunkenSailorExperienceProps) {
       el.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  // ---------------------------------------------------------------------------
+  // Lock body scroll while loader is active
+  // ---------------------------------------------------------------------------
+  useEffect(() => {
+    if (!isLoaded) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isLoaded]);
 
   // ---------------------------------------------------------------------------
   // Lottie Animation Loading & ScrollTrigger Binding
@@ -109,9 +127,24 @@ export function DrunkenSailorExperience({ t }: DrunkenSailorExperienceProps) {
 
       animRef.current = anim;
 
+      const safetyTimer = setTimeout(() => {
+        if (!isCancelled) {
+          setIsLoaded(true);
+        }
+      }, 4000);
+
+      const startTime = Date.now();
       anim.addEventListener('DOMLoaded', () => {
         if (isCancelled) return;
-        ScrollTrigger.refresh();
+        clearTimeout(safetyTimer);
+        const elapsed = Date.now() - startTime;
+        const minLoaderTime = 600;
+        const remaining = Math.max(0, minLoaderTime - elapsed);
+        setTimeout(() => {
+          if (isCancelled) return;
+          setIsLoaded(true);
+          ScrollTrigger.refresh();
+        }, remaining);
       });
     }
 
@@ -125,6 +158,73 @@ export function DrunkenSailorExperience({ t }: DrunkenSailorExperienceProps) {
       }
     };
   }, []);
+
+  // ---------------------------------------------------------------------------
+  // Entrance Transition: Expand Anchor to background and reveal content
+  // ---------------------------------------------------------------------------
+  useGSAP(
+    () => {
+      if (!isLoaded) return;
+
+      const prefersReducedMotion = window.matchMedia(
+        '(prefers-reduced-motion: reduce)'
+      ).matches;
+
+      if (prefersReducedMotion) {
+        if (anchorRef.current) gsap.set(anchorRef.current, { scale: 1, clearProps: 'transform' });
+        if (bottleViewportRef.current) gsap.set(bottleViewportRef.current, { opacity: 1, rotation: -9 });
+        if (heroHeadingsRef.current) gsap.set(heroHeadingsRef.current, { opacity: 1, y: 0 });
+        if (sideIndicatorRef.current) gsap.set(sideIndicatorRef.current, { opacity: 1 });
+        ScrollTrigger.refresh();
+        return;
+      }
+
+      const tl = gsap.timeline({
+        onComplete: () => {
+          ScrollTrigger.refresh();
+        },
+      });
+
+      // 1. Expand anchor from loader scale to background scale
+      tl.set(anchorRef.current, { zIndex: 100 })
+        .fromTo(
+          anchorRef.current,
+          { scale: 0.22, xPercent: -50, yPercent: -50 },
+          {
+            scale: 1,
+            xPercent: -50,
+            yPercent: -50,
+            duration: 0.9,
+            ease: 'power3.out',
+            onComplete: () => {
+              if (anchorRef.current) anchorRef.current.style.zIndex = '1';
+            },
+          }
+        )
+        // 2. Reveal animated can (fade in, settle, preserving hero -9deg tilt)
+        .fromTo(
+          bottleViewportRef.current,
+          { opacity: 0, scale: 0.88, rotation: -9 },
+          { opacity: 1, scale: 1, rotation: -9, duration: 0.8, ease: 'power2.out' },
+          '-=0.4'
+        )
+        // 3. Stagger/slide up hero headings
+        .fromTo(
+          heroHeadingsRef.current,
+          { opacity: 0, y: 30 },
+          { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' },
+          '-=0.5'
+        )
+        // 4. Reveal side indicator
+        .fromTo(
+          sideIndicatorRef.current,
+          { opacity: 0, x: -20 },
+          { opacity: 1, x: 0, duration: 0.6, ease: 'power2.out' },
+          '-=0.4'
+        );
+    },
+    { dependencies: [isLoaded], scope: containerRef }
+  );
 
   // ---------------------------------------------------------------------------
   // GSAP ScrollTrigger Sequence across the Story Track
@@ -199,9 +299,32 @@ export function DrunkenSailorExperience({ t }: DrunkenSailorExperienceProps) {
   );
 
   return (
-    <div className={styles.experienceWrapper} ref={containerRef}>
-      {/* Desktop Side Navigation Indicator */}
-      <nav className={styles.sideIndicator} aria-label="Section navigation">
+    <div
+      className={`${styles.experienceWrapper} ${!isLoaded ? styles.loadingLocked : ''}`}
+      ref={containerRef}
+    >
+      {/* 1. Global Page Background Anchor (Loader first, then full-page background under content) */}
+      <div
+        className={`${styles.pageAnchorBackground} ${isLoaded ? styles.anchorLoaded : styles.anchorLoading}`}
+        ref={anchorRef}
+        aria-hidden="true"
+      >
+        <Image
+          src="/images/drunken-sailor/hero-anchor-bg.svg"
+          alt=""
+          width={798}
+          height={974}
+          priority
+          className={styles.anchorSvg}
+        />
+      </div>
+
+      {/* 2. Desktop Side Navigation Indicator */}
+      <nav
+        className={`${styles.sideIndicator} ${!isLoaded ? styles.elementHidden : ''}`}
+        ref={sideIndicatorRef}
+        aria-label="Section navigation"
+      >
         <ul className={styles.indicatorList}>
           {SECTIONS.map(({ id, label }, index) => {
             const isActive = activeSection === id;
@@ -234,26 +357,20 @@ export function DrunkenSailorExperience({ t }: DrunkenSailorExperienceProps) {
       <div className={styles.storyTrack} ref={storyTrackRef}>
         {/* Sticky Lottie Stage anchored throughout this track only */}
         <div className={styles.stickyStage} aria-hidden="true">
-          <div className={styles.bottleViewport} ref={bottleViewportRef}>
+          <div
+            className={`${styles.bottleViewport} ${!isLoaded ? styles.elementHidden : ''}`}
+            ref={bottleViewportRef}
+          >
             <div className={styles.lottieContainer} ref={lottieContainerRef} />
           </div>
         </div>
 
         {/* Hero Typography Shell */}
         <div className={styles.heroShell} id="hero">
-          {/* Background Anchor Watermark */}
-          <div className={styles.heroBackground} aria-hidden="true">
-            <Image
-              src="/images/drunken-sailor/hero-anchor-bg.svg"
-              alt=""
-              width={798}
-              height={974}
-              priority
-              className={styles.anchorSvg}
-            />
-          </div>
-
-          <div className={styles.heroHeadings}>
+          <div
+            className={`${styles.heroHeadings} ${!isLoaded ? styles.elementHidden : ''}`}
+            ref={heroHeadingsRef}
+          >
             <div className={styles.headingLeft}>
               <Heading level="h1" as="h1">
                 DRUNKEN
