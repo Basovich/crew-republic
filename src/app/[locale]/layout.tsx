@@ -7,6 +7,7 @@ import { drukHeavy, drukTextHeavy } from "@/fonts/fonts";
 import { Footer } from "@/components/Footer/Footer";
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
 import { PasswordGate } from "@/components/PasswordGate";
+import { DrunkenSailorPreloader } from "@/components/DrunkenSailor/DrunkenSailorPreloader";
 import "@/styles/globals.scss";
 
 export const metadata: Metadata = {
@@ -58,6 +59,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           <PasswordGate>
             <SmoothScrollProvider>
+              <DrunkenSailorPreloader />
               {children}
               <Footer />
             </SmoothScrollProvider>

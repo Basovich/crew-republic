@@ -116,6 +116,12 @@ export default async function DrunkenSailorPage({ params }: PageProps) {
 
   return (
     <>
+      <link
+        rel="preload"
+        as="image"
+        href="/images/drunken-sailor/animations/images/image_89.webp"
+        type="image/webp"
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}

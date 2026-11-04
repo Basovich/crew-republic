@@ -107,16 +107,50 @@ export function DrunkenSailorExperience({ t }: DrunkenSailorExperienceProps) {
     async function initLottie() {
       if (!lottieContainerRef.current) return;
 
+      const startTime = Date.now();
+      console.log(`[DrunkenSailor Loader] 🚀 initLottie started (t = 0ms)`);
+
+      // Clean up previous container content to prevent duplicate SVG nodes in React
+      lottieContainerRef.current.innerHTML = '';
+
+      // 1. In DS_High_Angel_30.json, frame 0 uses refId 'image_89' -> image_89.webp
+      const firstFrameSrc = '/images/drunken-sailor/animations/images/image_89.webp';
+      const firstFrameImg = new window.Image();
+      firstFrameImg.src = firstFrameSrc;
+
+      const frame0Promise = new Promise<void>((resolve) => {
+        if (firstFrameImg.complete && firstFrameImg.naturalWidth > 0) {
+          console.log(`[DrunkenSailor Loader] ⚡ Frame 0 (image_89.webp) was already in cache! (${Date.now() - startTime}ms)`);
+          resolve();
+        } else {
+          firstFrameImg.onload = () => {
+            console.log(`[DrunkenSailor Loader] 📥 Frame 0 (image_89.webp) downloaded successfully in ${Date.now() - startTime}ms`);
+            resolve();
+          };
+          firstFrameImg.onerror = (err) => {
+            console.error(`[DrunkenSailor Loader] ❌ Frame 0 download failed in ${Date.now() - startTime}ms`, err);
+            resolve();
+          };
+        }
+      });
+
+      // 2. Load lottie-web module
       const lottieModule = await import('lottie-web');
       const lottie = lottieModule.default || lottieModule;
 
       if (isCancelled) return;
 
-      // Clean up previous instance if any
       if (animRef.current) {
         animRef.current.destroy();
+        animRef.current = null;
       }
 
+      // Ensure container is still clean before creating new animation instance
+      if (lottieContainerRef.current) {
+        lottieContainerRef.current.innerHTML = '';
+      }
+
+      console.log(`[DrunkenSailor Loader] ⚙️ Starting lottie.loadAnimation (${Date.now() - startTime}ms)...`);
       const anim = lottie.loadAnimation({
         container: lottieContainerRef.current,
         renderer: 'svg',
@@ -127,24 +161,64 @@ export function DrunkenSailorExperience({ t }: DrunkenSailorExperienceProps) {
 
       animRef.current = anim;
 
-      const safetyTimer = setTimeout(() => {
-        if (!isCancelled) {
-          setIsLoaded(true);
+      const domLoadedPromise = new Promise<void>((resolve) => {
+        anim.addEventListener('DOMLoaded', () => {
+          console.log(`[DrunkenSailor Loader] 🧩 Lottie DOMLoaded event fired in ${Date.now() - startTime}ms`);
+          resolve();
+        });
+        if (anim.isLoaded) {
+          console.log(`[DrunkenSailor Loader] 🧩 Lottie already isLoaded in ${Date.now() - startTime}ms`);
+          resolve();
         }
-      }, 4000);
+      });
 
-      const startTime = Date.now();
-      anim.addEventListener('DOMLoaded', () => {
-        if (isCancelled) return;
-        clearTimeout(safetyTimer);
+      const minLoaderTime = 1200; // Complete at least one full anchorPulse cycle (1.2s)
+      const maxSafetyTime = 10000; // 10s safety fallback
+
+      let isReadyHandled = false;
+      const handleReady = async () => {
+        if (isReadyHandled || isCancelled) return;
+        isReadyHandled = true;
+
+        // Ensure frame 0 is decoded and rendered
+        try {
+          if (firstFrameImg.decode) {
+            await firstFrameImg.decode();
+            console.log(`[DrunkenSailor Loader] 🎨 Frame 0 (image_89.webp) decoded into GPU memory in ${Date.now() - startTime}ms`);
+          }
+        } catch (e) {
+          console.warn(`[DrunkenSailor Loader] Frame 0 decode warning:`, e);
+        }
+
+        if (animRef.current) {
+          animRef.current.goToAndStop(0, true);
+          console.log(`[DrunkenSailor Loader] 🎬 anim.goToAndStop(0, true) rendered frame 0 in ${Date.now() - startTime}ms`);
+        }
+
         const elapsed = Date.now() - startTime;
-        const minLoaderTime = 600;
         const remaining = Math.max(0, minLoaderTime - elapsed);
+        console.log(`[DrunkenSailor Loader] ⏳ Remaining loader delay: ${remaining}ms (elapsed: ${elapsed}ms, min: ${minLoaderTime}ms)`);
+
         setTimeout(() => {
           if (isCancelled) return;
+          console.log(`[DrunkenSailor Loader] ✨ DISMISSING LOADER: Setting isLoaded = true at ${Date.now() - startTime}ms! Can is fully visible!`);
           setIsLoaded(true);
-          ScrollTrigger.refresh();
+          setTimeout(() => {
+            ScrollTrigger.refresh();
+          }, 100);
         }, remaining);
+      };
+
+      const safetyTimer = setTimeout(() => {
+        console.warn(`[DrunkenSailor Loader] ⚠️ Safety timeout triggered at ${Date.now() - startTime}ms!`);
+        handleReady();
+      }, maxSafetyTime);
+
+      // Wait for both actual initial frame (image_89.webp) and Lottie DOM structure
+      Promise.all([frame0Promise, domLoadedPromise]).then(() => {
+        clearTimeout(safetyTimer);
+        console.log(`[DrunkenSailor Loader] ✅ Frame 0 & Lottie DOM are ready! Proceeding to reveal (${Date.now() - startTime}ms)`);
+        handleReady();
       });
     }
 
