@@ -21,6 +21,10 @@
     @media (min-width: $breakpoint-xl) {
       @content;
     }
+  } @else if $breakpoint == xxl {
+    @media (min-width: $breakpoint-xxl) {
+      @content;
+    }
   }
 }
 

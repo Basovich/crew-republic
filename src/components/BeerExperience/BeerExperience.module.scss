@@ -194,6 +194,52 @@
   }
 }
 
+.heroShellDrunkenSailor {
+  .heroHeadings {
+    @include responsive(md) {
+      gap: 240px;
+    }
+
+    @include responsive(xl) {
+      min-height: 535px;
+      margin-top: 150px;
+      gap: 315px;
+    }
+
+    .headingLeft {
+      white-space: pre-wrap;
+      width: 260px;
+
+      @include responsive(md) {
+        width: 300px;
+      }
+
+      @include responsive(lg) {
+        width: 320px;
+      }
+
+      @include responsive(xl) {
+        width: 390px;
+        transform: translateY(20px);
+      }
+    }
+
+    .headingRight {
+      width: 260px;
+      white-space: pre-wrap;
+
+      @include responsive(md) {
+        width: 300px;
+      }
+
+      @include responsive(xl) {
+        width: 300px;
+        transform: translateX(-30px);
+      }
+    }
+  }
+}
+
 .heroHeadings {
   position: relative;
   z-index: 2;
@@ -217,6 +263,7 @@
     justify-content: space-between;
     min-height: 420px;
     gap: 140px;
+    margin-top: 80px;
   }
 
   @include responsive(lg) {
@@ -225,8 +272,9 @@
   }
 
   @include responsive(xl) {
-    min-height: 480px;
-    gap: 180px;
+    margin-top: 100px;
+    min-height: 280px;
+    gap: 290px;
     justify-content: center;
   }
 }
@@ -248,6 +296,7 @@
   text-align: end;
   width: 100%;
   align-self: flex-end;
+  transform: translateY(14px);
 
   @include responsive(md) {
     text-align: left;
@@ -276,6 +325,10 @@
 
   @include responsive(xl) {
     left: 48px;
+  }
+
+  @include responsive(xxl) {
+    left: calc((100% - 1350px) /2);
   }
 }
 
@@ -323,8 +376,8 @@
 }
 
 .indicatorDot {
-  width: 8px;
-  height: 8px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.2);
   transition: background-color 0.25s ease, transform 0.25s ease;
@@ -333,6 +386,8 @@
 
 .indicatorDotActive {
   background-color: #ffffff;
+  width: 8px;
+  height: 8px;
 }
 
 .indicatorRing {
@@ -383,6 +438,10 @@
     min-height: 85vh;
     padding: 120px 60px;
   }
+
+  @include responsive(xl) {
+    padding: 120px 120px;
+  }
 }
 
 .contentContainer {
@@ -415,7 +474,7 @@
 
 .introLeft {
   width: 100%;
-  max-width: 171px;
+  max-width: 220px;
   text-align: left;
   align-self: flex-start;
 
@@ -471,6 +530,10 @@
   @include responsive(lg) {
     max-width: none;
     text-align: left;
+  }
+
+  @include responsive(xl) {
+    font-size: 20px;
   }
 }
 
@@ -650,6 +713,10 @@
     max-width: 350px;
   }
 
+  @include responsive(xxl) {
+    max-width: 400px;
+  }
+
   img {
     width: 100%;
     height: auto;
@@ -690,6 +757,10 @@
     max-width: 300px;
     margin: 0;
     padding-left: 0;
+  }
+
+  @include responsive(xxl) {
+    max-width: 360px;
   }
 }
 
@@ -752,6 +823,13 @@
     min-height: auto;
     gap: 96px;
   }
+
+  @include responsive(xxl) {
+    width: 944px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 60px;
+  }
 }
 
 .matchRowLeft {
@@ -794,6 +872,14 @@
   @include responsive(lg) {
     max-width: 380px;
     gap: 24px;
+  }
+
+  @include responsive(xl) {
+    gap: 48px;
+  }
+
+  @include responsive(xxl) {
+    max-width: 284px;
   }
 }
 
@@ -980,7 +1066,7 @@
 
   @include responsive(lg) {
     max-width: 320px;
-    text-align: left;
+    text-align: right;
   }
 
   h2 {
@@ -1049,7 +1135,7 @@
     }
 
     &:only-child {
-      grid-column: 1 / -1;
+      //grid-column: 1 / -1;
       justify-self: end;
     }
 
@@ -1080,7 +1166,6 @@
   justify-content: center;
   padding: 100px 16px;
   z-index: 30;
-  background-color: #000000;
 
   @include responsive(md) {
     min-height: 80vh;
@@ -1097,6 +1182,10 @@
 
   @include responsive(md) {
     gap: 60px;
+  }
+
+  @include responsive(xl) {
+    gap: 240px;
   }
 }
 

@@ -434,7 +434,10 @@ export function BeerExperience({
         </div>
 
         {/* Hero Typography Shell */}
-        <div className={styles.heroShell} id="hero">
+        <div
+          className={`${styles.heroShell} ${config.slug === 'drunken-sailor' ? (styles.heroShellDrunkenSailor || '') : ''} ${config.heroShellClassName || ''}`.replace(/\s+/g, ' ').trim()}
+          id="hero"
+        >
           <div
             className={`${styles.heroHeadings} ${!isLoaded ? styles.elementHidden : ''}`}
             ref={heroHeadingsRef}
