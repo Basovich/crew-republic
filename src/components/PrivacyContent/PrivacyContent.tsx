@@ -13,7 +13,7 @@ interface PrivacyContentProps {
  * "1) EINLEITUNG UND KONTAKTDATEN DES VERANTWORTLICHEN"
  * "§ 1 Geltungsbereich"
  */
-const SECTION_TITLE_REGEX = /^(?:(?:\d+\)|§\s*\d+[a-zA-Z]?\.?)\s*)(.*)$/;
+const SECTION_TITLE_REGEX = /^(?:\d+\)|§\s*\d+[a-zA-Z]?\.?)\s+\S/;
 
 /**
  * Regex to detect numbered paragraph headings like:
