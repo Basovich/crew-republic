@@ -1854,5 +1854,18 @@
         }
       ]
     }
+  },
+  "NotFoundPage": {
+    "metaTitle": "404 – Seite nicht gefunden | CREW Republic",
+    "metaDescription": "Sieht so aus, als wäre diese Seite leer gezapft. Wir holen dir ein frisches.",
+    "logoAriaLabel": "CREW Republic Startseite",
+    "logoAlt": "CREW Republic",
+    "codeAriaLabel": "Fehler 404",
+    "grenadeAlt": "Hopfengranate-Emblem",
+    "heading": "FOUR ZERO POUR",
+    "line1": "Sieht so aus, als wäre diese Seite leer gezapft.",
+    "line2": "Wir holen dir ein frisches.",
+    "backHome": "ZUR STARTSEITE",
+    "imprint": "IMPRESSUM"
   }
 }

@@ -6,17 +6,19 @@ import styles from './FloatingActions.module.scss';
 
 interface FloatingActionsProps {
   menuLabel?: string;
+  hideNavigation?: boolean;
   onMenuClick?: () => void;
   onShopClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 
 export function FloatingActions({
+  hideNavigation = false,
   onShopClick,
 }: FloatingActionsProps) {
   return (
     <>
       {/* Centered Sticky Interactive Menu & Panel */}
-      <Navigation />
+      {!hideNavigation && <Navigation />}
 
       {/* Bottom Right Sticky Shop Button */}
       <a

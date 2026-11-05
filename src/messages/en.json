@@ -1854,5 +1854,18 @@
         }
       ]
     }
+  },
+  "NotFoundPage": {
+    "metaTitle": "404 – Page Not Found | CREW Republic",
+    "metaDescription": "Looks like this page got tapped out. Let's get you a fresh one.",
+    "logoAriaLabel": "CREW Republic Home",
+    "logoAlt": "CREW Republic",
+    "codeAriaLabel": "Error 404",
+    "grenadeAlt": "Hop grenade emblem",
+    "heading": "FOUR ZERO POUR",
+    "line1": "Looks like this page got tapped out.",
+    "line2": "Let's get you a fresh one.",
+    "backHome": "BACK HOME",
+    "imprint": "IMPRINT"
   }
 }
