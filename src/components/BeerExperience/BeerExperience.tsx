@@ -78,11 +78,14 @@ export function BeerExperience({
 
   const containerRef = useRef<HTMLDivElement>(null);
   const storyTrackRef = useRef<HTMLDivElement>(null);
+  const bottleTrackRef = useRef<HTMLDivElement>(null);
+  const stickyStageRef = useRef<HTMLDivElement>(null);
   const lottieContainerRef = useRef<HTMLDivElement>(null);
   const bottleViewportRef = useRef<HTMLDivElement>(null);
   const anchorRef = useRef<HTMLDivElement>(null);
   const heroHeadingsRef = useRef<HTMLDivElement>(null);
   const sideIndicatorRef = useRef<HTMLElement>(null);
+  const shopButtonRef = useRef<HTMLDivElement>(null);
   const animRef = useRef<AnimationItem | null>(null);
   const [activeSection, setActiveSection] = useState('hero');
   const [isLoaded, setIsLoaded] = useState(false);
@@ -327,13 +330,59 @@ export function BeerExperience({
         );
       }
 
-      // 2. Scrub Lottie animation: completes 360deg rotation when Awards reaches bottom
-      const awardsEl = document.getElementById('awards');
+      const GAP = 20;
+
+      // 2. Size the absolute bottleTrack so native CSS sticky unsticks and parks
+      //    the bottle/glass exactly 20px above the shop button (and never moves further).
+      const syncBottleTrackHeight = () => {
+        const storyTrack = storyTrackRef.current;
+        const bottleTrack = bottleTrackRef.current;
+        const stickyStage = stickyStageRef.current;
+        const bottle = bottleViewportRef.current;
+        const shopBtn = shopButtonRef.current;
+        if (!storyTrack || !bottleTrack || !stickyStage || !bottle || !shopBtn) return;
+
+        const trackRect = storyTrack.getBoundingClientRect();
+        const btnRect = shopBtn.getBoundingClientRect();
+        const buttonTopInTrack = btnRect.top - trackRect.top;
+
+        const stageH = stickyStage.offsetHeight || window.innerHeight;
+        const canH = bottle.offsetHeight || 400;
+
+        const trackHeight = Math.max(
+          stageH,
+          buttonTopInTrack - GAP + (stageH - canH) / 2
+        );
+        bottleTrack.style.height = `${trackHeight}px`;
+      };
+
+      syncBottleTrackHeight();
+      ScrollTrigger.addEventListener('refreshInit', syncBottleTrackHeight);
+
+      let resizeObserver: ResizeObserver | null = null;
+      if (typeof ResizeObserver !== 'undefined') {
+        resizeObserver = new ResizeObserver(() => {
+          syncBottleTrackHeight();
+        });
+        if (storyTrackRef.current) resizeObserver.observe(storyTrackRef.current);
+        if (stickyStageRef.current) resizeObserver.observe(stickyStageRef.current);
+        if (bottleViewportRef.current) resizeObserver.observe(bottleViewportRef.current);
+        if (shopButtonRef.current) resizeObserver.observe(shopButtonRef.current);
+      }
+
+      // 3. Scrub Lottie animation: completes 360deg rotation when bottle settles 20px above shop button
       ScrollTrigger.create({
         trigger: storyTrackRef.current,
         start: 'top top',
-        endTrigger: awardsEl || storyTrackRef.current,
-        end: awardsEl ? 'bottom bottom' : 'bottom bottom',
+        endTrigger: shopButtonRef.current || storyTrackRef.current,
+        end: () => {
+          if (!bottleViewportRef.current || !shopButtonRef.current) return 'bottom bottom';
+          const stageH = stickyStageRef.current?.offsetHeight || window.innerHeight;
+          const canH = bottleViewportRef.current.offsetHeight || 400;
+          const canBottomCentered = (stageH + canH) / 2;
+          return `top ${Math.round(canBottomCentered + GAP)}px`;
+        },
+        invalidateOnRefresh: true,
         scrub: 1,
         onUpdate: (self) => {
           if (animRef.current && !prefersReducedMotion) {
@@ -342,34 +391,6 @@ export function BeerExperience({
           }
         },
       });
-
-      // 3. Settle bottle 20px from bottom of awardsSection
-      if (awardsEl && bottleViewportRef.current) {
-        const bottle = bottleViewportRef.current;
-        const GAP = 20;
-
-        const updateBottlePosition = () => {
-          if (!bottle || !awardsEl) return;
-
-          const vh = window.innerHeight;
-          const canH = bottle.offsetHeight || 400;
-          const rAwards = awardsEl.getBoundingClientRect();
-          const canBottomCentered = (vh + canH) / 2;
-          const y = Math.min(0, rAwards.bottom - GAP - canBottomCentered);
-
-          gsap.set(bottle, { y });
-        };
-
-        ScrollTrigger.create({
-          trigger: awardsEl,
-          start: 'top bottom',
-          end: 'bottom top',
-          invalidateOnRefresh: true,
-          onUpdate: updateBottlePosition,
-          onRefresh: updateBottlePosition,
-          onLeaveBack: () => gsap.set(bottle, { y: 0 }),
-        });
-      }
 
       // 4. Track active section for side indicator
       sections.forEach(({ id }) => {
@@ -394,6 +415,11 @@ export function BeerExperience({
           onEnterBack: () => setActiveSection('food'),
         });
       }
+
+      return () => {
+        ScrollTrigger.removeEventListener('refreshInit', syncBottleTrackHeight);
+        resizeObserver?.disconnect();
+      };
     },
     { scope: containerRef }
   );
@@ -463,17 +489,19 @@ export function BeerExperience({
       </nav>
 
       {/* -------------------------------------------------------------------- */}
-      {/* Interactive Story Track (Intro through Awards)                         */}
+      {/* Interactive Story Track (Intro through Shop)                           */}
       {/* -------------------------------------------------------------------- */}
       <div className={styles.storyTrack} ref={storyTrackRef}>
-        {/* Sticky Lottie Stage */}
-        <div className={styles.stickyStage} aria-hidden="true">
-          <div
-            className={`${styles.bottleViewport} ${!isLoaded ? styles.elementHidden : ''}`}
-            ref={bottleViewportRef}
-            style={{ transform: `rotate(${heroRotation}deg)` }}
-          >
-            <div className={styles.lottieContainer} ref={lottieContainerRef} />
+        {/* Sticky Lottie Stage inside explicit track that ends 20px above shop button */}
+        <div className={styles.bottleTrack} ref={bottleTrackRef} aria-hidden="true">
+          <div className={styles.stickyStage} ref={stickyStageRef}>
+            <div
+              className={`${styles.bottleViewport} ${!isLoaded ? styles.elementHidden : ''}`}
+              ref={bottleViewportRef}
+              style={{ transform: `rotate(${heroRotation}deg)` }}
+            >
+              <div className={styles.lottieContainer} ref={lottieContainerRef} />
+            </div>
           </div>
         </div>
 
@@ -711,33 +739,35 @@ export function BeerExperience({
             </div>
           </div>
         </section>
-      </div>
 
-      {/* -------------------------------------------------------------------- */}
-      {/* Section 7: Shop (Outside the Bottle Track - Bottle does not enter)      */}
-      {/* -------------------------------------------------------------------- */}
-      <section className={styles.shopSection} id="shop">
-        <div className={styles.shopWrapper}>
-          <Heading level="h1" as="h2" className={styles.shopHeading}>
-            {t.shop.heading}
-          </Heading>
-          {(() => {
-            const isExternal = t.shop.url.startsWith('http');
-            return (
-              <Button
-                href={t.shop.url}
-                variant="primary"
-                size="lg"
-                target={isExternal ? '_blank' : undefined}
-                rel={isExternal ? 'noopener noreferrer' : undefined}
-                className={styles.shopButton}
-              >
-                {t.shop.button}
-              </Button>
-            );
-          })()}
-        </div>
-      </section>
+        {/* -------------------------------------------------------------------- */}
+        {/* Section 7: Shop                                                      */}
+        {/* -------------------------------------------------------------------- */}
+        <section className={styles.shopSection} id="shop">
+          <div className={styles.shopWrapper}>
+            <Heading level="h1" as="h2" className={styles.shopHeading}>
+              {t.shop.heading}
+            </Heading>
+            <div className={styles.shopButtonWrapper} ref={shopButtonRef}>
+              {(() => {
+                const isExternal = t.shop.url.startsWith('http');
+                return (
+                  <Button
+                    href={t.shop.url}
+                    variant="primary"
+                    size="lg"
+                    target={isExternal ? '_blank' : undefined}
+                    rel={isExternal ? 'noopener noreferrer' : undefined}
+                    className={styles.shopButton}
+                  >
+                    {t.shop.button}
+                  </Button>
+                );
+              })()}
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
   );
 }
