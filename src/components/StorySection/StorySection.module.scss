@@ -49,7 +49,13 @@
   }
 }
 
+.revealSlot {
+  width: 100%;
+}
+
 .heading {
+  will-change: transform, opacity;
+
   &.narrowHeading {
     @include responsive(lg) {
       max-width: 740px;
@@ -81,6 +87,7 @@
   line-height: 1.5;
   color: #ffffff;
   margin: 0;
+  will-change: transform, opacity;
 
   @include responsive(md) {
     font-size: 18px;
@@ -102,6 +109,7 @@
   flex-direction: column;
   gap: 16px;
   width: 100%;
+  will-change: transform, opacity;
 
   @include responsive(sm) {
     flex-direction: row;
@@ -119,12 +127,10 @@
   }
 }
 
-.imageWrapper {
+.imageSlot {
   position: relative;
   width: 100%;
   aspect-ratio: 4 / 5;
-  overflow: hidden;
-  background-color: #000000;
   z-index: 1;
 
   @include responsive(lg) {
@@ -135,24 +141,44 @@
     width: 568px;
     height: 710px;
     max-width: 568px;
+    aspect-ratio: auto;
   }
+}
+
+.imageFrame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #000000;
+  will-change: transform;
+}
+
+.imageInner {
+  position: absolute;
+  left: 0;
+  top: -11%;
+  width: 100%;
+  height: 122%;
+  will-change: transform;
 }
 
 .image {
   object-fit: cover;
   object-position: center;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Modifier when image is positioned on the left side on desktop */
 .imageLeft {
-  @include responsive(lg) {
-    .imageWrapper {
+  .imageSlot {
+    @include responsive(lg) {
       left: 0;
       right: auto;
     }
+  }
 
-    .content {
+  .content {
+    @include responsive(lg) {
       margin-left: auto;
       max-width: 568px;
     }

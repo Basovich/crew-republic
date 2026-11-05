@@ -504,6 +504,36 @@ export function BeerExperience({
           );
       };
 
+      const createScrubReveal = (
+        trigger: Element | null,
+        target: Element | null,
+        options?: { yFrom?: number; start?: string; end?: string; scrub?: number }
+      ) => {
+        if (!trigger || !target) return;
+        const {
+          yFrom = 64,
+          start = 'top 88%',
+          end = '+=240',
+          scrub = 0.45,
+        } = options ?? {};
+
+        gsap.fromTo(
+          target,
+          { y: yFrom, autoAlpha: 0 },
+          {
+            y: 0,
+            autoAlpha: 1,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger,
+              start,
+              end,
+              scrub,
+            },
+          }
+        );
+      };
+
       const mm = gsap.matchMedia();
 
       // Subtle background watermark Z-depth drift across the entire story track
@@ -531,30 +561,21 @@ export function BeerExperience({
       mm.add(
         '(min-width: 1024px) and (prefers-reduced-motion: no-preference)',
         () => {
-          // 1. Intro — Smooth Bottom Slide-Up with Transform & Opacity
-          const introTargets = [
+          // 1. Intro — Scrubbed Sequential Slide-Up (StorySection style)
+          createScrubReveal(
             root.querySelector('[data-parallax="intro-left"]'),
-            root.querySelector('[data-parallax="intro-right"]'),
-          ].filter((el): el is Element => el !== null);
+            root.querySelector('[data-parallax="intro-title"]'),
+            { start: 'top 88%' }
+          );
 
-          if (introTargets.length > 0) {
-            gsap.fromTo(
-              introTargets,
-              { y: 52, opacity: 0 },
-              {
-                y: 0,
-                opacity: 1,
-                duration: 0.85,
-                stagger: 0.15,
-                ease: 'power3.out',
-                scrollTrigger: {
-                  trigger: introTargets[0],
-                  start: 'top 68%',
-                  toggleActions: 'play none none reverse',
-                },
-              }
+          const introPSlots = root.querySelectorAll('[data-parallax="intro-p-slot"]');
+          introPSlots.forEach((slot, idx) => {
+            createScrubReveal(
+              slot,
+              slot.querySelector('[data-parallax="intro-p"]'),
+              { start: idx === 0 ? 'top 84%' : 'top 88%' }
             );
-          }
+          });
 
           // 2. Stats — Zero-Gravity Orbital Bottle-Cap Stamps
           const statsSection = root.querySelector('[data-parallax="stats-section"]');
@@ -594,69 +615,33 @@ export function BeerExperience({
             enterDelay: 0.08,
           });
 
-          // 3. Tastometer — Smooth Bottom Slide-Up per Visible Block
-          const tasteLeft = root.querySelector('[data-parallax="taste-left"]');
+          // 3. Tastometer — Scrubbed Sequential Slide-Up per Visible Block
+          createScrubReveal(
+            root.querySelector('[data-parallax="taste-left"]'),
+            root.querySelector('[data-parallax="taste-card"]'),
+            { start: 'top 88%' }
+          );
+
           const tasteItems = root.querySelectorAll('[data-parallax="taste-item"]');
-
-          if (tasteLeft) {
-            gsap.fromTo(
-              tasteLeft,
-              { y: 52, opacity: 0 },
-              {
-                y: 0,
-                opacity: 1,
-                duration: 0.85,
-                ease: 'power3.out',
-                scrollTrigger: {
-                  trigger: tasteLeft,
-                  start: 'top 68%',
-                  toggleActions: 'play none none reverse',
-                },
-              }
-            );
-          }
-
-          tasteItems.forEach((item) => {
-            gsap.fromTo(
-              item,
-              { y: 44, opacity: 0 },
-              {
-                y: 0,
-                opacity: 1,
-                duration: 0.8,
-                ease: 'power3.out',
-                scrollTrigger: {
-                  trigger: item,
-                  start: 'top 72%',
-                  toggleActions: 'play none none reverse',
-                },
-              }
+          tasteItems.forEach((slot, idx) => {
+            createScrubReveal(
+              slot,
+              slot.querySelector('[data-parallax="taste-item-inner"]'),
+              { start: idx === 0 ? 'top 84%' : 'top 88%' }
             );
           });
 
-          // 4. Match — Smooth Bottom Slide-Up per Card
-          const matchCards = [
+          // 4. Match — Scrubbed Sequential Slide-Up per Card
+          createScrubReveal(
+            root.querySelector('[data-parallax="match-row-left"]'),
             root.querySelector('[data-parallax="match-left"]'),
+            { start: 'top 88%' }
+          );
+          createScrubReveal(
+            root.querySelector('[data-parallax="match-row-right"]'),
             root.querySelector('[data-parallax="match-right"]'),
-          ].filter((el): el is Element => el !== null);
-
-          matchCards.forEach((card) => {
-            gsap.fromTo(
-              card,
-              { y: 52, opacity: 0 },
-              {
-                y: 0,
-                opacity: 1,
-                duration: 0.85,
-                ease: 'power3.out',
-                scrollTrigger: {
-                  trigger: card,
-                  start: 'top 70%',
-                  toggleActions: 'play none none reverse',
-                },
-              }
-            );
-          });
+            { start: 'top 86%' }
+          );
 
           // 5. Food — Tactile Polaroid Fan-Out
           const foodSection = root.querySelector('[data-parallax="food-section"]');
@@ -686,46 +671,23 @@ export function BeerExperience({
             });
           }
 
-          // 6. Awards — Smooth Bottom Slide-Up with Transform & Opacity
-          const awardsLeft = root.querySelector('[data-parallax="awards-left"]');
+          // 6. Awards — Scrubbed Sequential Slide-Up with Transform & Opacity
+          createScrubReveal(
+            root.querySelector('[data-parallax="awards-left"]'),
+            root.querySelector('[data-parallax="awards-title"]'),
+            { start: 'top 88%' }
+          );
+
           const awardItems = root.querySelectorAll('[data-parallax="award-item"]');
-
-          if (awardsLeft) {
-            gsap.fromTo(
-              awardsLeft,
-              { y: 52, opacity: 0 },
-              {
-                y: 0,
-                opacity: 1,
-                duration: 0.85,
-                ease: 'power3.out',
-                scrollTrigger: {
-                  trigger: awardsLeft,
-                  start: 'top 68%',
-                  toggleActions: 'play none none reverse',
-                },
-              }
-            );
-          }
-
           awardItems.forEach((item, idx) => {
-            const pairDelay = awardItems.length === 1 ? 0.12 : (idx % 2) * 0.12;
-            gsap.fromTo(
-              item,
-              { y: 48, opacity: 0 },
-              {
-                y: 0,
-                opacity: 1,
-                duration: 0.8,
-                delay: pairDelay,
-                ease: 'power3.out',
-                scrollTrigger: {
-                  trigger: item.parentElement || item,
-                  start: 'top 70%',
-                  toggleActions: 'play none none reverse',
-                },
-              }
-            );
+            const parent = item.parentElement;
+            const colStart =
+              awardItems.length === 1
+                ? 'top 84%'
+                : idx % 2 === 0
+                  ? 'top 88%'
+                  : 'top 83%';
+            createScrubReveal(parent || item, item, { start: colStart });
           });
         }
       );
@@ -833,46 +795,58 @@ export function BeerExperience({
       mm.add(
         '(max-width: 1023px) and (prefers-reduced-motion: no-preference)',
         () => {
-          const mobileSlideUpTargets = root.querySelectorAll(
-            '[data-parallax="intro-left"], [data-parallax="intro-right"], [data-parallax="taste-left"], [data-parallax="taste-item"], [data-parallax="match-left"], [data-parallax="match-right"], [data-parallax="awards-left"]'
+          const mobileOpts = { yFrom: 40, start: 'top 90%', end: '+=200', scrub: 0.45 };
+
+          createScrubReveal(
+            root.querySelector('[data-parallax="intro-left"]'),
+            root.querySelector('[data-parallax="intro-title"]'),
+            mobileOpts
           );
-          mobileSlideUpTargets.forEach((el) => {
-            gsap.fromTo(
-              el,
-              { y: 40, opacity: 0 },
-              {
-                y: 0,
-                opacity: 1,
-                duration: 0.75,
-                ease: 'power3.out',
-                scrollTrigger: {
-                  trigger: el,
-                  start: 'top 74%',
-                  toggleActions: 'play none none reverse',
-                },
-              }
+
+          root.querySelectorAll('[data-parallax="intro-p-slot"]').forEach((slot) => {
+            createScrubReveal(
+              slot,
+              slot.querySelector('[data-parallax="intro-p"]'),
+              mobileOpts
             );
           });
+
+          createScrubReveal(
+            root.querySelector('[data-parallax="taste-left"]'),
+            root.querySelector('[data-parallax="taste-card"]'),
+            mobileOpts
+          );
+
+          root.querySelectorAll('[data-parallax="taste-item"]').forEach((slot) => {
+            createScrubReveal(
+              slot,
+              slot.querySelector('[data-parallax="taste-item-inner"]'),
+              mobileOpts
+            );
+          });
+
+          createScrubReveal(
+            root.querySelector('[data-parallax="match-row-left"]'),
+            root.querySelector('[data-parallax="match-left"]'),
+            mobileOpts
+          );
+          createScrubReveal(
+            root.querySelector('[data-parallax="match-row-right"]'),
+            root.querySelector('[data-parallax="match-right"]'),
+            mobileOpts
+          );
+
+          createScrubReveal(
+            root.querySelector('[data-parallax="awards-left"]'),
+            root.querySelector('[data-parallax="awards-title"]'),
+            mobileOpts
+          );
 
           const mobileAwards = root.querySelectorAll('[data-parallax="award-item"]');
           mobileAwards.forEach((el) => {
             const parent = el.parentElement;
             if (parent && window.getComputedStyle(parent).display === 'none') return;
-            gsap.fromTo(
-              el,
-              { y: 40, opacity: 0 },
-              {
-                y: 0,
-                opacity: 1,
-                duration: 0.75,
-                ease: 'power3.out',
-                scrollTrigger: {
-                  trigger: parent || el,
-                  start: 'top 74%',
-                  toggleActions: 'play none none reverse',
-                },
-              }
-            );
+            createScrubReveal(parent || el, el, mobileOpts);
           });
 
           const statsSection = root.querySelector('[data-parallax="stats-section"]');
@@ -1062,13 +1036,26 @@ export function BeerExperience({
           <div className={styles.contentContainer}>
             <div className={styles.introWrapper}>
               <div className={styles.introLeft} data-parallax="intro-left">
-                <Heading level="h2" as="h2" className={styles.introTitle}>
+                <Heading
+                  level="h2"
+                  as="h2"
+                  className={styles.introTitle}
+                  data-parallax="intro-title"
+                >
                   {t.intro.title}
                 </Heading>
               </div>
               <div className={styles.introRight} data-parallax="intro-right">
-                <p className={styles.introText}>{t.intro.p1}</p>
-                <p className={styles.introText}>{t.intro.p2}</p>
+                <div className={styles.introTextSlot} data-parallax="intro-p-slot">
+                  <p className={styles.introText} data-parallax="intro-p">
+                    {t.intro.p1}
+                  </p>
+                </div>
+                <div className={styles.introTextSlot} data-parallax="intro-p-slot">
+                  <p className={styles.introText} data-parallax="intro-p">
+                    {t.intro.p2}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -1132,48 +1119,70 @@ export function BeerExperience({
           <div className={styles.contentContainer}>
             <div className={styles.tastometerGrid}>
               <div className={styles.tastometerLeft} data-parallax="taste-left">
-                <div className={styles.tastecardDesktop}>
-                  <Image
-                    src={config.tastometer.desktopSrc}
-                    alt={config.tastometer.alt}
-                    width={486}
-                    height={512}
-                  />
-                </div>
-                <div className={styles.tastecardMobile}>
-                  <Image
-                    src={config.tastometer.mobileSrc}
-                    alt={config.tastometer.alt}
-                    width={358}
-                    height={331}
-                  />
+                <div className={styles.tastometerCardWrap} data-parallax="taste-card">
+                  <div className={styles.tastecardDesktop}>
+                    <Image
+                      src={config.tastometer.desktopSrc}
+                      alt={config.tastometer.alt}
+                      width={486}
+                      height={512}
+                    />
+                  </div>
+                  <div className={styles.tastecardMobile}>
+                    <Image
+                      src={config.tastometer.mobileSrc}
+                      alt={config.tastometer.alt}
+                      width={358}
+                      height={331}
+                    />
+                  </div>
                 </div>
               </div>
 
               <div className={styles.tastometerRight}>
                 <div className={styles.tastometerItem} data-parallax="taste-item">
-                  <Heading level="h4" as="h3">
-                    {t.tastometer.hopsTitle}
-                  </Heading>
-                  <p className={styles.paramValue}>{t.tastometer.hopsValue}</p>
+                  <div
+                    className={styles.tastometerItemInner}
+                    data-parallax="taste-item-inner"
+                  >
+                    <Heading level="h4" as="h3">
+                      {t.tastometer.hopsTitle}
+                    </Heading>
+                    <p className={styles.paramValue}>{t.tastometer.hopsValue}</p>
+                  </div>
                 </div>
                 <div className={styles.tastometerItem} data-parallax="taste-item">
-                  <Heading level="h4" as="h3">
-                    {t.tastometer.maltTitle}
-                  </Heading>
-                  <p className={styles.paramValue}>{t.tastometer.maltValue}</p>
+                  <div
+                    className={styles.tastometerItemInner}
+                    data-parallax="taste-item-inner"
+                  >
+                    <Heading level="h4" as="h3">
+                      {t.tastometer.maltTitle}
+                    </Heading>
+                    <p className={styles.paramValue}>{t.tastometer.maltValue}</p>
+                  </div>
                 </div>
                 <div className={styles.tastometerItem} data-parallax="taste-item">
-                  <Heading level="h4" as="h3">
-                    {t.tastometer.colorTitle}
-                  </Heading>
-                  <p className={styles.paramValue}>{t.tastometer.colorValue}</p>
+                  <div
+                    className={styles.tastometerItemInner}
+                    data-parallax="taste-item-inner"
+                  >
+                    <Heading level="h4" as="h3">
+                      {t.tastometer.colorTitle}
+                    </Heading>
+                    <p className={styles.paramValue}>{t.tastometer.colorValue}</p>
+                  </div>
                 </div>
                 <div className={styles.tastometerItem} data-parallax="taste-item">
-                  <Heading level="h4" as="h3">
-                    {t.tastometer.tempTitle}
-                  </Heading>
-                  <p className={styles.paramValue}>{t.tastometer.tempValue}</p>
+                  <div
+                    className={styles.tastometerItemInner}
+                    data-parallax="taste-item-inner"
+                  >
+                    <Heading level="h4" as="h3">
+                      {t.tastometer.tempTitle}
+                    </Heading>
+                    <p className={styles.paramValue}>{t.tastometer.tempValue}</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1184,7 +1193,7 @@ export function BeerExperience({
         <section className={styles.contentSection} id="match" data-parallax="match-section">
           <div className={styles.contentContainer}>
             <div className={styles.matchGrid}>
-              <div className={styles.matchRowLeft}>
+              <div className={styles.matchRowLeft} data-parallax="match-row-left">
                 <div className={styles.matchCard} data-parallax="match-left">
                   <Heading level="h2" as="h2">
                     {t.match.tasteTitle}
@@ -1193,7 +1202,7 @@ export function BeerExperience({
                 </div>
               </div>
 
-              <div className={styles.matchRowRight}>
+              <div className={styles.matchRowRight} data-parallax="match-row-right">
                 <div className={styles.matchCard} data-parallax="match-right">
                   <Heading level="h2" as="h2">
                     {t.match.drinkWithTitle}
@@ -1255,7 +1264,12 @@ export function BeerExperience({
           <div className={styles.contentContainer}>
             <div className={styles.awardsGrid}>
               <div className={styles.awardsLeft} data-parallax="awards-left">
-                <Heading level="h3" as="h2" className={styles.awardsTitle}>
+                <Heading
+                  level="h3"
+                  as="h2"
+                  className={styles.awardsTitle}
+                  data-parallax="awards-title"
+                >
                   {t.awards.title}
                 </Heading>
               </div>
