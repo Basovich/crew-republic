@@ -116,6 +116,12 @@ export default async function JackpotPage({ params }: PageProps) {
 
   return (
     <>
+      <link
+        rel="preload"
+        as="image"
+        href="/images/jackpot/animations/images/imgSeq_0.webp"
+        type="image/webp"
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}

@@ -12,8 +12,10 @@ export function JackpotPreloader() {
       return;
     }
 
-    // Start preloading after 1.5s so main page render is completely finished
+    // Start preloading after 1 second so main page render/hydration is completely finished
     const timer = setTimeout(() => {
+      console.log('[JackpotPreloader] 🚀 Starting background preloading of initial 10 frames...');
+
       // 1. Preload Lottie JSON definition
       fetch('/images/jackpot/animations/JP_High_Angle_30.json').catch(() => {});
 
@@ -23,14 +25,21 @@ export function JackpotPreloader() {
         (_, i) => `/images/jackpot/animations/images/imgSeq_${i}.webp`
       );
 
+      let loadedCount = 0;
       frames.forEach((src) => {
         const img = new Image();
         img.src = src;
+        img.onload = () => {
+          loadedCount++;
+          if (loadedCount === frames.length) {
+            console.log('[JackpotPreloader] ✅ All 10 initial frames (imgSeq_0..imgSeq_9) preloaded and cached!');
+          }
+        };
         if (img.decode) {
           img.decode().catch(() => {});
         }
       });
-    }, 1500);
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, [pathname]);
