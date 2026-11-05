@@ -633,6 +633,15 @@
   }
 }
 
+.badgeParallax {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform, opacity;
+}
+
 .badgeIpa {
   top: 10px;
   left: 10px;
@@ -1060,6 +1069,11 @@
   }
 }
 
+.foodParallax {
+  width: 100%;
+  will-change: transform, opacity;
+}
+
 .foodImageLeft,
 .foodImageRight,
 .foodImageThai,
@@ -1069,6 +1083,7 @@
   display: block;
   user-select: none;
   filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.45));
+  will-change: transform;
 }
 
 // -----------------------------------------------------------------------------
@@ -1185,6 +1200,15 @@
       transform: scale(1.05);
     }
   }
+}
+
+.awardReveal {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform, opacity;
 }
 
 .awardImage {

@@ -424,6 +424,525 @@ export function BeerExperience({
     { scope: containerRef }
   );
 
+  // ---------------------------------------------------------------------------
+  // Multi-Plane Editorial Parallax & Desktop Cursor Micro-Interactions
+  // ---------------------------------------------------------------------------
+  useGSAP(
+    () => {
+      const root = containerRef.current;
+      const track = storyTrackRef.current;
+      if (!root || !track) return;
+
+      interface DepthLayerConfig {
+        target: Element | null;
+        trigger: Element | null;
+        yFrom: number;
+        yTo: number;
+        xFrom?: number;
+        xExit?: number;
+        rotateFrom?: number;
+        rotateTo?: number;
+        scaleFrom?: number;
+        scaleExit?: number;
+        enterDelay?: number;
+        scrub?: number;
+      }
+
+      const createDepthLayer = ({
+        target,
+        trigger,
+        yFrom,
+        yTo,
+        xFrom = 0,
+        xExit = 0,
+        rotateFrom = 0,
+        rotateTo = 0,
+        scaleFrom = 0.94,
+        scaleExit = 0.96,
+        enterDelay = 0,
+        scrub = 0.75,
+      }: DepthLayerConfig) => {
+        if (!target || !trigger) return;
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger,
+            start: 'top 82%',
+            end: 'bottom top',
+            scrub,
+          },
+        });
+
+        tl.fromTo(
+          target,
+          { y: yFrom, rotation: rotateFrom },
+          { y: yTo, rotation: rotateTo, duration: 1, ease: 'none' },
+          0
+        )
+          .fromTo(
+            target,
+            { opacity: 0, scale: scaleFrom, x: xFrom },
+            {
+              opacity: 1,
+              scale: 1,
+              x: 0,
+              duration: Math.max(0.2, 0.36 - enterDelay),
+              ease: 'power2.out',
+            },
+            enterDelay
+          )
+          .to(
+            target,
+            {
+              opacity: 0.2,
+              scale: scaleExit,
+              x: xExit,
+              duration: 0.3,
+              ease: 'power2.in',
+            },
+            0.7
+          );
+      };
+
+      const mm = gsap.matchMedia();
+
+      // Subtle background watermark Z-depth drift across the entire story track
+      mm.add('(prefers-reduced-motion: no-preference)', () => {
+        const watermark = root.querySelector('[data-parallax="bg-watermark"]');
+        if (watermark) {
+          gsap.fromTo(
+            watermark,
+            { yPercent: -5 },
+            {
+              yPercent: 5,
+              ease: 'none',
+              scrollTrigger: {
+                trigger: track,
+                start: 'top top',
+                end: 'bottom bottom',
+                scrub: 1,
+              },
+            }
+          );
+        }
+      });
+
+      // Desktop Multi-Plane Choreography (min-width: 1024px)
+      mm.add(
+        '(min-width: 1024px) and (prefers-reduced-motion: no-preference)',
+        () => {
+          // 1. Intro — Smooth Bottom Slide-Up with Transform & Opacity
+          const introTargets = [
+            root.querySelector('[data-parallax="intro-left"]'),
+            root.querySelector('[data-parallax="intro-right"]'),
+          ].filter((el): el is Element => el !== null);
+
+          if (introTargets.length > 0) {
+            gsap.fromTo(
+              introTargets,
+              { y: 52, opacity: 0 },
+              {
+                y: 0,
+                opacity: 1,
+                duration: 0.85,
+                stagger: 0.15,
+                ease: 'power3.out',
+                scrollTrigger: {
+                  trigger: introTargets[0],
+                  start: 'top 68%',
+                  toggleActions: 'play none none reverse',
+                },
+              }
+            );
+          }
+
+          // 2. Stats — Zero-Gravity Orbital Bottle-Cap Stamps
+          const statsSection = root.querySelector('[data-parallax="stats-section"]');
+          createDepthLayer({
+            target: root.querySelector('[data-parallax="badge-ipa"]'),
+            trigger: statsSection,
+            yFrom: 70,
+            yTo: -90,
+            xFrom: 46,
+            xExit: -14,
+            rotateFrom: -14,
+            rotateTo: 8,
+            scaleFrom: 0.82,
+          });
+          createDepthLayer({
+            target: root.querySelector('[data-parallax="badge-alc"]'),
+            trigger: statsSection,
+            yFrom: 112,
+            yTo: -112,
+            xFrom: -50,
+            xExit: 16,
+            rotateFrom: 16,
+            rotateTo: -10,
+            scaleFrom: 0.82,
+            enterDelay: 0.04,
+          });
+          createDepthLayer({
+            target: root.querySelector('[data-parallax="badge-plato"]'),
+            trigger: statsSection,
+            yFrom: 138,
+            yTo: -76,
+            xFrom: 42,
+            xExit: -12,
+            rotateFrom: -12,
+            rotateTo: 9,
+            scaleFrom: 0.82,
+            enterDelay: 0.08,
+          });
+
+          // 3. Tastometer — Smooth Bottom Slide-Up per Visible Block
+          const tasteLeft = root.querySelector('[data-parallax="taste-left"]');
+          const tasteItems = root.querySelectorAll('[data-parallax="taste-item"]');
+
+          if (tasteLeft) {
+            gsap.fromTo(
+              tasteLeft,
+              { y: 52, opacity: 0 },
+              {
+                y: 0,
+                opacity: 1,
+                duration: 0.85,
+                ease: 'power3.out',
+                scrollTrigger: {
+                  trigger: tasteLeft,
+                  start: 'top 68%',
+                  toggleActions: 'play none none reverse',
+                },
+              }
+            );
+          }
+
+          tasteItems.forEach((item) => {
+            gsap.fromTo(
+              item,
+              { y: 44, opacity: 0 },
+              {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                ease: 'power3.out',
+                scrollTrigger: {
+                  trigger: item,
+                  start: 'top 72%',
+                  toggleActions: 'play none none reverse',
+                },
+              }
+            );
+          });
+
+          // 4. Match — Smooth Bottom Slide-Up per Card
+          const matchCards = [
+            root.querySelector('[data-parallax="match-left"]'),
+            root.querySelector('[data-parallax="match-right"]'),
+          ].filter((el): el is Element => el !== null);
+
+          matchCards.forEach((card) => {
+            gsap.fromTo(
+              card,
+              { y: 52, opacity: 0 },
+              {
+                y: 0,
+                opacity: 1,
+                duration: 0.85,
+                ease: 'power3.out',
+                scrollTrigger: {
+                  trigger: card,
+                  start: 'top 70%',
+                  toggleActions: 'play none none reverse',
+                },
+              }
+            );
+          });
+
+          // 5. Food — Tactile Polaroid Fan-Out
+          const foodSection = root.querySelector('[data-parallax="food-section"]');
+          if (foodSection) {
+            createDepthLayer({
+              target: root.querySelector('[data-parallax="food-left"]'),
+              trigger: foodSection,
+              yFrom: 86,
+              yTo: -68,
+              xFrom: 52,
+              xExit: -16,
+              rotateFrom: 4,
+              rotateTo: -2.8,
+              scaleFrom: 0.9,
+            });
+            createDepthLayer({
+              target: root.querySelector('[data-parallax="food-right"]'),
+              trigger: foodSection,
+              yFrom: 136,
+              yTo: -96,
+              xFrom: -52,
+              xExit: 16,
+              rotateFrom: -4,
+              rotateTo: 2.8,
+              scaleFrom: 0.9,
+              enterDelay: 0.05,
+            });
+          }
+
+          // 6. Awards — Smooth Bottom Slide-Up with Transform & Opacity
+          const awardsLeft = root.querySelector('[data-parallax="awards-left"]');
+          const awardItems = root.querySelectorAll('[data-parallax="award-item"]');
+
+          if (awardsLeft) {
+            gsap.fromTo(
+              awardsLeft,
+              { y: 52, opacity: 0 },
+              {
+                y: 0,
+                opacity: 1,
+                duration: 0.85,
+                ease: 'power3.out',
+                scrollTrigger: {
+                  trigger: awardsLeft,
+                  start: 'top 68%',
+                  toggleActions: 'play none none reverse',
+                },
+              }
+            );
+          }
+
+          awardItems.forEach((item, idx) => {
+            const pairDelay = awardItems.length === 1 ? 0.12 : (idx % 2) * 0.12;
+            gsap.fromTo(
+              item,
+              { y: 48, opacity: 0 },
+              {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                delay: pairDelay,
+                ease: 'power3.out',
+                scrollTrigger: {
+                  trigger: item.parentElement || item,
+                  start: 'top 70%',
+                  toggleActions: 'play none none reverse',
+                },
+              }
+            );
+          });
+        }
+      );
+
+      // Desktop Pointer Magnetism for Orbital Stamps & Polaroids
+      mm.add(
+        '(min-width: 1024px) and (any-hover: hover) and (prefers-reduced-motion: no-preference)',
+        () => {
+          const cleanups: Array<() => void> = [];
+
+          const statsEl = root.querySelector<HTMLElement>(
+            '[data-parallax="stats-section"]'
+          );
+          const ipaImg = root.querySelector('[data-parallax="badge-ipa-img"]');
+          const alcImg = root.querySelector('[data-parallax="badge-alc-img"]');
+          const platoImg = root.querySelector('[data-parallax="badge-plato-img"]');
+
+          if (statsEl && ipaImg && alcImg && platoImg) {
+            const ipaX = gsap.quickTo(ipaImg, 'x', { duration: 0.6, ease: 'power3.out' });
+            const ipaY = gsap.quickTo(ipaImg, 'y', { duration: 0.6, ease: 'power3.out' });
+            const alcX = gsap.quickTo(alcImg, 'x', { duration: 0.65, ease: 'power3.out' });
+            const alcY = gsap.quickTo(alcImg, 'y', { duration: 0.65, ease: 'power3.out' });
+            const platoX = gsap.quickTo(platoImg, 'x', { duration: 0.7, ease: 'power3.out' });
+            const platoY = gsap.quickTo(platoImg, 'y', { duration: 0.7, ease: 'power3.out' });
+
+            const onStatsMove = (e: MouseEvent) => {
+              const rect = statsEl.getBoundingClientRect();
+              const nx = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+              const ny = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+              ipaX(nx * 14);
+              ipaY(ny * 12);
+              alcX(nx * -18);
+              alcY(ny * 15);
+              platoX(nx * 10);
+              platoY(ny * -11);
+            };
+
+            const onStatsLeave = () => {
+              ipaX(0);
+              ipaY(0);
+              alcX(0);
+              alcY(0);
+              platoX(0);
+              platoY(0);
+            };
+
+            statsEl.addEventListener('mousemove', onStatsMove);
+            statsEl.addEventListener('mouseleave', onStatsLeave);
+            cleanups.push(() => {
+              statsEl.removeEventListener('mousemove', onStatsMove);
+              statsEl.removeEventListener('mouseleave', onStatsLeave);
+            });
+          }
+
+          const foodEl = root.querySelector<HTMLElement>(
+            '[data-parallax="food-section"]'
+          );
+          const foodLeftImg = root.querySelector('[data-parallax="food-left-img"]');
+          const foodRightImg = root.querySelector('[data-parallax="food-right-img"]');
+
+          if (foodEl && foodLeftImg && foodRightImg) {
+            const leftX = gsap.quickTo(foodLeftImg, 'x', { duration: 0.7, ease: 'power3.out' });
+            const leftY = gsap.quickTo(foodLeftImg, 'y', { duration: 0.7, ease: 'power3.out' });
+            const leftR = gsap.quickTo(foodLeftImg, 'rotation', { duration: 0.7, ease: 'power3.out' });
+            const rightX = gsap.quickTo(foodRightImg, 'x', { duration: 0.75, ease: 'power3.out' });
+            const rightY = gsap.quickTo(foodRightImg, 'y', { duration: 0.75, ease: 'power3.out' });
+            const rightR = gsap.quickTo(foodRightImg, 'rotation', { duration: 0.75, ease: 'power3.out' });
+
+            const onFoodMove = (e: MouseEvent) => {
+              const rect = foodEl.getBoundingClientRect();
+              const nx = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+              const ny = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+              leftX(nx * 12);
+              leftY(ny * 10);
+              leftR(nx * 1.4);
+              rightX(nx * -14);
+              rightY(ny * -10);
+              rightR(nx * -1.4);
+            };
+
+            const onFoodLeave = () => {
+              leftX(0);
+              leftY(0);
+              leftR(0);
+              rightX(0);
+              rightY(0);
+              rightR(0);
+            };
+
+            foodEl.addEventListener('mousemove', onFoodMove);
+            foodEl.addEventListener('mouseleave', onFoodLeave);
+            cleanups.push(() => {
+              foodEl.removeEventListener('mousemove', onFoodMove);
+              foodEl.removeEventListener('mouseleave', onFoodLeave);
+            });
+          }
+
+          return () => {
+            cleanups.forEach((fn) => fn());
+          };
+        }
+      );
+
+      // Mobile / Tablet Reveal & Calibrated Parallax (max-width: 1023px)
+      mm.add(
+        '(max-width: 1023px) and (prefers-reduced-motion: no-preference)',
+        () => {
+          const mobileSlideUpTargets = root.querySelectorAll(
+            '[data-parallax="intro-left"], [data-parallax="intro-right"], [data-parallax="taste-left"], [data-parallax="taste-item"], [data-parallax="match-left"], [data-parallax="match-right"], [data-parallax="awards-left"]'
+          );
+          mobileSlideUpTargets.forEach((el) => {
+            gsap.fromTo(
+              el,
+              { y: 40, opacity: 0 },
+              {
+                y: 0,
+                opacity: 1,
+                duration: 0.75,
+                ease: 'power3.out',
+                scrollTrigger: {
+                  trigger: el,
+                  start: 'top 74%',
+                  toggleActions: 'play none none reverse',
+                },
+              }
+            );
+          });
+
+          const mobileAwards = root.querySelectorAll('[data-parallax="award-item"]');
+          mobileAwards.forEach((el) => {
+            const parent = el.parentElement;
+            if (parent && window.getComputedStyle(parent).display === 'none') return;
+            gsap.fromTo(
+              el,
+              { y: 40, opacity: 0 },
+              {
+                y: 0,
+                opacity: 1,
+                duration: 0.75,
+                ease: 'power3.out',
+                scrollTrigger: {
+                  trigger: parent || el,
+                  start: 'top 74%',
+                  toggleActions: 'play none none reverse',
+                },
+              }
+            );
+          });
+
+          const statsSection = root.querySelector('[data-parallax="stats-section"]');
+          createDepthLayer({
+            target: root.querySelector('[data-parallax="badge-ipa"]'),
+            trigger: statsSection,
+            yFrom: 36,
+            yTo: -42,
+            rotateFrom: -8,
+            rotateTo: 5,
+            scaleFrom: 0.88,
+            scrub: 0.6,
+          });
+          createDepthLayer({
+            target: root.querySelector('[data-parallax="badge-alc"]'),
+            trigger: statsSection,
+            yFrom: 54,
+            yTo: -54,
+            rotateFrom: 9,
+            rotateTo: -6,
+            scaleFrom: 0.88,
+            scrub: 0.6,
+          });
+          createDepthLayer({
+            target: root.querySelector('[data-parallax="badge-plato"]'),
+            trigger: statsSection,
+            yFrom: 68,
+            yTo: -38,
+            rotateFrom: -7,
+            rotateTo: 6,
+            scaleFrom: 0.88,
+            scrub: 0.6,
+          });
+
+          const foodLeft = root.querySelector('[data-parallax="food-left"]');
+          const foodRight = root.querySelector('[data-parallax="food-right"]');
+          if (foodLeft) {
+            createDepthLayer({
+              target: foodLeft,
+              trigger: foodLeft,
+              yFrom: 42,
+              yTo: -42,
+              rotateFrom: 2.5,
+              rotateTo: -1.8,
+              scaleFrom: 0.94,
+              scrub: 0.6,
+            });
+          }
+          if (foodRight) {
+            createDepthLayer({
+              target: foodRight,
+              trigger: foodRight,
+              yFrom: 48,
+              yTo: -48,
+              rotateFrom: -2.5,
+              rotateTo: 1.8,
+              scaleFrom: 0.94,
+              scrub: 0.6,
+            });
+          }
+        }
+      );
+
+      return () => {
+        mm.revert();
+      };
+    },
+    { scope: containerRef }
+  );
+
   const headingLines = t.heading.includes('\n')
     ? t.heading.split('\n')
     : [t.heading];
@@ -450,6 +969,7 @@ export function BeerExperience({
           height={config.heroBg.height}
           priority
           className={styles.anchorSvg}
+          data-parallax="bg-watermark"
         />
       </div>
 
@@ -538,15 +1058,15 @@ export function BeerExperience({
         </div>
 
         {/* Section 1: Intro */}
-        <section className={styles.contentSection} id="intro">
+        <section className={styles.contentSection} id="intro" data-parallax="intro-section">
           <div className={styles.contentContainer}>
             <div className={styles.introWrapper}>
-              <div className={styles.introLeft}>
+              <div className={styles.introLeft} data-parallax="intro-left">
                 <Heading level="h2" as="h2" className={styles.introTitle}>
                   {t.intro.title}
                 </Heading>
               </div>
-              <div className={styles.introRight}>
+              <div className={styles.introRight} data-parallax="intro-right">
                 <p className={styles.introText}>{t.intro.p1}</p>
                 <p className={styles.introText}>{t.intro.p2}</p>
               </div>
@@ -559,35 +1079,45 @@ export function BeerExperience({
           className={`${styles.contentSection} ${styles.statsSection}`}
           id="stats"
           aria-label={t.stats.ariaLabel}
+          data-parallax="stats-section"
         >
           <div className={styles.contentContainer}>
             <div className={styles.statsBadgesWrapper}>
               <div className={`${styles.badgeItem} ${styles.badgeIpa}`}>
-                <Image
-                  src={config.badges.ipa.src}
-                  alt={config.badges.ipa.alt}
-                  width={config.badges.ipa.width}
-                  height={config.badges.ipa.height}
-                  priority
-                />
+                <div className={styles.badgeParallax} data-parallax="badge-ipa">
+                  <Image
+                    src={config.badges.ipa.src}
+                    alt={config.badges.ipa.alt}
+                    width={config.badges.ipa.width}
+                    height={config.badges.ipa.height}
+                    priority
+                    data-parallax="badge-ipa-img"
+                  />
+                </div>
               </div>
               <div className={`${styles.badgeItem} ${styles.badgeAlc}`}>
-                <Image
-                  src={config.badges.alc.src}
-                  alt={config.badges.alc.alt}
-                  width={config.badges.alc.width}
-                  height={config.badges.alc.height}
-                  priority
-                />
+                <div className={styles.badgeParallax} data-parallax="badge-alc">
+                  <Image
+                    src={config.badges.alc.src}
+                    alt={config.badges.alc.alt}
+                    width={config.badges.alc.width}
+                    height={config.badges.alc.height}
+                    priority
+                    data-parallax="badge-alc-img"
+                  />
+                </div>
               </div>
               <div className={`${styles.badgeItem} ${styles.badgePlato}`}>
-                <Image
-                  src={config.badges.plato.src}
-                  alt={config.badges.plato.alt}
-                  width={config.badges.plato.width}
-                  height={config.badges.plato.height}
-                  priority
-                />
+                <div className={styles.badgeParallax} data-parallax="badge-plato">
+                  <Image
+                    src={config.badges.plato.src}
+                    alt={config.badges.plato.alt}
+                    width={config.badges.plato.width}
+                    height={config.badges.plato.height}
+                    priority
+                    data-parallax="badge-plato-img"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -597,10 +1127,11 @@ export function BeerExperience({
         <section
           className={`${styles.contentSection} ${styles.tastometerSection}`}
           id="tastometer"
+          data-parallax="taste-section"
         >
           <div className={styles.contentContainer}>
             <div className={styles.tastometerGrid}>
-              <div className={styles.tastometerLeft}>
+              <div className={styles.tastometerLeft} data-parallax="taste-left">
                 <div className={styles.tastecardDesktop}>
                   <Image
                     src={config.tastometer.desktopSrc}
@@ -620,25 +1151,25 @@ export function BeerExperience({
               </div>
 
               <div className={styles.tastometerRight}>
-                <div className={styles.tastometerItem}>
+                <div className={styles.tastometerItem} data-parallax="taste-item">
                   <Heading level="h4" as="h3">
                     {t.tastometer.hopsTitle}
                   </Heading>
                   <p className={styles.paramValue}>{t.tastometer.hopsValue}</p>
                 </div>
-                <div className={styles.tastometerItem}>
+                <div className={styles.tastometerItem} data-parallax="taste-item">
                   <Heading level="h4" as="h3">
                     {t.tastometer.maltTitle}
                   </Heading>
                   <p className={styles.paramValue}>{t.tastometer.maltValue}</p>
                 </div>
-                <div className={styles.tastometerItem}>
+                <div className={styles.tastometerItem} data-parallax="taste-item">
                   <Heading level="h4" as="h3">
                     {t.tastometer.colorTitle}
                   </Heading>
                   <p className={styles.paramValue}>{t.tastometer.colorValue}</p>
                 </div>
-                <div className={styles.tastometerItem}>
+                <div className={styles.tastometerItem} data-parallax="taste-item">
                   <Heading level="h4" as="h3">
                     {t.tastometer.tempTitle}
                   </Heading>
@@ -650,11 +1181,11 @@ export function BeerExperience({
         </section>
 
         {/* Section 4: Match */}
-        <section className={styles.contentSection} id="match">
+        <section className={styles.contentSection} id="match" data-parallax="match-section">
           <div className={styles.contentContainer}>
             <div className={styles.matchGrid}>
               <div className={styles.matchRowLeft}>
-                <div className={styles.matchCard}>
+                <div className={styles.matchCard} data-parallax="match-left">
                   <Heading level="h2" as="h2">
                     {t.match.tasteTitle}
                   </Heading>
@@ -663,7 +1194,7 @@ export function BeerExperience({
               </div>
 
               <div className={styles.matchRowRight}>
-                <div className={styles.matchCard}>
+                <div className={styles.matchCard} data-parallax="match-right">
                   <Heading level="h2" as="h2">
                     {t.match.drinkWithTitle}
                   </Heading>
@@ -680,28 +1211,35 @@ export function BeerExperience({
             className={`${styles.contentSection} ${styles.foodSection}`}
             id="food"
             aria-label={t.food?.ariaLabel}
+            data-parallax="food-section"
           >
             <div className={styles.contentContainer}>
               <div
                 className={`${styles.foodGrid} ${reverseFoodOnMobile ? styles.foodGridReversed : ''}`}
               >
                 <div className={styles.foodItemLeft}>
-                  <Image
-                    src={config.food.itemLeft.src}
-                    alt={config.food.itemLeft.alt}
-                    width={config.food.itemLeft.width}
-                    height={config.food.itemLeft.height}
-                    className={styles.foodImageLeft}
-                  />
+                  <div className={styles.foodParallax} data-parallax="food-left">
+                    <Image
+                      src={config.food.itemLeft.src}
+                      alt={config.food.itemLeft.alt}
+                      width={config.food.itemLeft.width}
+                      height={config.food.itemLeft.height}
+                      className={styles.foodImageLeft}
+                      data-parallax="food-left-img"
+                    />
+                  </div>
                 </div>
                 <div className={styles.foodItemRight}>
-                  <Image
-                    src={config.food.itemRight.src}
-                    alt={config.food.itemRight.alt}
-                    width={config.food.itemRight.width}
-                    height={config.food.itemRight.height}
-                    className={styles.foodImageRight}
-                  />
+                  <div className={styles.foodParallax} data-parallax="food-right">
+                    <Image
+                      src={config.food.itemRight.src}
+                      alt={config.food.itemRight.alt}
+                      width={config.food.itemRight.width}
+                      height={config.food.itemRight.height}
+                      className={styles.foodImageRight}
+                      data-parallax="food-right-img"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -716,7 +1254,7 @@ export function BeerExperience({
         >
           <div className={styles.contentContainer}>
             <div className={styles.awardsGrid}>
-              <div className={styles.awardsLeft}>
+              <div className={styles.awardsLeft} data-parallax="awards-left">
                 <Heading level="h3" as="h2" className={styles.awardsTitle}>
                   {t.awards.title}
                 </Heading>
@@ -725,13 +1263,15 @@ export function BeerExperience({
                 <div className={styles.awardsList}>
                   {config.awards.map((award) => (
                     <div key={award.id} className={styles.awardItem}>
-                      <Image
-                        src={award.src}
-                        alt={award.alt}
-                        width={award.width}
-                        height={award.height}
-                        className={styles.awardImage}
-                      />
+                      <div className={styles.awardReveal} data-parallax="award-item">
+                        <Image
+                          src={award.src}
+                          alt={award.alt}
+                          width={award.width}
+                          height={award.height}
+                          className={styles.awardImage}
+                        />
+                      </div>
                     </div>
                   ))}
                 </div>
