@@ -5,14 +5,15 @@ import styles from './PrivacyContent.module.scss';
 interface PrivacyContentProps {
   heading: string;
   sections: string[];
+  headingId?: string;
 }
 
 /**
- * Regex to recognize numbered section titles like:
+ * Regex to recognize numbered or § section titles like:
  * "1) EINLEITUNG UND KONTAKTDATEN DES VERANTWORTLICHEN"
- * "1) Introduction and Contact Details of the Controller"
+ * "§ 1 Geltungsbereich"
  */
-const SECTION_TITLE_REGEX = /^(\d+\)\s*)(.*)$/;
+const SECTION_TITLE_REGEX = /^(?:(?:\d+\)|§\s*\d+[a-zA-Z]?\.?)\s*)(.*)$/;
 
 /**
  * Regex to detect numbered paragraph headings like:
@@ -83,11 +84,15 @@ function renderBodyLine(line: string, lineIndex: number) {
   );
 }
 
-export function PrivacyContent({ heading, sections }: PrivacyContentProps) {
+export function PrivacyContent({
+  heading,
+  sections,
+  headingId = 'privacy-heading',
+}: PrivacyContentProps) {
   return (
-    <section className={styles.section} aria-labelledby="privacy-heading">
+    <section className={styles.section} aria-labelledby={headingId}>
       <div className={styles.container}>
-        <Heading id="privacy-heading" level="h2" as="h2">
+        <Heading id={headingId} level="h2" as="h2">
           {heading}
         </Heading>
 

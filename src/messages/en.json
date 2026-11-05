@@ -174,6 +174,11 @@
       "title": "Imprint",
       "heading": "IMPRINT",
       "description": "Legal imprint, company details, and contact information of CREW Republic Brewery GmbH."
+    },
+    "gtc": {
+      "title": "General Terms and Conditions",
+      "heading": "GTC",
+      "description": "General Terms and Conditions (GTC) of CREW Republic Brewery GmbH."
     }
   },
   "Footer": {
@@ -350,6 +355,19 @@
       "imageAlt": "Friends sharing craft beer moments - CREW Love is True Love",
       "btnShop": "GRAB SOME MORE",
       "btnUntappd": "RATE ON UNTAPPD"
+    }
+  },
+  "GtcPage": {
+    "hero": {
+      "line1": "BORING, BUT THERE’S",
+      "line2": "NO WAY AROUND IT.",
+      "imageAlt": "CREW Republic General Terms and Conditions (GTC)"
+    },
+    "content": {
+      "heading": "General Terms and Conditions (GTC)",
+      "sections": [
+        "1) Scope and General Information\nThe full General Terms and Conditions of CREW Republic Brewery GmbH will be published on this page shortly."
+      ]
     }
   }
 }
