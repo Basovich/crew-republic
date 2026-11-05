@@ -2,6 +2,7 @@ import type { BeerConfig } from '@/components/BeerExperience/types';
 
 export const drunkenSailorConfig: BeerConfig = {
   slug: 'drunken-sailor',
+  heroIndicatorLabel: 'Ahoy',
   firstFrameSrc: '/images/drunken-sailor/animations/images/image_89.webp',
   heroBg: {
     src: '/images/drunken-sailor/hero-anchor-bg.svg',

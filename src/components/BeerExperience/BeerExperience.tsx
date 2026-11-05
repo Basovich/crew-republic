@@ -2,6 +2,7 @@
 
 import React, { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -19,21 +20,52 @@ interface BeerExperienceProps {
   reverseFoodOnMobile?: boolean;
 }
 
-const SECTIONS = [
-  { id: 'hero', label: 'Hero' },
-  { id: 'intro', label: 'Intro' },
-  { id: 'stats', label: 'Stats' },
-  { id: 'tastometer', label: 'Tastometer' },
-  { id: 'food', label: 'Food Pairings' },
-  { id: 'awards', label: 'Awards' },
-  { id: 'shop', label: 'Shop' },
-];
+type SideIndicatorKey =
+  | 'ahoy'
+  | 'howdy'
+  | 'cheers'
+  | 'story'
+  | 'specs'
+  | 'taste'
+  | 'pairing'
+  | 'awards'
+  | 'shop';
+
+function isSideIndicatorKey(key: string): key is SideIndicatorKey {
+  return [
+    'ahoy',
+    'howdy',
+    'cheers',
+    'story',
+    'specs',
+    'taste',
+    'pairing',
+    'awards',
+    'shop',
+  ].includes(key);
+}
 
 export function BeerExperience({
   config,
   t,
   reverseFoodOnMobile = false,
 }: BeerExperienceProps) {
+  const tIndicator = useTranslations('Navigation.sideIndicator');
+  const heroKey = (config.heroIndicatorLabel || 'ahoy').toLowerCase();
+  const heroLabel = isSideIndicatorKey(heroKey)
+    ? tIndicator(heroKey)
+    : config.heroIndicatorLabel?.toUpperCase() || 'AHOY';
+
+  const sections = [
+    { id: 'hero', label: heroLabel },
+    { id: 'intro', label: tIndicator('story') },
+    { id: 'stats', label: tIndicator('specs') },
+    { id: 'tastometer', label: tIndicator('taste') },
+    { id: 'food', label: tIndicator('pairing') },
+    { id: 'awards', label: tIndicator('awards') },
+    { id: 'shop', label: tIndicator('shop') },
+  ];
+
   const containerRef = useRef<HTMLDivElement>(null);
   const storyTrackRef = useRef<HTMLDivElement>(null);
   const lottieContainerRef = useRef<HTMLDivElement>(null);
@@ -332,7 +364,7 @@ export function BeerExperience({
       }
 
       // 4. Track active section for side indicator
-      SECTIONS.forEach(({ id }) => {
+      sections.forEach(({ id }) => {
         const el = document.getElementById(id);
         if (!el) return;
         ScrollTrigger.create({
@@ -394,7 +426,7 @@ export function BeerExperience({
         ref={sideIndicatorRef}
       >
         <ul className={styles.indicatorList}>
-          {SECTIONS.map(({ id, label }, index) => {
+          {sections.map(({ id, label }, index) => {
             const isActive = activeSection === id;
             return (
               <li key={id} className={styles.indicatorItem}>
@@ -409,8 +441,11 @@ export function BeerExperience({
                     className={`${styles.indicatorDot} ${isActive ? styles.indicatorDotActive : ''}`}
                   />
                   {isActive && <span className={styles.indicatorRing} />}
+                  <span className={styles.indicatorLabel} aria-hidden="true">
+                    {label}
+                  </span>
                 </button>
-                {index < SECTIONS.length - 1 && (
+                {index < sections.length - 1 && (
                   <span className={styles.indicatorLine} aria-hidden="true" />
                 )}
               </li>

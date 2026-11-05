@@ -17,7 +17,18 @@
     "contact": "CONTACT",
     "openMenu": "Open Menu",
     "closeMenu": "Close Menu",
-    "switchLanguage": "Switch language"
+    "switchLanguage": "Switch language",
+    "sideIndicator": {
+      "ahoy": "AHOY",
+      "howdy": "HOWDY",
+      "cheers": "CHEERS",
+      "story": "STORY",
+      "specs": "SPECS",
+      "taste": "TASTE",
+      "pairing": "PAIRING",
+      "awards": "AWARDS",
+      "shop": "SHOP"
+    }
   },
   "Pages": {
     "brandStory": {

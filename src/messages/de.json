@@ -1,7 +1,7 @@
 {
   "Hero": {
-    "line1": "BECAUSE GOOD COMPANY",
-    "line2": "DESERVES BETTER BEER."
+    "line1": "WEIL GUTE GESELLSCHAFT",
+    "line2": "BESSERES BIER VERDIENT."
   },
   "Common": {
     "menu": "MENU",
@@ -17,7 +17,18 @@
     "contact": "KONTAKT",
     "openMenu": "Menü öffnen",
     "closeMenu": "Menü schließen",
-    "switchLanguage": "Sprache wechseln"
+    "switchLanguage": "Sprache wechseln",
+    "sideIndicator": {
+      "ahoy": "AHOI",
+      "howdy": "HOWDY",
+      "cheers": "CHEERS",
+      "story": "STORY",
+      "specs": "FAKTEN",
+      "taste": "GESCHMACK",
+      "pairing": "PAIRING",
+      "awards": "AWARDS",
+      "shop": "SHOP"
+    }
   },
   "Pages": {
     "brandStory": {
@@ -31,7 +42,7 @@
       "subtitle": "INDIA PALE ALE",
       "description": "Drunken Sailor IPA - Vollmundiges, klassisches India Pale Ale, gebraut mit Leidenschaft von CREW Republic.",
       "intro": {
-        "title": "Weigh the Anchor, Hoist the Sails...",
+        "title": "Anker lichten, Segel setzen...",
         "p1": "Meterhohe Wellen. Heulender Wind. Das war der Alltag für die britischen Seeleute, die Bier nach Indien verschifften. Um die monatelange Reise zu überstehen, brauchte das Bier jede Menge Hopfen und ordentlich Kraft.",
         "p2": "Drunken Sailor IPA bringt dieses Abenteuer und den kühnen Geschmack ins 21. Jahrhundert. Ahoi!"
       },
@@ -62,7 +73,7 @@
         "ariaLabel": "Drunken Sailor Auszeichnungen"
       },
       "shop": {
-        "heading": "Grab yours now!",
+        "heading": "Jetzt sichern!",
         "button": "Drunken Sailor kaufen",
         "url": "https://crewrepublic.de/shop"
       }
@@ -104,7 +115,7 @@
         "ariaLabel": "Jackpot Auszeichnungen"
       },
       "shop": {
-        "heading": "Grab yours now!",
+        "heading": "Jetzt sichern!",
         "button": "Jackpot kaufen",
         "url": "https://crewrepublic.de/shop"
       }
@@ -160,8 +171,8 @@
     "imageAlt": "CREW Republic Biermomente mit Freunden geteilt"
   },
   "BeersSection": {
-    "heading": "Cheers for our Beers.",
-    "discover": "DISCOVER",
+    "heading": "Ein Hoch auf unsere Biere.",
+    "discover": "ENTDECKEN",
     "drunkenSailor": {
       "title": "DRUNKEN SAILOR",
       "tagline": "INDIA PALE ALE",
@@ -179,7 +190,7 @@
     }
   },
   "AwardsSection": {
-    "heading": "YOUR CREW DESERVES THE BEST.",
+    "heading": "DEINE CREW VERDIENT DAS BESTE.",
     "ariaLabel": "Brauerei- und Bier-Auszeichnungen",
     "awards": {
       "award1": "World Beer Awards Germany Gold 2023",
@@ -192,19 +203,19 @@
     }
   },
   "CrewmunitySection": {
-    "heading": "JOIN THE CREWMUNITY.",
+    "heading": "WERDE TEIL DER CREWMUNITY.",
     "description": "Die CREW ist nicht nur die, mit der du heute unterwegs bist. Es sind alle, die dieselben Momente online teilen.\nFolge uns, teile deine CREW-Momente, markiere uns und werde Teil einer Crew, die immer da ist, wo auch immer du bist.",
     "instagram": "INSTAGRAM",
     "facebook": "FACEBOOK",
     "imageAlt": "Werde Teil der CREW Republic Online-Community"
   },
   "RepresentSection": {
-    "heading": "REPRESENT THE CREW.",
-    "buttonText": "SHOP CREW MERCH",
+    "heading": "REPRÄSENTIERE DIE CREW.",
+    "buttonText": "CREW MERCH SHOPPEN",
     "imageAlt": "CREW Republic Merch und Lifestyle-Momente"
   },
   "TapSection": {
-    "heading": "TAP INTO THE CREW.",
+    "heading": "ZAPF DIR DIE CREW.",
     "description": "Willst du, dass deine Bar ein CREW Hopspot wird? Hol CREW Republic an deine Zapfhähne und biete deinen Gästen ein Bier, das es wert ist, geteilt zu werden. Und wenn du CREW an deinem Lieblingsort genießen möchtest, frag deine Bar vor Ort nach CREW. Auf gute Gesellschaft und besseres Bier.",
     "buttonText": "KONTAKT",
     "imageAlt": "Tap into the CREW - frisches Craft Beer vom Fass"
@@ -241,7 +252,7 @@
       "imageAlt": "CREW Republic Datenschutzerklärung - Informationen zum Datenschutz"
     },
     "content": {
-      "heading": "Data Privacy",
+      "heading": "Datenschutz",
       "sections": [
         "1) Einleitung und Kontaktdaten des Verantwortlichen\n1.1 Wir freuen uns, dass Sie unsere Website besuchen, und bedanken uns für Ihr Interesse. Im Folgenden informieren wir Sie über den Umgang mit Ihren personenbezogenen Daten bei der Nutzung unserer Website. Personenbezogene Daten sind hierbei alle Daten, mit denen Sie persönlich identifiziert werden können.\n1.2 Verantwortlicher für die Datenverarbeitung auf dieser Website im Sinne der Datenschutz-Grundverordnung (DSGVO) ist CREW Republic Brewery GmbH, Andreas-Danzer-Weg 30, 85716 Unterschleißheim, Deutschland, Tel.: 089 411471290, E-Mail: crew@crewrepublic.de. Der für die Verarbeitung von personenbezogenen Daten Verantwortliche ist diejenige natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten entscheidet.",
         "2) Datenerfassung beim Besuch unserer Website\n2.1 Bei der bloß informatorischen Nutzung unserer Website, also wenn Sie sich nicht registrieren oder uns anderweitig Informationen übermitteln, erheben wir nur solche Daten, die Ihr Browser an den Seitenserver übermittelt (sog. „Server-Logfiles“). Wenn Sie unsere Website aufrufen, erheben wir die folgenden Daten, die für uns technisch erforderlich sind, um Ihnen die Website anzuzeigen:\n• Unsere besuchte Website\n• Datum und Uhrzeit zum Zeitpunkt des Zugriffes\n• Menge der gesendeten Daten in Byte\n• Quelle/Verweis, von welchem Sie auf die Seite gelangten\n• Verwendeter Browser\n• Verwendetes Betriebssystem\n• Verwendete IP-Adresse (ggf.: in anonymisierter Form)\nDie Verarbeitung erfolgt gemäß Art. 6 Abs. 1 lit. f DSGVO auf Basis unseres berechtigten Interesses an der Verbesserung der Stabilität und Funktionalität unserer Website. Eine Weitergabe oder anderweitige Verwendung der Daten findet nicht statt. Wir behalten uns allerdings vor, die Server-Logfiles nachträglich zu überprüfen, sollten konkrete Anhaltspunkte auf eine rechtswidrige Nutzung hinweisen.\n2.2 Diese Website nutzt aus Sicherheitsgründen und zum Schutz der Übertragung personenbezogener Daten und anderer vertraulicher Inhalte (z.B. Bestellungen oder Anfragen an den Verantwortlichen) eine SSL-bzw. TLS-Verschlüsselung. Sie können eine verschlüsselte Verbindung an der Zeichenfolge „https://“ und dem Schloss-Symbol in Ihrer Browserzeile erkennen.",
@@ -293,17 +304,17 @@
       "imageAlt": "CREW Republic Craft-Bier Gläser auf Holztisch - Kontaktiere das richtige Crew-Mitglied"
     },
     "content": {
-      "heading": "SAY HI TO THE CREW.",
+      "heading": "SAG HALLO ZUR CREW.",
       "description1": "Möchtest du eine Crewlaboration starten und gutes CREW Republic Bier in deinem Laden, Pub oder Gastro-Betrieb verkaufen? Oder hast du Fragen oder Ideen? Sei nicht schüchtern – sag einfach Hallo!",
       "description2": "Schreib uns eine Nachricht und wir melden uns bei dir.",
       "description3": "Großes CREW-Ehrenwort – von einem CREW-Mitglied zum anderen.",
       "emailButton": "CREW@CREWREPUBLIC.DE"
     },
     "banner": {
-      "heading": "CREW LOVE IS TRUE LOVE. SHARE YOUR LOVE!",
+      "heading": "CREW-LIEBE IST WAHRE LIEBE. TEILE DEINE LIEBE!",
       "imageAlt": "Freunde teilen Craft-Beer Momente - CREW Love is True Love",
-      "btnShop": "GRAB SOME MORE",
-      "btnUntappd": "RATE ON UNTAPPD"
+      "btnShop": "ZUM SHOP",
+      "btnUntappd": "AUF UNTAPPD BEWERTEN"
     }
   }
 }

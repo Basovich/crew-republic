@@ -16,6 +16,7 @@ export interface FoodImageItem {
 export interface BeerConfig {
   slug: string;
   heroShellClassName?: string;
+  heroIndicatorLabel?: string;
   firstFrameSrc: string;
   heroBg: {
     src: string;

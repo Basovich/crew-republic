@@ -2,6 +2,7 @@ import type { BeerConfig } from '@/components/BeerExperience/types';
 
 export const jackpotConfig: BeerConfig = {
   slug: 'jackpot',
+  heroIndicatorLabel: 'Howdy',
   firstFrameSrc: '/images/jackpot/animations/images/imgSeq_0.webp',
   heroBg: {
     src: '/images/jackpot/hero-anchor-bg.svg',
