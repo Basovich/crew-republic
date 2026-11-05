@@ -2,124 +2,121 @@ import React from 'react';
 import { Heading } from '@/components/Heading';
 import styles from './PrivacyContent.module.scss';
 
-interface PrivacyContentProps {
+export interface PrivacyLinkNode {
+  type: 'link';
+  href: string;
+  label: string;
+}
+
+export interface PrivacyBrNode {
+  type: 'br';
+}
+
+export type PrivacyInlineNode = string | PrivacyLinkNode | PrivacyBrNode;
+
+export interface PrivacyParagraphBlock {
+  type: 'p';
+  lead?: string;
+  content: PrivacyInlineNode[];
+}
+
+export interface PrivacyListBlock {
+  type: 'ul';
+  items: string[];
+}
+
+export type PrivacyBlock = PrivacyParagraphBlock | PrivacyListBlock;
+
+export interface PrivacySection {
+  id: string;
+  title: string;
+  blocks: PrivacyBlock[];
+}
+
+export interface PrivacyContentData {
   heading: string;
-  sections: string[];
+  sections: PrivacySection[];
+}
+
+interface PrivacyContentProps {
+  data: PrivacyContentData;
   headingId?: string;
 }
 
-/**
- * Regex to recognize numbered or § section titles like:
- * "1) EINLEITUNG UND KONTAKTDATEN DES VERANTWORTLICHEN"
- * "§ 1 Geltungsbereich"
- */
-const SECTION_TITLE_REGEX = /^(?:\d+\)|§\s*\d+[a-zA-Z]?\.?)\s+\S/;
-
-/**
- * Regex to detect numbered paragraph headings like:
- * "1.1 Wir freuen uns..." -> bold "1.1"
- * "12.2 WIDERSPRUCHSRECHT" -> bold "12.2 WIDERSPRUCHSRECHT"
- */
-const NUMBERED_LEAD_REGEX = /^(\d+\.\d+)(\s+)(.*)$/;
-
-/**
- * Helper to turn plain URL strings into clickable accessible <a> links
- */
-function renderTextWithLinks(text: string) {
-  const urlRegex = /(https?:\/\/[^\s)\]]+)/g;
-  const parts = text.split(urlRegex);
-
-  return parts.map((part, index) => {
-    if (urlRegex.test(part)) {
-      return (
-        <a
-          key={`link-${index}`}
-          href={part}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {part}
-        </a>
-      );
+function renderInlineNodes(nodes: PrivacyInlineNode[]) {
+  return nodes.map((node, idx) => {
+    if (typeof node === 'string') {
+      return <React.Fragment key={`txt-${idx}`}>{node}</React.Fragment>;
     }
-    return part;
+    if (node.type === 'br') {
+      return <br key={`br-${idx}`} />;
+    }
+    return (
+      <a
+        key={`lnk-${idx}`}
+        href={node.href}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {node.label}
+      </a>
+    );
   });
 }
 
-/**
- * Renders a single line inside a section body
- */
-function renderBodyLine(line: string, lineIndex: number) {
-  const trimmed = line.trim();
-  if (!trimmed) return null;
-
-  // Bullet point lines starting with •, -, or –
-  if (trimmed.startsWith('• ') || trimmed.startsWith('- ') || trimmed.startsWith('– ')) {
-    const bulletContent = trimmed.replace(/^[•\-–]\s*/, '');
-    return (
-      <li key={`line-${lineIndex}`} className={styles.listItem}>
-        {renderTextWithLinks(bulletContent)}
-      </li>
-    );
-  }
-
-  // Check if line starts with numbered paragraph prefix (e.g. 1.1, 12.2)
-  const numberedMatch = trimmed.match(NUMBERED_LEAD_REGEX);
-  if (numberedMatch) {
-    const [, numberLead, space, rest] = numberedMatch;
-    return (
-      <p key={`line-${lineIndex}`} className={styles.paragraph}>
-        <strong className={styles.numberLead}>{numberLead}</strong>
-        {space}
-        {renderTextWithLinks(rest)}
-      </p>
-    );
-  }
-
-  // Normal text paragraph
-  return (
-    <p key={`line-${lineIndex}`} className={styles.paragraph}>
-      {renderTextWithLinks(trimmed)}
-    </p>
-  );
-}
-
 export function PrivacyContent({
-  heading,
-  sections,
+  data,
   headingId = 'privacy-heading',
 }: PrivacyContentProps) {
   return (
     <section className={styles.section} aria-labelledby={headingId}>
       <div className={styles.container}>
         <Heading id={headingId} level="h2" as="h2">
-          {heading}
+          {data.heading}
         </Heading>
 
         <div className={styles.sectionsList}>
-          {sections.map((sectionContent, sIndex) => {
-            const rawLines = sectionContent.split('\n');
-            const firstLine = rawLines[0].trim();
-            const bodyLines = rawLines.slice(1);
+          {data.sections.map((sec) => (
+            <article key={sec.id} className={styles.sectionBlock}>
+              <Heading id={sec.id} level="h5" as="h2">
+                {sec.title}
+              </Heading>
 
-            const isTitle = SECTION_TITLE_REGEX.test(firstLine);
+              <div className={styles.sectionBody}>
+                {sec.blocks.map((block, bIdx) => {
+                  if (block.type === 'ul') {
+                    return (
+                      <ul
+                        key={`${sec.id}-ul-${bIdx}`}
+                        className={styles.bulletList}
+                      >
+                        {block.items.map((item, iIdx) => (
+                          <li
+                            key={`${sec.id}-li-${bIdx}-${iIdx}`}
+                            className={styles.bulletItem}
+                          >
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    );
+                  }
 
-            return (
-              <article key={`privacy-sec-${sIndex}`} className={styles.sectionBlock}>
-                {isTitle ? (
-                  <Heading level="h5" as="h3">
-                    {firstLine}
-                  </Heading>
-                ) : (
-                  renderBodyLine(firstLine, 0)
-                )}
-
-                <div className={styles.sectionBody}>
-                  {bodyLines.map((line, lIndex) => renderBodyLine(line, lIndex + 1))}
-                </div>
-              </article>
-            );
-          })}
+                  return (
+                    <p key={`${sec.id}-p-${bIdx}`} className={styles.paragraph}>
+                      {block.lead && (
+                        <>
+                          <b className={styles.leadBold}>{block.lead}</b>
+                          {'\u00A0'}
+                        </>
+                      )}
+                      {renderInlineNodes(block.content)}
+                    </p>
+                  );
+                })}
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>

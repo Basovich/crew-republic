@@ -176,9 +176,9 @@
       "description": "Legal imprint, company details, and contact information of CREW Republic Brewery GmbH."
     },
     "gtc": {
-      "title": "General Terms and Conditions",
+      "title": "Terms and Conditions",
       "heading": "GTC",
-      "description": "General Terms and Conditions (GTC) of CREW Republic Brewery GmbH."
+      "description": "General Terms and Conditions (GTC) of CREW Republic Brewery GmbH – all important information at a glance."
     }
   },
   "Footer": {
@@ -294,19 +294,1025 @@
     "content": {
       "heading": "Data Privacy",
       "sections": [
-        "1) Introduction and Contact Details of the Controller\n1.1 We are pleased that you are visiting our website and thank you for your interest. Below, we inform you about the handling of your personal data when using our website. Personal data is any data by which you can be personally identified.\n1.2 The controller for data processing on this website within the meaning of the General Data Protection Regulation (GDPR) is CREW Republic Brewery GmbH, Andreas-Danzer-Weg 30, 85716 Unterschleißheim, Germany, Tel.: 089 411471290, Email: crew@crewrepublic.de.",
-        "2) Data Collection When Visiting Our Website\n2.1 During the purely informative use of our website, we only collect data that your browser transmits to the site server (so-called \"server log files\"). These include: visited website, date and time of access, amount of data sent, source/referrer, browser type, operating system, and IP address (in anonymized form). Processing is carried out pursuant to Art. 6(1)(f) GDPR based on our legitimate interest in improving the stability and functionality of our website.\n2.2 For security reasons and to protect the transmission of personal data and other confidential content, this website uses SSL/TLS encryption.",
-        "3) Cookies\nIn order to make visiting our website attractive and to enable the use of certain functions, we use cookies. Some cookies are deleted after closing the browser (session cookies), while others remain on your device (persistent cookies). Processing is carried out in accordance with Art. 6(1)(b) GDPR for contract performance, Art. 6(1)(a) GDPR with consent, or Art. 6(1)(f) GDPR for legitimate interests. You can configure your browser to inform you about the setting of cookies.",
-        "4) Contacting Us\nWhen contacting us (e.g. via contact form or email), personal data is processed solely for the purpose of handling and responding to your request and only to the necessary extent pursuant to Art. 6(1)(f) GDPR or Art. 6(1)(b) GDPR.",
-        "5) Data Processing When Opening a Customer Account\nPursuant to Art. 6(1)(b) GDPR, personal data continues to be collected and processed to the extent required when opening a customer account. Deletion of your customer account is possible at any time by contacting the controller.",
-        "6) Use of Customer Data for Direct Advertising\n6.1 Subscription to our email newsletter (Double Opt-In, Art. 6(1)(a) GDPR). You may unsubscribe at any time via the link in the newsletter.\n6.2 Newsletter dispatch to existing customers (Art. 6(1)(f) GDPR in accordance with § 7(3) UWG).\n6.3 Cart reminders via email (Double Opt-In, Art. 6(1)(a) GDPR).",
-        "7) Data Processing for Order Processing\n7.1 Forwarding to transport companies and credit institutions for contract fulfillment (Art. 6(1)(b) GDPR).\n7.2 Order processing via PlentyONE GmbH.\n7.3 Forwarding to shipping service providers: DHL Paket GmbH, DPD Deutschland GmbH, United Parcel Service (UPS).\n7.4 Payment service providers: Mollie B.V. for secure online payment processing.",
-        "8) Online Marketing\nGoogle AdSense: Web advertising service by Google Ireland Limited. Uses cookies and web beacons. Processing only takes place with explicit consent pursuant to Art. 6(1)(a) GDPR.",
-        "9) Web Analytics Services\nGoogle Analytics 4: Web analysis service by Google Ireland Limited with IP anonymization. Demographic features, Google Signals, and UserIDs are used with consent pursuant to Art. 6(1)(a) GDPR. Data is stored for two months.",
-        "10) Retargeting, Remarketing and Conversion Tracking\n10.1 Meta Pixel with advanced matching (Meta Platforms Ireland Limited).\n10.2 Google Ads Remarketing.\n10.3 Google Ads Conversion Tracking and Customer Match.",
-        "11) Site Functionalities\n11.1 Vimeo: Plugins for video playback.\n11.2 Google Maps: Interactive map service for location display.\n11.3 Google Web Fonts: Uniform display of fonts.",
-        "12) Rights of the Data Subject\n12.1 Under GDPR, you have the right to access (Art. 15), rectification (Art. 16), erasure (Art. 17), restriction of processing (Art. 18), data portability (Art. 20), revocation of consent (Art. 7(3)), and right to lodge a complaint with a supervisory authority (Art. 77).\n12.2 RIGHT TO OBJECT: You have the right to object at any time to processing based on legitimate interests or for direct marketing purposes.",
-        "13) Duration of Storage of Personal Data\nThe storage period is determined based on the respective legal basis, processing purpose, and statutory retention periods. After retention periods expire, data is routinely erased."
+        {
+          "id": "privacy-sec-1",
+          "title": "1) Introduction and contact details of the person responsible",
+          "blocks": [
+            {
+              "type": "p",
+              "lead": "1.1",
+              "content": [
+                "We are pleased that you are visiting our website and thank you for your interest. Below we will inform you about how we handle your personal data when you use our website. Personal data is all data that can be used to identify you personally."
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "1.2",
+              "content": [
+                "The person responsible for data processing on this website within the meaning of the General Data Protection Regulation (GDPR) is CREW Republic Brewery GmbH, Andreas-Danzer-Weg 30, 85716 Unterschleißheim, Germany, Tel.: 089 411471290, email: crew@crewrepublic.de. The person responsible for the processing of personal data is the natural or legal person who alone or jointly with others decides on the purposes and means of the processing of personal data."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "privacy-sec-2",
+          "title": "2) Data collection when visiting our website",
+          "blocks": [
+            {
+              "type": "p",
+              "lead": "2.1",
+              "content": [
+                "If you only use our website for informational purposes, i.e. if you do not register or otherwise provide us with information, we only collect data that your browser transmits to the site server (so-called \"server log files\"). When you visit our website, we collect the following data that is technically necessary for us to display the website to you:"
+              ]
+            },
+            {
+              "type": "ul",
+              "items": [
+                "The website visited",
+                "Date and time of accessing the website",
+                "Volume of data transmitted in bytes",
+                "Source/reference from where you accessed the website",
+                "Browser used",
+                "Operating system used.",
+                "IP address used (anonymous if applicable)"
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "The data is processed in accordance with Article 6(1)(f) GDPR on the basis of our legitimate interest in improving the stability and functionality of our website. The data is not disseminated or used in any other way. However, we reserve the right to check the server logfiles retrospectively if there is concrete evidence of unlawful use."
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "2.2",
+              "content": [
+                "For security reasons and to protect the transmission of personal data and other confidential information (e.g. orders or enquiries to the data controller), this website uses SSL and TSL encryption. An encrypted connection can be identified by the character sequence “https://” and the lock symbol in your browser title."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "privacy-sec-3",
+          "title": "3) Cookies",
+          "blocks": [
+            {
+              "type": "p",
+              "content": [
+                "In order to make visiting our website attractive and to enable the use of certain functions, we use cookies, i.e. small text files that are stored on your device. Some of these cookies are automatically deleted when the browser is closed (so-called \"session cookies\"), some of these cookies remain longer on your device and allow you to save page settings (so-called \"persistent cookies\"). In the latter case, you can see the storage duration in the overview of the cookie settings in your web browser."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "If personal data is also processed by individual cookies we use, the processing takes place in accordance with Art. 6 Paragraph 1 lit. b GDPR either for the execution of the contract, in accordance with Art. 6 Paragraph 1 lit. According to Art. 6 Para. 1 lit.f GDPR to safeguard our legitimate interests in the best possible functionality of the website and a customer-friendly and effective design of the page visit."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "You can set your browser so that you are informed about the setting of cookies and individually decide whether to accept them or to exclude the acceptance of cookies for certain cases or in general."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "Please note that the functionality of our website may be restricted if you reject cookies."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "privacy-sec-4",
+          "title": "4) Contacting us",
+          "blocks": [
+            {
+              "type": "p",
+              "content": [
+                "When contacting us (e.g. via contact form or email), personal data is processed – exclusively for the purpose of processing and answering your request and only to the extent required for this."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "The legal basis for the processing of this data is our legitimate interest in answering your request in accordance with Article 6 (1) (f) GDPR. If your contact is aimed at a contract, the additional legal basis for processing is Art. 6 (1) (b) GDPR. Your data will be deleted if it can be inferred from the circumstances that the facts in question have been finally clarified and provided that there are no legal storage obligations to the contrary."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "privacy-sec-5",
+          "title": "5) Data processing when opening a customer account",
+          "blocks": [
+            {
+              "type": "p",
+              "content": [
+                "In accordance with Article 6 Paragraph 1 Letter b GDPR, personal data will continue to be collected and processed to the extent required in each case if you provide it to us when opening a customer account. The data required for opening an account can be found in the input mask of the corresponding form on our website."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "A deletion of your customer account is possible at any time and can be done by sending a message to the above address of the person responsible. After your customer account has been deleted, your data will be deleted provided that all contracts concluded have been completed, there are no legal retention periods to the contrary and we have no legitimate interest in further storage."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "privacy-sec-6",
+          "title": "6) Use of customer data for direct advertising",
+          "blocks": [
+            {
+              "type": "p",
+              "lead": "6.1",
+              "content": [
+                "Registration for our e-mail newsletter"
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "If you sign up for our email newsletter, we will regularly send you information about our offers. The only mandatory information for sending the newsletter is your email address. Providing further data is voluntary and is used to address you personally. To send the newsletter, we use the so-called double opt-in procedure, which ensures that you only receive the newsletter once you have expressly confirmed your consent to receive the newsletter by clicking on a verification link sent to the email address provided."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "By activating the confirmation link, you give us your consent to the use of your personal data in accordance with Article 6 (1) (a) GDPR. We store your IP address entered by the Internet Service Provider (ISP) as well as the date and time of registration in order to be able to trace possible misuse of your e-mail address at a later point in time. The data we collect when registering for the newsletter is used strictly for the intended purpose."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "You can unsubscribe from the newsletter at any time via the link provided for this purpose in the newsletter or by sending a message to the person responsible mentioned at the beginning. After you have unsubscribed, your e-mail address will be deleted from our newsletter distribution list immediately, unless you have expressly consented to further use of your data or we reserve the right to use data beyond this, which is permitted by law and about which we will inform you in this declaration."
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "6.2",
+              "content": [
+                "Sending the e-mail newsletter to existing customers"
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "If you have provided us with your e-mail address when purchasing goods or services, we reserve the right to regularly send you offers for goods or services from our range by e-mail that are similar to those you have already purchased. According to Section 7 (3) UWG, we do not have to obtain your separate consent for this. In this respect, data processing takes place solely on the basis of our legitimate interest in personalized direct advertising in accordance with Article 6 (1) (f) GDPR. If you initially objected to the use of your e-mail address for this purpose, we will not send you an e-mail."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "You are entitled to object to the use of your e-mail address for the aforementioned advertising purpose at any time with effect for the future by notifying the person responsible named at the beginning. For this, you only incur transmission costs according to the basic tariffs. After receipt of your objection, the use of your e-mail address for advertising purposes will be stopped immediately."
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "6.3",
+              "content": [
+                "Cart reminders by email"
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "If you cancel your purchase from us before completing the order, you have the option of being reminded of the contents of your virtual shopping cart once by e-mail."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "The only mandatory information for sending this reminder is your e-mail address. Providing further data is voluntary and may be used to address you personally. We use the so-called double opt-in procedure for sending e-mails, which ensures that you only receive a notification if you have expressly confirmed your consent to this by clicking on a verification link sent to the e-mail address provided."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "By activating the confirmation link, you give us your consent to the use of your personal data in accordance with Article 6 (1) (a) GDPR to send a shopping cart reminder. We store your IP address entered by the Internet Service Provider (ISP) as well as the date and time of registration in order to be able to trace possible misuse of your e-mail address at a later point in time. The data we collect when you register for our e-mail notification service is used strictly for the intended purpose."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "You can unsubscribe from the shopping cart reminders at any time by sending a message to the person named above. After you have unsubscribed, your e-mail address will be deleted immediately from our mailing list set up for this purpose, unless you have expressly consented to further use of your data or we reserve the right to use data that goes beyond this, which is permitted by law and about which we will inform you in this declaration ."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "privacy-sec-7",
+          "title": "7) Data processing for order processing",
+          "blocks": [
+            {
+              "type": "p",
+              "lead": "7.1",
+              "content": [
+                "Insofar as it is necessary for the execution of the contract for delivery and payment purposes, the personal data collected by us will be passed on to the commissioned transport company and the commissioned credit institution in accordance with Article 6 (1) (b) GDPR."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "If we owe you updates for goods with digital elements or for digital products based on a corresponding contract, we will process the contact information you provided when placing your order in order to inform you personally within the scope of our statutory information obligations pursuant to Art. 6 (1) (c) GDPR. Your contact information will be used strictly for the purpose of notifying you of updates owed by us and will only be processed by us to the extent necessary for the respective information."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "In order to process your order, we also work together with the following service provider (s) who support us in whole or in part in the execution of concluded contracts. Certain personal data is transmitted to these service providers in accordance with the following information."
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "7.2",
+              "content": [
+                "PlentyONE"
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "For order processing, we use the following provider: PlentyONE GmbH, Johanna-Waescher-Straße 7, 34131 Kassel, Germany"
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "Name, address and, if applicable, other personal data are passed on to the provider exclusively for the purpose of processing the online order in accordance with Article 6 (1) (b) GDPR. Your data will only be passed on to the extent that this is actually necessary to process the order."
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "7.3",
+              "content": [
+                "Forwarding of personal data to shipping service providers"
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "- DHL"
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "As a transport service provider, we use the following provider: DHL Paket GmbH, Sträßchensweg 10, 53113 Bonn, Germany"
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "We will pass on your e-mail address and/or telephone number to the provider in accordance with Article 6 (1) (a) GDPR before the goods are delivered for the purpose of coordinating a delivery date or for delivery notification, provided that you have given your express consent to do so during the ordering process have given consent. Otherwise, we will only pass on the name of the recipient and the delivery address to the provider for the purpose of delivery in accordance with Article 6 (1) (b) GDPR. The data will only be passed on if this is necessary for the delivery of the goods. In this case, prior coordination of the delivery date with the provider or the delivery notification is not possible."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "The consent can be revoked at any time with effect for the future to the above-mentioned person responsible or to the provider.",
+                {
+                  "type": "br"
+                },
+                "- DPD"
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "As a transport service provider, we use the following provider: DPD Deutschland GmbH, Wailandtstraße 1, 63741 Aschaffenburg, Germany"
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "We will pass on your e-mail address and/or telephone number to the provider in accordance with Article 6 (1) (a) GDPR before the goods are delivered for the purpose of coordinating a delivery date or for delivery notification, provided that you have given your express consent to do so during the ordering process have given consent. Otherwise, we will only pass on the name of the recipient and the delivery address to the provider for the purpose of delivery in accordance with Article 6 (1) (b) GDPR. The data will only be passed on if this is necessary for the delivery of the goods. In this case, prior coordination of the delivery date with the provider or the delivery notification is not possible."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "The consent can be revoked at any time with effect for the future to the above-mentioned person responsible or to the provider.",
+                {
+                  "type": "br"
+                },
+                "- UPS"
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "As a transport service provider, we use the following provider: United Parcel Service Deutschland Inc. & Co. OHG, Görlitzer Straße 1, 41460 Neuss, Germany"
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "We will pass on your e-mail address and/or telephone number to the provider in accordance with Article 6 (1) (a) GDPR before the goods are delivered for the purpose of coordinating a delivery date or for delivery notification, provided that you have given your express consent to do so during the ordering process have given consent. Otherwise, we will only pass on the name of the recipient and the delivery address to the provider for the purpose of delivery in accordance with Article 6 (1) (b) GDPR. The data will only be passed on if this is necessary for the delivery of the goods. In this case, prior coordination of the delivery date with the provider or the delivery notification is not possible."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "The consent can be revoked at any time with effect for the future to the above-mentioned person responsible or to the provider."
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "7.4",
+              "content": [
+                "Use of payment service providers (payment services)"
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "- Mollie"
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "One or more online payment methods from the following provider are available on this website: Mollie BV, Keizersgracht 313, 1016 EE Amsterdam, Netherlands"
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "If you select a payment method from the provider where you pay in advance (e.g. credit card payment), the payment details you provided during the ordering process (including name, address, bank and payment card information, currency and transaction number) and information about the content of your order will be sent to them passed on in accordance with Art. 6 Para. 1 lit. b GDPR. In this case, your data will only be passed on for the purpose of payment processing with the provider and only to the extent that it is necessary for this."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "privacy-sec-8",
+          "title": "8) Online Marketing",
+          "blocks": [
+            {
+              "type": "p",
+              "content": [
+                "Google AdSense"
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "This website uses Google AdSense, a web advertising service from Google Ireland Limited, Gordon House, 4 Barrow St, Dublin, D04 E5W5, Ireland (\"Google\"). Google AdSense uses so-called cookies, i.e. text files that are stored on your computer and that enable your use of the website to be analyzed. In addition, Google AdSense also uses so-called \"web beacons\" (small invisible graphics) to collect information, which can be used to record, collect and evaluate simple actions such as visitor traffic on the website. The information generated by the cookie and / or web beacon (including your IP address) about your use of this website is usually transmitted to a Google server and stored there. This can also result in a transmission to the servers of Google LLC. come in the US."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "Google uses the information so obtained to evaluate your usage behavior with respect to the AdSense ads. The Google AdSense IP address sent by your browser will not be merged with other Google data. The information collected by Google may be transferred to third parties, if required by law and / or as far as third parties process this data on behalf of Google.",
+                {
+                  "type": "br"
+                },
+                "All processing described above, in particular reading of information on the device used via cookies and / or web beacons, will only be carried out if you have given us your express consent in accordance with Art. 6 Para. 1 lit. a GDPR. Without this consent, Google AdSense will not be used during your visit to the site."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "You can revoke your consent at any time with effect for the future by deactivating this service in the \"Cookie Consent Tool\" provided on the website."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "For data transfers to the USA, the provider has joined the EU-US data protection framework (EU-US Data Privacy Framework), which ensures compliance with the European data protection level on the basis of an adequacy decision by the European Commission."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "Further information on Google’s privacy policy can be found here: ",
+                {
+                  "type": "link",
+                  "href": "https://business.safety.google/intl/de/privacy/",
+                  "label": "https://business.safety.google/intl/de/privacy/"
+                },
+                " and ",
+                {
+                  "type": "link",
+                  "href": "https://www.google.de/policies/privacy/",
+                  "label": "https://www.google.de/policies/privacy/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "privacy-sec-9",
+          "title": "9) web analytics services",
+          "blocks": [
+            {
+              "type": "p",
+              "content": [
+                "google analytics 4"
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "This website uses Google Analytics 4, a web analysis service provided by Google Ireland Limited, Gordon House, 4 Barrow St, Dublin, D04 E5W5, Ireland (\"Google\"), which enables an analysis of your use of our website."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "By default, when you visit the website, Google Analytics sets 4 cookies, which are stored as small text modules on your end device and collect certain information. The scope of this information also includes your IP address, which, however, is shortened by Google by the last digits in order to exclude direct personal reference."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "The information is transmitted to Google servers and processed there. Transmissions to Google LLC based in the USA are also possible."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "Google uses the information collected on our behalf to evaluate your use of the website, to compile reports on website activity for us and to provide other services related to website activity and internet usage. The shortened IP address transmitted by your browser as part of Google Analytics will not be merged with other Google data. The data collected as part of the use of Google Analytics 4 is stored for a period of two months and then deleted."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "All of the processing described above, in particular the setting of cookies on the end device used, only takes place if you have given us your express consent in accordance with Article 6 (1) (a) GDPR.",
+                {
+                  "type": "br"
+                },
+                "Without your consent, Google Analytics 4 will not be used during your visit to the site. You can revoke your consent at any time with effect for the future. To exercise your right of withdrawal, please deactivate this service using the \"Cookie Consent Tool\" provided on the website."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "We have concluded an order processing contract with Google, which ensures the protection of the data of our site visitors and prohibits unauthorized disclosure to third parties."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "Further legal information on Google Analytics 4 can be found at ",
+                {
+                  "type": "link",
+                  "href": "https://business.safety.google/intl/de/privacy/",
+                  "label": "https://business.safety.google/intl/de/privacy/"
+                },
+                ", ",
+                {
+                  "type": "link",
+                  "href": "https://policies.google.com/privacy?hl=de&gl=de",
+                  "label": "https://policies.google.com/privacy?hl=de&gl=de"
+                },
+                " and under ",
+                {
+                  "type": "link",
+                  "href": "https://policies.google.com/technologies/partner-sites",
+                  "label": "https://policies.google.com/technologies/partner-sites"
+                }
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "Demographics",
+                {
+                  "type": "br"
+                },
+                "Google Analytics 4 uses the special \"demographic characteristics\" function and can use this to create statistics that make statements about the age, gender and interests of site visitors. This is done by analyzing advertising and information from third parties. This allows target groups to be identified for marketing activities. However, the collected data cannot be assigned to a specific person and will be deleted after being stored for a period of two months."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "Google signals",
+                {
+                  "type": "br"
+                },
+                "As an extension to Google Analytics 4, Google Signals can be used on this website to create cross-device reports. If you have activated personalized ads and linked your devices to your Google account, Google can analyze your usage behavior across devices and database models, including cross-devices, subject to your consent to the use of Google Analytics in accordance with Article 6(1)(a) GDPR conversions, create. We do not receive any personal data from Google, only statistics. If you want to stop the cross-device analysis, you can disable the \"Personalized advertising\" function in your Google account settings. To do this, follow the instructions on this page: ",
+                {
+                  "type": "link",
+                  "href": "https://support.google.com/My-Ad-Center-Help/answer/12155764?hl=de",
+                  "label": "https://support.google.com/My-Ad-Center-Help/answer/12155764?hl=de"
+                },
+                {
+                  "type": "br"
+                },
+                "For more information about Google Signals, see the following link: ",
+                {
+                  "type": "link",
+                  "href": "https://support.google.com/analytics/answer/7532985?hl=de",
+                  "label": "https://support.google.com/analytics/answer/7532985?hl=de"
+                }
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "UserIDs",
+                {
+                  "type": "br"
+                },
+                "As an extension to Google Analytics 4, the \"UserIDs\" function can be used on this website. If you have consented to the use of Google Analytics 4 in accordance with Article 6(1)(a) GDPR, have set up an account on this website and log in to this account on different devices, your activities, including conversions, can be analyzed across devices become."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "For data transfers to the USA, the provider has joined the EU-US data protection framework (EU-US Data Privacy Framework), which ensures compliance with the European data protection level on the basis of an adequacy decision by the European Commission."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "privacy-sec-10",
+          "title": "10) Retargeting/ remarketing and conversion tracking",
+          "blocks": [
+            {
+              "type": "p",
+              "lead": "10.1",
+              "content": [
+                "Meta Pixel with advanced data matching"
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "Within our online service, we use the \"Meta Pixel\" service from the following provider in extended data matching mode: Meta Platforms Ireland Limited, 4 Grand Canal Square, Dublin 2, Ireland (\"Meta\")"
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "If a user clicks on an ad we place on Facebook or Instagram, the URL of our linked page is expanded by a parameter using “Meta Pixel”. After redirection, this URL parameter is then entered into the user's browser by a cookie that our linked page sets itself. In addition, this cookie records specific customer data such as the email address, which we collect on our website linked to the Facebook or Instagram ad during processes such as purchasing, account logins or registrations (extended data matching). The cookie is then read and enables the data, including specific customer data, to be transmitted to Meta."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "We use “meta pixels” with advanced data comparison to make our advertisements (so-called “ads”) on Facebook and/or Instagram more effective and to ensure that they correspond to the interests of users or have certain characteristics (e.g. interests in certain topics or Products that are determined based on the websites visited) that we transmit to Meta (so-called “Custom Audiences”)."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "We also analyze the effectiveness of our advertisements by tracking whether users were redirected to our website after clicking on an advertisement (conversion). Compared to the standard version of \"Meta Pixel\", the advanced data matching feature helps us better measure the effectiveness of our advertising campaigns by recording more attributed conversions."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "All transmitted data is stored and processed by Meta so that an assignment to the respective user profile is possible and Meta uses the data for its own advertising purposes in accordance with Meta's data usage guidelines (",
+                {
+                  "type": "link",
+                  "href": "https://www.facebook.com/about/privacy/",
+                  "label": "https://www.facebook.com/about/privacy/"
+                },
+                ") can use. The data may enable Meta and its partners to place ads on and off Facebook."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "All processing described above, in particular the setting of cookies for reading information on the device used, will only be carried out if you have given us your express consent in accordance with Art. 6 Para. 1 lit. a GDPR. You can revoke your consent at any time with effect for the future by deactivating this service in the \"Cookie Consent Tool\" provided on the website."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "We have concluded an order processing contract with the provider, which ensures the protection of the data of our site visitors and prohibits unauthorized disclosure to third parties."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "The information generated by Meta is usually transferred to a Meta server and stored there; In this context, there may also be a transfer to Meta Platforms Inc. servers in the USA."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "For data transfers to the USA, the provider has joined the EU-US data protection framework (EU-US Data Privacy Framework), which ensures compliance with the European data protection level on the basis of an adequacy decision by the European Commission."
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "10.2",
+              "content": [
+                "Google Ads Remarketing"
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "This website uses retargeting technology from the following provider: Google Ireland Limited, Gordon House, 4 Barrow St, Dublin, D04 E5W5, Ireland"
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "For this purpose, Google sets a cookie in the browser of your end device, which automatically enables interest-based advertising using a pseudonymous cookie ID and based on the pages you visit. Any further data processing will only take place if you have given your consent to Google linking your Internet and app browser history to your Google account and using information from your Google account to personalize ads that you view on the web . In this case, if you are logged in to Google while visiting our website, Google will use your data together with Google Analytics data to create and define target group lists for cross-device remarketing. To do this, Google will temporarily link your personal data to Google Analytics data in order to form target groups. As part of the use of Google Ads Remarketing, personal data may also be transmitted to the servers of Google LLC. come in the US."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "All of the processing described above, in particular the setting of cookies for reading information on the end device used, will only be carried out if you have given us your express consent in accordance with Article 6 (1) (a) GDPR. Without this consent, retargeting technology will not be used during your visit to the site."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "You can revoke your consent at any time with effect for the future. To exercise your revocation, please deactivate this service in the \"Cookie Consent Tool\" provided on the website."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "For data transfers to the USA, the provider has joined the EU-US data protection framework (EU-US Data Privacy Framework), which ensures compliance with the European data protection level on the basis of an adequacy decision by the European Commission."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "Details on the processing initiated by Google and how Google handles data from websites can be found here: ",
+                {
+                  "type": "link",
+                  "href": "https://policies.google.com/technologies/partner-sites",
+                  "label": "https://policies.google.com/technologies/partner-sites"
+                }
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "Further information on Google’s privacy policy can be found here: ",
+                {
+                  "type": "link",
+                  "href": "https://business.safety.google/intl/de/privacy/",
+                  "label": "https://business.safety.google/intl/de/privacy/"
+                },
+                " and ",
+                {
+                  "type": "link",
+                  "href": "https://www.google.de/policies/privacy/",
+                  "label": "https://www.google.de/policies/privacy/"
+                }
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "10.3",
+              "content": [
+                "Google Ads conversion tracking"
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "This website uses the online advertising program \"Google Ads\" and, as part of Google Ads, conversion tracking by Google Ireland Limited, Gordon House, 4 Barrow St, Dublin, D04 E5W5, Ireland (\"Google\")."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "We use Google Ads to draw attention to our attractive offers with the help of advertising material (so-called Google Adwords) on external websites. In relation to the data of the advertising campaigns, we can determine how successful the individual advertising measures are. We are pursuing the goal of showing you advertising that is of interest to you, making our website more interesting for you and achieving a fair calculation of the advertising costs incurred."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "The conversion tracking cookie is set when a user clicks on an Ads ad placed by Google. Cookies are small text files that are stored on your device. These cookies usually lose their validity after 30 days and are not used for personal identification. If the user visits certain pages on this website and the cookie has not yet expired, we and Google can see that the user clicked on the ad and was redirected to this page. Each Google Ads customer receives a different cookie. Cookies cannot therefore be tracked via the websites of Google Ads customers. The information obtained using the conversion cookie is used to generate conversion statistics for Google Ads customers who have opted for conversion tracking. Customers find out the total number of users who clicked on their ad and were redirected to a page with a conversion tracking tag. However, they do not receive any information with which users can be personally identified."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "When using Google Ads, personal data may also be transmitted to the servers of Google LLC. come in the US."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "Details on the processing initiated by Google Ads Conversion Tracking and how Google handles data from websites can be found here: ",
+                {
+                  "type": "link",
+                  "href": "https://policies.google.com/technologies/partner-sites",
+                  "label": "https://policies.google.com/technologies/partner-sites"
+                }
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "All processing described above, in particular the setting of cookies for reading information on the device used, will only be carried out if you have given us your express consent in accordance with Art. 6 Para. 1 lit. a GDPR. You can revoke your consent at any time with effect for the future by deactivating this service in the \"Cookie Consent Tool\" provided on the website."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "You can also permanently object to the setting of cookies by Google Ads Conversion Tracking by downloading and installing the browser plug-in from Google available under the following link:",
+                {
+                  "type": "br"
+                },
+                {
+                  "type": "link",
+                  "href": "https://support.google.com/My-Ad-Center-Help/answer/12155656?hl=de",
+                  "label": "https://support.google.com/My-Ad-Center-Help/answer/12155656?hl=de"
+                }
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "In order to address users whose data we have received in the context of business or business-like relationships with even more interest-based advertising, we use a customer comparison function as part of Google Ads. To do this, we electronically transmit one or more files with aggregated customer data (especially email addresses and telephone numbers) to Google. Google does not have access to clear data, but instead automatically encrypts the information in the customer files during the transmission process using a special algorithm. The encrypted information can then only be used by Google to assign it to existing Google accounts that the data subjects have set up. This enables personalized advertising to be played across all Google services linked to the respective Google account."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "The transfer of customer data to Google takes place only if you have given us your express consent in accordance with Art. 6 Paragraph 1 lit. a GDPR. You can revoke this consent to us at any time with effect for the future. Further information on Google's data protection measures in relation to the customer comparison function can be found here: ",
+                {
+                  "type": "link",
+                  "href": "https://support.google.com/google-ads/answer/6334160?hl=de&ref_topic=10550182",
+                  "label": "https://support.google.com/google-ads/answer/6334160?hl=de&ref_topic=10550182"
+                },
+                {
+                  "type": "br"
+                },
+                "Google's privacy policy can be viewed here: ",
+                {
+                  "type": "link",
+                  "href": "https://business.safety.google/intl/de/privacy/",
+                  "label": "https://business.safety.google/intl/de/privacy/"
+                },
+                " and ",
+                {
+                  "type": "link",
+                  "href": "https://www.google.de/policies/privacy/",
+                  "label": "https://www.google.de/policies/privacy/"
+                }
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "For data transfers to the USA, the provider has joined the EU-US data protection framework (EU-US Data Privacy Framework), which ensures compliance with the European data protection level on the basis of an adequacy decision by the European Commission."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "privacy-sec-11",
+          "title": "11) Page functionalities",
+          "blocks": [
+            {
+              "type": "p",
+              "lead": "11.1",
+              "content": [
+                "Vimeo"
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "This website uses plugins to display and play videos from the following provider: Vimeo.com, Inc., 330 West 34th Street, 10th Floor, New York, NY 10001, USA"
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "If you call up a page on our website that contains such a plugin, your browser establishes a direct connection to the provider's servers in order to load the plugin. Certain information, including your IP address, is transmitted to the provider."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "If the playback of embedded videos is started via the plugin, the provider also uses cookies to collect information about user behavior, create playback statistics and prevent abusive behavior."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "If you are logged into a user account with the provider when you visit the site, your data will be assigned directly to your account when you click on a video. If you do not want this to be assigned to your account, you must log out before pressing the play button."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "All of the aforementioned processing, in particular the setting of cookies for reading information on the end device used, only takes place if you have given us your express consent in accordance with Article 6 (1) (a) GDPR. You can revoke your consent at any time with effect for the future by deactivating this service using the “Cookie Consent Tool” provided on the website."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "For data transfers to the USA, the provider has joined the EU-US data protection framework (EU-US Data Privacy Framework), which ensures compliance with the European data protection level on the basis of an adequacy decision by the European Commission."
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "11.2",
+              "content": [
+                "Google Maps"
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "This website uses an online map service from the following provider: Google Maps (API) from Google Ireland Limited, Gordon House, 4 Barrow St, Dublin, D04 E5W5, Ireland (\"Google\")."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "Google Maps is a web service for displaying interactive (land) maps to visually display geographic information. Using this service will show you our location and make it easier to get there."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "As soon as you call up those sub-pages in which the Google Maps map is integrated, information about your use of our website (such as your IP address) is transmitted to Google's servers and stored there. This can also result in transmission to the servers of Google LLC. come in the US. This occurs regardless of whether Google provides a user account through which you are logged in or whether a user account exists. If you are logged in to Google, your data will be assigned directly to your account. If you do not wish to be associated with your profile on Google, you must log out before activating the button. Google saves your data (even for users who are not logged in) as usage profiles and evaluates them."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "The collection, storage and evaluation are carried out in accordance with Article 6 Paragraph 1 Letter f GDPR on the basis of Google's legitimate interest in the display of personalized advertising, market research and/or the needs-based design of Google websites. You have the right to object to the creation of these user profiles, although you must contact Google to exercise this right. If you do not agree to the future transmission of your data to Google when using Google Maps, you also have the option of completely deactivating the Google Maps web service by switching off the JavaScript application in your browser. Google Maps and thus also the map display on this website cannot then be used."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "As far as is legally required, we have obtained your consent to your data being processed as described above in accordance with Article 6(1)(a) GDPR. You can withdraw your consent at any time with future effect. To exercise the withdrawal of your consent, please refer to the option for exercising an objection as detailed above."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "For data transfers to the USA, the provider has joined the EU-US data protection framework (EU-US Data Privacy Framework), which ensures compliance with the European data protection level on the basis of an adequacy decision by the European Commission."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "Further information on Google’s privacy policy can be found here: ",
+                {
+                  "type": "link",
+                  "href": "https://business.safety.google/intl/de/privacy/",
+                  "label": "https://business.safety.google/intl/de/privacy/"
+                }
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "11.3",
+              "content": [
+                "Google Web Fonts"
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "This site uses so-called web fonts from the following provider for the uniform display of fonts: Google Ireland Limited, Gordon House, 4 Barrow St, Dublin, D04 E5W5, Ireland"
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "When you call up a page, your browser loads the required web fonts into your browser cache in order to display text and fonts correctly and establishes a direct connection to the provider's servers. Certain browser information, including your IP address, is transmitted to the provider."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "Data can also be transmitted to: Google LLC, USA"
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "The processing of personal data in the course of establishing a connection with the provider of the fonts will only be carried out if you have given us your express consent in accordance with Article 6 (1) (a) GDPR. You can revoke your consent at any time with effect for the future by deactivating this service using the “Cookie Consent Tool” provided on the website. If your browser does not support web fonts, a standard font will be used by your computer."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "For data transfers to the USA, the provider has joined the EU-US data protection framework (EU-US Data Privacy Framework), which ensures compliance with the European data protection level on the basis of an adequacy decision by the European Commission."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "Further information on Google’s privacy policy can be found here: ",
+                {
+                  "type": "link",
+                  "href": "https://business.safety.google/intl/de/privacy/",
+                  "label": "https://business.safety.google/intl/de/privacy/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "privacy-sec-12",
+          "title": "12) Rights of the data subject",
+          "blocks": [
+            {
+              "type": "p",
+              "lead": "12.1",
+              "content": [
+                "The applicable data protection law grants you the following rights of data subjects (information and intervention rights) vis-à-vis the person responsible with regard to the processing of your personal data, whereby reference is made to the stated legal basis for the respective exercise requirements:"
+              ]
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Right to information in accordance with Art. 15 GDPR;",
+                "Right to rectification in accordance with Art. 16 GDPR;",
+                "Right to deletion in accordance with Art. 17 GDPR;",
+                "Right to restriction of processing in accordance with Art. 18 GDPR;",
+                "Right to information in accordance with Art. 19 GDPR;",
+                "Right to data portability in accordance with Art. 20 GDPR;",
+                "Right to revoke consent given in accordance with Art. 7 Para. 3 GDPR;",
+                "Right to lodge a complaint in accordance with Art. 77 GDPR."
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "12.2",
+              "content": [
+                "RIGHT TO OBJECT"
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "IF WE PROCESS YOUR PERSONAL DATA WITHIN A BALANCING OF INTERESTS AND BASED ON OUR OVERRIDING LEGITIAMTE INTEREST, YOU HAVE THE RIGHT TO OBJECT TO THIS PROCESSING AT ANY TIME WITH FUTURE EFFECT FOR REASONS EMANATING FROM YOUR SPECIFIC SITUATION."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "IF YOU MAKE USE OF YOUR RIGHT TO OBJECT WE WILL TERMINATE PROCESSING THE RELEVANT DATA. WE RESERVE THE RIGHT TO FURTHER PROCESSING IF WE CAN PROVE COMPELLING PRIVILEGED REASONS FOR PROCESSING THAT OVERRIDE YOUR INTERESTS, FUNDAMENTAL RIGHTS AND FREEDOMS, OR IF THE PROCESSING SERVES THE ESTABLISHMENT, EXERCISE, OR DEFENCE OF LEGAL CLAIMS."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "IF YOUR PERSONAL DATA ARE PROCESSED BY US FOR DIRECT ADVERTISING, YOU HAVE THE RIGHT TO OBJECT TO THE PROCESSING OF YOUR PERSONAL DATA FOR SUCH ADVERTISING PURPOSES AT ANY TIME. YOU CAN EXERCISE YOUR OBJECTION AS DESCRIBED ABOVE."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "IF YOU MAKE USE OF YOUR RIGHT TO OBJECT WE WILL TERMINATE PROCESSING THE RELEVANT DATA FOR DIRECT ADVERTISING PURPOSES."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "privacy-sec-13",
+          "title": "13) Storage period of personal data",
+          "blocks": [
+            {
+              "type": "p",
+              "content": [
+                "The storage duration of personal data is determined by the respective legal framework, the processing purpose, and - where appropriate - additionally by the respective legal retention period (e.g. retention periods pertaining to commercial or tax legislation)."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "When processing personal data on the basis of an express consent in accordance with Article 6 Paragraph 1 lit. a GDPR, the data concerned will be stored until you revoke your consent."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "If legal retention periods exist for data that have been processed within transactional or transactional-similar obligations on the basis on Article 6(1)(b) GDPR, these data will be routinely erased after expiry of the retention period provided they are no longer required for the fulfilment or initiation of a contract and/or no legitimate interest on continued storage continues from our side."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "When processing personal data on the basis of Article 6 Paragraph 1 Letter f GDPR, this data will be stored until you exercise your right of objection in accordance with Article 21 Paragraph 1 GDPR, unless we can provide compelling reasons worthy of protection prove the processing that outweighs your interests, rights and freedoms, or the processing serves to assert, exercise or defend legal claims."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "When processing personal data for the purpose of direct advertising on the basis of Article 6 (1) (f) GDPR, this data will be stored until you exercise your right of objection under Article 21 (2) GDPR."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "If any other information of this declaration about specific processing situations does not result in any other outcomes, stored personal data will be erased when they are no longer required for the purposes for which they were collected or processed in any other way."
+              ]
+            }
+          ]
+        }
       ]
     }
   },
@@ -365,8 +1371,487 @@
     },
     "content": {
       "heading": "General Terms and Conditions (GTC)",
+      "tocTitle": "Table of Contents",
+      "tocItems": [
+        {
+          "id": "gtc-section-1",
+          "label": "Scope"
+        },
+        {
+          "id": "gtc-section-2",
+          "label": "conclusion of contract"
+        },
+        {
+          "id": "gtc-section-3",
+          "label": "Right to cancel"
+        },
+        {
+          "id": "gtc-section-4",
+          "label": "Prices and terms of payment"
+        },
+        {
+          "id": "gtc-section-5",
+          "label": "Delivery and shipping conditions"
+        },
+        {
+          "id": "gtc-section-6",
+          "label": "Contract duration and termination for subscription contracts for goods"
+        },
+        {
+          "id": "gtc-section-7",
+          "label": "Retention of title"
+        },
+        {
+          "id": "gtc-section-8",
+          "label": "Liability for defects (warranty)"
+        },
+        {
+          "id": "gtc-section-9",
+          "label": "Liability"
+        },
+        {
+          "id": "gtc-section-10",
+          "label": "Applicable Law"
+        },
+        {
+          "id": "gtc-section-11",
+          "label": "Jurisdiction"
+        },
+        {
+          "id": "gtc-section-12",
+          "label": "Alternative Dispute Resolution"
+        }
+      ],
       "sections": [
-        "1) Scope and General Information\nThe full General Terms and Conditions of CREW Republic Brewery GmbH will be published on this page shortly."
+        {
+          "id": "gtc-section-1",
+          "title": "1) Scope",
+          "blocks": [
+            {
+              "type": "p",
+              "lead": "1.1",
+              "content": [
+                "These General Terms and Conditions (hereinafter \"GTC\") of CREW Republic Brewery GmbH (hereinafter \"Seller\") apply to all contracts for the delivery of goods that a consumer or entrepreneur (hereinafter \"Customer\") concludes with the Seller regarding the goods presented by the Seller in his online shop. The inclusion of the Customer's own terms and conditions is hereby contradicted, unless otherwise agreed."
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "1.2",
+              "content": [
+                "A consumer within the meaning of these terms and conditions is any natural person who concludes a legal transaction for purposes that are predominantly neither commercial nor their independent professional activity."
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "1.3",
+              "content": [
+                "An entrepreneur within the meaning of these terms and conditions is a natural or legal person or a legal partnership who, when concluding a legal transaction, acts in the exercise of their commercial or independent professional activity."
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "1.4",
+              "content": [
+                "Depending on the seller's product description, the subject of the contract can be both the purchase of goods by way of a one-off delivery and the purchase of goods by way of a permanent delivery (hereinafter \"subscription contract\"). With the subscription contract, the seller undertakes to deliver the contractually owed goods to the customer for the duration of the agreed contract period in the contractually owed time intervals."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "gtc-section-2",
+          "title": "2) Conclusion of contract",
+          "blocks": [
+            {
+              "type": "p",
+              "lead": "2.1",
+              "content": [
+                "The product descriptions contained in the online shop of the seller do not constitute binding offers on the part of the seller, but serve to submit a binding offer by the customer."
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "2.2",
+              "content": [
+                "The customer can submit the offer using the online order form integrated in the seller's online shop. After placing the selected goods in the virtual shopping cart and going through the electronic ordering process, the customer submits a legally binding contract offer with regard to the goods in the shopping cart by clicking the button that concludes the ordering process."
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "2.3",
+              "content": [
+                "The seller can accept the customer's offer within five days,"
+              ]
+            },
+            {
+              "type": "ul",
+              "items": [
+                "By sending the customer a written order confirmation or an order confirmation in text form (fax or e-mail), in which case the receipt of the order confirmation by the customer is decisive, or",
+                "By delivering the ordered goods to the customer, in so far as the access of the goods to the customer is relevant, or",
+                "by asking the customer to pay after placing his order."
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                "Where several of the above alternatives are present, the contract shall come into force at the time when one of the above alternatives occurs first. The deadline for the acceptance of the offer begins on the day after the submission of the offer by the customer and ends with the expiry of the fifth day following the submission of the offer. If the seller does not accept the offer of the customer within the aforementioned deadline, this shall be deemed a rejection of the offer with the result that the customer is no longer bound to his consent."
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "2.4",
+              "content": [
+                "If you select a payment method offered by PayPal, the payment is processed via the payment service provider PayPal (Europe) S.à rl et Cie, SCA, 22-24 Boulevard Royal, L-2449 Luxembourg (hereinafter: \"PayPal\"), subject to the PayPal Terms of Use, available at ",
+                {
+                  "type": "link",
+                  "href": "https://www.paypal.com/de/legalhub/paypal/useragreement-full",
+                  "label": "https://www.paypal.com/ de/legalhub/paypal/useagreement-full"
+                },
+                " or - if the customer does not have a PayPal account - subject to the conditions for payments without a PayPal account, which can be viewed at ",
+                {
+                  "type": "link",
+                  "href": "https://www.paypal.com/de/legalhub/paypal/privacywax-full",
+                  "label": "https://www.paypal.com/ de/legalhub/paypal/privacywax-full"
+                },
+                ". If the customer pays using a payment method offered by PayPal that can be selected in the online ordering process, the seller already declares acceptance of the customer's offer at the point in time at which the customer clicks on the button that completes the ordering process."
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "2.5",
+              "content": [
+                "If you select the payment method “Amazon Payments”, the payment will be processed via the payment service provider Amazon Payments Europe sca, 38 avenue John F. Kennedy, L-1855 Luxembourg (hereinafter: “Amazon”), subject to the Amazon Payments Europe User Agreement, which can be viewed at ",
+                {
+                  "type": "link",
+                  "href": "https://pay.amazon.de/help/201751590",
+                  "label": "https://pay.amazon.de/ help/201751590"
+                },
+                ". If the customer selects “Amazon Payments” as the payment method during the online ordering process, he also issues a payment order to Amazon by clicking the button that concludes the ordering process. In this case, the seller already declares the acceptance of the customer's offer at the point in time at which the customer triggers the payment process by clicking the button that completes the order process."
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "2.6",
+              "content": [
+                "When submitting an offer via the seller's online order form, the text of the contract is saved by the seller after the conclusion of the contract and sent to the customer in text form (e.g. e-mail, fax or letter) after the order has been sent. The seller does not make the contract text accessible beyond this. If the customer has set up a user account in the seller's online shop before sending his order, the order data will be archived on the seller's website and can be called up free of charge by the customer via his password-protected user account by providing the corresponding login data."
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "2.7",
+              "content": [
+                "Before submitting a binding order via the seller's online order form, the customer can identify possible input errors by carefully reading the information displayed on the screen. An effective technical means for better recognition of input errors can be the enlargement function of the browser, with the help of which the display on the screen is enlarged. The customer can correct his entries as part of the electronic ordering process using the usual keyboard and mouse functions until he clicks the button that completes the ordering process."
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "2.8",
+              "content": [
+                "To enter the contract you can use German as your prefered language."
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "2.9",
+              "content": [
+                "The order processing and contact usually takes place via e-mail and automated order processing. The customer must ensure that the e-mail address provided by him for order processing is correct so that the e-mails sent by the seller can be received at this address. In particular, when using SPAM filters, the customer must ensure that all e-mails sent by the seller or by third parties commissioned to process the order can be delivered."
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "2.10",
+              "content": [
+                "When ordering alcoholic beverages, the customer confirms by sending the order that he has reached the legally required minimum age."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "gtc-section-3",
+          "title": "3) Right of Withdrawal",
+          "blocks": [
+            {
+              "type": "p",
+              "lead": "3.1",
+              "content": [
+                "In principle, consumers are entitled to a right of withdrawal."
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "3.2",
+              "content": [
+                "Further information on the right of cancellation can be found in the seller's cancellation policy."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "gtc-section-4",
+          "title": "4) Prices and terms of payment",
+          "blocks": [
+            {
+              "type": "p",
+              "lead": "4.1",
+              "content": [
+                "Unless otherwise stated in the seller's product description, the prices given are total prices that include statutory sales tax. Any additional delivery and shipping costs that may arise are specified separately in the respective product description."
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "4.2",
+              "content": [
+                "The payment option (s) will be communicated to the customer in the online shop of the seller."
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "4.3",
+              "content": [
+                "If you select a payment method offered via the \"Klarna\" payment service, payment processing will be carried out by Klarna Bank AB (publ), Sveavägen 46, 111 34 Stockholm, Sweden (hereinafter \"Klarna\"). Further information and Klarna's terms and conditions can be found here:"
+              ]
+            },
+            {
+              "type": "p",
+              "content": [
+                {
+                  "type": "link",
+                  "href": "http://wp12895614.server-he.de/versand-und-lieferung/",
+                  "label": "http://wp12895614.server-he.de/Shipping and delivery/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "gtc-section-5",
+          "title": "5) Delivery and shipping conditions",
+          "blocks": [
+            {
+              "type": "p",
+              "lead": "5.1",
+              "content": [
+                "If the seller offers to ship the goods, the delivery takes place within the delivery area specified by the seller to the delivery address specified by the customer, unless otherwise agreed. When processing the transaction, the delivery address specified in the seller's order processing is decisive."
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "5.2",
+              "content": [
+                "If delivery of the goods fails for reasons for which the customer is responsible, the customer shall bear the reasonable costs incurred by the seller as a result. This does not apply with regard to the costs for the delivery if the customer effectively exercises his right of withdrawal. If the customer effectively exercises the right of cancellation, the regulation made in the seller's cancellation policy applies to the return costs."
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "5.3",
+              "content": [
+                "If the customer acts as an entrepreneur, the risk of accidental loss and accidental deterioration of the goods sold passes to the customer as soon as the seller has delivered the item to the forwarding agent, carrier or other person or institution responsible for carrying out the shipment. If the customer acts as a consumer, the risk of accidental loss and accidental deterioration of the goods sold only passes when the goods are handed over to the customer or an authorized recipient. Deviating from this, the risk of accidental loss and accidental deterioration of the goods sold also passes to the customer for consumers as soon as the seller has delivered the item to the freight forwarder, the carrier or the person or institution otherwise responsible for carrying out the shipment, if the Customer has commissioned the forwarding agent, carrier or other person or institution responsible for carrying out the shipment and the seller has not previously named this person or institution to the customer."
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "5.4",
+              "content": [
+                "The seller reserves the right to withdraw from the contract in the event of incorrect or improper delivery to himself. This only applies in the event that the seller is not responsible for the non-delivery and has concluded a specific hedging transaction with the supplier with due diligence. The seller will use all reasonable efforts to procure the goods. In the case of unavailability or only partial availability of the goods, the customer will be informed immediately and the consideration will be refunded immediately."
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "5.5",
+              "content": [
+                "Pickup is not possible for logistical reasons."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "gtc-section-6",
+          "title": "6) Contract duration and termination for subscription contracts for goods",
+          "blocks": [
+            {
+              "type": "p",
+              "lead": "6.1",
+              "content": [
+                "Subscription contracts are concluded for an unlimited period and can be terminated by the customer at any time without observing a notice period."
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "6.2",
+              "content": [
+                "The right to extraordinary termination for good cause remains unaffected. An important reason exists if the terminating party, taking into account all the circumstances of the individual case and weighing the interests of both parties, cannot be expected to continue the contractual relationship until the agreed termination or until the expiry of a period of notice."
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "6.3",
+              "content": [
+                "Cancellations can be made in writing, in text form (e.g. by e-mail) or in electronic form via the cancellation device (cancellation button) provided by the seller on his website."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "gtc-section-7",
+          "title": "7) Retention of title",
+          "blocks": [
+            {
+              "type": "p",
+              "content": [
+                "If the seller delivers in advance, he retains title to the delivered goods until full payment of the owed purchase price."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "gtc-section-8",
+          "title": "8) Liability for defects (guarantee)",
+          "blocks": [
+            {
+              "type": "p",
+              "content": [
+                "Unless otherwise specified in the following regulations, the provisions of statutory liability for defects apply. Deviating from this, the following applies to contracts for the delivery of goods:"
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "8.1",
+              "content": [
+                "If the customer acts as an entrepreneur,"
+              ]
+            },
+            {
+              "type": "ul",
+              "items": [
+                "the seller has the choice of the type of supplementary performance;",
+                "For new goods, the limitation period for claims for defects is one year from delivery of the goods;",
+                "In the case of used goods, the warranty rights are excluded;",
+                "the statute of limitations does not start again if a replacement delivery takes place within the scope of the liability for defects."
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "8.2",
+              "content": [
+                "The limitations of liability and shortening of deadlines set out above do not apply"
+              ]
+            },
+            {
+              "type": "ul",
+              "items": [
+                "for claims for damages and reimbursement of expenses by the customer,",
+                "in the event that the seller has fraudulently concealed the defect,",
+                "for goods that have been used for a building in accordance with their normal use and have caused its defectiveness,",
+                "for any existing obligation on the part of the seller to provide updates for digital products in the case of contracts for the delivery of goods with digital elements."
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "8.3",
+              "content": [
+                "In addition, it applies to entrepreneurs that the statutory limitation periods for any existing statutory right of recourse remain unaffected."
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "8.4",
+              "content": [
+                "If the customer acts as a merchant within the meaning of Section 1 of the German Commercial Code (HGB), he is subject to the commercial inspection and complaint obligation in accordance with Section 377 of the German Commercial Code (HGB). If the customer fails to comply with the notification obligations stipulated there, the goods are deemed to have been approved."
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "8.5",
+              "content": [
+                "If the customer acts as a consumer, he is asked to complain to the deliverer about delivered goods with obvious transport damage and to inform the seller of this. If the customer does not comply, this has no effect on his statutory or contractual claims for defects."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "gtc-section-9",
+          "title": "9) liability",
+          "blocks": [
+            {
+              "type": "p",
+              "content": [
+                "The seller is liable to the customer for all contractual, contractual and legal, including tortious claims for damages and reimbursement of expenses as follows:"
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "9.1",
+              "content": [
+                "The seller is fully liable for any legal reason"
+              ]
+            },
+            {
+              "type": "ul",
+              "items": [
+                "in case of intent or gross negligence,",
+                "in the event of willful or negligent injury to life, body or health,",
+                "on the basis of a guarantee promise, unless otherwise regulated in this regard,",
+                "due to mandatory liability such as under the Product Liability Act."
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "9.2",
+              "content": [
+                "If the seller negligently breaches an essential contractual obligation, liability is limited to the foreseeable damage typical for the contract, unless there is unlimited liability in accordance with the preceding paragraph. Essential contractual obligations are obligations that the contract imposes on the seller according to its content in order to achieve the purpose of the contract, the fulfillment of which enables the proper execution of the contract in the first place and on the compliance of which the customer can regularly rely."
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "9.3",
+              "content": [
+                "Incidentally, a liability of the seller is excluded."
+              ]
+            },
+            {
+              "type": "p",
+              "lead": "9.4",
+              "content": [
+                "The above liability regulations also apply with regard to the liability of the seller for his vicarious agents and legal representatives."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "gtc-section-10",
+          "title": "10) Applicable law",
+          "blocks": [
+            {
+              "type": "p",
+              "content": [
+                "For all legal relations of the parties, the law of the Federal Republic of Germany applies to the exclusion of the laws on the international purchase of movable goods. In the case of consumers, this choice is valid only in so far as the protection afforded by mandatory provisions of the law of the country in which the consumer has his habitual residence is not withdrawn."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "gtc-section-11",
+          "title": "11) Jurisdiction",
+          "blocks": [
+            {
+              "type": "p",
+              "content": [
+                "If the customer acts as a merchant, legal entity under public law or special fund under public law with its seat in the territory of the Federal Republic of Germany, the exclusive place of jurisdiction for all disputes arising from this contract shall be the place of business of the seller. If the customer is located outside the territory of the Federal Republic of Germany, the place of business of the seller is the exclusive place of jurisdiction for all disputes arising from this contract, if the contract or claims from the contract can be attributed to the customer's professional or commercial activity. However, in the above cases, the seller is in any case entitled to call the court at the customer's place of business."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "gtc-section-12",
+          "title": "12) Alternative Dispute Resolution",
+          "blocks": [
+            {
+              "type": "p",
+              "content": [
+                "The seller is neither obliged nor willing to participate in a dispute settlement procedure before a consumer arbitration board."
+              ]
+            }
+          ]
+        }
       ]
     }
   }

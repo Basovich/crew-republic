@@ -1,7 +1,10 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { PageHero } from '@/components/PageHero/PageHero';
-import { PrivacyContent } from '@/components/PrivacyContent/PrivacyContent';
+import {
+  PrivacyContent,
+  type PrivacyContentData,
+} from '@/components/PrivacyContent';
 import { FloatingActions } from '@/components/FloatingActions/FloatingActions';
 
 interface PageProps {
@@ -55,7 +58,7 @@ export default async function PrivacyPolicyPage({ params }: PageProps) {
   const t = await getTranslations({ locale, namespace: 'PrivacyPolicyPage' });
   const tCommon = await getTranslations('Common');
 
-  const rawSections = t.raw('content.sections') as string[];
+  const privacyData = t.raw('content') as PrivacyContentData;
 
   return (
     <main>
@@ -70,10 +73,7 @@ export default async function PrivacyPolicyPage({ params }: PageProps) {
       />
 
       {/* 2. Structured Legal Content Block */}
-      <PrivacyContent
-        heading={t('content.heading')}
-        sections={rawSections}
-      />
+      <PrivacyContent data={privacyData} />
 
       {/* Floating Menu & Shop Buttons */}
       <FloatingActions menuLabel={tCommon('menu')} />

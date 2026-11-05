@@ -1,0 +1,221 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.section {
+  position: relative;
+  width: 100%;
+  background-color: $color-background;
+  color: #ffffff;
+  padding: 48px 16px 96px;
+  overflow: hidden;
+
+  @include responsive(md) {
+    padding: 64px 40px 104px;
+  }
+
+  @include responsive(lg) {
+    padding: 120px 40px 120px;
+  }
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  @include responsive(md) {
+    gap: 48px;
+  }
+
+  @include responsive(lg) {
+    padding: 0 100px;
+  }
+
+  @include responsive(xl) {
+    padding: 0 160px;
+  }
+}
+
+.tocNav {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+
+  @include responsive(md) {
+    gap: 24px;
+  }
+}
+
+.tocList {
+  margin: 0;
+  padding-left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: $font-sans;
+  font-size: 16px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+
+  @include responsive(md) {
+    padding-left: 28px;
+    gap: 12px;
+    font-size: 18px;
+  }
+
+  @include responsive(lg) {
+    font-size: 20px;
+  }
+}
+
+.tocItem {
+  padding-left: 4px;
+
+  &::marker {
+    color: rgba(255, 255, 255, 0.65);
+    font-weight: 600;
+  }
+}
+
+.tocLink {
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+
+  @include hover {
+    opacity: 0.75;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+.sectionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+
+  @include responsive(md) {
+    gap: 48px;
+  }
+
+  @include responsive(lg) {
+    gap: 56px;
+  }
+}
+
+.sectionBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+
+  @include responsive(md) {
+    gap: 20px;
+  }
+}
+
+.sectionHeading {
+  scroll-margin-top: 40px;
+
+  @include responsive(md) {
+    scroll-margin-top: 56px;
+  }
+}
+
+.sectionBody {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+
+  @include responsive(md) {
+    gap: 18px;
+  }
+}
+
+.paragraph {
+  font-family: $font-sans;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+
+  @include responsive(md) {
+    font-size: 18px;
+  }
+
+  @include responsive(lg) {
+    font-size: 20px;
+    line-height: 1.5;
+  }
+
+  a {
+    color: #ffffff;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: opacity 0.2s ease;
+
+    @include hover {
+      opacity: 0.75;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-primary;
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+  }
+}
+
+.leadBold {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.bulletList {
+  margin: 0;
+  padding-left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style-type: disc;
+
+  @include responsive(md) {
+    padding-left: 28px;
+    gap: 12px;
+  }
+}
+
+.bulletItem {
+  font-family: $font-sans;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  padding-left: 4px;
+
+  @include responsive(md) {
+    font-size: 18px;
+  }
+
+  @include responsive(lg) {
+    font-size: 20px;
+    line-height: 1.5;
+  }
+
+  &::marker {
+    color: #ffffff;
+  }
+}
+

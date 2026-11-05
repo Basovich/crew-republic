@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { PageHero } from '@/components/PageHero/PageHero';
-import { PrivacyContent } from '@/components/PrivacyContent/PrivacyContent';
+import { GtcContent, type GtcContentData } from '@/components/GtcContent';
 import { FloatingActions } from '@/components/FloatingActions/FloatingActions';
 
 interface PageProps {
@@ -61,7 +61,7 @@ export default async function GtcPage({ params }: PageProps) {
   const t = await getTranslations({ locale, namespace: 'GtcPage' });
   const tCommon = await getTranslations('Common');
 
-  const rawSections = t.raw('content.sections') as string[];
+  const gtcData = t.raw('content') as GtcContentData;
 
   return (
     <main>
@@ -75,16 +75,11 @@ export default async function GtcPage({ params }: PageProps) {
         imageAlt={t('hero.imageAlt')}
       />
 
-      {/* 2. Structured Legal Content Block */}
-      <PrivacyContent
-        headingId="gtc-heading"
-        heading={t('content.heading')}
-        sections={rawSections}
-      />
+      {/* 2. Structured GTC / AGB Content with Interactive Table of Contents */}
+      <GtcContent data={gtcData} />
 
       {/* Floating Menu & Shop Buttons */}
       <FloatingActions menuLabel={tCommon('menu')} />
     </main>
   );
 }
-

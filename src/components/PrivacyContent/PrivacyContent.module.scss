@@ -84,6 +84,7 @@
   color: rgba(255, 255, 255, 0.9);
   margin: 0;
   word-break: break-word;
+  overflow-wrap: anywhere;
 
   @include responsive(md) {
     font-size: 18px;
@@ -112,20 +113,31 @@
   }
 }
 
-.numberLead {
+.leadBold {
   font-weight: 700;
   color: #ffffff;
 }
 
-.listItem {
+.bulletList {
+  margin: 0;
+  padding-left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style-type: disc;
+
+  @include responsive(md) {
+    padding-left: 28px;
+    gap: 12px;
+  }
+}
+
+.bulletItem {
   font-family: $font-sans;
   font-size: 16px;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.9);
-  position: relative;
-  list-style: none;
-  padding-left: 20px;
-  margin: 0;
+  padding-left: 4px;
 
   @include responsive(md) {
     font-size: 18px;
@@ -136,27 +148,7 @@
     line-height: 1.5;
   }
 
-  &::before {
-    content: '•';
-    position: absolute;
-    left: 4px;
+  &::marker {
     color: #ffffff;
-  }
-
-  a {
-    color: #ffffff;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    transition: opacity 0.2s ease;
-
-    @include hover {
-      opacity: 0.75;
-    }
-
-    &:focus-visible {
-      outline: 2px solid $color-primary;
-      outline-offset: 2px;
-      border-radius: 2px;
-    }
   }
 }
