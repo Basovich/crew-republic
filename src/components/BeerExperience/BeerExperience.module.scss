@@ -226,8 +226,8 @@
 
   @include responsive(xl) {
     min-height: 480px;
-    max-width: 880px;
     gap: 180px;
+    justify-content: center;
   }
 }
 
