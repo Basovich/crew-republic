@@ -27,7 +27,8 @@
       "taste": "TASTE",
       "pairing": "PAIRING",
       "awards": "AWARDS",
-      "shop": "SHOP"
+      "shop": "SHOP",
+      "stock": "STOCK"
     }
   },
   "Pages": {
@@ -121,9 +122,43 @@
       }
     },
     "fireside": {
-      "title": "Fireside",
+      "title": "Fireside Red Ale",
       "heading": "FIRESIDE",
-      "description": "Fireside - Warming, rich, and rebellious craft brew by CREW Republic."
+      "subtitle": "RED ALE",
+      "description": "Fireside Red Ale - Rich, warming, and crafted for memorable moments around the bar or campfire by CREW Republic.",
+      "intro": {
+        "title": "An evening at the bar with old friends.",
+        "p1": "Stories from the past, memories of adventures we shared. A carefree time.",
+        "p2": "Like a long night by the campfire, accompanied by the soft crackling of the embers and the flickering light of the flames. May the evening never end..."
+      },
+      "stats": {
+        "ariaLabel": "Fireside Stats"
+      },
+      "tastometer": {
+        "hopsTitle": "HOPS",
+        "hopsValue": "Tradition, Fuggles, East Kent Golding",
+        "maltTitle": "MALT",
+        "maltValue": "Pilsner, melanoidin, caramel, and roasted malt",
+        "colorTitle": "COLOR",
+        "colorValue": "Reddish",
+        "tempTitle": "SERVING TEMPERATURE",
+        "tempValue": "6–8°C"
+      },
+      "match": {
+        "tasteTitle": "Taste",
+        "tasteText": "Bright red in color with a pleasantly full-bodied yet not overly heavy texture. A slightly fruity and malty flavor.",
+        "drinkWithTitle": "Drink with",
+        "drinkWithText": "The CREW enjoys Fireside with a toasted turkey sandwich or a nice piece of mild cheddar cheese."
+      },
+      "awards": {
+        "title": "Certified\nAwesomeness.",
+        "ariaLabel": "Fireside Awards"
+      },
+      "shop": {
+        "heading": "Tap yours now!",
+        "button": "contact to crewlaborate",
+        "url": "/contact"
+      }
     },
     "contact": {
       "title": "Contact",

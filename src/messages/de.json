@@ -27,7 +27,8 @@
       "taste": "GESCHMACK",
       "pairing": "PAIRING",
       "awards": "AWARDS",
-      "shop": "SHOP"
+      "shop": "SHOP",
+      "stock": "STOCK"
     }
   },
   "Pages": {
@@ -121,9 +122,43 @@
       }
     },
     "fireside": {
-      "title": "Fireside",
+      "title": "Fireside Red Ale",
       "heading": "FIRESIDE",
-      "description": "Fireside - Wärmendes, aromatisches und rebellisches Craft-Bier von CREW Republic."
+      "subtitle": "RED ALE",
+      "description": "Fireside Red Ale - Vollmundig, wärmend und gebraut für unvergessliche Momente am Tresen oder Lagerfeuer von CREW Republic.",
+      "intro": {
+        "title": "Ein Abend an der Bar mit alten Freunden.",
+        "p1": "Geschichten von früher, Erinnerungen an gemeinsame Abenteuer. Eine unbeschwerte Zeit.",
+        "p2": "Wie eine lange Nacht am Lagerfeuer, begleitet vom leisen Knistern der Glut und dem flackernden Licht der Flammen. Möge dieser Abend niemals enden..."
+      },
+      "stats": {
+        "ariaLabel": "Fireside Fakten"
+      },
+      "tastometer": {
+        "hopsTitle": "HOPFEN",
+        "hopsValue": "Tradition, Fuggles, East Kent Golding",
+        "maltTitle": "MALZ",
+        "maltValue": "Pilsener-, Melanoidin-, Karamell- und Röstmalz",
+        "colorTitle": "FARBE",
+        "colorValue": "Rötlich",
+        "tempTitle": "TRINKTEMPERATUR",
+        "tempValue": "6–8°C"
+      },
+      "match": {
+        "tasteTitle": "Geschmack",
+        "tasteText": "Leuchtend rote Farbe mit einer angenehm vollmundigen, aber nicht zu schweren Textur. Ein leicht fruchtiger und malziger Geschmack.",
+        "drinkWithTitle": "Passt zu",
+        "drinkWithText": "Die CREW genießt Fireside am liebsten zu einem getoasteten Puten-Sandwich oder einem guten Stück mildem Cheddar."
+      },
+      "awards": {
+        "title": "Certified\nAwesomeness.",
+        "ariaLabel": "Fireside Auszeichnungen"
+      },
+      "shop": {
+        "heading": "Zapf dir dein CREW!",
+        "button": "KONTAKT FÜR CREWLABORATION",
+        "url": "/contact"
+      }
     },
     "contact": {
       "title": "Kontakt",

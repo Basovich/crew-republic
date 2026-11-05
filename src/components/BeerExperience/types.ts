@@ -17,6 +17,9 @@ export interface BeerConfig {
   slug: string;
   heroShellClassName?: string;
   heroIndicatorLabel?: string;
+  shopIndicatorLabel?: string;
+  heroRotation?: number;
+  totalFrames?: number;
   firstFrameSrc: string;
   heroBg: {
     src: string;
@@ -35,7 +38,7 @@ export interface BeerConfig {
     mobileSrc: string;
     alt: string;
   };
-  food: {
+  food?: {
     itemLeft: FoodImageItem;
     itemRight: FoodImageItem;
   };
@@ -69,7 +72,7 @@ export interface BeerTranslations {
     drinkWithTitle: string;
     drinkWithText: string;
   };
-  food: {
+  food?: {
     ariaLabel: string;
   };
   awards: {

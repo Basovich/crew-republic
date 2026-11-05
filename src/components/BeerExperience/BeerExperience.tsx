@@ -29,7 +29,8 @@ type SideIndicatorKey =
   | 'taste'
   | 'pairing'
   | 'awards'
-  | 'shop';
+  | 'shop'
+  | 'stock';
 
 function isSideIndicatorKey(key: string): key is SideIndicatorKey {
   return [
@@ -42,6 +43,7 @@ function isSideIndicatorKey(key: string): key is SideIndicatorKey {
     'pairing',
     'awards',
     'shop',
+    'stock',
   ].includes(key);
 }
 
@@ -56,14 +58,22 @@ export function BeerExperience({
     ? tIndicator(heroKey)
     : config.heroIndicatorLabel?.toUpperCase() || 'AHOY';
 
+  const shopKey = (config.shopIndicatorLabel || 'shop').toLowerCase();
+  const shopLabel = isSideIndicatorKey(shopKey)
+    ? tIndicator(shopKey)
+    : config.shopIndicatorLabel?.toUpperCase() || 'SHOP';
+
+  const heroRotation = config.heroRotation ?? -9;
+  const totalFrames = config.totalFrames ?? 89;
+
   const sections = [
     { id: 'hero', label: heroLabel },
     { id: 'intro', label: tIndicator('story') },
     { id: 'stats', label: tIndicator('specs') },
     { id: 'tastometer', label: tIndicator('taste') },
-    { id: 'food', label: tIndicator('pairing') },
+    ...(config.food ? [{ id: 'food', label: tIndicator('pairing') }] : []),
     { id: 'awards', label: tIndicator('awards') },
-    { id: 'shop', label: tIndicator('shop') },
+    { id: 'shop', label: shopLabel },
   ];
 
   const containerRef = useRef<HTMLDivElement>(null);
@@ -268,8 +278,8 @@ export function BeerExperience({
         )
         .fromTo(
           bottleViewportRef.current,
-          { opacity: 0, scale: 0.88, rotation: -9 },
-          { opacity: 1, scale: 1, rotation: -9, duration: 0.8, ease: 'power2.out' },
+          { opacity: 0, scale: 0.88, rotation: heroRotation },
+          { opacity: 1, scale: 1, rotation: heroRotation, duration: 0.8, ease: 'power2.out' },
           '-=0.4'
         )
         .fromTo(
@@ -299,13 +309,11 @@ export function BeerExperience({
 
       if (!storyTrackRef.current || !bottleViewportRef.current) return;
 
-      const totalFrames = 89; // 0 to 89
-
       // 1. Tilt on hero that straightens to 0deg as user scrolls into Intro
-      if (!prefersReducedMotion) {
+      if (!prefersReducedMotion && heroRotation !== 0) {
         gsap.fromTo(
           bottleViewportRef.current,
-          { rotation: -9 },
+          { rotation: heroRotation },
           {
             rotation: 0,
             ease: 'power1.out',
@@ -463,6 +471,7 @@ export function BeerExperience({
           <div
             className={`${styles.bottleViewport} ${!isLoaded ? styles.elementHidden : ''}`}
             ref={bottleViewportRef}
+            style={{ transform: `rotate(${heroRotation}deg)` }}
           >
             <div className={styles.lottieContainer} ref={lottieContainerRef} />
           </div>
@@ -637,37 +646,39 @@ export function BeerExperience({
           </div>
         </section>
 
-        {/* Section 5: Food Graphic */}
-        <section
-          className={`${styles.contentSection} ${styles.foodSection}`}
-          id="food"
-          aria-label={t.food.ariaLabel}
-        >
-          <div className={styles.contentContainer}>
-            <div
-              className={`${styles.foodGrid} ${reverseFoodOnMobile ? styles.foodGridReversed : ''}`}
-            >
-              <div className={styles.foodItemLeft}>
-                <Image
-                  src={config.food.itemLeft.src}
-                  alt={config.food.itemLeft.alt}
-                  width={config.food.itemLeft.width}
-                  height={config.food.itemLeft.height}
-                  className={styles.foodImageLeft}
-                />
-              </div>
-              <div className={styles.foodItemRight}>
-                <Image
-                  src={config.food.itemRight.src}
-                  alt={config.food.itemRight.alt}
-                  width={config.food.itemRight.width}
-                  height={config.food.itemRight.height}
-                  className={styles.foodImageRight}
-                />
+        {/* Section 5: Food Graphic (optional) */}
+        {config.food && (
+          <section
+            className={`${styles.contentSection} ${styles.foodSection}`}
+            id="food"
+            aria-label={t.food?.ariaLabel}
+          >
+            <div className={styles.contentContainer}>
+              <div
+                className={`${styles.foodGrid} ${reverseFoodOnMobile ? styles.foodGridReversed : ''}`}
+              >
+                <div className={styles.foodItemLeft}>
+                  <Image
+                    src={config.food.itemLeft.src}
+                    alt={config.food.itemLeft.alt}
+                    width={config.food.itemLeft.width}
+                    height={config.food.itemLeft.height}
+                    className={styles.foodImageLeft}
+                  />
+                </div>
+                <div className={styles.foodItemRight}>
+                  <Image
+                    src={config.food.itemRight.src}
+                    alt={config.food.itemRight.alt}
+                    width={config.food.itemRight.width}
+                    height={config.food.itemRight.height}
+                    className={styles.foodImageRight}
+                  />
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* Section 6: Awards */}
         <section
@@ -710,16 +721,21 @@ export function BeerExperience({
           <Heading level="h1" as="h2" className={styles.shopHeading}>
             {t.shop.heading}
           </Heading>
-          <Button
-            href={t.shop.url}
-            variant="primary"
-            size="lg"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.shopButton}
-          >
-            {t.shop.button}
-          </Button>
+          {(() => {
+            const isExternal = t.shop.url.startsWith('http');
+            return (
+              <Button
+                href={t.shop.url}
+                variant="primary"
+                size="lg"
+                target={isExternal ? '_blank' : undefined}
+                rel={isExternal ? 'noopener noreferrer' : undefined}
+                className={styles.shopButton}
+              >
+                {t.shop.button}
+              </Button>
+            );
+          })()}
         </div>
       </section>
     </div>
