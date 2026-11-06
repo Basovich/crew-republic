@@ -253,7 +253,7 @@
   transition: color 0.2s ease;
 
   @include hover {
-    color: var(--Neutrals-White-40, rgba(255, 255, 255, 0.4));
+    color: var(--Neutrals-White-80, rgba(255, 255, 255, 0.8));
   }
 
   &:focus-visible {
