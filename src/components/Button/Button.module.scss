@@ -16,6 +16,7 @@
   box-sizing: border-box;
   cursor: pointer;
   white-space: nowrap;
+  max-width: 100%;
   transition:
     background-color 0.2s ease,
     border-color 0.2s ease,
@@ -135,24 +136,30 @@
    ========================================================================== */
 
 .sizeSm {
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.1;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.54px;
   padding: 6px 16px;
 }
 
 .sizeMd {
-  font-size: 30px;
+  font-size: 24px;
   line-height: 1.1;
-  letter-spacing: 0.03em;
-  padding: 8px 24px;
+  letter-spacing: 0.72px;
+  padding: 8px 20px;
 }
 
+/* Large Button (Figma: Interaction/Button large - 30px) */
 .sizeLg {
-  font-size: 40px;
+  font-size: clamp(22px, 6.2vw, 30px);
   line-height: 1.1;
-  letter-spacing: 0.03em;
-  padding: 12px 32px;
+  letter-spacing: 0.9px;
+  padding: 10px 24px;
+
+  @include responsive(sm) {
+    font-size: 30px;
+    padding: 12px 32px;
+  }
 }
 
 .sizeGiant {

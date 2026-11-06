@@ -2,6 +2,7 @@ import type { BeerConfig } from '@/components/BeerExperience/types';
 
 export const firesideConfig: BeerConfig = {
   slug: 'fireside',
+  shopWrapperClassName: 'shopWrapperFireside',
   heroIndicatorLabel: 'Cheers',
   shopIndicatorLabel: 'stock',
   heroRotation: 0,

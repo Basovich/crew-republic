@@ -1306,7 +1306,9 @@ export function BeerExperience({
         {/* Section 7: Shop                                                      */}
         {/* -------------------------------------------------------------------- */}
         <section className={styles.shopSection} id="shop">
-          <div className={styles.shopWrapper}>
+          <div
+            className={`${styles.shopWrapper} ${config.slug === 'fireside' ? (styles.shopWrapperFireside || '') : ''} ${config.shopWrapperClassName || ''}`.replace(/\s+/g, ' ').trim()}
+          >
             <Heading level="h1" as="h2" className={styles.shopHeading}>
               {t.shop.heading}
             </Heading>

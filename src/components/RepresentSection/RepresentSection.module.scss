@@ -39,6 +39,11 @@
     max-width: 440px;
   }
 
+  @include responsive(sm) {
+    max-width: 100%;
+    max-height: 540px;
+  }
+
   @include responsive(lg) {
     max-width: 1200px;
     aspect-ratio: 16 / 9;
