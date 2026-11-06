@@ -28,7 +28,7 @@
   @include mobile-landscape {
     height: auto;
     min-height: 100svh;
-    padding: 60px 0 24px;
+    padding: 104px 0 20px;
   }
 }
 
@@ -89,7 +89,7 @@
   backface-visibility: hidden;
 
   @include mobile-landscape {
-    height: 260px;
+    height: clamp(190px, 56vh, 220px);
   }
 
   @include responsive(md) {
@@ -121,6 +121,10 @@
   align-items: center;
   justify-content: center;
 
+  @include mobile-landscape {
+    bottom: 12px;
+  }
+
   @include responsive(md) {
     bottom: 34px;
     width: 92%;
@@ -133,6 +137,13 @@
   flex-direction: column;
   align-items: center;
   perspective: 1000px;
+
+  &.headline {
+    @include mobile-landscape {
+      font-size: clamp(24px, 7.5vh, 32px);
+      line-height: 0.95;
+    }
+  }
 }
 
 .line {

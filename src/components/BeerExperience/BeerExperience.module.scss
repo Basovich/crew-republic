@@ -135,6 +135,11 @@
   transform-origin: center center;
   transform: rotate(-9deg);
 
+  @include mobile-landscape {
+    width: 140px;
+    height: 230px;
+  }
+
   @include responsive(sm) {
     width: 280px;
     height: 460px;
@@ -198,7 +203,7 @@
 
   @include mobile-landscape {
     min-height: 100svh;
-    padding: 64px 16px 40px;
+    padding: 104px 16px 20px;
   }
 }
 
@@ -260,6 +265,11 @@
   justify-content: center;
   min-height: 420px;
 
+  @include mobile-landscape {
+    min-height: 220px;
+    align-items: center;
+  }
+
   @include responsive(sm) {
     max-width: 480px;
   }
@@ -291,6 +301,14 @@
   text-align: start;
   width: 100%;
 
+  &.headingLeft {
+    @include mobile-landscape {
+      font-size: clamp(24px, 7.5vh, 34px);
+      line-height: 0.95;
+      width: auto;
+    }
+  }
+
   @include responsive(md) {
     text-align: end;
     width: auto;
@@ -305,6 +323,15 @@
   width: 100%;
   align-self: flex-end;
   transform: translateY(14px);
+
+  &.headingRight {
+    @include mobile-landscape {
+      font-size: clamp(24px, 7.5vh, 34px);
+      line-height: 0.95;
+      width: auto;
+      transform: none;
+    }
+  }
 
   @include responsive(md) {
     text-align: left;

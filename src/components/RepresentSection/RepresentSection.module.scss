@@ -49,6 +49,10 @@
     aspect-ratio: 16 / 9;
     border: 16px solid #ffffff;
   }
+
+  @include mobile-landscape {
+    max-height: 265px;
+  }
 }
 
 /* Slideshow images container */

@@ -65,12 +65,6 @@ const MOBILE_SLIDES: Slide[] = [
   },
   {
     id: 4,
-    src: '/images/hero/mobile-slide-4.webp',
-    alt: 'CREW Republic craft beer cans on wooden table',
-    aspectRatio: '359 / 597',
-  },
-  {
-    id: 5,
     src: '/images/hero/mobile-slide-5.webp',
     alt: 'Friends laughing together over CREW Republic craft beer',
     aspectRatio: '359 / 597',
