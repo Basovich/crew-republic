@@ -125,6 +125,11 @@
 
 .heading {
   text-shadow: 0 0 32px #00000025, 0 0 60px #00000025;
+  width: 100%;
+
+  @include responsive(lg) {
+    max-width: 60%;
+  }
 }
 
 .action {
