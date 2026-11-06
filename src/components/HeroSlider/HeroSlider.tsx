@@ -228,7 +228,6 @@ export function HeroSlider({
 
       const slider = containerRef.current;
       const wordChunks = slider?.querySelectorAll(`.${styles.wordChunk}`);
-      const overlay = slider?.querySelector(`.${styles.overlay}`);
 
       if (!slider || !wordChunks || wordChunks.length === 0) return;
 
@@ -275,25 +274,6 @@ export function HeroSlider({
         },
         '-=0.9'
       );
-
-      // 2. ScrollTrigger Parallax & Fade-out on scroll down
-      // Use headline inside overlay to preserve translateX(-50%) positioning
-      const headline = overlay?.querySelector(`.${styles.headline}`);
-
-      if (headline) {
-        gsap.to(headline, {
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: 'top top',
-            end: 'bottom top',
-            scrub: 1,
-          },
-          y: -80,
-          scale: 0.92,
-          opacity: 0,
-          ease: 'none',
-        });
-      }
 
       // Parallax on tracks inside slider instead of root slider container
       const desktopTrack = containerRef.current?.querySelector(`.${styles.desktopTrack}`);
