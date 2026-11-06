@@ -17,57 +17,36 @@ interface Slide {
   aspectRatio: string;
 }
 
-const DESKTOP_SLIDES: Slide[] = [
+const SLIDES: Slide[] = [
   {
     id: 1,
     src: '/images/hero/slide-1.webp',
     alt: 'Friends enjoying craft beer at Munich bar counter',
-    aspectRatio: '944 / 531',
+    aspectRatio: '974 / 548',
   },
   {
     id: 2,
     src: '/images/hero/slide-2.webp',
     alt: 'Friends laughing outside corner store with CREW Republic cans',
-    aspectRatio: '360 / 600',
+    aspectRatio: '329 / 548',
   },
   {
     id: 3,
     src: '/images/hero/slide-3.webp',
     alt: 'Toasting CREW Republic craft beer cans over vinyl record player',
-    aspectRatio: '544 / 544',
+    aspectRatio: '548 / 548',
   },
   {
     id: 4,
     src: '/images/hero/slide-4.webp',
     alt: 'Pints of craft beer and Drunken Sailor at wooden tavern table',
-    aspectRatio: '473 / 600',
-  },
-];
-
-const MOBILE_SLIDES: Slide[] = [
-  {
-    id: 1,
-    src: '/images/hero/mobile-slide-1.webp',
-    alt: 'Friends enjoying craft beer at Munich bar counter',
-    aspectRatio: '359 / 597',
+    aspectRatio: '438 / 548',
   },
   {
-    id: 2,
-    src: '/images/hero/mobile-slide-2.webp',
-    alt: 'Friends laughing outside corner store with CREW Republic cans',
-    aspectRatio: '359 / 597',
-  },
-  {
-    id: 3,
-    src: '/images/hero/mobile-slide-3.webp',
-    alt: 'CREW Republic craft beer cans and pints on tavern table',
-    aspectRatio: '359 / 597',
-  },
-  {
-    id: 4,
-    src: '/images/hero/mobile-slide-5.webp',
-    alt: 'Friends laughing together over CREW Republic craft beer',
-    aspectRatio: '359 / 597',
+    id: 5,
+    src: '/images/hero/slide-5.webp',
+    alt: 'CREW Republic craft beer lifestyle moments with friends',
+    aspectRatio: '974 / 548',
   },
 ];
 
@@ -82,13 +61,9 @@ export function HeroSlider({
 }: HeroSliderProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Desktop track refs
-  const desktopTrackRef = useRef<HTMLDivElement>(null);
-  const desktopSingleSetRef = useRef<HTMLDivElement>(null);
-
-  // Mobile track refs
-  const mobileTrackRef = useRef<HTMLDivElement>(null);
-  const mobileSingleSetRef = useRef<HTMLDivElement>(null);
+  // Slider track refs
+  const trackRef = useRef<HTMLDivElement>(null);
+  const singleSetRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -191,21 +166,10 @@ export function HeroSlider({
       };
     };
 
-    const mm = gsap.matchMedia();
-
-    mm.add('(max-width: 767px)', () => {
-      return setupTrackLoop(mobileTrackRef.current, mobileSingleSetRef.current);
-    });
-
-    mm.add('(min-width: 768px)', () => {
-      return setupTrackLoop(
-        desktopTrackRef.current,
-        desktopSingleSetRef.current
-      );
-    });
+    const cleanup = setupTrackLoop(trackRef.current, singleSetRef.current);
 
     return () => {
-      mm.revert();
+      cleanup();
     };
   }, []);
 
@@ -269,13 +233,10 @@ export function HeroSlider({
         '-=0.9'
       );
 
-      // Parallax on tracks inside slider instead of root slider container
-      const desktopTrack = containerRef.current?.querySelector(`.${styles.desktopTrack}`);
-      const mobileTrack = containerRef.current?.querySelector(`.${styles.mobileTrack}`);
-      const activeTracks = [desktopTrack, mobileTrack].filter(Boolean);
-
-      if (activeTracks.length > 0) {
-        gsap.to(activeTracks, {
+      // Parallax on track inside slider
+      const track = trackRef.current;
+      if (track) {
+        gsap.to(track, {
           scrollTrigger: {
             trigger: containerRef.current,
             start: 'top top',
@@ -303,17 +264,17 @@ export function HeroSlider({
   return (
     <section className={styles.heroSection} aria-label="Hero showcase">
       <div className={styles.sliderContainer} ref={containerRef}>
-        {/* Mobile Track Set (Active on mobile < 768px) */}
-        <div className={styles.mobileTrack} ref={mobileTrackRef}>
+        {/* Continuous Track for All Viewports */}
+        <div className={styles.sliderTrack} ref={trackRef}>
           {/* Set 1 */}
           <div
             className={styles.trackGroup}
-            ref={mobileSingleSetRef}
+            ref={singleSetRef}
             style={{ gap: 'inherit' }}
           >
-            {MOBILE_SLIDES.map((slide) => (
+            {SLIDES.map((slide) => (
               <div
-                key={`m-set1-${slide.id}`}
+                key={`set1-${slide.id}`}
                 className={styles.slideItem}
                 style={{ aspectRatio: slide.aspectRatio }}
               >
@@ -321,7 +282,7 @@ export function HeroSlider({
                   src={slide.src}
                   alt={slide.alt}
                   fill
-                  sizes="85vw"
+                  sizes="(max-width: 768px) 85vw, (max-width: 1200px) 40vw, 35vw"
                   priority={slide.id <= 2}
                   draggable={false}
                 />
@@ -331,9 +292,9 @@ export function HeroSlider({
 
           {/* Set 2 */}
           <div className={styles.trackGroup} style={{ gap: 'inherit' }}>
-            {MOBILE_SLIDES.map((slide) => (
+            {SLIDES.map((slide) => (
               <div
-                key={`m-set2-${slide.id}`}
+                key={`set2-${slide.id}`}
                 className={styles.slideItem}
                 style={{ aspectRatio: slide.aspectRatio }}
               >
@@ -341,7 +302,7 @@ export function HeroSlider({
                   src={slide.src}
                   alt={slide.alt}
                   fill
-                  sizes="85vw"
+                  sizes="(max-width: 768px) 85vw, (max-width: 1200px) 40vw, 35vw"
                   draggable={false}
                 />
               </div>
@@ -350,9 +311,9 @@ export function HeroSlider({
 
           {/* Set 3 */}
           <div className={styles.trackGroup} style={{ gap: 'inherit' }}>
-            {MOBILE_SLIDES.map((slide) => (
+            {SLIDES.map((slide) => (
               <div
-                key={`m-set3-${slide.id}`}
+                key={`set3-${slide.id}`}
                 className={styles.slideItem}
                 style={{ aspectRatio: slide.aspectRatio }}
               >
@@ -360,72 +321,7 @@ export function HeroSlider({
                   src={slide.src}
                   alt={slide.alt}
                   fill
-                  sizes="85vw"
-                  draggable={false}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Desktop Track Set (Active on desktop >= 768px) */}
-        <div className={styles.desktopTrack} ref={desktopTrackRef}>
-          {/* Set 1 */}
-          <div
-            className={styles.trackGroup}
-            ref={desktopSingleSetRef}
-            style={{ gap: 'inherit' }}
-          >
-            {DESKTOP_SLIDES.map((slide) => (
-              <div
-                key={`d-set1-${slide.id}`}
-                className={styles.slideItem}
-                style={{ aspectRatio: slide.aspectRatio }}
-              >
-                <Image
-                  src={slide.src}
-                  alt={slide.alt}
-                  fill
-                  sizes="(max-width: 1200px) 40vw, 35vw"
-                  priority={slide.id <= 2}
-                  draggable={false}
-                />
-              </div>
-            ))}
-          </div>
-
-          {/* Set 2 */}
-          <div className={styles.trackGroup} style={{ gap: 'inherit' }}>
-            {DESKTOP_SLIDES.map((slide) => (
-              <div
-                key={`d-set2-${slide.id}`}
-                className={styles.slideItem}
-                style={{ aspectRatio: slide.aspectRatio }}
-              >
-                <Image
-                  src={slide.src}
-                  alt={slide.alt}
-                  fill
-                  sizes="(max-width: 1200px) 40vw, 35vw"
-                  draggable={false}
-                />
-              </div>
-            ))}
-          </div>
-
-          {/* Set 3 */}
-          <div className={styles.trackGroup} style={{ gap: 'inherit' }}>
-            {DESKTOP_SLIDES.map((slide) => (
-              <div
-                key={`d-set3-${slide.id}`}
-                className={styles.slideItem}
-                style={{ aspectRatio: slide.aspectRatio }}
-              >
-                <Image
-                  src={slide.src}
-                  alt={slide.alt}
-                  fill
-                  sizes="(max-width: 1200px) 40vw, 35vw"
+                  sizes="(max-width: 768px) 85vw, (max-width: 1200px) 40vw, 35vw"
                   draggable={false}
                 />
               </div>

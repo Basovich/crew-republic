@@ -45,7 +45,7 @@
   }
 }
 
-.mobileTrack {
+.sliderTrack {
   display: flex;
   gap: 12px;
   width: max-content;
@@ -55,21 +55,7 @@
   perspective: 1000px;
 
   @include responsive(md) {
-    display: none;
-  }
-}
-
-.desktopTrack {
-  display: none;
-  gap: 20px;
-  width: max-content;
-  will-change: transform;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  perspective: 1000px;
-
-  @include responsive(md) {
-    display: flex;
+    gap: 20px;
   }
 }
 
@@ -81,7 +67,9 @@
 .slideItem {
   position: relative;
   flex-shrink: 0;
-  height: clamp(500px, 68dvh, 670px);
+  height: clamp(500px, 68dvh, 597px);
+  width: auto;
+  max-width: min(358px, calc(100vw - 32px));
   overflow: hidden;
   border-radius: 0;
   background-color: #121214;
@@ -90,10 +78,12 @@
 
   @include mobile-landscape {
     height: clamp(190px, 56vh, 220px);
+    max-width: none;
   }
 
   @include responsive(md) {
     height: 520px;
+    max-width: none;
   }
 
   @include responsive(xl) {
