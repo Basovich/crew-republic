@@ -68,7 +68,12 @@
 .action {
   display: flex;
   align-items: center;
+  width: 100%;
   padding-top: 8px;
+
+  @include responsive(sm) {
+    width: auto;
+  }
 
   @include responsive(md) {
     padding-top: 16px;
@@ -76,12 +81,28 @@
 }
 
 .emailButton {
-  min-width: 240px;
+  width: 100%;
+  max-width: 100%;
+  justify-content: center;
   font-family: $font-druk;
-  letter-spacing: 0.04em;
+  font-weight: 900;
+  font-size: clamp(24px, 6.8vw, 30px);
+  line-height: 1.1;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #000000;
+  padding: 10px 24px;
+  white-space: nowrap;
+
+  @include responsive(sm) {
+    width: auto;
+    font-size: 30px;
+    padding: 12px 28px;
+  }
 
   @include responsive(md) {
-    min-width: 320px;
+    padding: 12px 32px;
   }
 }
 
