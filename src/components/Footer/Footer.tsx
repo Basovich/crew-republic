@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { useTranslations, useLocale } from 'next-intl';
 import { Link, usePathname } from '@/i18n/routing';
+import { useSmoothScroll } from '@/components/SmoothScrollProvider/SmoothScrollProvider';
 import { UsFlag, GermanFlag } from '@/components/Header/FlagIcons';
 import { Button } from '@/components/Button/Button';
 import styles from './Footer.module.scss';
@@ -12,13 +13,26 @@ export function Footer() {
   const t = useTranslations('Footer');
   const locale = useLocale();
   const pathname = usePathname();
+  const { scrollToTop } = useSmoothScroll();
+
+  const handleEmblemClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (pathname === '/' || pathname === '') {
+      e.preventDefault();
+      scrollToTop(true);
+    }
+  };
 
   return (
     <footer className={styles.footer} role="contentinfo">
       <div className={styles.container}>
         {/* Top Emblem */}
         <div className={styles.emblemWrapper}>
-          <Link href="/" className={styles.emblemLink} aria-label={t('emblemAlt')}>
+          <Link
+            href="/"
+            className={styles.emblemLink}
+            aria-label={t('emblemAlt')}
+            onClick={handleEmblemClick}
+          >
             <Image
               src="/images/footer-emblem.svg"
               alt={t('emblemAlt')}
