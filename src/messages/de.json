@@ -1867,5 +1867,16 @@
     "line2": "Wir holen dir ein frisches.",
     "backHome": "ZUR STARTSEITE",
     "imprint": "IMPRESSUM"
+  },
+  "AgeGate": {
+    "dialogLabel": "Altersprüfung",
+    "logoAlt": "CREW Republic Logo",
+    "heading": "Bereit, Teil der CREW zu sein?",
+    "description": "Gutes Bier verdient es, genossen zu werden. Wir übernehmen Verantwortung und stehen für bewussten Genuss.",
+    "question": "Bist du 16 Jahre oder älter?",
+    "confirm": "Ja, bin dabei",
+    "decline": "Nein, noch nicht",
+    "cookieTitle": "Cookie-Nutzung",
+    "cookieText": "Deine Antwort wird in einem Cookie gespeichert. Weitere Informationen findest du in unserer <policy>Datenschutzerklärung</policy>."
   }
 }

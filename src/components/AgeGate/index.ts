@@ -1,0 +1,2 @@
+export { AgeGate } from './AgeGate';
+

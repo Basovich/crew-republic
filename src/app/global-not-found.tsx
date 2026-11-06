@@ -3,6 +3,7 @@ import { headers } from 'next/headers';
 import { NextIntlClientProvider } from 'next-intl';
 import { drukHeavy, drukTextHeavy } from '@/fonts/fonts';
 import { PasswordGate } from '@/components/PasswordGate';
+import { AgeGate } from '@/components/AgeGate';
 import { NotFoundView } from '@/components/NotFoundView';
 import enMessages from '@/messages/en.json';
 import deMessages from '@/messages/de.json';
@@ -43,6 +44,7 @@ export default async function GlobalNotFound() {
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <PasswordGate>
+            <AgeGate />
             <NotFoundView />
           </PasswordGate>
         </NextIntlClientProvider>

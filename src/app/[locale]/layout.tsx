@@ -7,6 +7,7 @@ import { drukHeavy, drukTextHeavy } from "@/fonts/fonts";
 import { Footer } from "@/components/Footer/Footer";
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
 import { PasswordGate } from "@/components/PasswordGate";
+import { AgeGate } from "@/components/AgeGate";
 import { DrunkenSailorPreloader } from "@/components/DrunkenSailor/DrunkenSailorPreloader";
 import { JackpotPreloader } from "@/components/Jackpot/JackpotPreloader";
 import { FiresidePreloader } from "@/components/Fireside/FiresidePreloader";
@@ -61,6 +62,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           <PasswordGate>
             <SmoothScrollProvider>
+              <AgeGate />
               <DrunkenSailorPreloader />
               <JackpotPreloader />
               <FiresidePreloader />

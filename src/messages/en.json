@@ -1867,5 +1867,16 @@
     "line2": "Let's get you a fresh one.",
     "backHome": "BACK HOME",
     "imprint": "IMPRINT"
+  },
+  "AgeGate": {
+    "dialogLabel": "Age verification",
+    "logoAlt": "CREW Republic Logo",
+    "heading": "Ready to be part of the crew?",
+    "description": "Good beer deserves to be enjoyed. We take responsibility and encourage mindful drinking.",
+    "question": "Are you 16 or older?",
+    "confirm": "Yes, I’m in",
+    "decline": "No, not yet",
+    "cookieTitle": "Cookie usage",
+    "cookieText": "This answer is stored in a cookie. You can find more information by reading our <policy>cookie policy</policy>."
   }
 }

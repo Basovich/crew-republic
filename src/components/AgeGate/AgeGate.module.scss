@@ -1,0 +1,285 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99990;
+  width: 100%;
+  min-height: 100svh;
+  height: 100dvh;
+  background-color: $color-background;
+  color: $color-text;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  isolation: isolate;
+}
+
+.bgLayer {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+  overflow: hidden;
+}
+
+.bgMediaWrap {
+  position: absolute;
+  left: -16.16%;
+  top: -4.86%;
+  width: 182.2%;
+  height: 111.15%;
+  opacity: 0.3;
+
+  @include responsive(md) {
+    left: auto;
+    right: -4%;
+    top: -0.65%;
+    width: 62%;
+    height: 101.3%;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000000 22%);
+    mask-image: linear-gradient(to right, transparent 0%, #000000 22%);
+  }
+
+  @include responsive(lg) {
+    right: -3.95%;
+    width: 54.57%;
+  }
+}
+
+.bgImage {
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+  user-select: none;
+}
+
+.inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 100%;
+  padding: 18px 16px calc(24px + env(safe-area-inset-bottom, 0px));
+  box-sizing: border-box;
+  gap: 32px;
+
+  @include responsive(md) {
+    padding: 36px 24px 36px;
+    gap: 40px;
+  }
+
+  @include responsive(lg) {
+    padding: 48px 24px 48px;
+    gap: 48px;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logoImage {
+  width: 90px;
+  height: 84px;
+  display: block;
+  user-select: none;
+
+  @include responsive(md) {
+    width: 128px;
+    height: 119px;
+  }
+
+  @include responsive(lg) {
+    width: 157px;
+    height: 146px;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 264px;
+  margin: auto 0;
+  gap: 48px;
+  text-align: center;
+  filter: drop-shadow(0 0 60px rgba(0, 0, 0, 0.5));
+
+  @include responsive(sm) {
+    max-width: 460px;
+  }
+
+  @include responsive(md) {
+    max-width: 580px;
+    gap: 56px;
+  }
+
+  @include responsive(lg) {
+    max-width: 672px;
+    gap: 64px;
+  }
+}
+
+.headlines {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: stretch;
+  gap: 16px;
+
+  @include responsive(lg) {
+    gap: 24px;
+  }
+}
+
+.headline {
+  text-align: center;
+  text-shadow: 0 0 60px rgba(0, 0, 0, 0.5);
+
+  @include responsive(lg) {
+    font-size: 96px;
+  }
+}
+
+.description {
+  margin: 0;
+  font-family: $font-sans;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: $color-text;
+  text-align: center;
+  text-shadow: 0 0 40px rgba(0, 0, 0, 0.65);
+
+  @include responsive(lg) {
+    font-size: 20px;
+  }
+}
+
+.ageBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: stretch;
+  gap: 16px;
+  width: 100%;
+
+  @include responsive(lg) {
+    gap: 24px;
+  }
+}
+
+.question {
+  text-align: center;
+  text-shadow: 0 0 60px rgba(0, 0, 0, 0.5);
+
+  @include responsive(md) {
+    font-size: 48px;
+  }
+
+  @include responsive(lg) {
+    font-size: 56px;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  align-self: stretch;
+  width: 100%;
+  gap: 16px;
+
+  @include responsive(md) {
+    flex-direction: row;
+    gap: 24px;
+  }
+}
+
+.actionBtn {
+  width: 100%;
+  font-size: 30px;
+  padding: 6px 16px;
+
+  @include responsive(md) {
+    flex: 1 1 0;
+    width: auto;
+    font-size: 34px;
+    padding: 8px 20px;
+  }
+
+  @include responsive(lg) {
+    font-size: 40px;
+    padding: 8px 24px;
+  }
+}
+
+.declineBtn {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.cookieNotice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 358px;
+  padding: 0 16px;
+  box-sizing: border-box;
+  gap: 2px;
+  text-align: center;
+  text-shadow: 0 0 40px rgba(0, 0, 0, 0.75);
+
+  @include responsive(lg) {
+    max-width: 672px;
+    padding: 0 120px;
+    gap: 4px;
+  }
+}
+
+.cookieTitle {
+  margin: 0;
+  font-family: $font-sans;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.5;
+  color: $color-text;
+}
+
+.cookieText {
+  margin: 0;
+  font-family: $font-sans;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  color: $color-text;
+}
+
+.policyLink {
+  color: $color-text;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: opacity 0.2s ease;
+
+  @include hover {
+    opacity: 0.75;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+}
+
