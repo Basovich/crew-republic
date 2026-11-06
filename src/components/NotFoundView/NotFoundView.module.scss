@@ -5,19 +5,21 @@
   position: relative;
   width: 100%;
   min-height: 100svh;
-  height: 100dvh;
   background-color: $color-background;
   color: $color-text;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  justify-content: flex-start;
   isolation: isolate;
+
+  @include responsive(md) {
+    justify-content: center;
+  }
 }
 
 .cansLayer {
-  position: absolute;
+  position: fixed;
   inset: 0;
   z-index: 1;
   pointer-events: none;
@@ -47,23 +49,33 @@
 }
 
 .header {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   width: 100%;
   z-index: 15;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 18px 16px;
-  pointer-events: none;
+  padding: 16px 16px 8px;
+  flex-shrink: 0;
 
   @include responsive(md) {
+    position: absolute;
+    top: 0;
+    left: 0;
     padding: 32px 24px;
+    pointer-events: none;
   }
 
   @include responsive(lg) {
     padding: 48px 16px;
+  }
+
+  @include mobile-landscape {
+    position: relative;
+    top: auto;
+    left: auto;
+    padding: 16px 16px 4px;
+    pointer-events: auto;
   }
 }
 
@@ -88,9 +100,14 @@
 }
 
 .logoImage {
-  width: 90px;
-  height: 84px;
+  width: 72px;
+  height: 67px;
   display: block;
+
+  @include responsive(sm) {
+    width: 90px;
+    height: 84px;
+  }
 
   @include responsive(md) {
     width: 132px;
@@ -101,6 +118,11 @@
     width: 157px;
     height: 146px;
   }
+
+  @include mobile-landscape {
+    width: 90px;
+    height: 84px;
+  }
 }
 
 .content {
@@ -109,11 +131,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
+  gap: 24px;
   width: 100%;
   max-width: 672px;
-  padding: 88px 16px 64px;
+  padding: 12px 16px 56px;
+  margin: auto 0;
   text-align: center;
+  box-sizing: border-box;
 
   &::before {
     content: '';
@@ -130,7 +154,13 @@
   }
 
   @include responsive(sm) {
+    gap: 32px;
+    padding: 24px 16px 64px;
+  }
+
+  @include responsive(md) {
     gap: 48px;
+    padding: 88px 16px 64px;
   }
 
   @include responsive(lg) {
@@ -167,12 +197,16 @@
 .digit {
   font-family: $font-druk;
   font-weight: 900;
-  font-size: clamp(164px, 53vw, 208px);
+  font-size: clamp(100px, 32vw, 208px);
   line-height: 0.92;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: #ffffff;
   user-select: none;
+
+  @include responsive(sm) {
+    font-size: clamp(164px, 53vw, 208px);
+  }
 
   @include responsive(md) {
     font-size: 248px;
@@ -187,9 +221,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: clamp(84px, 27vw, 105px);
+  width: clamp(52px, 16vw, 105px);
   aspect-ratio: 162 / 246;
   flex-shrink: 0;
+
+  @include responsive(sm) {
+    width: clamp(84px, 27vw, 105px);
+  }
 
   @include responsive(md) {
     width: 132px;

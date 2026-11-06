@@ -24,6 +24,12 @@
   @include responsive(lg) {
     padding: 180px 0 100px;
   }
+
+  @include mobile-landscape {
+    height: auto;
+    min-height: 100svh;
+    padding: 60px 0 24px;
+  }
 }
 
 .sliderContainer {
@@ -82,8 +88,9 @@
   transform: translateZ(0);
   backface-visibility: hidden;
 
-  @media (max-width: 767px) and (orientation: landscape) {
-    height: 280px;
+  @include mobile-landscape {
+    height: 260px;
+    border-radius: 4px;
   }
 
   @include responsive(md) {

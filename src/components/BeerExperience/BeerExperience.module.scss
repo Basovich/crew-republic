@@ -200,6 +200,11 @@
   @include responsive(xl) {
     padding: 100px 40px 80px;
   }
+
+  @include mobile-landscape {
+    min-height: 100svh;
+    padding: 64px 16px 40px;
+  }
 }
 
 .heroShellDrunkenSailor {
