@@ -13,6 +13,7 @@ interface NavigationProps {
 export function Navigation({ className }: NavigationProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [isPillReady, setIsPillReady] = useState(false);
   const [pillStyle, setPillStyle] = useState<{ top: number; height: number; opacity: number }>({
     top: 0,
     height: 0,
@@ -31,6 +32,7 @@ export function Navigation({ className }: NavigationProps) {
     setIsOpen((prev) => {
       if (prev) {
         setHoveredIndex(null);
+        setIsPillReady(false);
         setPillStyle((p) => ({ ...p, opacity: 0 }));
       }
       return !prev;
@@ -40,6 +42,7 @@ export function Navigation({ className }: NavigationProps) {
   const closeMenu = useCallback(() => {
     setIsOpen(false);
     setHoveredIndex(null);
+    setIsPillReady(false);
     setPillStyle((prev) => ({ ...prev, opacity: 0 }));
   }, []);
 
@@ -106,6 +109,7 @@ export function Navigation({ className }: NavigationProps) {
 
     const rafId = requestAnimationFrame(() => {
       updatePillPosition(targetIndex);
+      setIsPillReady(true);
     });
     return () => cancelAnimationFrame(rafId);
   }, [isOpen, targetIndex, updatePillPosition]);
@@ -152,7 +156,7 @@ export function Navigation({ className }: NavigationProps) {
           >
             {/* Smooth Floating Pill Indicator */}
             <span
-              className={styles.indicatorPill}
+              className={`${styles.indicatorPill} ${isPillReady ? styles.indicatorPillAnimated : ''}`}
               style={{
                 transform: `translateY(${pillStyle.top}px)`,
                 height: `${pillStyle.height}px`,
