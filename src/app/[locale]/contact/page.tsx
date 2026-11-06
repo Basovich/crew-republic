@@ -100,7 +100,7 @@ export default async function ContactPage({ params }: PageProps) {
           },
           {
             label: t('banner.btnUntappd'),
-            href: 'https://untappd.com/brewery/25672',
+            href: 'https://untappd.com/CREWrepublic',
             variant: 'secondary',
             target: '_blank',
             rel: 'noopener noreferrer',

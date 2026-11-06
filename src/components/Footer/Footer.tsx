@@ -138,7 +138,7 @@ export function Footer() {
                 {t('facebook')}
               </a>
               <a
-                href="https://untappd.com/brewery/25672"
+                href="https://untappd.com/CREWrepublic"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.drukLink}
