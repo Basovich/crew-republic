@@ -241,7 +241,7 @@ export function BeerExperience({
           anchorRef.current.removeAttribute('style');
         }
         if (bottleViewportRef.current) {
-          gsap.set(bottleViewportRef.current, { opacity: 1, rotation: -9 });
+          gsap.set(bottleViewportRef.current, { opacity: 1, rotation: heroRotation });
         }
         if (heroHeadingsRef.current) {
           gsap.set(heroHeadingsRef.current, { opacity: 1, y: 0 });
@@ -312,25 +312,33 @@ export function BeerExperience({
 
       if (!storyTrackRef.current || !bottleViewportRef.current) return;
 
-      // 1. Tilt on hero that straightens to 0deg as user scrolls into Intro
+      const GAP = 20;
+
+      // 1. Tilt on hero that stays at heroRotation (-9deg) all the way down,
+      //    and smoothly straightens to 0deg only as the can parks in the bottom shop section.
       if (!prefersReducedMotion && heroRotation !== 0) {
         gsap.fromTo(
           bottleViewportRef.current,
           { rotation: heroRotation },
           {
             rotation: 0,
-            ease: 'power1.out',
+            ease: 'power2.out',
             scrollTrigger: {
-              trigger: storyTrackRef.current,
-              start: 'top top',
-              end: 'top -300',
+              trigger: shopButtonRef.current || '#shop',
+              start: 'top 95%',
+              end: () => {
+                if (!bottleViewportRef.current || !shopButtonRef.current) return 'top 50%';
+                const stageH = stickyStageRef.current?.offsetHeight || window.innerHeight;
+                const canH = bottleViewportRef.current.offsetHeight || 400;
+                const canBottomCentered = (stageH + canH) / 2;
+                return `top ${Math.round(canBottomCentered + GAP)}px`;
+              },
               scrub: 1,
+              invalidateOnRefresh: true,
             },
           }
         );
       }
-
-      const GAP = 20;
 
       // 2. Size the absolute bottleTrack so native CSS sticky unsticks and parks
       //    the bottle/glass exactly 20px above the shop button (and never moves further).
