@@ -43,32 +43,46 @@
 }
 
 .emblemLink {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  max-width: 1200px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  overflow: hidden;
   text-decoration: none;
   cursor: pointer;
+  flex-shrink: 0;
   transition: opacity 0.2s ease, transform 0.2s ease;
+
+  @include responsive(md) {
+    width: 240px;
+    height: 240px;
+  }
 
   @include hover {
     opacity: 0.88;
-    transform: scale(1.01);
+    transform: scale(1.02);
   }
 
   &:focus-visible {
     outline: 2px solid $color-primary;
     outline-offset: 4px;
-    border-radius: $radius-sm;
+    border-radius: 50%;
   }
 }
 
 .emblemMobile {
   display: block;
-  width: 100%;
-  max-width: 358px;
-  height: auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 358px;
+  max-width: none;
+  height: 220px;
+  pointer-events: none;
 
   @include responsive(md) {
     display: none;
@@ -77,9 +91,14 @@
 
 .emblemDesktop {
   display: none;
-  width: 100%;
-  max-width: 1200px;
-  height: auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 1200px;
+  max-width: none;
+  height: 240px;
+  pointer-events: none;
 
   @include responsive(md) {
     display: block;
