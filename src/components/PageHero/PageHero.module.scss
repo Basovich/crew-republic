@@ -48,12 +48,10 @@
 
   @include mobile-landscape {
     height: 260px;
-    border-radius: 4px;
   }
 
   @include responsive(md) {
     height: 520px;
-    border-radius: 4px;
   }
 
   @include responsive(xl) {
@@ -71,15 +69,6 @@
   img {
     object-fit: cover;
     pointer-events: none;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
-    filter: brightness(0.94);
-  }
-
-  @include hover {
-    img {
-      transform: scale(1.03);
-      filter: brightness(1);
-    }
   }
 }
 
