@@ -444,18 +444,18 @@ export function HeroSlider({
           <Heading level="h1" as="h1" className={styles.headline}>
             <span className={styles.line}>
               {line1Parts.map((chunk, idx) => (
-                <span key={`l1-${idx}`} className={styles.wordChunk}>
-                  {chunk}
-                  {idx < line1Parts.length - 1 ? ' ' : ''}
-                </span>
+                <React.Fragment key={`l1-${idx}`}>
+                  <span className={styles.wordChunk}>{chunk}</span>
+                  {idx < line1Parts.length - 1 && ' '}
+                </React.Fragment>
               ))}
             </span>
             <span className={styles.line}>
               {line2Parts.map((chunk, idx) => (
-                <span key={`l2-${idx}`} className={styles.wordChunk}>
-                  {chunk}
-                  {idx < line2Parts.length - 1 ? ' ' : ''}
-                </span>
+                <React.Fragment key={`l2-${idx}`}>
+                  <span className={styles.wordChunk}>{chunk}</span>
+                  {idx < line2Parts.length - 1 && ' '}
+                </React.Fragment>
               ))}
             </span>
           </Heading>
