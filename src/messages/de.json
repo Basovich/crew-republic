@@ -1,16 +1,16 @@
 {
   "Hero": {
-    "line1": "WEIL GUTE GESELLSCHAFT",
-    "line2": "BESSERES BIER VERDIENT."
+    "line1": "Weil gute Gesellschaft",
+    "line2": "besseres Bier verdient."
   },
   "Common": {
-    "menu": "MENU",
+    "menu": "Menü",
     "shop": "SHOP"
   },
   "Navigation": {
-    "menu": "MENU",
-    "home": "HOME",
-    "brandStory": "BRAND STORY",
+    "menu": "Menü",
+    "home": "STARTSEITE",
+    "brandStory": "WIR SIND CREW",
     "drunkenSailor": "DRUNKEN SAILOR",
     "jackpot": "JACKPOT",
     "fireside": "FIRESIDE",
@@ -33,19 +33,19 @@
   },
   "Pages": {
     "brandStory": {
-      "title": "Brand Story",
-      "heading": "BRAND STORY",
+      "title": "Wir sind CREW",
+      "heading": "WIR SIND CREW",
       "description": "Erfahre mehr über die rebellische Geschichte der Craft-Beer-Brauerei CREW Republic in München."
     },
     "drunkenSailor": {
-      "title": "Drunken Sailor IPA",
+      "title": "Drunken Sailor India Pale Ale",
       "heading": "DRUNKEN SAILOR",
       "subtitle": "INDIA PALE ALE",
       "description": "Drunken Sailor IPA - Vollmundiges, klassisches India Pale Ale, gebraut mit Leidenschaft von CREW Republic.",
       "intro": {
-        "title": "Anker lichten, Segel setzen...",
-        "p1": "Meterhohe Wellen. Heulender Wind. Das war der Alltag für die britischen Seeleute, die Bier nach Indien verschifften. Um die monatelange Reise zu überstehen, brauchte das Bier jede Menge Hopfen und ordentlich Kraft.",
-        "p2": "Drunken Sailor IPA bringt dieses Abenteuer und den kühnen Geschmack ins 21. Jahrhundert. Ahoi!"
+        "title": "Anker lichten, Segel setzen …",
+        "p1": "Meterhohe Wellen. Heulender Wind. Das war der Alltag der britischen Seeleute, die Bier nach Indien brachten. Um die monatelange Reise zu überstehen, brauchte das Bier reichlich Hopfen und ordentlich Stärke.",
+        "p2": "Drunken Sailor IPA bringt dieses Abenteuer und den kräftigen Geschmack ins 21. Jahrhundert. Ahoi!"
       },
       "stats": {
         "ariaLabel": "Drunken Sailor Werte"
@@ -54,17 +54,17 @@
         "hopsTitle": "Hopfen",
         "hopsValue": "Herkules, Citra, Cascade, Simcoe",
         "maltTitle": "Malz",
-        "maltValue": "Pilsener, Münchner, Karamellmalz",
+        "maltValue": "Pilsner Malz, Münchner Malz, Karamellmalz",
         "colorTitle": "Farbe",
         "colorValue": "Tiefes Orange",
         "tempTitle": "Trinktemperatur",
-        "tempValue": "6–8°C"
+        "tempValue": "6–8 °C"
       },
       "match": {
         "tasteTitle": "Geschmack",
-        "tasteText": "Vollmundig & hopfig. Tropische Frucht- und Zitrusnoten, intensiv und dennoch harmonisch abgerundet.",
-        "drinkWithTitle": "PASST ZU",
-        "drinkWithText": "Die CREW genießt Drunken Sailor am liebsten zu thailändischer Küche sowie Steaks und Burgern!"
+        "tasteText": "Vollmundig und hopfig. Noten von tropischen Früchten und Zitrusfrüchten – intensiv und zugleich abgerundet.",
+        "drinkWithTitle": "Passt zu",
+        "drinkWithText": "Die CREW genießt Drunken Sailor sowohl zu thailändischer Küche als auch zu Steaks und Burgern! Garantiert großartig."
       },
       "food": {
         "ariaLabel": "Speiseempfehlungen"
@@ -74,7 +74,7 @@
         "ariaLabel": "Drunken Sailor Auszeichnungen"
       },
       "shop": {
-        "heading": "Jetzt sichern!",
+        "heading": "Hol dir jetzt dein Drunken Sailor!",
         "button": "Drunken Sailor kaufen",
         "url": "https://crewrepublic.de/shop"
       }
@@ -85,28 +85,28 @@
       "subtitle": "HAZY IPA",
       "description": "Jackpot - Saftiges und intensiv aromatisches Hazy IPA von CREW Republic.",
       "intro": {
-        "title": "Du bist kein Zocker, aber manchmal brauchst du diesen Nervenkitzel.",
-        "p1": "All in. Alles oder nichts. Dein Puls rast, alles um dich herum verschwimmt.",
-        "p2": "Dann: Stille. JACKPOT! Zeit zu feiern, und am besten mit deiner CREW."
+        "title": "Du bist kein Draufgänger, aber manchmal brauchst du diesen Nervenkitzel.",
+        "p1": "Alles setzen. Alles oder nichts. Dein Puls rast, alles um dich herum verschwimmt.",
+        "p2": "Dann: Stille. JACKPOT! Zeit zu feiern – und das am besten mit deiner CREW."
       },
       "stats": {
         "ariaLabel": "Jackpot Werte"
       },
       "tastometer": {
         "hopsTitle": "Hopfen",
-        "hopsValue": "Herkules, Citra, Cascade, Simcoe",
+        "hopsValue": "Galaxy, Mosaic, Amarillo, Citra",
         "maltTitle": "Malz",
-        "maltValue": "Pilsener, Münchner, Karamellmalz",
+        "maltValue": "Pilsner Malz, Weizenmalz, Hafermalz und Karamellmalz",
         "colorTitle": "Farbe",
-        "colorValue": "Tiefes Orange",
+        "colorValue": "Trübes Orange",
         "tempTitle": "Trinktemperatur",
-        "tempValue": "6–8°C"
+        "tempValue": "6–8 °C"
       },
       "match": {
         "tasteTitle": "Geschmack",
-        "tasteText": "Eine tropische Erfrischung mit intensivem Hopfenaroma von Passionsfrucht und Zitrusfrüchten. Leicht im Körper mit ausgewogener Säure und subtiler Bitterkeit.",
-        "drinkWithTitle": "PASST ZU",
-        "drinkWithText": "Die CREW genießt ihr Jackpot Hazy IPA am liebsten eiskalt zur Abkühlung bei 35 Grad sengender Sonne."
+        "tasteText": "Eine tropische Erfrischung mit intensivem Hopfenaroma von Maracuja und Zitrusfrüchten. Leicht im Körper, mit ausgewogener Säure und dezenter Bittere.",
+        "drinkWithTitle": "Passt zu",
+        "drinkWithText": "Die CREW genießt ihr Jackpot Hazy IPA am liebsten eiskalt – als Abkühlung bei 35 Grad in der prallen Sonne. Garantiert großartig."
       },
       "food": {
         "ariaLabel": "Speiseempfehlungen"
@@ -116,7 +116,7 @@
         "ariaLabel": "Jackpot Auszeichnungen"
       },
       "shop": {
-        "heading": "Jetzt sichern!",
+        "heading": "Hol dir jetzt dein Jackpot!",
         "button": "Jackpot kaufen",
         "url": "https://crewrepublic.de/shop"
       }
@@ -129,34 +129,34 @@
       "intro": {
         "title": "Ein Abend an der Bar mit alten Freunden.",
         "p1": "Geschichten von früher, Erinnerungen an gemeinsame Abenteuer. Eine unbeschwerte Zeit.",
-        "p2": "Wie eine lange Nacht am Lagerfeuer, begleitet vom leisen Knistern der Glut und dem flackernden Licht der Flammen. Möge dieser Abend niemals enden..."
+        "p2": "Wie eine lange Nacht am Lagerfeuer, begleitet vom leisen Knistern der Glut und dem flackernden Licht der Flammen. Möge dieser Abend nie enden …"
       },
       "stats": {
         "ariaLabel": "Fireside Fakten"
       },
       "tastometer": {
-        "hopsTitle": "HOPFEN",
+        "hopsTitle": "Hopfen",
         "hopsValue": "Tradition, Fuggles, East Kent Golding",
-        "maltTitle": "MALZ",
-        "maltValue": "Pilsener-, Melanoidin-, Karamell- und Röstmalz",
-        "colorTitle": "FARBE",
+        "maltTitle": "Malz",
+        "maltValue": "Pilsner Malz, Melanoidinmalz, Karamellmalz und Röstmalz",
+        "colorTitle": "Farbe",
         "colorValue": "Rötlich",
-        "tempTitle": "TRINKTEMPERATUR",
-        "tempValue": "6–8°C"
+        "tempTitle": "Trinktemperatur",
+        "tempValue": "6–8 °C"
       },
       "match": {
         "tasteTitle": "Geschmack",
-        "tasteText": "Leuchtend rote Farbe mit einer angenehm vollmundigen, aber nicht zu schweren Textur. Ein leicht fruchtiger und malziger Geschmack.",
+        "tasteText": "Leuchtend rot, angenehm vollmundig und trotzdem nicht zu schwer. Leicht fruchtig und malzig im Geschmack.",
         "drinkWithTitle": "Passt zu",
-        "drinkWithText": "Die CREW genießt Fireside am liebsten zu einem getoasteten Puten-Sandwich oder einem guten Stück mildem Cheddar."
+        "drinkWithText": "Die CREW genießt Fireside zu einem getoasteten Pute-Sandwich oder einem schönen Stück mildem Cheddar. Garantiert großartig."
       },
       "awards": {
         "title": "Certified\nAwesomeness.",
         "ariaLabel": "Fireside Auszeichnungen"
       },
       "shop": {
-        "heading": "Zapf dir dein CREW!",
-        "button": "KONTAKT FÜR CREWLABORATION",
+        "heading": "Bring es jetzt an deinen Zapfhahn!",
+        "button": "Kontaktiere uns für eine Zusammenarbeit",
         "url": "/contact"
       }
     },
@@ -183,36 +183,36 @@
   },
   "Footer": {
     "emblemAlt": "CREW Republic - Brewing Awesomeness Since MMXI",
-    "weAreCrew": "WIR SIND CREW",
+    "weAreCrew": "Wir sind CREW",
     "companyName": "CREW Republic Brewery GmbH",
     "street": "Kirschbaumweg 19",
     "city": "50996 Köln",
-    "sendUsMessage": "SCHREIB UNS EINE NACHRICHT",
-    "ourBeers": "UNSERE BIERE",
-    "crewStory": "CREW STORY",
+    "sendUsMessage": "Schreib uns eine Nachricht",
+    "ourBeers": "Unsere Biere",
+    "crewStory": "WIR SIND CREW",
     "drunkenSailor": "DRUNKEN SAILOR",
     "jackpot": "JACKPOT",
     "fireside": "FIRESIDE",
-    "ourService": "UNSER SERVICE FÜR DICH",
+    "ourService": "Unser Service für dich",
     "privacyPolicy": "DATENSCHUTZ",
     "gtc": "AGB",
     "imprint": "IMPRESSUM",
-    "crewmunity": "CREWMUNITY",
+    "crewmunity": "CREWmunity",
     "instagram": "INSTAGRAM",
     "facebook": "FACEBOOK",
     "untappd": "UNTAPPD",
-    "buyBetterBeer": "BUY BETTER BEER",
+    "buyBetterBeer": "Besseres Bier kaufen",
     "switchLanguage": "Sprache wechseln"
   },
   "StorySection": {
-    "heading": "Das Bier für die Momente, die man teilt.",
-    "description": "Jeder braucht eine Crew. Menschen, die jeden Moment reicher, echter und unvergesslicher machen. CREW Republic ist das Bier genau dafür: beste Gesellschaft, draußen, zusammen.",
-    "buttonText": "Unsere Geschichte entdecken",
+    "heading": "Das Bier für die Momente, die ihr teilt.",
+    "description": "Jeder braucht eine CREW. Die Menschen, die jeden Moment intensiver, echter und unvergesslich machen. CREW Republic ist das Bier, das genau dafür gebraut wird: für gute Gesellschaft, gemeinsam unterwegs.",
+    "buttonText": "Entdecke unsere Geschichte",
     "imageAlt": "CREW Republic Biermomente mit Freunden geteilt"
   },
   "BeersSection": {
-    "heading": "Ein Hoch auf unsere Biere.",
-    "discover": "ENTDECKEN",
+    "heading": "Cheers auf unsere Biere.",
+    "discover": "Entdecken",
     "drunkenSailor": {
       "title": "DRUNKEN SAILOR",
       "tagline": "INDIA PALE ALE",
@@ -230,7 +230,7 @@
     }
   },
   "AwardsSection": {
-    "heading": "DEINE CREW VERDIENT DAS BESTE.",
+    "heading": "Deine CREW verdient das Beste.",
     "ariaLabel": "Brauerei- und Bier-Auszeichnungen",
     "awards": {
       "award1": "World Beer Awards Germany Gold 2023",
@@ -243,44 +243,44 @@
     }
   },
   "CrewmunitySection": {
-    "heading": "WERDE TEIL DER CREWMUNITY.",
-    "description": "Die CREW ist nicht nur die, mit der du heute unterwegs bist. Es sind alle, die dieselben Momente online teilen.\nFolge uns, teile deine CREW-Momente, markiere uns und werde Teil einer Crew, die immer da ist, wo auch immer du bist.",
+    "heading": "Werde Teil der CREWmunity.",
+    "description": "Deine CREW sind nicht nur die Menschen, mit denen du heute Abend unterwegs bist. Dazu gehören auch alle, die online dieselben Momente miteinander teilen. Folge uns, teile deine CREW-Momente, markiere uns und werde Teil einer CREW, die immer für dich da ist – ganz gleich, wo du bist.",
     "instagram": "INSTAGRAM",
     "facebook": "FACEBOOK",
     "imageAlt": "Werde Teil der CREW Republic Online-Community"
   },
   "RepresentSection": {
-    "heading": "REPRÄSENTIERE DIE CREW.",
-    "buttonText": "CREW MERCH SHOPPEN",
+    "heading": "Zeig, dass du zur CREW gehörst.",
+    "buttonText": "CREW-Merch shoppen",
     "imageAlt": "CREW Republic Merch und Lifestyle-Momente"
   },
   "TapSection": {
-    "heading": "ZAPF DIR DIE CREW.",
-    "description": "Willst du, dass deine Bar ein CREW Hopspot wird? Hol CREW Republic an deine Zapfhähne und biete deinen Gästen ein Bier, das es wert ist, geteilt zu werden. Und wenn du CREW an deinem Lieblingsort genießen möchtest, frag deine Bar vor Ort nach CREW. Auf gute Gesellschaft und besseres Bier.",
-    "buttonText": "KONTAKT",
+    "heading": "Lust, deine Bar zum CREW Hopspot zu machen?",
+    "description": "Bring CREW Republic an deinen Zapfhahn und biete deinen Gästen ein Bier, das man gerne miteinander teilt. Und wenn du CREW am liebsten in deiner Stammbar genießen würdest, frag dort einfach nach, ob sie CREW ins Sortiment aufnehmen.",
+    "buttonText": "Kontaktiere uns",
     "imageAlt": "Tap into the CREW - frisches Craft Beer vom Fass"
   },
   "BrandStoryPage": {
     "hero": {
-      "line1": "GEMACHT FÜR GROSSE MOMENTE,",
-      "line2": "GEBRAUT FÜR BLEIBENDE ERINNERUNGEN.",
+      "line1": "Gemacht für großartige Momente.",
+      "line2": "Gebraut für Erinnerungen, die bleiben.",
       "imageAlt": "CREW Republic Brand Story - Gemacht für große Momente"
     },
     "block1": {
       "heading": "Jeder braucht eine CREW.",
-      "description": "Wir sind soziale Wesen und suchen nach Menschen, die uns erden, aufbauen und uns das Gefühl geben, dazuzugehören. Die uns genau so schätzen, wie wir sind. Ohne viele Worte.",
+      "description": "Wir Menschen suchen die Nähe zu anderen: zu denen, die uns auf dem Boden halten, uns Auftrieb geben und uns das Gefühl schenken, dazuzugehören. Sie mögen uns genau so, wie wir sind. Ganz ohne Erklärungen.",
       "buttonText": "Merch shoppen",
       "imageAlt": "Jeder braucht eine CREW - CREW Republic Lifestyle"
     },
     "block2": {
       "heading": "Gemeinschaft macht das Leben zum Erlebnis.",
-      "description": "Unsere besten Erinnerungen entstehen gemeinsam. Sie zu teilen macht alles intensiver, echter und bedeutungsvoller. Die Menschen um uns herum wirken wie Verstärker: Sie drehen das Leben auf und schenken uns die besten Schnappschüsse im Fotoalbum unseres Lebens.",
-      "buttonText": "Ambassador werden",
+      "description": "Unsere schönsten Erinnerungen entstehen gemeinsam. Wenn wir sie teilen, wird alles intensiver, echter und bedeutungsvoller. Die Menschen um uns herum verstärken das Leben und schenken uns die schönsten Schnappschüsse für unser gemeinsames Fotoalbum.",
+      "buttonText": "Werde Botschafter",
       "imageAlt": "Gemeinschaft macht das Leben zum Erlebnis"
     },
     "block3": {
       "heading": "CREW REPUBLIC IST DAS BIER FÜR MOMENTE, DIE ZÄHLEN.",
-      "description": "Wenn das Hopfenaroma trifft, weißt du es sofort: Das ist ein wahrhaft einzigartiges Biererlebnis. Wenn du dieses Gefühl liebst, bist du bereits Teil der CREW – einer Gemeinschaft mit einer gemeinsamen Leidenschaft für unvergessliche Momente mit den Menschen, die dir wichtig sind.",
+      "description": "Wenn der Hopfengeschmack einsetzt, weißt du sofort: Das ist ein ganz besonderes Biererlebnis. Wenn du dieses Gefühl liebst, bist du schon Teil der CREW – einer Gemeinschaft, die die Leidenschaft für unvergessliche Momente mit den Menschen teilt, die uns wichtig sind.",
       "buttonText": "Bier kaufen",
       "imageAlt": "CREW Republic Craft Beer Momente, die zählen"
     }
@@ -1345,22 +1345,22 @@
   },
   "ContactPage": {
     "hero": {
-      "line1": "KONTAKTIERE DAS RICHTIGE",
-      "line2": "CREW MITGLIED.",
+      "line1": "Kontaktiere das richtige",
+      "line2": "CREW-Mitglied.",
       "imageAlt": "CREW Republic Craft-Bier Gläser auf Holztisch - Kontaktiere das richtige Crew-Mitglied"
     },
     "content": {
-      "heading": "SAG HALLO ZUR CREW.",
-      "description1": "Möchtest du eine Crewlaboration starten und gutes CREW Republic Bier in deinem Laden, Pub oder Gastro-Betrieb verkaufen? Oder hast du Fragen oder Ideen? Sei nicht schüchtern – sag einfach Hallo!",
-      "description2": "Schreib uns eine Nachricht und wir melden uns bei dir.",
-      "description3": "Großes CREW-Ehrenwort – von einem CREW-Mitglied zum anderen.",
-      "emailButton": "CREW@CREWREPUBLIC.DE"
+      "heading": "Ahoi! Sag der CREW Hallo.",
+      "description1": "Du möchtest mit uns zusammenarbeiten und gutes CREW Republic Bier in deinem Laden, deiner Kneipe oder deinem Gastronomiebetrieb verkaufen? Oder hast du Fragen oder Ideen? Nur keine Scheu – sag einfach Hallo!",
+      "description2": "Schreib uns eine Nachricht und wir melden uns bei dir. Versprochen – von einem CREW-Mitglied zum anderen.",
+      "description3": "",
+      "emailButton": "Crew@crewrepublic.de"
     },
     "banner": {
-      "heading": "CREW-LIEBE IST WAHRE LIEBE. TEILE DEINE LIEBE!",
+      "heading": "CREW-Liebe ist wahre Liebe. Teile deine Liebe!",
       "imageAlt": "Freunde teilen Craft-Beer Momente - CREW Love is True Love",
-      "btnShop": "ZUM SHOP",
-      "btnUntappd": "AUF UNTAPPD BEWERTEN"
+      "btnShop": "Hol dir Nachschub",
+      "btnUntappd": "Auf Untappd bewerten"
     }
   },
   "GtcPage": {

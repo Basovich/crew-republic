@@ -115,8 +115,5 @@
 .line {
   display: block;
   white-space: normal;
-
-  @include responsive(lg) {
-    white-space: nowrap;
-  }
+  overflow-wrap: break-word;
 }
