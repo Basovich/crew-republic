@@ -187,7 +187,7 @@
     "companyName": "CREW Republic Brewery GmbH",
     "street": "Kirschbaumweg 19",
     "city": "50996 Köln",
-    "sendUsMessage": "Schreib uns eine Nachricht",
+    "sendUsMessage": "Schreib uns",
     "ourBeers": "Unsere Biere",
     "crewStory": "WIR SIND CREW",
     "drunkenSailor": "DRUNKEN SAILOR",
@@ -1357,7 +1357,7 @@
       "emailButton": "Crew@crewrepublic.de"
     },
     "banner": {
-      "heading": "CREW-Liebe ist wahre Liebe. Teile deine Liebe!",
+      "heading": "CREW LOVE IS TRUE LOVE. SHARE YOUR LOVE!",
       "imageAlt": "Freunde teilen Craft-Beer Momente - CREW Love is True Love",
       "btnShop": "Hol dir Nachschub",
       "btnUntappd": "Auf Untappd bewerten"
