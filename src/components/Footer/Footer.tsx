@@ -18,22 +18,24 @@ export function Footer() {
       <div className={styles.container}>
         {/* Top Emblem */}
         <div className={styles.emblemWrapper}>
-          <Image
-            src="/images/footer-emblem.svg"
-            alt={t('emblemAlt')}
-            width={1200}
-            height={240}
-            className={styles.emblemDesktop}
-            loading="lazy"
-          />
-          <Image
-            src="/images/footer-emblem-mobile.svg"
-            alt={t('emblemAlt')}
-            width={358}
-            height={220}
-            className={styles.emblemMobile}
-            loading="lazy"
-          />
+          <Link href="/" className={styles.emblemLink} aria-label={t('emblemAlt')}>
+            <Image
+              src="/images/footer-emblem.svg"
+              alt={t('emblemAlt')}
+              width={1200}
+              height={240}
+              className={styles.emblemDesktop}
+              loading="lazy"
+            />
+            <Image
+              src="/images/footer-emblem-mobile.svg"
+              alt={t('emblemAlt')}
+              width={358}
+              height={220}
+              className={styles.emblemMobile}
+              loading="lazy"
+            />
+          </Link>
         </div>
 
         {/* Columns Section */}

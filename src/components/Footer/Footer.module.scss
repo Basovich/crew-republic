@@ -42,6 +42,28 @@
   width: 100%;
 }
 
+.emblemLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+
+  @include hover {
+    opacity: 0.88;
+    transform: scale(1.01);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 4px;
+    border-radius: $radius-sm;
+  }
+}
+
 .emblemMobile {
   display: block;
   width: 100%;
