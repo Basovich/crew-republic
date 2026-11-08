@@ -38,6 +38,11 @@ export function PageHero({
           />
         </div>
 
+        {/* AI Marker Badge */}
+        <div className={styles.aiBadge} aria-label="AI generated image" title="AI generated">
+          <span>AI</span>
+        </div>
+
         {/* Bottom Headline anchored to the bottom of the hero card */}
         <div className={styles.overlay}>
           <Heading level="h1" as="h1" className={styles.heading}>
