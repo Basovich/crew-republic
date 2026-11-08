@@ -154,8 +154,13 @@ export function RepresentSection({
           )}
         </div>
 
-        {/* Optional decorative/link badge (e.g. Untappd) anchored to bottom right */}
-        {badgeIcon && <div className={styles.badgeWrapper}>{badgeIcon}</div>}
+        {/* Decorative badge area anchored to bottom right */}
+        <div className={styles.bottomRightArea}>
+          <div className={styles.aiBadge} aria-label="AI generated image" title="AI generated">
+            <span>AI</span>
+          </div>
+          {badgeIcon && <div className={styles.badgeWrapper}>{badgeIcon}</div>}
+        </div>
       </div>
     </section>
   );

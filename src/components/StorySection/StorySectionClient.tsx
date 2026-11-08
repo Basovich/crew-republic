@@ -216,6 +216,9 @@ export function StorySectionClient({
                 className={styles.image}
               />
             </div>
+            <div className={styles.aiBadge} aria-label="AI generated image" title="AI generated">
+              <span>AI</span>
+            </div>
           </div>
         </div>
       </div>
