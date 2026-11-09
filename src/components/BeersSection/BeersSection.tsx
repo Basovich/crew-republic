@@ -12,6 +12,7 @@ interface BeerCardData {
   shadow: string;
   href: string;
   isGlass?: boolean;
+  mobileFallbackImage?: string;
 }
 
 const BEERS: BeerCardData[] = [
@@ -22,6 +23,7 @@ const BEERS: BeerCardData[] = [
     imageHover: '/images/beers/drunken-sailor-hover.webp',
     shadow: '/images/beers/drunken-sailor-shadow.webp',
     href: '/drunken-sailor',
+    mobileFallbackImage: '/images/beers/animations/ds-mobile-frame0.webp',
   },
   {
     id: 'jackpot',
@@ -30,6 +32,7 @@ const BEERS: BeerCardData[] = [
     imageHover: '/images/beers/jackpot-hover.webp',
     shadow: '/images/beers/jackpot-shadow.webp',
     href: '/jackpot',
+    mobileFallbackImage: '/images/beers/animations/jp-mobile-frame0.webp',
   },
   {
     id: 'fireside',
@@ -39,6 +42,7 @@ const BEERS: BeerCardData[] = [
     shadow: '/images/beers/fireside-shadow.webp',
     href: '/fireside',
     isGlass: true,
+    mobileFallbackImage: '/images/beers/animations/fs-mobile-frame0.webp',
   },
 ];
 

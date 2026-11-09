@@ -21,6 +21,7 @@ export interface BeerCardItem {
   shadow: string;
   href: string;
   isGlass?: boolean;
+  mobileFallbackImage?: string;
   title: string;
   tagline: string;
   alt: string;
@@ -204,7 +205,7 @@ export function MobileBeerSliderClient({
 
               {/* Static WebP fallback while Lottie loads or on desktop */}
               <Image
-                src={beer.image}
+                src={beer.mobileFallbackImage || beer.image}
                 alt={beer.alt}
                 fill
                 sizes="(max-width: 768px) 75vw, 382px"
