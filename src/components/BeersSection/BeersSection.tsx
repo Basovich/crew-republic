@@ -1,9 +1,7 @@
 import React from 'react';
-import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
-import { Link } from '@/i18n/routing';
-import { Button } from '@/components/Button/Button';
 import { Heading } from '@/components/Heading';
+import { MobileBeerSliderClient, type BeerCardItem } from './MobileBeerSliderClient';
 import styles from './BeersSection.module.scss';
 
 interface BeerCardData {
@@ -47,6 +45,14 @@ const BEERS: BeerCardData[] = [
 export async function BeersSection() {
   const t = await getTranslations('BeersSection');
 
+  const beerItems: BeerCardItem[] = BEERS.map((beer) => ({
+    ...beer,
+    title: t(`${beer.key}.title`),
+    tagline: t(`${beer.key}.tagline`),
+    alt: t(`${beer.key}.alt`),
+    discoverLabel: t('discover'),
+  }));
+
   return (
     <section className={styles.section} aria-labelledby="beers-heading">
       <div className={styles.container}>
@@ -54,74 +60,8 @@ export async function BeersSection() {
           {t('heading')}
         </Heading>
 
-        {/* Scrollable track on mobile / flex row on desktop */}
-        <div className={styles.sliderTrack} role="region" aria-label={t('heading')}>
-          {BEERS.map((beer) => (
-            <article key={beer.id} className={styles.card}>
-              <Link
-                href={beer.href}
-                className={styles.imageContainer}
-                aria-label={t(`${beer.key}.title`)}
-              >
-                <div
-                  className={`${styles.imageWrapper} ${beer.isGlass ? styles.imageWrapperGlass : ''}`}
-                >
-                  <Image
-                    src={beer.image}
-                    alt={t(`${beer.key}.alt`)}
-                    fill
-                    sizes="(max-width: 768px) 240px, (max-width: 1200px) 33vw, 382px"
-                    className={`${styles.image} ${styles.imageDefault}`}
-                  />
-                  <Image
-                    src={beer.imageHover}
-                    alt=""
-                    fill
-                    aria-hidden="true"
-                    sizes="(max-width: 768px) 240px, (max-width: 1200px) 33vw, 382px"
-                    className={`${styles.image} ${styles.imageHover}`}
-                  />
-                </div>
-                {/* Authentic Figma shadow with floor reflection */}
-                <div
-                  className={`${styles.shadowWrapper} ${beer.isGlass ? styles.shadowWrapperGlass : styles.shadowWrapperCan}`}
-                  aria-hidden="true"
-                >
-                  <Image
-                    src={beer.shadow}
-                    alt=""
-                    fill
-                    unoptimized
-                    sizes="(max-width: 768px) 240px, 384px"
-                    className={styles.shadowImage}
-                  />
-                </div>
-              </Link>
-
-              <div className={styles.content}>
-                <div className={styles.titles}>
-                  <Heading level="h3" as="h3" className={styles.beerTitle}>
-                    {t(`${beer.key}.title`)}
-                  </Heading>
-                  <Heading level="tagline" as="span" className={styles.beerTagline}>
-                    {t(`${beer.key}.tagline`)}
-                  </Heading>
-                </div>
-
-                <div className={styles.action}>
-                  <Button
-                    variant="primary"
-                    size="md"
-                    href={beer.href}
-                    className={styles.button}
-                  >
-                    {t('discover')}
-                  </Button>
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
+        {/* Interactive scroll-snap & rolling can slider on mobile / flex row on desktop */}
+        <MobileBeerSliderClient beers={beerItems} headingText={t('heading')} />
       </div>
     </section>
   );
