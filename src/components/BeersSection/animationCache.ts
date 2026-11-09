@@ -30,7 +30,10 @@ export async function loadBeerAnimation(url: string): Promise<object | null> {
     try {
       const response = await fetch(url, { priority: 'low' });
       if (!response.ok) {
-        throw new Error(`Failed to load animation: ${response.statusText}`);
+        console.warn(
+          `[BeersPreloader] Could not load animation ${url}: ${response.statusText}`,
+        );
+        return null;
       }
       const data = await response.json();
       cache.set(url, data);
