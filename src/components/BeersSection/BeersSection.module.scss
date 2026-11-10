@@ -287,6 +287,8 @@
   @include responsive(lg) {
     gap: 24px;
     margin-top: 100px;
+    flex: 1 1;
+    justify-content: space-between;
   }
 }
 

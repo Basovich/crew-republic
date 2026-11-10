@@ -856,7 +856,7 @@
     padding-left: 0;
   }
 
-  @include responsive(xxl) {
+  @include responsive(xl) {
     max-width: 360px;
   }
 }
@@ -867,9 +867,13 @@
   h3 {
     max-width: 170px;
 
+    @include responsive(lg) {
+      max-width: 200px;
+    }
+
     @include responsive(xl) {
       font-size: 56px;
-      max-width: 300px;
+      max-width: 360px;
     }
   }
 }
@@ -983,7 +987,7 @@
   }
 
   @include responsive(xxl) {
-    max-width: 284px;
+    max-width: 314px;
   }
 }
 

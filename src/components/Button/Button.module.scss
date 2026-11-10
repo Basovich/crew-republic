@@ -149,7 +149,7 @@
   padding: 6px 20px;
   height: 53px;
 
-  @include responsive(xl) {
+  @include responsive(lg) {
     height: 68px;
   }
 }
@@ -167,7 +167,7 @@
     padding: 12px 32px;
   }
 
-  @include responsive(xl) {
+  @include responsive(lg) {
     height: 68px;
   }
 }
