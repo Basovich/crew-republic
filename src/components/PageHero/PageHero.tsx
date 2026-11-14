@@ -46,8 +46,8 @@ export function PageHero({
         {/* Bottom Headline anchored to the bottom of the hero card */}
         <div className={styles.overlay}>
           <Heading level="h1" as="h1" className={styles.heading}>
-            <span className={styles.line}>{line1}</span>
-            <span className={styles.line}>{line2}</span>
+            {line1 && <span className={styles.line}>{line1}</span>}
+            {line2 && <span className={styles.line}>{line2}</span>}
           </Heading>
         </div>
       </div>
