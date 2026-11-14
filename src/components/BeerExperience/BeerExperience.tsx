@@ -9,6 +9,7 @@ import { useGSAP } from '@gsap/react';
 import type { AnimationItem } from 'lottie-web';
 import { Heading } from '@/components/Heading';
 import { Button } from '@/components/Button/Button';
+import { useSmoothScroll } from '@/components/SmoothScrollProvider/SmoothScrollProvider';
 import type { BeerConfig, BeerTranslations } from './types';
 import styles from './BeerExperience.module.scss';
 
@@ -89,11 +90,76 @@ export function BeerExperience({
   const animRef = useRef<AnimationItem | null>(null);
   const [activeSection, setActiveSection] = useState('hero');
   const [isLoaded, setIsLoaded] = useState(false);
+  const { getLenis } = useSmoothScroll();
 
   const handleScrollToSection = (id: string) => {
     const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+    if (!el) return;
+
+    const lenis = getLenis();
+
+    if (id === 'hero') {
+      if (lenis) {
+        lenis.scrollTo(0, { duration: 1.2 });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      return;
+    }
+
+    if (id === 'shop') {
+      if (lenis) {
+        lenis.scrollTo(el, { offset: 0, duration: 1.2 });
+      } else {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      return;
+    }
+
+    // Determine the focal element of the section for precise can alignment
+    let focalEl: Element | null = null;
+    if (id === 'intro') {
+      focalEl =
+        el.querySelector(`.${styles.introWrapper}`) ||
+        el.querySelector(`.${styles.contentContainer}`);
+    } else if (id === 'stats') {
+      focalEl =
+        el.querySelector(`.${styles.badgeAlc}`) ||
+        el.querySelector(`.${styles.statsBadgesWrapper}`);
+    } else if (id === 'tastometer') {
+      focalEl = el.querySelector(`.${styles.tastometerGrid}`);
+    } else if (id === 'food') {
+      focalEl = el.querySelector(`.${styles.foodGrid}`);
+    } else if (id === 'awards') {
+      focalEl = el.querySelector(`.${styles.awardsGrid}`);
+    }
+
+    // Calculate the actual visual center of the can in the viewport:
+    // The can within the Lottie asset frame (500x833) spans from y=159 to y=779,
+    // placing its visual center at (159 + 779) / (2 * 833) ≈ 0.563 of the bottle viewport.
+    const bottle = bottleViewportRef.current;
+    const bottleRect = bottle ? bottle.getBoundingClientRect() : null;
+    const canVisualCenterY = bottleRect
+      ? Math.round(
+          bottleRect.top + bottleRect.height * ((159 + 779) / (2 * 833))
+        )
+      : Math.round(window.innerHeight / 2);
+
+    const targetNode =
+      focalEl || el.querySelector(`.${styles.contentContainer}`) || el;
+    const rect = targetNode.getBoundingClientRect();
+    const currentScrollY = lenis
+      ? lenis.scroll
+      : window.scrollY || window.pageYOffset;
+    const focalCenter = currentScrollY + rect.top + rect.height / 2;
+    const targetScrollY = Math.round(focalCenter - canVisualCenterY);
+
+    if (lenis) {
+      lenis.scrollTo(targetScrollY, {
+        duration: 1.2,
+      });
+    } else {
+      window.scrollTo({ top: targetScrollY, behavior: 'smooth' });
     }
   };
 
