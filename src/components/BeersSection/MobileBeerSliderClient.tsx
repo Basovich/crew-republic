@@ -203,13 +203,23 @@ export function MobileBeerSliderClient({
                 aria-hidden="true"
               />
 
-              {/* Static WebP fallback while Lottie loads or on desktop */}
+              {/* Static crisp WebP on desktop */}
+              <Image
+                src={beer.image}
+                alt={beer.alt}
+                fill
+                sizes="382px"
+                className={`${styles.image} ${styles.imageDefault} ${styles.desktopImage}`}
+                priority={index === 0}
+              />
+
+              {/* Static WebP fallback while Lottie loads on mobile */}
               <Image
                 src={beer.mobileFallbackImage || beer.image}
                 alt={beer.alt}
                 fill
                 sizes="(max-width: 768px) 75vw, 382px"
-                className={`${styles.image} ${styles.imageDefault} ${animationsReady[index] ? styles.imageFadeOut : ''}`}
+                className={`${styles.image} ${styles.imageDefault} ${styles.mobileFallback} ${animationsReady[index] ? styles.imageFadeOut : ''}`}
                 priority={index === 0}
               />
               <Image

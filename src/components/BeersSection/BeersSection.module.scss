@@ -146,7 +146,7 @@
   width: 100%;
   height: clamp(350px, 45vh, 400px);
   overflow: visible;
-  transform: scale(1.2);
+  //transform: scale(1.2);
   transform-origin: center;
   transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 2;
@@ -157,7 +157,7 @@
 
   @include responsive(lg) {
     height: 400px;
-    transform: scale(1.2);
+    //transform: scale(1.2);
   }
 }
 
@@ -189,10 +189,24 @@
   transition: opacity 0.4s ease;
 
   &.imageFadeOut {
-    @media (max-width: 1023px) {
-      opacity: 0;
-      pointer-events: none;
-    }
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.desktopImage {
+  display: none;
+
+  @include responsive(lg) {
+    display: block;
+  }
+}
+
+.mobileFallback {
+  display: block;
+
+  @include responsive(lg) {
+    display: none !important;
   }
 }
 
