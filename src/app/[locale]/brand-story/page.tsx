@@ -77,16 +77,7 @@ export default async function BrandStoryPage({ params }: PageProps) {
         description={t('block1.description')}
         imageSrc="/images/brand-story/brand-story-1.webp"
         imageAlt={t('block1.imageAlt')}
-        buttons={[
-          {
-            label: t('block1.buttonText'),
-            href: 'https://www.crew-republic-shop.de/',
-            variant: 'secondary',
-            size: 'lg',
-            target: '_blank',
-            rel: 'noopener noreferrer',
-          },
-        ]}
+        buttons={[]}
       />
 
       {/* 3. Block 2: Community turns life into an experience */}

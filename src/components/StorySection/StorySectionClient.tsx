@@ -185,23 +185,25 @@ export function StorySectionClient({
               </p>
             </div>
 
-            <div className={styles.action} data-story-reveal-trigger>
-              <div className={styles.buttonGroup} data-story-reveal-target>
-                {buttons.map((btn, index) => (
-                  <Button
-                    key={`${btn.label}-${index}`}
-                    variant={btn.variant ?? 'secondary'}
-                    size={btn.size ?? 'lg'}
-                    href={btn.href}
-                    target={btn.target}
-                    rel={btn.rel}
-                    className={styles.button}
-                  >
-                    {btn.label}
-                  </Button>
-                ))}
+            {buttons.length > 0 && (
+              <div className={styles.action} data-story-reveal-trigger>
+                <div className={styles.buttonGroup} data-story-reveal-target>
+                  {buttons.map((btn, index) => (
+                    <Button
+                      key={`${btn.label}-${index}`}
+                      variant={btn.variant ?? 'secondary'}
+                      size={btn.size ?? 'lg'}
+                      href={btn.href}
+                      target={btn.target}
+                      rel={btn.rel}
+                      className={styles.button}
+                    >
+                      {btn.label}
+                    </Button>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
 
