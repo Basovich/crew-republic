@@ -86,7 +86,7 @@ export default async function HomePage({ params }: PageProps) {
         heading={tRepresent('heading')}
         buttonText={tRepresent('buttonText')}
         imageAlt={tRepresent('imageAlt')}
-        shopUrl="https://www.crew-republic-shop.de/"
+        shopUrl="https://www.crew-republic-shop.de/Merch/"
       />
 
       {/* Tap Section: Tap into the CREW (Image first / left on desktop) */}

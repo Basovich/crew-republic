@@ -132,7 +132,7 @@ export default async function BrandStoryPage({ params }: PageProps) {
         heading={tRepresent('heading')}
         buttonText={tRepresent('buttonText')}
         imageAlt={tRepresent('imageAlt')}
-        shopUrl="https://www.crew-republic-shop.de/"
+        shopUrl="https://www.crew-republic-shop.de/Merch/"
       />
 
       {/* 6. Cheers for our Beers: Craft beers showcase */}

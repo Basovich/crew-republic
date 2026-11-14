@@ -38,7 +38,7 @@ export function RepresentSection({
   heading,
   buttonText,
   imageAlt,
-  shopUrl = 'https://www.crew-republic-shop.de/',
+  shopUrl = 'https://www.crew-republic-shop.de/Merch/',
   images,
   imageSrc,
   buttons,
