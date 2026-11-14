@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useId } from 'react';
 
 interface FlagProps {
   size?: number;
@@ -6,38 +6,74 @@ interface FlagProps {
 }
 
 export function UsFlag({ size, className }: FlagProps) {
+  const id = useId();
+  const clipId = `clip-us-uk-circle-${id}`;
+  const starId = `flag-star-${id}`;
   const style = size ? { width: size, height: size } : undefined;
 
   return (
     <svg
-      viewBox="6 6 36 36"
+      viewBox="0 0 512 512"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       style={style}
       aria-hidden="true"
     >
-      <clipPath id="clip-us-circle">
-        <circle cx="24" cy="24" r="18" />
+      <defs>
+        <g id={starId}>
+          <polygon
+            points="0.0,-12.5 2.8,-3.9 11.9,-3.9 4.5,1.5 7.3,10.1 0.0,4.8 -7.3,10.1 -4.5,1.5 -11.9,-3.9 -2.8,-3.9"
+            fill="#F1F1EF"
+          />
+        </g>
+      </defs>
+      <clipPath id={clipId}>
+        <circle cx="256" cy="256" r="256" />
       </clipPath>
-      <g clipPath="url(#clip-us-circle)">
-        {/* Off-white background stripes */}
-        <rect x="6" y="6" width="36" height="36" fill="#EEEEEE" />
+      <g clipPath={`url(#${clipId})`}>
+        {/* Right Half: UK Flag Base (Navy Blue) */}
+        <rect x="256" y="0" width="256" height="512" fill="#142E68" />
 
-        {/* Authentic Red Stripes */}
-        <path
-          d="M21.75 10.5H42V15H21.75V10.5ZM21.75 19.5H42V24H24L21.75 19.5ZM6 28.5H42V33H6V28.5ZM6 37.5H42V42H6V37.5Z"
-          fill="#D80027"
-        />
+        {/* UK Diagonal Saltire - St Andrew (White) */}
+        <line x1="256" y1="256" x2="512" y2="0" stroke="#F1F1EF" strokeWidth="54" />
+        <line x1="256" y1="256" x2="512" y2="512" stroke="#F1F1EF" strokeWidth="54" />
 
-        {/* Blue Canton */}
-        <path d="M6 6H24V24H6V6Z" fill="#0052B4" />
+        {/* UK Diagonal Saltire - St Patrick (Red, counterchanged) */}
+        <line x1="262" y1="262" x2="518" y2="6" stroke="#B9162D" strokeWidth="18" />
+        <line x1="262" y1="250" x2="518" y2="506" stroke="#B9162D" strokeWidth="18" />
 
-        {/* 9 Five-Pointed Stars (3x3 grid) */}
-        <path
-          d="M19.1484 23.0859L23.1562 20.2031H18.2344L22.2422 23.0859L20.6953 18.375L19.1484 23.0859ZM13.4531 23.0859L17.4609 20.2031H12.5391L16.5469 23.0859L15 18.375L13.4531 23.0859ZM7.75781 23.0859L11.7656 20.2031H6.84375L10.8516 23.0859L9.30469 18.375L7.75781 23.0859ZM19.1484 17.3906L23.1562 14.5078H18.2344L22.2422 17.3906L20.6953 12.6797L19.1484 17.3906ZM13.4531 17.3906L17.4609 14.5078H12.5391L16.5469 17.3906L15 12.6797L13.4531 17.3906ZM7.75781 17.3906L11.7656 14.5078H6.84375L10.8516 17.3906L9.30469 12.6797L7.75781 17.3906ZM19.1484 11.625L23.1562 8.74219H18.2344L22.2422 11.625L20.6953 6.91406L19.1484 11.625ZM13.4531 11.625L17.4609 8.74219H12.5391L16.5469 11.625L15 6.91406L13.4531 11.625ZM7.75781 11.625L11.7656 8.74219H6.84375L10.8516 11.625L9.30469 6.91406L7.75781 11.625Z"
-          fill="#EEEEEE"
-        />
+        {/* UK St George Cross White Fimbriation */}
+        <rect x="256" y="0" width="64" height="512" fill="#F1F1EF" />
+        <rect x="256" y="192" width="256" height="128" fill="#F1F1EF" />
+
+        {/* UK St George Red Cross */}
+        <rect x="256" y="0" width="40" height="512" fill="#B9162D" />
+        <rect x="256" y="216" width="256" height="80" fill="#B9162D" />
+
+        {/* Left Half: US Flag Stripes (Bottom-Left) */}
+        <rect x="0" y="256" width="256" height="256" fill="#F1F1EF" />
+        <rect x="0" y="298.67" width="256" height="42.67" fill="#B9162D" />
+        <rect x="0" y="384.00" width="256" height="42.67" fill="#B9162D" />
+        <rect x="0" y="469.33" width="256" height="42.67" fill="#B9162D" />
+
+        {/* Left Half: US Flag Canton (Top-Left) */}
+        <rect x="0" y="0" width="256" height="256" fill="#142E68" />
+
+        {/* 13 Stars in Canton */}
+        <use href={`#${starId}`} x="169" y="24" />
+        <use href={`#${starId}`} x="123" y="57" />
+        <use href={`#${starId}`} x="212" y="57" />
+        <use href={`#${starId}`} x="79" y="97" />
+        <use href={`#${starId}`} x="168" y="97" />
+        <use href={`#${starId}`} x="39" y="138" />
+        <use href={`#${starId}`} x="123" y="138" />
+        <use href={`#${starId}`} x="212" y="138" />
+        <use href={`#${starId}`} x="79" y="177" />
+        <use href={`#${starId}`} x="168" y="177" />
+        <use href={`#${starId}`} x="34" y="218" />
+        <use href={`#${starId}`} x="123" y="218" />
+        <use href={`#${starId}`} x="212" y="218" />
       </g>
     </svg>
   );

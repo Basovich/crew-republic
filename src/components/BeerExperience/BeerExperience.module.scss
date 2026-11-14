@@ -216,7 +216,7 @@
     @include responsive(xl) {
       min-height: 535px;
       margin-top: 150px;
-      gap: 315px;
+      gap: 360px;
     }
 
     .headingLeft {
@@ -247,7 +247,7 @@
 
       @include responsive(xl) {
         width: 300px;
-        transform: translateX(-30px);
+        transform: translateX(-80px);
       }
     }
   }

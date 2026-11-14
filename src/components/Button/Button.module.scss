@@ -152,6 +152,10 @@
   @include responsive(lg) {
     height: 68px;
   }
+
+  @include responsive(xl) {
+    font-size: 30px;
+  }
 }
 
 /* Large Button (Figma: Interaction/Button large - 30px) */
