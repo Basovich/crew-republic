@@ -146,18 +146,12 @@
   width: 100%;
   height: clamp(350px, 45vh, 400px);
   overflow: visible;
-  //transform: scale(1.2);
   transform-origin: center;
   transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 2;
 
   @include responsive(sm) {
     height: 360px;
-  }
-
-  @include responsive(lg) {
-    height: 400px;
-    //transform: scale(1.2);
   }
 }
 
@@ -213,6 +207,7 @@
 .imageHover {
   opacity: 0;
   z-index: 3;
+  transform: scale(1.1);
 }
 
 /* Lottie rolling can container for mobile swipe */

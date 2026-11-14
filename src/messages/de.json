@@ -1,7 +1,7 @@
 {
   "Hero": {
-    "line1": "Weil gute Gesellschaft",
-    "line2": "besseres Bier verdient."
+    "line1": "BECAUSE GOOD COMPANY",
+    "line2": "DESERVES BETTER BEER."
   },
   "Common": {
     "menu": "Menü",
@@ -293,6 +293,7 @@
     },
     "content": {
       "heading": "Datenschutz",
+      "date": "Stand: 10.04.2026",
       "sections": [
         {
           "id": "privacy-sec-1",
@@ -1371,6 +1372,7 @@
     },
     "content": {
       "heading": "Allgemeine Geschäftsbedingungen (AGB)",
+      "date": "Stand: 03.04.2026",
       "tocTitle": "Inhaltsverzeichnis",
       "tocItems": [
         {

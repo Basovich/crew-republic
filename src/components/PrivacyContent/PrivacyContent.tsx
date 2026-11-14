@@ -35,6 +35,7 @@ export interface PrivacySection {
 
 export interface PrivacyContentData {
   heading: string;
+  date?: string;
   sections: PrivacySection[];
 }
 
@@ -118,6 +119,12 @@ export function PrivacyContent({
             </article>
           ))}
         </div>
+
+        {data.date && (
+          <div className={styles.dateBlock}>
+            <span>{data.date}</span>
+          </div>
+        )}
       </div>
     </section>
   );

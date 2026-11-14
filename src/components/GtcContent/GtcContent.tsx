@@ -38,6 +38,7 @@ export interface GtcSection {
 
 export interface GtcContentData {
   heading: string;
+  date?: string;
   tocTitle: string;
   tocItems: GtcTocItem[];
   sections: GtcSection[];
@@ -158,6 +159,12 @@ export function GtcContent({ data }: GtcContentProps) {
             </article>
           ))}
         </div>
+
+        {data.date && (
+          <div className={styles.dateBlock}>
+            <span>{data.date}</span>
+          </div>
+        )}
       </div>
     </section>
   );
